@@ -1,0 +1,10 @@
+<p [innerHTML]="returnChanged(userInput, badWords) | safe: 'html'">
+
+</p>
+
+<textarea
+  rows="4"
+  cols="50"
+  [(ngModel)]="userInput">
+
+</textarea>
