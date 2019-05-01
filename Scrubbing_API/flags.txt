@@ -1,0 +1,25 @@
+{
+	"identifiers": [
+		":",
+		" is",
+		" is:",
+		" details",
+		" details:",
+		" -",
+		"-",
+		"=",
+		" ="
+	],
+
+	"privacy_type": [
+		"Password",
+		"maiden name",
+		"username",
+		"id",
+		"id number",
+		"login",
+		"email",
+		"name",
+		"surname"
+	]
+}
