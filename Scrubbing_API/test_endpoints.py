@@ -1,6 +1,7 @@
+import Scrub
+
 import pytest
 import requests
-from Scrubbing_API import Scrub
 import unittest
 
 from flask import Flask, request, render_template
