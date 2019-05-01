@@ -37,11 +37,7 @@ def check(input_data):	#Reads json file of predefined triggers and checks input 
 	severity_count = 0
 	i = 0
 	while i < len(result):
-		print(i)
 		if result[i] == ',' or result[i] == '}':
-			print(result)
-			print(str(severity_index[severity_count]))
-			print(result[0:i])
 			result = result[0: i] + ":" + str(severity_index[severity_count]) + result[i:]
 			severity_count += 1
 			i += 2
