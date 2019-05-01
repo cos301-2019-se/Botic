@@ -16,7 +16,8 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# .pytest_cache, venv and __pycache__
+# .pytest_cache, venv, __pycache__ and py --cov
 pytest_cache/
 venv/
 __pycache__/
+.coverage
