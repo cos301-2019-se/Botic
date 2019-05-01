@@ -49,10 +49,3 @@ class FlaskClientTestCase(unittest.TestCase):
         response = self.client.post('/scrub', data = { 'data': 'This is a test and my password is 1234, my mothers maiden name is Margaret, and my username: test_man_3000' } )
         received = response.get_data(as_text=True)
         self.assertTrue("\"[18:1, 8:3, 14:2]\"" in received)
-
-# def test_mock_form_data(self):
-#     app = Flask(__name__)
-#     client = app.test_client()
-#     with app.test_client() as c:
-#         rv = c.get('/scrub')
-#         assert request.args['data'] == 'This is a test line with no personal information.'
