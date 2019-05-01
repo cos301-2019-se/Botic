@@ -1,13 +1,20 @@
-from flask import Flask, request, json
+from flask import Flask, request, json, jsonify
 import re
 app = Flask(__name__)
 
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
-	data = []
 	if request.method == 'POST' or request.method == 'GET':
-		input_data = request.form.get('data')
+		input_data = request.form.get('data', '-999')
+		if input_data == '-999':
+			response = jsonify('')
+			response.status_code = 302
+			return response
 		response = check(input_data)
+		response = jsonify(response)
+		if response == "set()":
+			response = ""
+		response.status_code = 202
 		return response
 
 #@return: a string containing word indexes(as if the string was an array) which reveal private info 
@@ -16,7 +23,7 @@ def check(input_data):	#Reads json file of predefined triggers and checks input 
 	with open('flags.txt', 'r') as file:
 		data_raw = file.read()
 	data = json.loads(data_raw)
-	result = set()
+	result = []
 	severity_index = []
 
 	input_data = input_data.lower()
@@ -29,15 +36,14 @@ def check(input_data):	#Reads json file of predefined triggers and checks input 
 				temp = wordIndex(input_data, input_data.index(check_for) + len(check_for))
 				if temp not in result:
 					severity_index.append(data["severity_index"][severity_count])
-				result.add(temp)
-				
+					result.append(temp)				
 			severity_count += 1
 	
 	result = repr(result)
 	severity_count = 0
 	i = 0
 	while i < len(result):
-		if result[i] == ',' or result[i] == '}':
+		if result[i] == ',' or result[i] == ']':
 			result = result[0: i] + ":" + str(severity_index[severity_count]) + result[i:]
 			severity_count += 1
 			i += 2
