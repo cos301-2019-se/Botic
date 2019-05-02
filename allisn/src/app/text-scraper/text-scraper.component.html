@@ -1,10 +1,12 @@
-<p [innerHTML]="returnChanged(userInput, badWords) | safe: 'html'">
 
-</p>
 
-<textarea
-  rows="4"
-  cols="50"
-  [(ngModel)]="userInput">
-
-</textarea>
+<div class="container">
+  <p><b>Preview: </b><span [innerHTML]="returnChanged(userInput, badWords) | safe: 'html'"></span></p>
+    <textarea
+      contenteditable="true"
+      rows="4"
+      cols="48"
+      [(ngModel)]="userInput">
+    </textarea>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

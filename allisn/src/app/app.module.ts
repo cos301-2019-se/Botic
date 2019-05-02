@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { TextScraperComponent } from './text-scraper/text-scraper.component';
 import { SafePipe } from './safe.pipe';
 
+import { TextInputHighlightModule } from 'angular-text-input-highlight';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +17,8 @@ import { SafePipe } from './safe.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    TextInputHighlightModule
   ],
   providers: [],
   bootstrap: [AppComponent]

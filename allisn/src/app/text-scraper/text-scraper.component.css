@@ -1,0 +1,26 @@
+textarea {
+    margin: 0;
+    border-radius: 0;
+
+    color: #444; /* or whatever */
+    background-color: transparent;
+}
+
+.backdrop {
+    overflow: auto;
+}
+
+.highlights {
+    color: transparent;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+mark {
+    color: transparent;
+    background-color: red; /* or whatever */
+}
+
+.backdrop {
+    background-color: #fff; /* or whatever */
+}

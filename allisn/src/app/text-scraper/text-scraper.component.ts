@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-text-scraper',
   templateUrl: './text-scraper.component.html',
-  styleUrls: ['./text-scraper.component.css']
+  styleUrls: ['./text-scraper.component.css'],
 })
+
 export class TextScraperComponent implements OnInit {
   userInput = "My name is Peter";
+  markedText: string;
 
   badWords = [
     "Peter",
@@ -18,6 +20,7 @@ export class TextScraperComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
   returnChanged(input: string, badWords: string[]): string{
@@ -48,8 +51,6 @@ export class TextScraperComponent implements OnInit {
     return output;
   }
 
-
-
   highlight(input: string, badWords: string[]): boolean {
 
     for (var i = 0; i < badWords.length; i++)
@@ -60,5 +61,34 @@ export class TextScraperComponent implements OnInit {
 
     return false;
   }
+
+  applyHighlights(input: string, badWords: string[]): string{
+
+    var output = "";
+
+    var array = input.split(" ");
+    output = "";
+
+    var isABadWord = false;
+
+    for(var i = 0; i < array.length; i++){
+      isABadWord = false;
+
+      for (var j = 0; j < badWords.length; j++){
+        if (array[i].includes(badWords[j]))
+          isABadWord = true;
+      }
+
+      if (isABadWord == true)
+        output += '<mark>' + array[i] + '</mark>';
+      else
+        output += array[i];
+
+      output += " ";
+    }
+
+    return output.replace(/\n$/g, '\n\n');
+  }
+
 
 }
