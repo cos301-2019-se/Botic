@@ -24,13 +24,11 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css",
-
+              "src/styles.css"
             ],
             "es5BrowserSupport": true
           },
@@ -130,6 +128,134 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "bot-chat": {
+      "root": "projects/bot-chat/",
+      "sourceRoot": "projects/bot-chat/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/bot-chat",
+            "index": "projects/bot-chat/src/index.html",
+            "main": "projects/bot-chat/src/main.ts",
+            "polyfills": "projects/bot-chat/src/polyfills.ts",
+            "tsConfig": "projects/bot-chat/tsconfig.app.json",
+            "assets": [
+              "projects/bot-chat/src/favicon.ico",
+              "projects/bot-chat/src/assets"
+            ],
+            "styles": [
+              "projects/bot-chat/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/bot-chat/src/environments/environment.ts",
+                  "with": "projects/bot-chat/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "bot-chat:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "bot-chat:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "bot-chat:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bot-chat/src/test.ts",
+            "polyfills": "projects/bot-chat/src/polyfills.ts",
+            "tsConfig": "projects/bot-chat/tsconfig.spec.json",
+            "karmaConfig": "projects/bot-chat/karma.conf.js",
+            "styles": [
+              "projects/bot-chat/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/bot-chat/src/favicon.ico",
+              "projects/bot-chat/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/bot-chat/tsconfig.app.json",
+              "projects/bot-chat/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "bot-chat-e2e": {
+      "root": "projects/bot-chat-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/bot-chat-e2e/protractor.conf.js",
+            "devServerTarget": "bot-chat:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bot-chat:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/bot-chat-e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]
