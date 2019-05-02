@@ -7,14 +7,30 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 
 export class TextScraperComponent implements OnInit {
-  userInput = "My name is Peter";
+  userInput = "";
   markedText: string;
 
   badWords = [
     "Peter",
-    "IsecretlyLove50cent",
-    "MissesPaws",
-    "12544658795563"
+    "Alicia",
+    "Kyle",
+    "Justin",
+    "Lesego",
+    "Msimanga",
+    "Mulder",
+    "Gaunt",
+    "Grenfell",
+    "Mabe",
+    "13042352",
+    "14283124",
+    "15330967",
+    "16028440",
+    "15055214",
+    "u13042352",
+    "u14283124",
+    "u15330967",
+    "u16028440",
+    "u15055214"
   ];
 
   constructor() { }
