@@ -5,6 +5,8 @@
 		" is:",
 		" details",
 		" details:",
+		" details are",
+		" details are:",
 		" -",
 		"-",
 		"=",

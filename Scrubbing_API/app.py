@@ -9,7 +9,7 @@ def scrub():
 		input_data = request.form.get('data', '-999')
 		if input_data == '-999':
 			response = jsonify('')
-			response.status_code = 302
+			response.status_code = 400
 			return response
 		response = check(input_data)
 		response = jsonify(response)
