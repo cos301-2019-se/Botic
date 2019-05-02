@@ -12,8 +12,6 @@ def scrub():
 			return response
 		response = check(input_data)
 		response = jsonify(response)
-		if response == "set()":
-			response = ""
 		response.status_code = 202
 		return response
 
@@ -42,12 +40,13 @@ def check(input_data):	#Reads json file of predefined triggers and checks input 
 	result = repr(result)
 	severity_count = 0
 	i = 0
-	while i < len(result):
-		if result[i] == ',' or result[i] == ']':
-			result = result[0: i] + ":" + str(severity_index[severity_count]) + result[i:]
-			severity_count += 1
-			i += 2
-		i += 1
+	if len(severity_index) != 0:
+		while i < len(result):
+			if result[i] == ',' or result[i] == ']':
+				result = result[0: i] + ":" + str(severity_index[severity_count]) + result[i:]
+				severity_count += 1
+				i += 2
+			i += 1
 	return result
 
 def wordIndex(input_data, char_index):
