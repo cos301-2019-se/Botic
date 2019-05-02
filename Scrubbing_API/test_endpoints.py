@@ -1,4 +1,4 @@
-import Scrub
+import app
 
 import pytest
 import requests
@@ -24,7 +24,7 @@ def test_scrub_page():
 
 class FlaskClientTestCase(unittest.TestCase):
     def setUp(self):
-        self.app = Scrub.app
+        self.app = app.app
         # self.app_context = self.app.app_context()
         # self.app_context.push()
         self.app.config['WTF_CSRF_ENABLED'] = False

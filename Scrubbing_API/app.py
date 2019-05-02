@@ -1,5 +1,6 @@
 from flask import Flask, request, json, jsonify
 import re
+
 app = Flask(__name__)
 
 @app.route('/scrub', methods=['GET', 'POST'])
