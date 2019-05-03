@@ -53,7 +53,7 @@ export class TextScraperComponent implements OnInit {
     response += '<div class="chat-body clearfix">';
     response += '<div class="header">';
 
-    response += '<strong class="pull-right primary-font">Bhaumik Patel</strong>';
+    response += '<strong class="pull-right primary-font">Allisn</strong>';
     response += '</div>';
     response += '<p>'+input+'</p>';
     response += '</div>';
@@ -83,23 +83,24 @@ export class TextScraperComponent implements OnInit {
       {
         message : "I forgot my password",
         response: 'Follow this <a href="">link</a> to reset your password.'
+      },
+      {
+        message : "What's the meaning of life?",
+        response: 'I\'m having trouble finding an answer, click <a href="#">here</a> to talk to a real person.'
       }
-    ]
+    ];
 
     this.chatBubblesMarkup += this.userResponse(input);
-
-
     this.chatBubblesMarkup += "<br />";
-    var found = false;
-    var i = 0;
+
     var botResponse = "I'm sorry, my responses are limited, you must ask the right questions.";
 
-    while ((found == false) && (i < botAI.length)){
+    for (var i = 0; i < botAI.length; i++){
       if (input.includes(botAI[i].message)){
-        found = true;
         botResponse = botAI[i].response;
       }
     }
+
     this.chatBubblesMarkup += this.botResponse(botResponse);
   }
 
