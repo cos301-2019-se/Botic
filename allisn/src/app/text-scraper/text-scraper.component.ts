@@ -23,6 +23,10 @@ export class TextScraperComponent implements OnInit {
     "Gaunt",
     "Grenfell",
     "Mabe",
+    "Stacey",
+    "Vrede",
+    "Cameron",
+    "Tari",
     "13042352",
     "14283124",
     "15330967",
@@ -69,7 +73,7 @@ export class TextScraperComponent implements OnInit {
 
     response +='<div class="chat-body clearfix">';
     response +='<div class="header">'
-    response +='<strong class="primary-font">Jack Sparrow</strong>';
+    response +='<strong class="primary-font">You</strong>';
     response +='</div>';
     response +='<p>&nbsp;'+input+'</p>';
     response +='</div>';
