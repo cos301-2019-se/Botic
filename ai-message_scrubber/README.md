@@ -27,6 +27,14 @@ docker swarm init
 docker stack deploy -c docker-compose.yml alabamaliquidservices/botic:latest-ms
 ```
 
+Scale Message Scrubber changing the number of replicas value in the docker-compose.yml, saving and then re-running the deployment command above.
+
+To take it down, as well as the swarm, use the following commands:
+```shell
+docker stack rm alabamaliquidservices/botic:latest-ms
+docker swarm leave --force
+```
+
 ## Testing
 ### Unit Tests
 Pytest is used for unit testing.
