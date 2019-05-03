@@ -1,12 +1,26 @@
-
-
 <div class="container">
-  <p><b>Preview: </b><span [innerHTML]="returnChanged(userInput, badWords) | safe: 'html'"></span></p>
-    <textarea
-      contenteditable="true"
-      rows="4"
-      cols="48"
-      [(ngModel)]="userInput">
-    </textarea>
+  <div class="row">
+    <div class="col-md-6">
+
+      <div
+        [innerHTML]="displayChat() | safe: 'html'">
+      </div>
+
+      <p><b>Preview: </b><span [innerHTML]="returnChanged(userInput, badWords) | safe: 'html'"></span></p>
+      <textarea
+        contenteditable="true"
+        rows="4"
+        cols="48"
+        [(ngModel)]="userInput">
+      </textarea>
+
+      <br />
+
+      <button class="btn primary"
+        (click)="processResponse(userInput)"
+      >Send</button>
+    </div>
+  </div>
 </div>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
