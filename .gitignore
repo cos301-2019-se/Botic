@@ -10,8 +10,14 @@
 *.sublime-workspace
 
 # IDE - VSCode
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# .pytest_cache, venv, __pycache__ and py --cov
+pytest_cache/
+venv/
+__pycache__/
+.coverage
