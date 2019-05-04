@@ -1,0 +1,11 @@
+language: bash
+
+services:
+  - docker
+
+before_install:
+ - docker swarm int
+ - docker stack deploy -c docker-compose.yml message-scrubber
+
+script:
+ - bash ms-travis.sh
