@@ -10,7 +10,7 @@ Message Scrubber identifies private data from messages sent by clients and clien
 
 ## Configuration
 
-Message Scrubber listens on port 4000, as defined in the 'docker-compose.yml' file.
+Message Scrubber listens on port 5000, as defined in the 'docker-compose.yml' file.
 
 ## Deployment
 
@@ -38,9 +38,12 @@ docker swarm leave --force
 ## Testing
 ### Unit Tests
 Pytest is used for unit testing.
+
+Note: the message-scrubber has to already be running before the tests can execute.
 ```shell
-<commands-here>
+pytest --cov-report term-missing --cov -W ignore::DeprecationWarning
 ```
 
 ### Integration Testing
-Postman is used for integration testing.
+Postman is used for integration testing. Use the link to get the Postman collection:
+https://www.getpostman.com/collections/df6fb49c6d605971f0ce
