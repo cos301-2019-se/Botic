@@ -14,6 +14,8 @@ Message Scrubber listens on port 4000, as defined in the 'docker-compose.yml' fi
 
 ## Deployment
 
+
+
 ### Requirements
 - Docker version 1.13 or higher
 - Docker Compose: included in Docker Desktop for Mac and Docker Desktop for Windows. Linux systems require direct install. Pre Windows 10 systems without Hyper-V use Docker Toolbox.
