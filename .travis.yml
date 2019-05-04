@@ -1,4 +1,6 @@
-language: bash
+language: python
+
+python: python
 
 services:
   - docker
@@ -8,4 +10,4 @@ before_install:
  - docker stack deploy -c docker-compose.yml message-scrubber
 
 script:
- - bash ms-travis.sh
+ - ms-travis.sh
