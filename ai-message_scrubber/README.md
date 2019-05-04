@@ -24,7 +24,7 @@ git clone https://github.com/cos301-2019-se/Botic
 
 cd ai-message-scrubber
 docker swarm init
-docker stack deploy -c docker-compose.yml alabamaliquidservices/botic:latest-ms
+docker stack deploy -c docker-compose.yml message-scrubber
 ```
 
 Scale Message Scrubber changing the number of replicas value in the docker-compose.yml, saving and then re-running the deployment command above.
