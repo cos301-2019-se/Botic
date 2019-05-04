@@ -13,6 +13,7 @@ docker stack rm message-scrubber
 docker swarm leave --force
 #
 #
-docker login --username=_ --password=2fd77eb9-578b-407c-808a-fd55a0ff45ce registry.heroku.com
+cat ~/password.txt | docker login --username=_ --password=stdin registry.heroku.com
+ls
 docker build -t registry.heroku.com/cryptic-hollows-60139/web .
 docker push registry.heroku.com/cryptic-hollows-60139/web
