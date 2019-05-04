@@ -8,5 +8,4 @@ before_install:
  - docker stack deploy -c ai-message_scrubber/docker-compose.yml message-scrubber
 
 script:
- - cd ai-message_scrubber
- - bash ai-message_scrubber/ms-travis.sh
+ - bash $TRAVIS_BUILD_DIR/ai-message_scrubber/ms-travis.sh
