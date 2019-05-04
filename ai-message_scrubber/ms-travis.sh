@@ -14,6 +14,6 @@ docker swarm leave --force
 #
 #
 cd $TRAVIS_BUILD_DIR/ai-message_scrubber
-cat ~/password.txt | docker login --username=_ --password-stdin registry.heroku.com
+cat password.txt | docker login --username=_ --password-stdin registry.heroku.com
 docker build -t registry.heroku.com/cryptic-hollows-60139/web .
 docker push registry.heroku.com/cryptic-hollows-60139/web
