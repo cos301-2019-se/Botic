@@ -14,8 +14,6 @@ Message Scrubber listens on port 4000, as defined in the 'docker-compose.yml' fi
 
 ## Deployment
 
-
-
 ### Requirements
 - Docker version 1.13 or higher
 - Docker Compose: included in Docker Desktop for Mac and Docker Desktop for Windows. Linux systems require direct install. Pre Windows 10 systems without Hyper-V use Docker Toolbox.
@@ -33,7 +31,7 @@ Scale Message Scrubber changing the number of replicas value in the docker-compo
 
 To take it down, as well as the swarm, use the following commands:
 ```shell
-docker stack rm alabamaliquidservices/botic:latest-ms
+docker stack rm message-scrubber
 docker swarm leave --force
 ```
 
