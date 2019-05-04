@@ -5,7 +5,7 @@ services:
 
 before_install:
  - docker swarm init
- - docker stack deploy -c docker-compose.yml message-scrubber
+ - docker stack deploy -c ai-message-scrubber/docker-compose.yml message-scrubber
 
 script:
  - ms-travis.sh
