@@ -1,6 +1,6 @@
 language: python
 
-python: python
+python: 3.8.0
 
 services:
   - docker
