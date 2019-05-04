@@ -20,6 +20,7 @@ docker build -t registry.heroku.com/cryptic-hollows-60139/web .
 docker push registry.heroku.com/cryptic-hollows-60139/web
 
 # release
+heroku 
 heroku container:release web --app cryptic-hollows-60139
 
 # docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/cryptic-hollows-60139/web 

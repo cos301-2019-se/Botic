@@ -35,6 +35,19 @@ docker stack rm message-scrubber
 docker swarm leave --force
 ```
 
+Deploy using Heroku: 
+```shell
+git clone https://github.com/cos301-2019-se/Botic
+cd ai-message-scrubber
+
+hekoru login
+heroku container:login
+
+docker build -t registry.heroku.com/cryptic-hollows-60139/web .
+docker push registry.heroku.com/cryptic-hollows-60139/web
+ 
+heroku container:release web --app cryptic-hollows-60139
+```
 ## Testing
 ### Unit Tests
 Pytest is used for unit testing.
