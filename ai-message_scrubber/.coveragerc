@@ -1,0 +1,13 @@
+[run]
+include =
+        ./*
+omit =
+        *test_endpoints*
+        *__init__*
+		*conftest*
+[report]
+exclude_lines = 
+        pragma: no cover
+        if __name__ == .__main__.:
+[html]
+directory = coverage_html_report
