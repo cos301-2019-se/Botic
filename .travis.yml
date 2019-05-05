@@ -1,0 +1,11 @@
+language: python
+
+services:
+  - docker
+
+before_install:
+ - docker swarm init
+ - docker stack deploy -c ai-message_scrubber/docker-compose.yml message-scrubber
+
+script:
+ - bash $TRAVIS_BUILD_DIR/ai-message_scrubber/ms-travis.sh
