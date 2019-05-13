@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Botic</title>
+    <link rel="stylesheet" type="text/css" href="LandingStyle.css">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("input").click(function() {    
+            var id = '#dialog';
+
+            //Get the screen height and width
+            var maskHeight = $(document).height();
+            var maskWidth = $(window).width();
+
+            //Set heigth and width to mask to fill up the whole screen
+            $('#mask').css({'width':maskWidth,'height':maskHeight});
+
+            //transition effect		
+            $('#mask').fadeIn(500);	
+            $('#mask').fadeTo("slow",0.9);	
+
+            //Get the window height and width
+            var winH = $(window).height();
+            var winW = $(window).width();
+                
+            //Set the popup window to center
+            $(id).css('top',  winH/2-$(id).height()/2);
+            $(id).css('left', winW/2-$(id).width()/2);
+
+            //transition effect
+            $(id).fadeIn(2000); 	
+
+            //if close button is clicked
+            $('.window .close').click(function (e) {
+                //Cancel the link behavior
+                e.preventDefault();
+
+                $('#mask').hide();
+                $('.window').hide();
+            });		
+
+            //if mask is clicked
+            $('#mask').click(function () {
+                $(this).hide();
+                $('.window').hide();
+            });		
+
+        });
+        })
+        
+    </script>
+  </head>
+  <body id="LandingPage">
+      <div>
+          <h1 id="title">Botic</h1>
+          <img id="LandingLogo" alt="Logo" src="media/Logo2.png" class="centeredLogo">
+          <input type="submit" class="btn" value="Chat" onclick="" />
+      </div>
+      <div id="boxes">
+            <div style="top: 199.5px; left: 551.5px; display: none;" id="dialog" class="window">Botic user agreement
+              <div id="lorem">
+                <p>User Agreement</p>
+              </div>
+              <div id="popupfoot">
+                  <a href="/index.html" class="close agree" style="text-align:left">I agree</a> <br>
+                  <a class="agree"style="color:red;" href="http://webenlance.com/" style="text-align:right">I do not agree</a> </div>
+            </div>
+            <div style="width: 1478px; font-size: 32pt; color:white; height: 602px; display: none; opacity: 0.8;" id="mask"></div>
+        </div>
+  </body>
+</html>
+    
