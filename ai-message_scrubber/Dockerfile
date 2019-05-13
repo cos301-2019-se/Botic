@@ -18,4 +18,5 @@ EXPOSE 5000
 # ENV NAME world PATH
 
 # Run app.py when the container launches
-CMD ["/bin/bash", "/app/ms-start.sh"]
+# CMD ["/bin/bash", "/app/ms-start.sh"]
+CMD python -m app.py
