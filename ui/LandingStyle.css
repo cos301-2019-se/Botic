@@ -96,3 +96,7 @@ h1 {
   .popupoption2:hover{ 
       color: red;
   }
+
+  .scrollable {
+      overflow: auto;
+  }
