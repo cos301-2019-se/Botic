@@ -24,6 +24,7 @@ git clone https://github.com/cos301-2019-se/Botic
 
 cd ai-message-scrubber
 docker swarm init
+
 docker stack deploy -c docker-compose.yml message-scrubber
 ```
 
@@ -31,6 +32,7 @@ Scale Message Scrubber changing the number of replicas value in the docker-compo
 
 To take it down, as well as the swarm, use the following commands:
 ```shell
+
 docker stack rm message-scrubber
 docker swarm leave --force
 ```
