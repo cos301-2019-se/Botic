@@ -17,6 +17,7 @@ Message Scrubber listens on port 5000, as defined in the 'docker-compose.yml' fi
 ### Requirements
 - Docker version 1.13 or higher
 - Docker Compose: included in Docker Desktop for Mac and Docker Desktop for Windows. Linux systems require direct install. Pre Windows 10 systems without Hyper-V use Docker Toolbox.
+- Heroku CLI version 7.22.7
 
 Deploy Message Scrubber using the following commands:
 ```shell
