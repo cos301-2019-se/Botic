@@ -1,4 +1,4 @@
-version: "0.1"
+version: "3"
 services:
   web:
     image: alabamaliquidservices/botic:latest-ms
@@ -11,7 +11,7 @@ services:
       restart_policy:
         condition: on-failure
     ports:
-      - "4000:5000"
+      - "5000:5000"
     networks:
       - webnet
 networks:

@@ -14,7 +14,8 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 EXPOSE 5000
 
 # Define environment variable (test usage)
-ENV NAME world PATH
+
+# ENV NAME world PATH
 
 # Run app.py when the container launches
 CMD ["/bin/bash", "/app/ms-start.sh"]

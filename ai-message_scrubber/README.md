@@ -10,7 +10,7 @@ Message Scrubber identifies private data from messages sent by clients and clien
 
 ## Configuration
 
-Message Scrubber listens on port 4000, as defined in the 'docker-compose.yml' file.
+Message Scrubber listens on port 5000, as defined in the 'docker-compose.yml' file.
 
 ## Deployment
 
@@ -24,23 +24,41 @@ git clone https://github.com/cos301-2019-se/Botic
 
 cd ai-message-scrubber
 docker swarm init
-docker stack deploy -c docker-compose.yml alabamaliquidservices/botic:latest-ms
+
+docker stack deploy -c docker-compose.yml message-scrubber
 ```
 
 Scale Message Scrubber changing the number of replicas value in the docker-compose.yml, saving and then re-running the deployment command above.
 
 To take it down, as well as the swarm, use the following commands:
 ```shell
-docker stack rm alabamaliquidservices/botic:latest-ms
+
+docker stack rm message-scrubber
 docker swarm leave --force
 ```
 
+Deploy using Heroku: 
+```shell
+git clone https://github.com/cos301-2019-se/Botic
+cd ai-message-scrubber
+
+hekoru login
+heroku container:login
+
+docker build -t registry.heroku.com/cryptic-hollows-60139/web .
+docker push registry.heroku.com/cryptic-hollows-60139/web
+ 
+heroku container:release web --app cryptic-hollows-60139
+```
 ## Testing
 ### Unit Tests
 Pytest is used for unit testing.
+
+Note: the message-scrubber has to already be running before the tests can execute.
 ```shell
-<commands-here>
+pytest --cov-report term-missing --cov -W ignore::DeprecationWarning
 ```
 
 ### Integration Testing
-Postman is used for integration testing.
+Postman is used for integration testing. Use the link to get the Postman collection:
+https://www.getpostman.com/collections/df6fb49c6d605971f0ce
