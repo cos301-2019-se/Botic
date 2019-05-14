@@ -3,9 +3,14 @@ import re
 
 app = Flask(__name__)
 
+import os
+port = int(os.environ.get("PORT", 5000))
+app.run(host='0.0.0.0', port=port)
+
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
 	if request.method == 'POST' or request.method == 'GET':
+		print("test" + request.form.get('data'))
 		input_data = request.form.get('data', '-999')
 		if input_data == '-999':
 			response = jsonify('')
