@@ -46,8 +46,8 @@ cd ai-message-scrubber
 hekoru login
 heroku container:login
 
-docker build -t registry.heroku.com/cryptic-hollows-60139/web .
-docker push registry.heroku.com/cryptic-hollows-60139/web
+docker build -t registry.heroku.com/botic-ai-ms/web .
+docker push registry.heroku.com/botic-ai-ms/web
  
 heroku container:release web --app cryptic-hollows-60139
 ```
