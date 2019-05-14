@@ -1,12 +1,16 @@
-language: python
+language: bash
 services:
 - docker
 before_install:
-- docker swarm init
-- docker stack deploy -c ai-message_scrubber/docker-compose.yml message-scrubber
+- docker pull alabamaliquidservices/botic:latest-frontend
+- 
 script:
 - bash $TRAVIS_BUILD_DIR/ai-message_scrubber/ms-travis.sh
 - bash $TRAVIS_BUILD_DIR/allisn/allisn-travis.sh
 deploy:
   api_key:
     secure: hrjVsI7Hhq+eV/fWgdqK7qTFIB38z1UYAlt7IXxP4jvaO+4fzO3gVdLeOAUAjLCOlDRyulhuWGCrdThl/AYnN2/q9UvoulXm7am/mw0kLBRCeEZX3xlRjJa9dw7/fA3r6KxkfrztnWUOSWLnXhyFBBg/OLIc84Tj5cKKvTvAhx0PsuTW1UAAbwX0DbJmPb+K+tF7C+baghnINVujmVqr1HHynJRloCloEU2/3oUZtrfbZS3p5etWghJTLD8ULvz5/EKJYqX0kATB/hEa5lVgaNIwNNpS7mLwMSMHQGrNtzeiIgt40+xj3IczWpfcP+Yd08NQHUx9CWbdDJjhRP/mhD8mTrtciiEgmTKRMl46oIiXEy16vvEBW/s7Jdm4+ktVMPxcKDPP/MDtnWMh7nvaBW2qT7T8pdzxoe0/t6U+N4Nm09Qlp37si7iJW4NGGen8HhMOIQUSNBYdWd+zxv/Mg/STvLsdMbBQcgCcefrCT5XaTO/sj41LZzYIeepLQP0ebzHBzdRzAZfbVJwNgDPx4V73gB1MHunCFv15rrngdza924JBIDrrKNq819DZWP8yt6m1pHydeCSM/+X/pI/9QYQFflA1apreERJ4+r28hAsqivnJk5ZJKeiMj6wvQqnUy5DSg1is1YY9eY0RwvLFtVLhsE0ZA2jU52V4wfkdVDg=
+    run:
+      - heroku container:login
+      - docker push alabamaliquidservices/botic:latest-frontend 
+      - heroku container:release alabamaliquidservices/botic:latest-frontend --app botic-frontend

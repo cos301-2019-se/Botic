@@ -49,7 +49,7 @@ heroku container:login
 docker build -t registry.heroku.com/botic-ai-ms/web .
 docker push registry.heroku.com/botic-ai-ms/web
  
-heroku container:release web --app cryptic-hollows-60139
+heroku container:release web --app botic-ai-ms
 ```
 ## Testing
 ### Unit Tests
