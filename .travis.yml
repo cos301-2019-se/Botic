@@ -12,7 +12,7 @@ language: bash
 script: 
   - "docker push alabamaliquidservices/botic:latest-frontend"
   - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"
-  - "heroku container: web release --app $HEROKU_APP_NAME"
+  - "heroku container:release web --app $HEROKU_APP_NAME"
 services: 
   - docker
 sudo: required
