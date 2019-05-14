@@ -2,7 +2,7 @@
 before_install: 
   - "wget -qO- https://toolbelt.heroku.com/install.sh | sh"
   - "echo \"$DOCKER_PASSWORD\" | docker login -u \"$DOCKER_USERNAME\" --password-stdin"
-  - "echo \"$HEROKU_PASSWORD\" | heroku login -u \"$HEROKU_USERNAME\" --password-stdin registry.heroku.com"
+  - "echo \"$HEROKU_PASSWORD\" | docker login -u \"$HEROKU_USERNAME\" --password-stdin registry.heroku.com"
 branch: "\\#26_Deploying-Frontend"
 deploy: 
   provider: script
