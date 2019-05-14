@@ -17,6 +17,7 @@ Message Scrubber listens on port 5000, as defined in the 'docker-compose.yml' fi
 ### Requirements
 - Docker version 1.13 or higher
 - Docker Compose: included in Docker Desktop for Mac and Docker Desktop for Windows. Linux systems require direct install. Pre Windows 10 systems without Hyper-V use Docker Toolbox.
+- Heroku CLI version 7.22.7
 
 Deploy Message Scrubber using the following commands:
 ```shell
@@ -45,10 +46,10 @@ cd ai-message-scrubber
 hekoru login
 heroku container:login
 
-docker build -t registry.heroku.com/cryptic-hollows-60139/web .
-docker push registry.heroku.com/cryptic-hollows-60139/web
+docker build -t registry.heroku.com/botic-ai-ms/web .
+docker push registry.heroku.com/botic-ai-ms/web
  
-heroku container:release web --app cryptic-hollows-60139
+heroku container:release web --app botic-ai-ms
 ```
 ## Testing
 ### Unit Tests
