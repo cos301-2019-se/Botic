@@ -20,7 +20,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 - <a href="https://app.zenhub.com/workspaces/botic-5cc1a7ea036c7737a1fc9673/board?repos=182156004" target="_blank">ZenHub Project Management</a> (requires GitHub account)
 
 ### Documentation
-- <a href="" target="_blank">Software Requirements Specification</a>
+- <a href="https://github.com/cos301-2019-se/Botic/blob/master/docs/Botic_SRS.pdf" target="_blank">Software Requirements Specification</a>
 - <a href="" target="_blank">Coding Standards</a>
 - <a href="" target="_blank">User Manual</a>
 - <a href="" target="_blank">Testing Policy</a>
