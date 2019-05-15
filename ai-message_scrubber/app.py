@@ -9,14 +9,7 @@ import os
 
 @app.route('/')
 def test():
-	return 'Hello world!'
-
-@app.route('/food', method=['GET', 'POST'])
-def food():
-	if request.method == 'POST':
-		return 'Eat fish ma guy.'
-	if request.method == 'GET':
-		return 'Eat steak.'
+	return 'Welcome to the Message Scrubber API!'
 
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
