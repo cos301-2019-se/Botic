@@ -7,9 +7,9 @@ import os
 # port = int(os.environ.get("PORT", 5000))
 # app.run(host='0.0.0.0', port=port)
 
-@app.route('/')
-def test():
-	return 'Welcome to the Message Scrubber API!'
+# @app.route('/')
+# def test():
+#	return 'Welcome to the Message Scrubber API!'
 
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
