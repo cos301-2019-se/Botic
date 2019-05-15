@@ -33,7 +33,7 @@
   <div class="w3-col" style="width:20%;text-align:center"><img src="media/LandingPage.gif" alt="Logo" style="height:100px;width:100px;" /></div>
   <div class="w3-col" style="width:60%;text-align:center"><h1>Botic</h1></div>
   <div class="w3-col" style="width:20%;text-align:center">
-      <input type="button" value="Sign In" class="login" onclick="openForm()" style="width:120px;" />
+      <input type="button" value="Log out" class="login" onclick="openForm()" style="width:120px;" />
   </div>
 </div>
 <br>
@@ -136,28 +136,13 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <div class="w3-row">
-              <h5 class="card-title text-center w3-col" style="width:100%;text-align:right">Sign In</h5>
+              <h5 class="card-title text-center w3-col" style="width:100%;text-align:right">Are you sure you want to log out?</h5>
               <img class="card-title text-center w3-col" src="media/exit.png" alt="Exit" onclick="closeForm()" style="position:absolute;height:5vh;top:0px;right:0px">
             </div>
-            <form class="form-signin">
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputEmail">Email address</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">Password</label>
-              </div>
-
-              <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember password</label>
-              </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
-              <hr class="my-4">
-              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit" style="color: white;background-color: #ea4335;"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
-            </form>
+            <div id="popupfoot">
+                <a href="logout.html" class="agree"><input class="btn" type="button" value="yes" style="letter-spacing:normal;width:49%;" autofocus></button></a>
+                <a href="repHome.html" class="agree"><input class="btn" type="button" value="no" style="letter-spacing:normal;width:49%;"></button></a>
+            </div>
           </div>
         </div>
       </div>
