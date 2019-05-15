@@ -10,7 +10,6 @@ deploy:
   provider: script
 language: bash
 script: 
-  - "docker push alabamaliquidservices/botic:latest-frontend"
   - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"
   - "heroku container:release web --app $HEROKU_APP_NAME"
 services: 
