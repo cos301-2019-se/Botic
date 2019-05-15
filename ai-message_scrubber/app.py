@@ -11,6 +11,13 @@ import os
 def test():
 	return 'Hello world!'
 
+@app.route('/food', method=['GET', 'POST'])
+def food():
+	if request.method == 'POST':
+		return 'Eat fish ma guy.'
+	if request.method == 'GET':
+		return 'Eat steak.'
+
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
 	if request.method == 'POST' or request.method == 'GET':
