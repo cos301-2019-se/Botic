@@ -195,8 +195,13 @@ body {
   src: url("media/europeunderground_light-webfont.woff")format("woff");
 }
 
+@font-face {
+  font-family: "EuroBlack";
+  src: url("media/europeunderground_black-webfont.woff")format("woff");
+}
+
 h1 {
-    font-family: 'Euro';
+    font-family: 'EuroBlack';
     text-transform: uppercase;
     color: #000;
     font-size: 300%;
