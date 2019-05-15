@@ -11,6 +11,11 @@ import os
 # def test():
 #	return 'Welcome to the Message Scrubber API!'
 
+@app.route('/',methods=['GET','POST'])
+def test():
+	if request.method == 'POST' or request.method == 'GET':
+		print("test" + request.form.get('data'))
+
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
 	if request.method == 'POST' or request.method == 'GET':
