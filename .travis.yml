@@ -4,7 +4,7 @@ before_install:
   - "echo \"$DOCKER_PASSWORD\" | docker login -u \"$DOCKER_USERNAME\" --password-stdin"
   - "echo \"$HEROKU_PASSWORD\" | docker login -u \"$HEROKU_USERNAME\" --password-stdin registry.heroku.com"
   - "cd $TRAVIS_BUILD_DIR/allisn"
-  - "docker pull alabamaliquidservices/botic:latest-frontend ."
+  - "docker pull alabamaliquidservices/botic:latest-frontend"
 #  - "docker push alabamaliquidservices/botic:latest-frontend"
   - "cd .. & cd $TRAVIS_BUILD_DIR/ai-message_scrubber"
   - "docker build -t alabamaliquidservices/botic:latest-ms ."
