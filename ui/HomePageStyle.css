@@ -1,5 +1,5 @@
 body {
-   background-color:#f1c40f;
+  background-color: #f1c40f;
 }
 
 :root {
@@ -166,7 +166,7 @@ body {
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
-  background-color:#f1c40f;
+  background-color: transparent;
 }
 
 /* Links inside the navbar */

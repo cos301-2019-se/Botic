@@ -1,5 +1,5 @@
 body {
-    background: #f1c40f;
+  background-color: #f1c40f;
 }
 
 #LandingLogo {
@@ -30,16 +30,12 @@ body {
 }
 
 .btn {
-    background: #00000000;
+    background-color: transparent;
     width: 180px;
     height: 40px;
     padding: 4px 0;
     color: #000;
 
-    position: absolute;
-    left: 50%;
-    top: 78%;
-    transform: translateX(-50%) translateY(-50%);
     border-radius: 3px;
     border: 1px solid #000;
     text-transform: uppercase;
@@ -55,12 +51,7 @@ body {
   padding: 4px 0;
   color: #fff;
 
-  position: absolute;
-  left: 50%;
-  top: 78%;
-  transform: translateX(-50%) translateY(-50%);
   border-radius: 3px;
-  /* border: 1px solid #000; */
   text-transform: uppercase;
   font-family: sans-serif;
 
@@ -144,10 +135,6 @@ h1 {
   }
 
   h1 {
-      /* position: fixed;
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%, -50%); */
       font-family: sans-serif;
       text-transform: uppercase;
   }
