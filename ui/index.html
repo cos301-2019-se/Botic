@@ -4,56 +4,35 @@
   <title>Botic Home</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-  
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="HomePageStyle.css">
 </head>
-<body background="media/background.jpg">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="background-color: white">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-          <img src="media/BoticLogo1.png" alt="Botic Logo" height="50px" style="border-radius:10px">
-        </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
+<body>
+<div class="navbar" class="w3-row" style="height:110px;">
+  <div class="w3-col" style="width:20%;text-align:center"><img src="media/LandingPage.gif" alt="Logo" style="height:100px;width:100px;"></img></div>
+  <div class="w3-col" style="width:60%;text-align:center"><h1>Botic</h1></div>
+  <div class="w3-col" style="width:20%;text-align:center">
+    <form action="login.html">
+      <input type="submit" value="Login" class="login"></input>
+    </form>
   </div>
-</nav>
+</div>
 
 <!-- Page Content -->
-<div class="container">
-  <h1 class="mt-4" style="color:white;">Welcome to Botic</h1>
+<div class="container" class="w3-row" style="width:100%">
+  <h2 class="mt-4" style="color:white;">Welcome to Botic</h2>
   <p style="color:white">For any customer related queries, please make use of the chat function.</p>
 </div>
 
 <!-- CHAT -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
+<div class="container" style="margin:auto;width:50%;padding:10px;width:100%;height:80vh;">
+    <div class="row" style="width:246%;">
+        <div class="col-md-5" style="width: 246%;">
+            <div class="panel panel-primary" style="height:75vh;border:none;">
+                <div class="panel-heading" style="background-color:#000;">
                     <span class="glyphicon glyphicon-comment"></span> Chat
                 </div>
-                <div class="panel-body">
-                    <ul class="chat" style="list-style:none;">
+                <div class="panel-body" style="height:65vh;border:none;">
+                    <ul class="chat" style="list-style:none;" style="height:60vh;border:none;">
                         <li class="left clearfix"><span class="chat-img pull-left">
                             <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
                         </span>

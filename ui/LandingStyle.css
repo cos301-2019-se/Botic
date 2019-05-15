@@ -5,7 +5,7 @@ body {
 #LandingLogo {
     width: 20%;
 }
-  
+
 .centeredLogo {
     position: fixed;
     top: 50%;
@@ -27,10 +27,6 @@ body {
   letter-spacing: 50px;
   font-family: 'Euro';
   font-size: 300%;
-  /*
-    dolce vita light
-    european underround
-  */
 }
 
 .btn {
@@ -87,7 +83,7 @@ h1 {
     z-index:9000;
     background-color:#000;
     display:none;
-  }  
+  }
   #boxes .window {
     position:absolute;
     left:0;
@@ -101,7 +97,7 @@ h1 {
     text-align: center;
   }
   #boxes #dialog {
-    width:450px; 
+    width:450px;
     height:auto;
     padding:10px;
     background-color:#ffffff;
@@ -113,7 +109,7 @@ h1 {
     font-family: "Segoe UI", sans-serif;
     text-decoration: none;
   }
-  
+
   #lorem{
       font-family: "Segoe UI", sans-serif;
       font-size: 12pt;
@@ -134,7 +130,7 @@ h1 {
       background-color:#D1D1D1;
       color: green;
   }
-  .popupoption2:hover{ 
+  .popupoption2:hover{
       color: red;
   }
 
@@ -145,4 +141,13 @@ h1 {
   @font-face {
     font-family: "Euro";
     src: url("media/europeunderground_light-webfont.woff")format("woff");
+  }
+
+  h1 {
+      /* position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%); */
+      font-family: sans-serif;
+      text-transform: uppercase;
   }
