@@ -1,4 +1,4 @@
-<div align="centre"><img src="https://github.com/cos301-2019-se/Botic/blob/%2357_Readme-Updates/ui/media/BoticLogo1.PNG" width="150"></div>
+<div align="center"><img src="https://github.com/cos301-2019-se/Botic/blob/%2357_Readme-Updates/ui/media/BoticLogo1.PNG" width="150"></div>
 
 # Botic
 
