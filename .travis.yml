@@ -4,7 +4,9 @@ before_install:
   - "echo \"$DOCKER_PASSWORD\" | docker login -u \"$DOCKER_USERNAME\" --password-stdin"
   - "echo \"$HEROKU_PASSWORD\" | docker login -u \"$HEROKU_USERNAME\" --password-stdin registry.heroku.com"
   - "docker pull alabamaliquidservices/botic:latest-frontend"
+  - "docker pull alabamaliquidservices/botic:latest-ms"
   - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
+  - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
 branch: "\\#49_Path-Fix-Angular"
 deploy: 
   provider: script
@@ -12,6 +14,8 @@ language: bash
 script: 
   - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"
   - "heroku container:release web --app $HEROKU_APP_NAME"
+  - "docker push registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
+  - "heroku container:release web --app $HEROKU_APP_NAME_TWO"
 services: 
   - docker
 sudo: required

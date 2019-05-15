@@ -3,14 +3,13 @@ import re
 
 app = Flask(__name__)
 
-import os
-port = int(os.environ.get("PORT", 5000))
-app.run(host='0.0.0.0', port=port)
+#import os
+#port = int(os.environ.get("PORT", 5000))
+#app.run(host='0.0.0.0', port=port)
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/')
 def test():
-	if request.method == 'POST' or request.method == 'GET':
-		print("test" + request.form.get('data'))
+	return 'Hello world!'
 
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
@@ -76,3 +75,6 @@ def wordIndex(input_data, char_index):
 		else:
 			personal_info += input_data[count]
 			count += 1
+
+if __name__ == '__main__':
+	app.run(host='0.0.0.0')
