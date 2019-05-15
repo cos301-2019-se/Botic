@@ -4,8 +4,12 @@ import re
 app = Flask(__name__)
 
 import os
-port = int(os.environ.get("PORT", 5000))
-app.run(host='0.0.0.0', port=port)
+# port = int(os.environ.get("PORT", 5000))
+# app.run(host='0.0.0.0', port=port)
+
+# @app.route('/')
+# def test():
+#	return 'Welcome to the Message Scrubber API!'
 
 @app.route('/',methods=['GET','POST'])
 def test():
@@ -15,7 +19,6 @@ def test():
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
 	if request.method == 'POST' or request.method == 'GET':
-		print("test" + request.form.get('data'))
 		input_data = request.form.get('data', '-999')
 		if input_data == '-999':
 			response = jsonify('')
@@ -76,3 +79,6 @@ def wordIndex(input_data, char_index):
 		else:
 			personal_info += input_data[count]
 			count += 1
+
+if __name__ == '__main__':
+	app.run(host='0.0.0.0')

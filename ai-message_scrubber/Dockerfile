@@ -1,22 +1,24 @@
 # Using an official Python runtime as a parent image
 FROM python:3.8.0a3-stretch
 
-# Setting the working directory to /app
-WORKDIR /app
+# Install python and pip
+# RUN apk add --no-cache --update python3 py3-pip bash
+ADD requirements.txt /tmp/requirements.txt
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Install dependencies
+RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
+# RUN pip install --trusted-host pypi.python.org -r /tmp/requirements.txt
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+# Add our code
+ADD . /opt/webapp/
+WORKDIR /opt/webapp
 
-# Make port 5000 available to the world outside this container
 EXPOSE 5000
 
-# Define environment variable (test usage)
+# Run the image as a non-root user
+# RUN adduser -D myuser
+# USER myuser
 
-# ENV NAME world PATH
-
-# Run app.py when the container launches
-# CMD ["/bin/bash", "/app/ms-start.sh"]
-CMD python -m app.py
+# Run the app. CMD is required to run on Heroku
+# $PORT is set by Heroku
+CMD gunicorn --bind 0.0.0.0:$PORT wsgi

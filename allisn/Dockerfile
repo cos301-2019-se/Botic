@@ -21,6 +21,7 @@ RUN npm install -g @angular/cli@1.7.1
 
 # add app
 COPY . /usr/src/app
+RUN npm run-script build
 
 # start app
 CMD node server.js --host 0.0.0.0
