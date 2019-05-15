@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
-  <script src="js/jquery.min.js"></script>
+  <!-- <script src="js/jquery.min.js"></script> -->
 
   <script>
     function openForm() {
@@ -120,7 +120,7 @@
                     <div class="input-group">
                         <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
                         <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" id="btn-chat" style="background-color:#000;border:none;">Send</button>
+                            <button class="btn-warning btn-sm sendButton" id="btn-chat" style="background-color:#000;border:none;color:#fff;">Send</button>
                         </span>
                     </div>
                 </div>
@@ -141,7 +141,7 @@
             </div>
             <div id="popupfoot">
                 <a href="logout.html" class="agree"><input class="btn" type="button" value="yes" style="letter-spacing:normal;width:49%;" autofocus></button></a>
-                <a href="repHome.html" class="agree"><input class="btn" type="button" value="no" style="letter-spacing:normal;width:49%;"></button></a>
+                <input class="btn" type="button" value="no" style="letter-spacing:normal;width:49%;" onclick="closeForm()"></button>
             </div>
           </div>
         </div>
