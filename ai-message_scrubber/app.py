@@ -7,6 +7,11 @@ import os
 port = int(os.environ.get("PORT", 5000))
 app.run(host='0.0.0.0', port=port)
 
+@app.route('/',methods=['GET','POST'])
+def test():
+	if request.method == 'POST' or request.method == 'GET':
+		print("test" + request.form.get('data'))
+
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
 	if request.method == 'POST' or request.method == 'GET':
