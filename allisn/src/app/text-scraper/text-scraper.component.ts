@@ -15,48 +15,17 @@ export class TextScraperComponent implements OnInit {
 
   chatBubblesMarkup = '';
 
-  
-  /*
-  badWords = [
-    "Peter",
-    "Alicia",
-    "Kyle",
-    "Justin",
-    "Lesego",
-    "Msimanga",
-    "Mulder",
-    "Gaunt",
-    "Grenfell",
-    "Mabe",
-    "Stacey",
-    "Vrede",
-    "Cameron",
-    "Tari",
-    "13042352",
-    "14283124",
-    "15330967",
-    "16028440",
-    "15055214",
-    "u13042352",
-    "u14283124",
-    "u15330967",
-    "u16028440",
-    "u15055214"
-  ];
-  */
   constructor(private TextScraperService: TextScraperService) { }
 
   getBadWords() : void{
     this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
-    console.log(this.badWords);
+    //console.log(this.badWords);
   }
 
   ngOnInit() {
     this.runTests();
     this.getBadWords();
   }
-
-
 
   botResponse(input: string): string{
     var response ='';
@@ -92,9 +61,7 @@ export class TextScraperComponent implements OnInit {
 
     return response;
   }
-  /*
-    Stinson Rules
-  */
+  
   processResponse(input: string): void{
     var botAI = [
       {
@@ -197,7 +164,7 @@ export class TextScraperComponent implements OnInit {
   }
 
   runTests(): void {
-    /*
+    
     var passed = 0;
     var failed = 0;
 
@@ -207,14 +174,14 @@ export class TextScraperComponent implements OnInit {
     else
       failed++;
     console.log("botResponse returns string " + (typeof(this.botResponse('')) == "string"));
-
+    
     //userResponse
     if (typeof(this.userResponse('')) == "string")
       passed++;
     else
       failed++;
     console.log("userResponse returns string " + (typeof(this.botResponse('')) == "string"));
-
+    
     //processResponse
 
     //displayChat
@@ -224,13 +191,13 @@ export class TextScraperComponent implements OnInit {
       failed++;
     console.log("displayChat returns string " + (typeof(this.botResponse('')) == "string"));
 
-    
+    /*
     //returnChanged
     var changed = failed;
     for (var  i = 0; i < this.badWords.length; i++){
-      if (typeof(this.badWords[i]) == "number"){
+      if (typeof(this.badWords[i]) == "object"){
         failed++
-        console.log(this.badWords[i] + " is not a string");
+        console.log(this.badWords[i] + " badWord object");
       }
     }
     if (changed == failed){
@@ -258,9 +225,9 @@ export class TextScraperComponent implements OnInit {
     else
       failed++;
     console.log("applyHighlights() returns string " + (typeof(this.applyHighlights('',this.badWords)) == "string"));
-
+    */
     console.log('\nTests completed. ' + passed +' passed, ' + failed + ' failed.');
-  */
+  
   }
  
   getColor(severity: number): string {
@@ -278,3 +245,32 @@ export class TextScraperComponent implements OnInit {
   }
   
 }
+
+/*
+  badWords = [
+    "Peter",
+    "Alicia",
+    "Kyle",
+    "Justin",
+    "Lesego",
+    "Msimanga",
+    "Mulder",
+    "Gaunt",
+    "Grenfell",
+    "Mabe",
+    "Stacey",
+    "Vrede",
+    "Cameron",
+    "Tari",
+    "13042352",
+    "14283124",
+    "15330967",
+    "16028440",
+    "15055214",
+    "u13042352",
+    "u14283124",
+    "u15330967",
+    "u16028440",
+    "u15055214"
+  ];
+  */
