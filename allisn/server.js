@@ -12,7 +12,7 @@ app.use(express.static(__dirname+'/dist/allisn'));
 
 app.get('/', function(req,res) {
 
-res.sendFile(path.join(__dirname+'landingPage.html'));
+res.sendFile(path.join(__dirname+'/src/landingPage.html'));
 
 });
 
