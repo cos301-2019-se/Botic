@@ -17,7 +17,7 @@ res.sendFile(path.join(__dirname+'/src/landingPage.html'));
 });
 
 app.get('/chat', function(req,res) {
-    res.sendFile(path.join('/dist/allisn/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/allisn/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
