@@ -81,7 +81,9 @@ export class TextScraperComponent implements OnInit {
 
     return response;
   }
-
+  /*
+    Stinson Rules
+  */
   processResponse(input: string): void{
     var botAI = [
       {
