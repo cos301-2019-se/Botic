@@ -133,17 +133,20 @@ export class TextScraperComponent implements OnInit {
     output = "";
 
     var isABadWord = false;
+    var severity = 0;
 
     for(var i = 0; i < array.length; i++){
       isABadWord = false;
 
       for (var j = 0; j < badWords.length; j++){
-        if (i == badWords[j].position)
+        if (i == badWords[j].position){
           isABadWord = true;
+          severity = badWords[j].severity;
+        }
       }
 
       if (isABadWord == true)
-        output += '<span style="color:red;">' + array[i] + '</span>';
+        output += '<span style="color:'+this.getColor(severity)+';">' + array[i] + '</span>';
       else
         output += array[i];
 
@@ -259,11 +262,19 @@ export class TextScraperComponent implements OnInit {
     console.log('\nTests completed. ' + passed +' passed, ' + failed + ' failed.');
   */
   }
- /*
-  getColor(severity: number): sting {
+ 
+  getColor(severity: number): string {
     switch(severity){
-      case 
+      case 0:
+        return 'fuchsia';
+  
+      case 1:
+        return 'orange';
+      break;
+      case 2:
+        return 'red';
+      break;
     }
   }
-  */
+  
 }
