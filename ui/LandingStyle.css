@@ -1,11 +1,11 @@
 body {
-    background: #f1c40f;
+  background-color: #f1c40f;
 }
 
 #LandingLogo {
     width: 20%;
 }
-  
+
 .centeredLogo {
     position: fixed;
     top: 50%;
@@ -27,23 +27,15 @@ body {
   letter-spacing: 50px;
   font-family: 'Euro';
   font-size: 300%;
-  /*
-    dolce vita light
-    european underround
-  */
 }
 
 .btn {
-    background: #00000000;
+    background-color: transparent;
     width: 180px;
     height: 40px;
     padding: 4px 0;
     color: #000;
 
-    position: absolute;
-    left: 50%;
-    top: 78%;
-    transform: translateX(-50%) translateY(-50%);
     border-radius: 3px;
     border: 1px solid #000;
     text-transform: uppercase;
@@ -59,12 +51,7 @@ body {
   padding: 4px 0;
   color: #fff;
 
-  position: absolute;
-  left: 50%;
-  top: 78%;
-  transform: translateX(-50%) translateY(-50%);
   border-radius: 3px;
-  /* border: 1px solid #000; */
   text-transform: uppercase;
   font-family: sans-serif;
 
@@ -87,7 +74,7 @@ h1 {
     z-index:9000;
     background-color:#000;
     display:none;
-  }  
+  }
   #boxes .window {
     position:absolute;
     left:0;
@@ -101,7 +88,7 @@ h1 {
     text-align: center;
   }
   #boxes #dialog {
-    width:450px; 
+    width:450px;
     height:auto;
     padding:10px;
     background-color:#ffffff;
@@ -113,7 +100,7 @@ h1 {
     font-family: "Segoe UI", sans-serif;
     text-decoration: none;
   }
-  
+
   #lorem{
       font-family: "Segoe UI", sans-serif;
       font-size: 12pt;
@@ -134,7 +121,7 @@ h1 {
       background-color:#D1D1D1;
       color: green;
   }
-  .popupoption2:hover{ 
+  .popupoption2:hover{
       color: red;
   }
 
@@ -145,4 +132,9 @@ h1 {
   @font-face {
     font-family: "Euro";
     src: url("media/europeunderground_light-webfont.woff")format("woff");
+  }
+
+  h1 {
+      font-family: sans-serif;
+      text-transform: uppercase;
   }

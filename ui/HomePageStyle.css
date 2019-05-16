@@ -1,5 +1,5 @@
 body {
-  background: #f1c40f;
+  background-color: #f1c40f;
 }
 
 :root {
@@ -158,4 +158,93 @@ body {
 {
     box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #555;
+}
+
+/* The navigation bar */
+.navbar {
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  background-color: transparent;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+/* Main content */
+.main {
+  margin-top: 30px; /* Add a top margin to avoid content overlay */
+}
+
+@font-face {
+  font-family: "Euro";
+  src: url("media/europeunderground_light-webfont.woff")format("woff");
+}
+
+@font-face {
+  font-family: "EuroBlack";
+  src: url("media/europeunderground_black-webfont.woff")format("woff");
+}
+
+h1 {
+    font-family: 'EuroBlack';
+    text-transform: uppercase;
+    color: #000;
+    font-size: 300%;
+    letter-spacing: 50px;
+}
+
+.login {
+    background: #00000000;
+    width: 180px;
+    height: 40px;
+    padding: 4px 0;
+    color: #000;
+
+    border-radius: 3px;
+    border: 1px solid #000;
+    text-transform: uppercase;
+    font-family: sans-serif;
+
+    letter-spacing: 5px;
+}
+
+.login:hover {
+  background: #000;
+  width: 180px;
+  height: 40px;
+  padding: 4px 0;
+  color: #fff;
+
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+
+  letter-spacing: 5px;
+}
+
+{box-sizing: border-box;}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
 }
