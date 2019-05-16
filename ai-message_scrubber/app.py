@@ -25,6 +25,8 @@ def scrub():
 			response.status_code = 400
 			return response
 		response = check(input_data)
+		if response != '[]':
+			response = formatReturn(response)
 		response = jsonify(response)
 		response.status_code = 202
 		return response
@@ -80,5 +82,16 @@ def wordIndex(input_data, char_index):
 			personal_info += input_data[count]
 			count += 1
 
+def formatReturn(data):
+	jsonObj = "["
+	temp = data[1:-1].replace(" ", "").split(',')
+	for x in temp:
+		y = x.split(':')
+		jsonObj += "{\'position\':" + y[0] + ","
+		jsonObj += "\'severity\':" + y[1] + "},"
+	jsonObj = jsonObj[0:-1] + "]"
+	return jsonObj
+
 if __name__ == '__main__':
-	app.run(host='0.0.0.0')
+	#app.run(host='0.0.0.0')
+	app.run()
