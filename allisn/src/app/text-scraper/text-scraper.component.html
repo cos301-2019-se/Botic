@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <li *ngFor="let badWord of badWord">{{badWord}}</li>
+      <li *ngFor="let badWord of badWords">{{badWord}}</li>
       <div
         [innerHTML]="displayChat() | safe: 'html'">
       </div>
