@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { TextScraperService } from '../text-scraper.service';
+import { badWord } from '../badWord';
 
 @Component({
   selector: 'app-text-scraper',
@@ -9,9 +11,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class TextScraperComponent implements OnInit {
   userInput = "";
   markedText: string;
+  badWords: badWord[];
 
   chatBubblesMarkup = '';
 
+  
+  /*
   badWords = [
     "Peter",
     "Alicia",
@@ -38,11 +43,17 @@ export class TextScraperComponent implements OnInit {
     "u16028440",
     "u15055214"
   ];
+  */
+  constructor(private TextScraperService: TextScraperService) { }
 
-  constructor() { }
+  getBadWords() : void{
+    this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
+    console.log(this.badWords);
+  }
 
   ngOnInit() {
     this.runTests();
+    this.getBadWords();
   }
 
 
@@ -114,7 +125,7 @@ export class TextScraperComponent implements OnInit {
     return this.chatBubblesMarkup;
   }
 
-  returnChanged(input: string, badWords: string[]): string{
+  returnChanged(input: string, badWords: badWord[]): string{
 
     var output = "";
 
@@ -127,7 +138,7 @@ export class TextScraperComponent implements OnInit {
       isABadWord = false;
 
       for (var j = 0; j < badWords.length; j++){
-        if (array[i].includes(badWords[j]))
+        if (i == badWords[j].position)
           isABadWord = true;
       }
 
@@ -142,10 +153,11 @@ export class TextScraperComponent implements OnInit {
     return output;
   }
 
-  highlight(input: string, badWords: string[]): boolean {
+
+  highlight(input: string, badWords: badWord[]): boolean {
 
     for (var i = 0; i < badWords.length; i++)
-      if (input.includes(badWords[i])){
+      if (i == badWords[i].position){
 
         return true;
       }
@@ -182,6 +194,7 @@ export class TextScraperComponent implements OnInit {
   }
 
   runTests(): void {
+    /*
     var passed = 0;
     var failed = 0;
 
@@ -208,7 +221,7 @@ export class TextScraperComponent implements OnInit {
       failed++;
     console.log("displayChat returns string " + (typeof(this.botResponse('')) == "string"));
 
-
+    
     //returnChanged
     var changed = failed;
     for (var  i = 0; i < this.badWords.length; i++){
@@ -221,7 +234,7 @@ export class TextScraperComponent implements OnInit {
       passed++;
       console.log("all the bad words are words");
     }
-
+    
     //highlight
     var changed2 = failed;
 
@@ -244,6 +257,13 @@ export class TextScraperComponent implements OnInit {
     console.log("applyHighlights() returns string " + (typeof(this.applyHighlights('',this.badWords)) == "string"));
 
     console.log('\nTests completed. ' + passed +' passed, ' + failed + ' failed.');
+  */
   }
-
+ /*
+  getColor(severity: number): sting {
+    switch(severity){
+      case 
+    }
+  }
+  */
 }
