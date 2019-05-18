@@ -201,7 +201,6 @@
 }
 
 h1 {
-	font-family: 'EuroBlack';
 	text-transform: uppercase;
 	color: #000;
 	font-size: 300%;
@@ -233,10 +232,11 @@ h1 {
 	letter-spacing: 5px;
 }
 
+/*
 {
 	box-sizing: border-box
 }
-
+*/
 
 /* The popup form - hidden by default */
 

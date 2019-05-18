@@ -233,9 +233,11 @@ h1 {
 	letter-spacing: 5px;
 }
 
+/*
+What's this supposed to be for?
 {
 	box-sizing: border-box;
-}
+}*/
 
 
 /* The popup form - hidden by default */
