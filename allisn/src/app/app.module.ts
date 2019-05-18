@@ -9,8 +9,12 @@ import { SafePipe } from './safe.pipe';
 
 import { TextInputHighlightModule } from 'angular-text-input-highlight';
 import { BotChatComponent } from './bot-chat/bot-chat.component';
-import { UserChatComponent } from './user-chat/user-chat.component';
 import { ChatHeadingComponent } from './chat-heading/chat-heading.component';
+import { LandingComponent } from './components/pages/landing/landing.component';
+import { AppRoutingModule } from './app-routing.module';
+import { CustomerChatComponent } from './components/customer-chat/customer-chat.component';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +22,17 @@ import { ChatHeadingComponent } from './chat-heading/chat-heading.component';
     TextScraperComponent,
     SafePipe,
     BotChatComponent,
-    UserChatComponent,
-    ChatHeadingComponent
+    ChatHeadingComponent,
+    LandingComponent,
+    CustomerChatComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    TextInputHighlightModule
+    TextInputHighlightModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

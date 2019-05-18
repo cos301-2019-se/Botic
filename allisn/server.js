@@ -10,13 +10,7 @@ const app = express();
 
 app.use(express.static(__dirname+'/dist/allisn'));
 
-app.get('/', function(req,res) {
-
-res.sendFile(path.join(__dirname+'/src/landingPage.html'));
-
-});
-
-app.get('/chat', function(req,res) {
+app.get('/*', function(req,res) {
     res.sendFile(path.join(__dirname + '/dist/allisn/index.html'));
 });
 

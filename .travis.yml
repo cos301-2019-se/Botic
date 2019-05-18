@@ -1,4 +1,9 @@
 --- 
+branches:
+  only:
+  - master
+  - dev
+
 before_install: 
   - "wget -qO- https://toolbelt.heroku.com/install.sh | sh"
   - "echo \"$DOCKER_PASSWORD\" | docker login -u \"$DOCKER_USERNAME\" --password-stdin"
@@ -12,10 +17,6 @@ before_install:
   - "cd .."
   - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
   - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
-branches:
-  only:
-  - master
-  - dev
 deploy: 
   provider: script
 language: bash
