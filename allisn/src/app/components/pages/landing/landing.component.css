@@ -1,0 +1,122 @@
+#LandingLogo {
+    width: 20%;
+}
+.centeredLogo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-kerning: expanded;
+    letter-spacing: 15px;
+   /* dolce vita light european underround */
+}
+#title {
+    position: fixed;
+    top: 20%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 50px;
+    font-family: 'Euro';
+    font-size: 300%;
+}
+.btn {
+    background-color: transparent;
+    width: 180px;
+    height: 40px;
+    padding: 4px 0;
+    color: #000;
+    border-radius: 3px;
+    border: 1px solid #000;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    letter-spacing: 5px;
+}
+.btn:hover {
+    background: #000;
+    width: 180px;
+    height: 40px;
+    padding: 4px 0;
+    color: #fff;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    letter-spacing: 5px;
+}
+h1 {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+#mask {
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
+    display:none;
+}
+#boxes .window {
+    position:absolute;
+    left:0;
+    top:0;
+    width:440px;
+    height:200px;
+    display:none;
+    z-index:9999;
+    padding:20px;
+    border-radius: 15px;
+    text-align: center;
+}
+#boxes #dialog {
+    width:450px;
+    height:auto;
+    padding:10px;
+    background-color:#ffffff;
+    font-family: 'Segoe UI Light', sans-serif;
+    font-size: 15pt;
+}
+.maintext{
+    text-align: center;
+    font-family: "Segoe UI", sans-serif;
+    text-decoration: none;
+}
+#lorem{
+    font-family: "Segoe UI", sans-serif;
+    font-size: 12pt;
+    text-align: left;
+}
+#popupfoot{
+    font-family: "Segoe UI", sans-serif;
+    font-size: 16pt;
+    padding: 10px 20px;
+}
+#popupfoot a{
+    text-decoration: none;
+}
+.agree:hover{
+    background-color: #D1D1D1;
+}
+.popupoption:hover{
+    background-color:#D1D1D1;
+    color: green;
+}
+.popupoption2:hover{
+    color: red;
+}
+.scrollable {
+    overflow: auto;
+}
+@font-face {
+    font-family: "Euro";
+    src: url("../../../../assets/europeunderground_light-webfont.woff")format("woff");
+}
+h1 {
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+/*
+    formatted by: https://www.cleancss.com/css-beautify/
+*/

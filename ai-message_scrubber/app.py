@@ -4,19 +4,29 @@ import re
 app = Flask(__name__)
 
 import os
-port = int(os.environ.get("PORT", 5000))
-app.run(host='0.0.0.0', port=port)
+# port = int(os.environ.get("PORT", 5000))
+# app.run(host='0.0.0.0', port=port)
+
+# @app.route('/')
+# def test():
+#	return 'Welcome to the Message Scrubber API!'
+
+@app.route('/',methods=['GET','POST'])
+def test():
+	if request.method == 'POST' or request.method == 'GET':
+		print("test" + request.form.get('data'))
 
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
 	if request.method == 'POST' or request.method == 'GET':
-		print("test" + request.form.get('data'))
 		input_data = request.form.get('data', '-999')
 		if input_data == '-999':
 			response = jsonify('')
 			response.status_code = 400
 			return response
 		response = check(input_data)
+		if response != '[]':
+			response = formatReturn(response)
 		response = jsonify(response)
 		response.status_code = 202
 		return response
@@ -71,3 +81,17 @@ def wordIndex(input_data, char_index):
 		else:
 			personal_info += input_data[count]
 			count += 1
+
+def formatReturn(data):
+	jsonObj = "["
+	temp = data[1:-1].replace(" ", "").split(',')
+	for x in temp:
+		y = x.split(':')
+		jsonObj += "{\'position\':" + y[0] + ","
+		jsonObj += "\'severity\':" + y[1] + "},"
+	jsonObj = jsonObj[0:-1] + "]"
+	return jsonObj
+
+if __name__ == '__main__':
+	#app.run(host='0.0.0.0')
+	app.run()

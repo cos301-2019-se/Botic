@@ -1,14 +1,32 @@
+--- 
+branches:
+  only:
+  - master
+  - dev
+
+before_install: 
+  - "wget -qO- https://toolbelt.heroku.com/install.sh | sh"
+  - "echo \"$DOCKER_PASSWORD\" | docker login -u \"$DOCKER_USERNAME\" --password-stdin"
+  - "echo \"$HEROKU_PASSWORD\" | docker login -u \"$HEROKU_USERNAME\" --password-stdin registry.heroku.com"
+  - "cd $TRAVIS_BUILD_DIR/allisn"
+  - "docker build -t alabamaliquidservices/botic:latest-frontend ."
+  - "docker push alabamaliquidservices/botic:latest-frontend"
+  - "cd .. & cd $TRAVIS_BUILD_DIR/ai-message_scrubber"
+  - "docker build -t alabamaliquidservices/botic:latest-ms ."
+  - "docker push alabamaliquidservices/botic:latest-ms"
+  - "cd .."
+  - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
+  - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
+deploy: 
+  provider: script
 language: bash
-services:
-- docker
-before_install:
-- docker pull alabamaliquidservices/botic:latest-frontend
-- docker pull alabamaliquidservices/botic:latest-ms
-#script:
-deploy:
-  provider: heroku
-  api_key:
-    secure: hrjVsI7Hhq+eV/fWgdqK7qTFIB38z1UYAlt7IXxP4jvaO+4fzO3gVdLeOAUAjLCOlDRyulhuWGCrdThl/AYnN2/q9UvoulXm7am/mw0kLBRCeEZX3xlRjJa9dw7/fA3r6KxkfrztnWUOSWLnXhyFBBg/OLIc84Tj5cKKvTvAhx0PsuTW1UAAbwX0DbJmPb+K+tF7C+baghnINVujmVqr1HHynJRloCloEU2/3oUZtrfbZS3p5etWghJTLD8ULvz5/EKJYqX0kATB/hEa5lVgaNIwNNpS7mLwMSMHQGrNtzeiIgt40+xj3IczWpfcP+Yd08NQHUx9CWbdDJjhRP/mhD8mTrtciiEgmTKRMl46oIiXEy16vvEBW/s7Jdm4+ktVMPxcKDPP/MDtnWMh7nvaBW2qT7T8pdzxoe0/t6U+N4Nm09Qlp37si7iJW4NGGen8HhMOIQUSNBYdWd+zxv/Mg/STvLsdMbBQcgCcefrCT5XaTO/sj41LZzYIeepLQP0ebzHBzdRzAZfbVJwNgDPx4V73gB1MHunCFv15rrngdza924JBIDrrKNq819DZWP8yt6m1pHydeCSM/+X/pI/9QYQFflA1apreERJ4+r28hAsqivnJk5ZJKeiMj6wvQqnUy5DSg1is1YY9eY0RwvLFtVLhsE0ZA2jU52V4wfkdVDg=
-    run:
-      - bash $TRAVIS_BUILD_DIR/allisn-travis.sh
-      - bash $TRAVIS_BUILD_DIR/ai-message_scrubber/ms-travis.sh
+script: 
+  - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"
+  - "heroku container:release web --app $HEROKU_APP_NAME"
+  - "docker push registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
+  - "heroku container:release web --app $HEROKU_APP_NAME_TWO"
+services: 
+  - docker
+sudo: required
+true: ~
+#used www.yamllint.com for linting

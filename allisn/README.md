@@ -22,7 +22,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-##Deployment
+## 
+Deployment
 - Docker version 1.13 or higher
 - Docker Compose: included in Docker Desktop for Mac and Docker Desktop for Windows. Linux systems require direct install. Pre Windows 10 systems without Hyper-V use Docker Toolbox.
 - Heroku CLI version 7.22.7
@@ -35,7 +36,8 @@ cd allisn
 heroku login
 heroku container:login
 
-docker build -t registry.heroku.com/botic-frontend/web .
+docker pull alabamaliquidservices/botic:latest-frontend
+docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/botic-frontend/web
 docker push registry.heroku.com/botic-frontend/web
 
 heroku container:release web --app botic-frontend

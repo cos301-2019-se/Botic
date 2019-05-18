@@ -1,7 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-
+<div class="">
+  <div class="">
+    <div class="">
+      <!--Not necessary<li *ngFor="let badWord of badWords">{{badWord}}</li>-->
       <div
         [innerHTML]="displayChat() | safe: 'html'">
       </div>
@@ -11,14 +11,16 @@
         contenteditable="true"
         rows="4"
         cols="48"
-        [(ngModel)]="userInput">
+        [(ngModel)]="userInput"
+        id="btn-input" class="form-control input-sm"
+        >
       </textarea>
 
-      <br />
-
-      <button class="btn primary"
-        (click)="processResponse(userInput)"
-      >Send</button>
+      <div style="margin-top: 5px;">
+        <div style="">
+          <button class="btn primary" (click)="processResponse(userInput)">Send</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -22,7 +22,8 @@
 		"login",
 		"email",
 		"name",
-		"surname"
+		"surname",
+		"id"
 	],
 
 	"severity_index": [
@@ -34,6 +35,7 @@
 		3,
 		1,
 		1,
-		1
+		1,
+		3
 	]
 }
