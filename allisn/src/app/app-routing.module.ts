@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LandingComponent } from './components/pages/landing/landing.component';
 import { CustomerChatComponent } from './components/customer-chat/customer-chat.component';
+import { AuthGuard } from './services/security/auth/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
