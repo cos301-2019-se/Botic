@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import { AUTH_CONFIG } from './auth.config';
 import * as auth0 from 'auth0-js';
 import { ROUTE_NAMES } from 'src/app/routes.config';
@@ -51,6 +51,7 @@ export class AuthService {
    }
 
    processAuth() {
+     console.log("Inside processAuth()");
      //if Auth0 hash parsed, get the profile
      this.auth0.parseHash((err, authResult) => {
        if (authResult && authResult.accessToken) {

@@ -9,9 +9,9 @@ interface AuthConfig {
 }
 
 export const AUTH_CONFIG: AuthConfig = {
-    CLIENT_ID: '',
-    CLIENT_DOMAIN: '',
-    AUDIENCE: '',
-    REDIRECT: `${ENV.BASE_URI}/callback`,
-    SCOPE: '',
+    CLIENT_ID: 'gMNTaDHZ4Kat3JO8zMlpMwhqt1vvbk5V',
+    CLIENT_DOMAIN: 'learning-lsg.auth0.com',
+    AUDIENCE: 'botic-frontend.herokuapp.com/chat',
+    REDIRECT: /*`${ENV.BASE_URI}/callback`*/'http://localhost:4200/chat',
+    SCOPE: 'openid profile read:profile send:messages read:messages',
 };
