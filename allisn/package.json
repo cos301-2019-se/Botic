@@ -15,32 +15,41 @@
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/cli": "~7.3.8",
-    "@angular/compiler-cli": "~7.2.0",
     "@angular/common": "~7.2.0",
     "@angular/compiler": "~7.2.0",
+    "@angular/compiler-cli": "~7.2.0",
     "@angular/core": "~7.2.0",
     "@angular/forms": "~7.2.0",
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "angular-text-input-highlight": "^1.4.0",
+    "auth0-js": "^9.10.2",
+    "body-parser": "^1.19.0",
     "bootstrap": "^3.4.1",
     "core-js": "^2.5.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
+    "express-jwt": "^5.3.1",
+    "express-jwt-authz": "^2.3.1",
+    "express-session": "^1.16.1",
     "jquery": "^3.4.1",
+    "jwks-rsa": "^1.5.0",
     "npm": "^6.9.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
-    "zone.js": "~0.8.26",
-    "typescript": "~3.2.2"
+    "typescript": "~3.2.2",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
     "@angular/cli": "~7.3.8",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/node": "~8.9.4",
+    "@panva/jose": "^1.0.2",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -55,7 +64,7 @@
     "typescript": "~3.2.2"
   },
   "engines": {
-    "node": "8.9.1",
+    "node": "12.2.0",
     "npm": "6.9.0"
   }
 }
