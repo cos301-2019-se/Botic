@@ -1,13 +1,27 @@
 \documentclass[11pt]{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+%%\usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage[linktocpage=true]{hyperref}
 
+%%Page layout
+\usepackage[margin=2.0cm]{geometry}
+\usepackage{bookmark}
+
 \usepackage{mathpazo}
 
+%%Font
+\renewcommand*\rmdefault{dayrom}
+\usepackage[T1]{fontenc}
+\normalfont
+
+%%Packages for Referrences
+\usepackage{url}
+\usepackage{natbib}
+
 \begin{document}
+ \renewcommand{\familydefault}{\sfdefault}
 \begin{titlepage}
 	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
     \begin{center}
@@ -35,25 +49,42 @@
 \tableofcontents
 \newpage
 \section{Introduction}
-\begin{flushleft}
-A crucial part of any business in today's economic climate is customer service. Those companies that are willing to go the extra mile for their customers are seen as being a cut above the rest. With superior customer service a company can not only bring in new clients, who want an experience that seems to cater to them as an individual, but also successfully retain existing clients by dealing with their issues efficiently and effectively.\\[0.5cm]
+\subsection{Purpose}
+The purpose of this document is to present a detailed description of Botic- the privacy aware chatbot. It will explain in good detail the purpose and the features of the system, the interfaces of the system, what the system will do, the constrainst under which it must operate and also how the system will react to user and external stimuli. This document is intended for the stakeholders, that is the COS 301 staff and lectures as well as the CS department lectures and our client EPI USE labs-- represented by Mrs. Jhani Coetzee and Mr. Tiaan Scheepers, and the developers, Alabama Liquid Snake, of the system and will be propose to all of our stakeholders for their approval.
 
-In order to do so, there needs to be a system that can record customer feedback and act on it in as soon as possible. In the past, this has been achieved by employing a large number of people around the clock that sit and wait for queries, handle them and then send back the result.\\[0.5cm]
+\subsection{Background}
+A crucial part of any business in today's economic climate is customer service. Those companies that are willing to go the extra mile for their customers are seen as being a cut above the rest. With superior customer service a company can not only bring in new clients, who want an experience that seems to cater to them as an individual, but also successfully retain existing clients by dealing with their issues efficiently and effectively.\par
+In order to do so, there needs to be a system that can record customer feedback and act on it in as soon as possible. In the past, this has been achieved by employing a large number of people around the clock that sit and wait for queries, handle them and then send back the result.\par
 
-While this works, it is not only inefficient (different employees may respond better or worse than others, employees may not follow protocols, mistakes may be made regularly) but financially costly as well. On top of that, when dealing accounts and queries, customers may inadvertently divulge private information that is not applicable to their case, but may leave them vulnerable should that information become public knowledge.\\[0.5cm]
+While this works, it is not only inefficient (different employees may respond better or worse than others, employees may not follow protocols, mistakes may be made regularly) but financially costly as well. On top of that, when dealing accounts and queries, customers may inadvertently divulge private information that is not applicable to their case, but may leave them vulnerable should that information become public knowledge.\par
 
-What if one central system could seamlessly record, interpret and act on the requests of multiple users 24/7 and prevent them from transmitting sensitive data unless absolutely necessary?\\[0.5cm]
+What if one central system could seamlessly record, interpret and act on the requests of multiple users 24/7 and prevent them from transmitting sensitive data unless absolutely necessary?\par
 
-\textbf{Botic} is the solution! One system that can not only record user queries, but sanitize their content by filtering out any "data risks" and act on the provided information, returning the appropriate response. Trained on historical data, the system uses artificial intelligence to analyze requests and act accordingly. It scrapes all data before transmission to ensure that no sensitive information is sent to or from the client without clearance from the company's protocols first.\\[0.5cm]
+\subsection{Scope}
+\textbf{Botic} is the solution! One system that can not only record user queries, but sanitize their content by filtering out any "data risks" and act on the provided information, returning the appropriate response. Trained on historical data, the system uses artificial intelligence to analyze requests and act accordingly. It scrapes all data before transmission to ensure that no sensitive information is sent to or from the client without clearance from the company's protocols first.\par
 
-Should the system be unable to find a suitable solution, the request will be handed off to the appropriate customer representative who will then deal with the request. Once that case has been handled, the system will have learned how to deal with future requests of that type and will be able to return a response based on this learning. This will ensure a high level of efficacy for the system as a whole.\\[0.5cm]
+Should the system be unable to find a suitable solution, the request will be handed off to the appropriate customer representative who will then deal with the request. Once that case has been handled, the system will have learned how to deal with future requests of that type and will be able to return a response based on this learning. This will ensure a high level of efficacy for the system as a whole.\par
 
-Botic will be the front-line for any company that provides customer service feedback facilities or services. The system will reduce the need for a large number of employees for a problem that can be solved using artificial intelligence. It will also improve efficiency and precision when dealing with issues and, due to its constantly learning nature, will become more accurate and able to handle more complex situations as time goes on.\\[0.5cm]
-\end{flushleft}
+Botic will be the front-line for any company that provides customer service feedback facilities or services. The system will reduce the need for a large number of employees for a problem that can be solved using artificial intelligence. It will also improve efficiency and precision when dealing with issues and, due to its constantly learning nature, will become more accurate and able to handle more complex situations as time goes on.[This is a test \cite{Book:1}]
 
+\subsection{Glossary}
+\subsection{References}
+\bibliography{references}
+\bibliographystyle{agsm}
+%%IEEE. IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications. IEEE Computer Society, 1998
+%%http://www.cse.msu.edu/~chengb/RE-491/Papers/SRSExample-webapp.doc
+%%TripleParity docs
+
+\subsection{Overview of Document}
+The next chapter, the Overall Description section, of this document gives an overview of the functionality of the project. It describes the 'informal' requirements and is used to establish a context for technical requirements specification in the next chapter.\par
+The third chapter, the Requirement Specification section, of this document is written especially for the developers and describes in terns the details of the functionality of the product.\par
+Both sections of the document describe the same software product in its entirety, but are intended for different audiences and thus use different languages, but seeing as virtually everyone reading this document has a CS background, the main focus ought to be the third section and it is given priority as a result.
+
+\section{Overall Description}
+\subsection{System Environment}
 \section{Domain Model}
 
- \includegraphics[width=1.0\textwidth]{/images/Botic_Domain_Diagram.jpg}
+ \includegraphics[width=1.0\textwidth]{../../images/Botic_Domain_Diagram.jpg}
  
 \section{User Characteristics}
 \subsection{Customer}
@@ -69,7 +100,7 @@ This user will be notified when the automated system is unable to interpret the 
     \item R3. System must be able to distinguish between type and severity of identifying information entered.
     \item R4. System front-end must be contained in a portable web component.
 \end{enumerate}
- \includegraphics[width=1.0\textwidth]{/images/Information_Scraper_UCD.jpg}
+ \includegraphics[width=1.0\textwidth]{../../images/Information_Scraper_UCD.jpg}
 \subsection{AI Chatbot}
 \begin{enumerate}
     \item R5. Chatbot must be able to process user input and provide an appropriate response.
@@ -82,7 +113,7 @@ This user will be notified when the automated system is unable to interpret the 
     \item R7. Chatbot must be able to gauge its own ability to respond to a query.
     \item R8. Chatbot must be be able to provide appropriate responses to any query that it can solve.
 \end{enumerate}
-\includegraphics[width=1.0\textwidth]{/images/AI_Chatbot_UCD.jpg}
+\includegraphics[width=1.0\textwidth]{../../images/AI_Chatbot_UCD.jpg}
 \subsection{AI Backend}
 \begin{enumerate}
     \item R9. Backend must host and server the AI Chatbot and Scraper respectively
@@ -90,7 +121,7 @@ This user will be notified when the automated system is unable to interpret the 
     \item R11. Backend must train on new and historic information to learn how to identify queries
     \item R12. Backend must train on new and historic information to learn how to identify personally identifying information.
 \end{enumerate}
-\includegraphics[width=1.0\textwidth]{/images/AI_Backend_UCD.jpg}
+\includegraphics[width=1.0\textwidth]{../../images/AI_Backend_UCD.jpg}
 \section{Non-Functional Requirements}
 The non-functional requirements below will be listed by priority.
 \subsection{Availability}
@@ -127,7 +158,7 @@ The non-functional requirements below will be listed by priority.
 \section{Architectural Design}
 Our system is an interactive system. We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural tactic/style is in line with making sure that the entire system has highly available. The first layer, has an MVC architecture within.
 
- \includegraphics[width=1.0\textwidth]{/images/Botic_Simplified_Architectural_Design.jpg}
+ \includegraphics[width=1.0\textwidth]{../../images/Botic_Simplified_Architectural_Design.jpg}
 
 \section{Traceability Matrix}
 \begin{center}
