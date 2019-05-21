@@ -9,6 +9,9 @@
 \usepackage[margin=2.0cm]{geometry}
 \usepackage{bookmark}
 
+%%Figures
+\usepackage{float}
+
 \usepackage{mathpazo}
 
 %%Font
@@ -18,7 +21,9 @@
 
 %%Packages for Referrences
 \usepackage{url}
-\usepackage{natbib}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
 
 \begin{document}
  \renewcommand{\familydefault}{\sfdefault}
@@ -65,12 +70,35 @@ What if one central system could seamlessly record, interpret and act on the req
 
 Should the system be unable to find a suitable solution, the request will be handed off to the appropriate customer representative who will then deal with the request. Once that case has been handled, the system will have learned how to deal with future requests of that type and will be able to return a response based on this learning. This will ensure a high level of efficacy for the system as a whole.\par
 
-Botic will be the front-line for any company that provides customer service feedback facilities or services. The system will reduce the need for a large number of employees for a problem that can be solved using artificial intelligence. It will also improve efficiency and precision when dealing with issues and, due to its constantly learning nature, will become more accurate and able to handle more complex situations as time goes on.[This is a test \cite{Book:1}]
+Botic will be the front-line for any company that provides customer service feedback facilities or services. The system will reduce the need for a large number of employees for a problem that can be solved using artificial intelligence. It will also improve efficiency and precision when dealing with issues and, due to its constantly learning nature, will become more accurate and able to handle more complex situations as time goes on.
 
-\subsection{Glossary}
+\subsection{UML Domain Model}
+
+\begin{figure}[H]
+	\centering
+ 	\includegraphics[width=1.0\textwidth]{../../images/Botic_Domain_Diagram.jpg}
+	\caption{UML Domain Model of the Botic System}
+\end{figure}
+
+\subsection{Definitions, acronyms, and abbreviations}
+
+\begin{tabular}{ |p{2cm}|p{14.7cm}| }
+\hline
+Chatbot & A program that is designed to simulate a conversation as if it were a human, in order to assist one who queries with some task or inquiry. In the context of this project, the chatbot will be used to assit customers in a ticket system (customer service system). \\
+\hline
+AI & Artificial Intelligence;  this refers to programmed intelligence, or rather, intelligence that is demostrated by computers usually to mimick human intelligence in some specific area or even in general terms.\\
+\hline
+Historic Data & Data that is collected and stored over some considerable period of it time, especially, in the context of this project, with the purpose of being used to train a chatbot. \\
+\hline
+POPI Act & Protection of Personal Information Act; an South African piece of legislature aimed at protecting the right of its citizens to privacy, especially in the Internet and its periphery. It aims to "provide for the rights of persons regarding unsolicited electronic communications and automated decision making; to regulate the flow of personal information access the borders of the Republic."\cite{Legislature:1}\\
+\hline
+CS & Computer Science, as in the academic discipline of Computer Science.\\
+\hline
+\end{tabular}
+
 \subsection{References}
+\bibliographystyle{IEEEtran}
 \bibliography{references}
-\bibliographystyle{agsm}
 %%IEEE. IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications. IEEE Computer Society, 1998
 %%http://www.cse.msu.edu/~chengb/RE-491/Papers/SRSExample-webapp.doc
 %%TripleParity docs
@@ -82,9 +110,6 @@ Both sections of the document describe the same software product in its entirety
 
 \section{Overall Description}
 \subsection{System Environment}
-\section{Domain Model}
-
- \includegraphics[width=1.0\textwidth]{../../images/Botic_Domain_Diagram.jpg}
  
 \section{User Characteristics}
 \subsection{Customer}
