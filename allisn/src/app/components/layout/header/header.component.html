@@ -19,13 +19,24 @@
         <div style="display: table; width:20%; height: 120px; text-align:center;float: right;">
           <div style="display: table-row;"></div>  
           <div style="display: table-row; width: 100%; vertical-align: middle; height: 40px;">
-            <input type="button" value="Sign In" class="login" onclick="openForm()" style="width:120px;" />
+            <!--this must be shown only when not logged in-->
+            <div *ngIf="!auth.isLoggedIn">
+              <input type="button" value="Sign In" class="login" (click)="auth.login()" style="width:120px;" />
+            </div>
+
+            <!--this must be shown only when logged in-->
+            <div *ngIf="auth.isLoggedIn">
+              <input type="button" value="Sign Out" class="login" (click)="logout()" style="width:120px;" />
+            </div>
           </div>
           <div style="display: table-row;"></div>
         </div>
     </div>
 
-    <div style="width:100%; display:table-row;" id="subtitle">
-      <p style="font-family:'Helvetica';color:#000;text-align:center">For any customer related queries, please make use of the chat function.</p>
+    <div style="width:100%; display:table-row; text-align:center;" id="subtitle">
+      <p id="message"style="font-family:'Helvetica';color:#000;text-align:center">For any customer related queries, please make use of the chat function.</p>
+      <div *ngIf="auth.isLoggedIn">
+        Hello, <u>{{auth.userProfile?.name}}</u>. Welcome to Botic! Please submit your query.
+      </div>
     </div> 
 </div>
