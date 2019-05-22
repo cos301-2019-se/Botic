@@ -6,7 +6,7 @@ import { badWord } from './badWord';
 import { BADWORDS } from './mock-badWords';
 
 
-
+//Committable Change
 @Injectable({
   providedIn: 'root'
 })
@@ -20,4 +20,3 @@ export class TextScraperService {
   }
 
 }
-
