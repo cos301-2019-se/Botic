@@ -26,11 +26,11 @@ export class TextScraperService {
 
     var fd = new FormData();
 
-    fd.append("body", "Hi my name is Gareth and my surname is cucaracha and my password is america123penis");
+    fd.append("data", "Hi my name is Gareth and my surname is cucaracha and my password is america123penis");
 
-    this.http.post(this.apiURL, fd).subscribe(data => this.log("Dayta: " + data));
+    this.http.post(this.apiURL, fd).subscribe(data => console.log(data));
 
-    //this.messageService.add("TextScraperService: fetched badWords");
+    this.log("TextScraperService: fetched badWords");
 		return of(BADWORDS);
   }
 
