@@ -14,16 +14,20 @@
 
 \usepackage{mathpazo}
 
-%%Font
+%%Font and Numbers
 \renewcommand*\rmdefault{dayrom}
 \usepackage[T1]{fontenc}
 \normalfont
+\usepackage{enumitem}
 
 %%Packages for Referrences
 \usepackage{url}
 \usepackage{etoolbox}
 \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 \patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
+
+%%Group Comments
+\usepackage{verbatim}
 
 \begin{document}
  \renewcommand{\familydefault}{\sfdefault}
@@ -92,7 +96,19 @@ Historic Data & Data that is collected and stored over some considerable period 
 \hline
 POPI Act & Protection of Personal Information Act; an South African piece of legislature aimed at protecting the right of its citizens to privacy, especially in the Internet and its periphery. It aims to "provide for the rights of persons regarding unsolicited electronic communications and automated decision making; to regulate the flow of personal information access the borders of the Republic."\cite{Legislature:1}\\
 \hline
+Ticket System & An online platform, used by a business, made for processing customer queries and issues on products, services and the like. \\
+\hline
+Personal Information & Sensative and identifying information; the likes of which permission should be asked before sharing or processing. \\
+\hline
 CS & Computer Science, as in the academic discipline of Computer Science.\\
+\hline
+Scrub & Detect private information and highlight it according to severity. \\
+\hline
+SPA & Single Page Application; a web application that dynamically changes a signle page to display all of its contents. \\
+\hline
+Heroku & Deployment platform.\\
+\hline
+Docker & Containerization platform*. \\
 \hline
 \end{tabular}
 
@@ -106,86 +122,164 @@ CS & Computer Science, as in the academic discipline of Computer Science.\\
 \subsection{Overview of Document}
 The next chapter, the Overall Description section, of this document gives an overview of the functionality of the project. It describes the 'informal' requirements and is used to establish a context for technical requirements specification in the next chapter.\par
 The third chapter, the Requirement Specification section, of this document is written especially for the developers and describes in terns the details of the functionality of the product.\par
-Both sections of the document describe the same software product in its entirety, but are intended for different audiences and thus use different languages, but seeing as virtually everyone reading this document has a CS background, the main focus ought to be the third section and it is given priority as a result.
+Both sections of the document describe the same software product in its entirety, but are intended for different audiences and thus use different languages, but seeing as virtually everyone reading this document has a CS background, the main focus ought to be the third section and it is given priority as a result.\par
+This document is structured according to the IEEE 830-1998 SRS Standard\cite{Standard:1}, as recommended by:\cite{Book:1}.
 
 \section{Overall Description}
-\subsection{System Environment}
+\subsection{Product Perspective}
  
-\section{User Characteristics}
-\subsection{Customer}
+This system was originally meant to be used in an already existing customer support ticketing system, or ticket system in short. This is to say that the ticketbot- or rather, chatbot, was meant to interface with the ticket system and also be trained with the ticket system's historic data without the risk of exposing customer personal information.\par
+
+This is system is meant to process a ticket system's messages or tickets, let the users know if they are exposing personal information, and respond intelligently to the messages otherwise divert the queries to a client representative if no sufficient response can be found.\par
+
+However, for the purposes of this project, we will use a simple SPA to mimick the ticketing system.
+
+\subsubsection{System Interfaces}
+
+The ticket system interfaces with the message scrubber component by communicating to through the message scrubber's API endpoint. The ticket system sends individual words to the message scrubber which returns the severity of word-- the severity is meant to indicate the critical nature of the information revealed e.g. a password can be given the highest severity. This is done whilst the user is typing their message, and the words are highlighted accordingly in their parent field.\par
+
+The ticket system also interfaces with the chatbot component by communicating through its API endpoint as well. This is when the ticket system sends scrubbed information to the chatbot to gather a response. Once a call is made, the ticket system is sent a reponse through the same API endpoint it called.
+
+\subsubsection{User Interfaces}
+
+The user interface, which is ultimately the chatbot ticket interface, is meant to be a SPA-- Single Page Application. This should be made available online in a manner that supports all major web browsers.
+
+%%Discuss following Google's Material Design with the group
+
+\subsubsection{Hardware Interfaces}
+
+Each subsystem will be containerized into a Docker container, which in and of themselves use Linux 64-bit architecture. 
+Ports will be mapped to port 80; this is the standard port for API's and is the port that is exposed on our deployment platform, Heroku.
+
+%%\subsubsection{Software Interfaces}
+%%Include snapshots of the packages used in the frontend's packages.json, and go on like that with each subsystem, including
+%%specifying how all those subsystems interacted with each other.
+
+%%\subsubsection{Communications Interfaces}
+%% SSL, HTTP, et cetera
+
+%%\subsubsection{Memory Constraints} characteristics and limits on primary and secondary memory
+%%\subsubsection{Operations} mention backup and recovery operations et cetera
+%%\subsubsection{Site Adaptation Requirements} mention dev and production modes
+
+\subsection{Product Functions}%%Functional Requirements
+
+The Botic system consists of the frontend, AI backend which includes the chatbot API, message scrubber API, the classifier API and their neural networks. The frontend is a Single Page Application which houses the main user interface of the system. The Chatbot API is responsible for recieving messages and returning responses.\par
+
+The Message Scrubber API checks whether or not information provided to it is private and if so, determines the severity of it. The neural networks are trained using Machine Learning and provide the system with its intelligences-privacy classification, responses to queries and queries classification.
+
+%%Use a component diagram to illustrate this point
+\subsubsection{Information Scraper}
+\begin{enumerate}[label*=R1.\arabic*.]
+    \item The system must be able to read in a string of information and identify personally identifying information.
+    \item The system must be able to warn a user if they have entered identifying information. 
+    \item The system must be able to distinguish between type and severity of identifying information entered.
+    \item The system front-end must be contained in a portable web component.
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+ 	 \includegraphics[width=1.0\textwidth]{../../images/Information_Scraper_UCD.jpg}
+	\caption{UML Use Case of the Information Scraper}
+\end{figure}
+
+\subsubsection{AI Chatbot}
+\begin{enumerate}[label=R2.\arabic*.]
+    \item The system chatbot must be able to process user input and provide an appropriate response.
+    \item The system chatbot must be able to read in and recognise a user query and attempt to answer it.
+    \begin{enumerate}[label*=\arabic*.]
+        \item The system chatbot should attempt to answer a query if the bot is able to recognise user it.
+        \item The system chatbot should send the query to a human if the bot is unable to recognise user query.
+        \item The system chatbot should use a text recognition API to understand the input.
+    \end{enumerate}
+    \item The system chatbot must be able to gauge its own ability to respond to a query.
+    \item The system chatbot must be be able to provide appropriate responses to any query that it can solve.
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+ 	 \includegraphics[width=1.0\textwidth]{../../images/AI_Chatbot_UCD.jpg}
+	\caption{UML Use Case of the AI Chatbot}
+\end{figure}
+
+\subsubsection{AI Backend}
+\begin{enumerate}[label=R3.\arabic*.]
+    \item The system must host and server the AI Chatbot and Scraper respectively
+    \item The system must provide the library of responses that the AI has at its disposal.
+    \item The system must train on new and historic information to learn how to identify queries
+    \item The system  must train on new and historic information to learn how to identify personally identifying information.
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+ 	 \includegraphics[width=1.0\textwidth]{../../images/AI_Backend_UCD.jpg}
+	\caption{UML Use Case of the AI Backend}
+\end{figure}
+
+\subsection{User Characteristics}
+
+\subsubsection{Customer}
 The customer will be submitting information to the system in order to deal with account related queries and, in doing so, may unintentionally submit private/sensitive information that could lead to a breach of confidentiality. Any information sent through by the customer will be sanitized by the system and cleaned up before it is transmitted.
-\subsection{Customer Support Representative}
+
+\subsubsection{Customer Support Representative}
 This user will be notified when the automated system is unable to interpret the customer's request and said request will be forwarded. The user will have the ability to respond with the result, whereby the system will sanitize the data once more and send it through to the customer.
 
-\section{Functional Requirements}
-\subsection{Information Scraper}
-\begin{enumerate}
-    \item R1. System must be able to read in a string of information and identify personally identifying information.
-    \item R2. System must be able to warn a user if they have entered identifying information. 
-    \item R3. System must be able to distinguish between type and severity of identifying information entered.
-    \item R4. System front-end must be contained in a portable web component.
-\end{enumerate}
- \includegraphics[width=1.0\textwidth]{../../images/Information_Scraper_UCD.jpg}
-\subsection{AI Chatbot}
-\begin{enumerate}
-    \item R5. Chatbot must be able to process user input and provide an appropriate response.
-    \item R6. Chatbot must be able to read in and recognise a user query and attempt to answer it.
-    \begin{enumerate}
-        \item R6.1 If the bot is able to recognise user query, it should attempt to answer it.
-        \item R6.2 If the bot is unable to recognise user query, it should send the query to a human.
-        \item R6.3 The bot should use a text recognition API to understand the input.
-    \end{enumerate}
-    \item R7. Chatbot must be able to gauge its own ability to respond to a query.
-    \item R8. Chatbot must be be able to provide appropriate responses to any query that it can solve.
-\end{enumerate}
-\includegraphics[width=1.0\textwidth]{../../images/AI_Chatbot_UCD.jpg}
-\subsection{AI Backend}
-\begin{enumerate}
-    \item R9. Backend must host and server the AI Chatbot and Scraper respectively
-    \item R10. Backend must provide the library of responses that the AI has at its disposal.
-    \item R11. Backend must train on new and historic information to learn how to identify queries
-    \item R12. Backend must train on new and historic information to learn how to identify personally identifying information.
-\end{enumerate}
-\includegraphics[width=1.0\textwidth]{../../images/AI_Backend_UCD.jpg}
-\section{Non-Functional Requirements}
+%%\subsection{Constraints}
+%%\subsection{Assumptions and Dependencies}
+\section{Specific Requirements}
+%\subsection{External Interfaces}
+%\subsection{Functions}
+%\subsection{Performance Requirements}
+%\subsection{Design Constraints}
+%\subsubsection{Standards Compliance}
+\subsection{Software System Attributes}%%Non-Functional Requirements (limited to 6)
+
 The non-functional requirements below will be listed by priority.
-\subsection{Availability}
+
+\subsubsection{Availability}
 \begin{enumerate}
     \item The system has to have high availability to handle customer queries and issues since it is meant to augment a customer support system, i.e. a ticket system.
     \item The system should be available at least 99 percent of the time, not considering network errors.
 \end{enumerate}
 
-\subsection{Performance}
+%%\subsubsection{Reliability}
+
+\subsubsection{Performance}
 \begin{enumerate}
     \item The system must answer queries as quickly and accurately as it can or divert the query to the relevant customer support specialist in good time. 
 \end{enumerate}
 
-\subsection{Scalability}
+\subsubsection{Scalability}
 \begin{enumerate}
     \item The system should be able to scale appropriately to accommodate additional/growing customer queries, especially during peak work hours; it would be useful if the resources scaled down as well during “off peak” hours.
     \item We have chosen to deploy our system to Docker, it is used in part to allow for efficient and easy scaling. More resources can be allocated to our system dynamically - on demand.
 \end{enumerate}
 
-\subsection{Maintainability}
+\subsubsection{Maintainability}
 \begin{enumerate}
     \item The system structure will be modular to adhere to the concept of low coupling and high cohesion. This would help to make it maintainable since updated systems result in localized changes instead of changes everywhere throughout the system.
     \item We will create a coding standards document which we will also adhere to throughout the system in order to increase readability.
 \end{enumerate}
 
-\subsection{Security}
+\subsubsection{Security}
 \begin{enumerate}
     \item This pertains to ensuring the [authentication=appropriate word] of customers, to make sure that responses are sent to the correct users.
     \item A log-in system would have to be implemented and private customer information would have to be secured i.e information that would used for authentication purposes like E-mail addresses.
     \item We will be using OAuth for authentication purposes.
-
 \end{enumerate}
 
-\section{Architectural Design}
-Our system is an interactive system. We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural tactic/style is in line with making sure that the entire system has highly available. The first layer, has an MVC architecture within.
+%%\subsubsection{Portability}
+\subsection{Organizing the Specific Requirements}
 
- \includegraphics[width=1.0\textwidth]{../../images/Botic_Simplified_Architectural_Design.jpg}
+%%\subsubsection{System Mode}
+%%\subsubsection{User Class}
+%%\subsubsection{Objects}
+%%\subsubsection{Feature}
+%%\subsubsection{Stimulus}
+%%\subsubsection{Response}
+%%\subsubsection{Functional Hierarchy}
 
-\section{Traceability Matrix}
+\subsubsection{Traceability Matrix}
 \begin{center}
  \begin{tabular}{||c | c | c | c ||} 
  \hline
@@ -224,5 +318,15 @@ Our system is an interactive system. We will be using a 3-tier architectural sty
 
 \end{tabular}
 \end{center}
+
+%%\subsection{Additional Comments}
+%%\section{Support Information}
+%%\subsection{Table of Contents and Index}
+%%\subsection{Appendixes}
+
+\section{Architectural Design}
+Our system is an interactive system. We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural tactic/style is in line with making sure that the entire system has highly available. The first layer, has an MVC architecture within.
+
+\includegraphics[width=1.0\textwidth]{../../images/Botic_Simplified_Architectural_Design.jpg}
 
 \end{document}
