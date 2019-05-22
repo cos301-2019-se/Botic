@@ -8,6 +8,7 @@ import { TextScraperComponent } from './text-scraper/text-scraper.component';
 import { SafePipe } from './safe.pipe';
 
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { TextInputHighlightModule } from 'angular-text-input-highlight';
 import { BotChatComponent } from './bot-chat/bot-chat.component';
@@ -36,7 +37,8 @@ import { MessagesComponent } from './messages/messages.component';
     BrowserModule,
     FormsModule,
     TextInputHighlightModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
