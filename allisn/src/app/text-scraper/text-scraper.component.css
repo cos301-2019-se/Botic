@@ -1,9 +1,19 @@
+#preview {
+  margin-left: 40px;
+}
+
 textarea {
-    margin: 0;
+    margin-left: 40px;
+    margin-right: 40px;
     border-radius: 0;
+    width: 1200px;
 
     color: #444; /* or whatever */
     background-color: transparent;
+}
+
+#btnSend {
+  margin-left: 40px;
 }
 
 .backdrop {
@@ -23,4 +33,56 @@ mark {
 
 .backdrop {
     background-color: #fff; /* or whatever */
+}
+
+/* CHAT */
+
+.chat {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.chat li {
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body {
+	margin-left: 60px;
+}
+
+.chat li.right .chat-body {
+	margin-right: 60px;
+}
+
+.chat li .chat-body p {
+	margin: 0;
+	color: #777777;
+}
+
+.panel .slidedown .glyphicon,
+.chat .glyphicon {
+	margin-right: 5px;
+}
+
+.panel-body {
+	overflow-y: scroll;
+	height: 250px;
+}
+
+ ::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color: #F5F5F5;
+}
+
+ ::-webkit-scrollbar {
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+ ::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	background-color: #555;
 }
