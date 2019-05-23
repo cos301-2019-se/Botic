@@ -16,7 +16,7 @@ import { MessageService } from './message.service';
 })
 
 export class TextScraperService {
-  private apiURL = 'https://botic-ai-ms.herokuapp.com';
+  private apiURL = 'https://botic-ai-ms.herokuapp.com/scrub';
   private testingURL1 = 'https://reqres.in/api/register';
 
 
