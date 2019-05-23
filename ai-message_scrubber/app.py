@@ -29,6 +29,7 @@ def scrub():
 			response = formatReturn(response)
 		response = jsonify(response)
 		response.status_code = 202
+		response.headers.add('Access-Control-Allow-Origin', '*')
 		return response
 
 #@return: a string containing word indexes(as if the string was an array) which reveal private info 
