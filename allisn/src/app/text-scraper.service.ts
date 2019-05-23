@@ -60,7 +60,7 @@ export class TextScraperService {
     var fd = new FormData();
     fd.append("data", "Hi my name is Gareth and my surname is cucaracha and my password is america123.");
 
-    this.http.post(this.apiURL, fd, httpOptions).subscribe(
+    this.http.post(this.apiURL, fd).subscribe(
       data => console.log("success: ", data),
       error => console.log("api request failed", error)
     );
