@@ -30,30 +30,30 @@
 \usepackage{verbatim}
 
 \begin{document}
- \renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\familydefault}{\sfdefault}
 \begin{titlepage}
 	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-    \begin{center}
-            
-    	\textsc{\LARGE Alabama Liquid Snake}\\[0.8cm]
-    	\textsc{\Large University of Pretoria}\\[0.5cm]
-    	\textsc{\large Epi-Use}\\[0.5cm]
-    
-    	\HRule\\[0.4cm]
-    	
-    	{\huge\bfseries Botic - Privacy aware chatbot}\\[0.2cm]
-    	
-    	{\huge System Requirements Specification}\\[0.2cm]
-
-    	\HRule\\[0.5cm]
-
-	    \textsc{Justin Grenfell} - u16028440 \\[0cm]
-	    \textsc{Peter Msimanga} - u13042352 \\[0cm]
-	    \textsc{Alicia Mulder} - u14283124 \\[0cm]
-	    \textsc{Kyle Gaunt} - u15330967 \\[0cm]
-	    \textsc{Lesego Mabe} - u15055214 \\[0cm]
-    
-    \end{center}
+	\begin{center}
+		            
+		\textsc{\LARGE Alabama Liquid Snake}\\[0.8cm]
+		\textsc{\Large University of Pretoria}\\[0.5cm]
+		\textsc{\large Epi-Use}\\[0.5cm]
+		    
+		\HRule\\[0.4cm]
+		    	
+		{\huge\bfseries Botic - Privacy aware chatbot}\\[0.2cm]
+		    	
+		{\huge System Requirements Specification}\\[0.2cm]
+		
+		\HRule\\[0.5cm]
+		
+		\textsc{Justin Grenfell} - u16028440 \\[0cm]
+		\textsc{Peter Msimanga} - u13042352 \\[0cm]
+		\textsc{Alicia Mulder} - u14283124 \\[0cm]
+		\textsc{Kyle Gaunt} - u15330967 \\[0cm]
+		\textsc{Lesego Mabe} - u15055214 \\[0cm]
+		    
+	\end{center}
 \end{titlepage}
 \tableofcontents
 \newpage
@@ -80,36 +80,36 @@ Botic will be the front-line for any company that provides customer service feed
 
 \begin{figure}[H]
 	\centering
- 	\includegraphics[width=1.0\textwidth]{../../images/Botic_Domain_Diagram.png}
+	\includegraphics[width=1.0\textwidth]{../../images/Botic_Domain_Diagram.png}
 	\caption{UML Domain Model of the Botic System}
 \end{figure}
 
 \subsection{Definitions, acronyms, and abbreviations}
 
 \begin{tabular}{ |p{2cm}|p{14.7cm}| }
-\hline
-Chatbot & A program that is designed to simulate a conversation as if it were a human, in order to assist one who queries with some task or inquiry. In the context of this project, the chatbot will be used to assit customers in a ticket system (customer service system). \\
-\hline
-AI & Artificial Intelligence;  this refers to programmed intelligence, or rather, intelligence that is demostrated by computers usually to mimick human intelligence in some specific area or even in general terms.\\
-\hline
-Historic Data & Data that is collected and stored over some considerable period of it time, especially, in the context of this project, with the purpose of being used to train a chatbot. \\
-\hline
-POPI Act & Protection of Personal Information Act; an South African piece of legislature aimed at protecting the right of its citizens to privacy, especially in the Internet and its periphery. It aims to "provide for the rights of persons regarding unsolicited electronic communications and automated decision making; to regulate the flow of personal information access the borders of the Republic."\cite{Legislature:1}\\
-\hline
-Ticket System & An online platform, used by a business, made for processing customer queries and issues on products, services and the like. \\
-\hline
-Personal Information & Sensative and identifying information; the likes of which permission should be asked before sharing or processing. \\
-\hline
-CS & Computer Science, as in the academic discipline of Computer Science.\\
-\hline
-Scrub & Detect private information and highlight it according to severity. \\
-\hline
-SPA & Single Page Application; a web application that dynamically changes a signle page to display all of its contents. \\
-\hline
-Heroku & Deployment platform.\\
-\hline
-Docker & Containerization platform*. \\
-\hline
+	\hline
+	Chatbot              & A program that is designed to simulate a conversation as if it were a human, in order to assist one who queries with some task or inquiry. In the context of this project, the chatbot will be used to assit customers in a ticket system (customer service system).                                                                                                                                                     \\
+	\hline
+	AI                   & Artificial Intelligence;  this refers to programmed intelligence, or rather, intelligence that is demostrated by computers usually to mimick human intelligence in some specific area or even in general terms.                                                                                                                                                                                                          \\
+	\hline
+	Historic Data        & Data that is collected and stored over some considerable period of it time, especially, in the context of this project, with the purpose of being used to train a chatbot.                                                                                                                                                                                                                                               \\
+	\hline
+	POPI Act             & Protection of Personal Information Act; an South African piece of legislature aimed at protecting the right of its citizens to privacy, especially in the Internet and its periphery. It aims to "provide for the rights of persons regarding unsolicited electronic communications and automated decision making; to regulate the flow of personal information access the borders of the Republic."\cite{Legislature:1} \\
+	\hline
+	Ticket System        & An online platform, used by a business, made for processing customer queries and issues on products, services and the like.                                                                                                                                                                                                                                                                                              \\
+	\hline
+	Personal Information & Sensative and identifying information; the likes of which permission should be asked before sharing or processing.                                                                                                                                                                                                                                                                                                       \\
+	\hline
+	CS                   & Computer Science, as in the academic discipline of Computer Science.                                                                                                                                                                                                                                                                                                                                                     \\
+	\hline
+	Scrub                & Detect private information and highlight it according to severity.                                                                                                                                                                                                                                                                                                                                                       \\
+	\hline
+	SPA                  & Single Page Application; a web application that dynamically changes a signle page to display all of its contents.                                                                                                                                                                                                                                                                                                        \\
+	\hline
+	Heroku               & Deployment platform.                                                                                                                                                                                                                                                                                                                                                                                                     \\
+	\hline
+	Docker               & Containerization platform*.                                                                                                                                                                                                                                                                                                                                                                                              \\
+	\hline
 \end{tabular}
 
 \subsection{References}
@@ -150,6 +150,7 @@ The user interface, which is ultimately the chatbot ticket interface, is meant t
 
 Each subsystem will be containerized into a Docker container, which in and of themselves use Linux 64-bit architecture. 
 Ports will be mapped to port 80; this is the standard port for API's and is the port that is exposed on our deployment platform, Heroku.
+%%Place the Portmapping Diagram Here, and the Docker container one as well
 
 %%\subsubsection{Software Interfaces}
 %%Include snapshots of the packages used in the frontend's packages.json, and go on like that with each subsystem, including
@@ -169,52 +170,8 @@ The Botic system consists of the frontend, AI backend which includes the chatbot
 The Message Scrubber API checks whether or not information provided to it is private and if so, determines the severity of it. The neural networks are trained using Machine Learning and provide the system with its intelligences-privacy classification, responses to queries and queries classification.
 
 %%Use a component diagram to illustrate this point
-\subsubsection{Information Scraper}
-\begin{enumerate}[label*=R1.\arabic*.]
-    \item The system must be able to read in a string of information and identify personally identifying information.
-    \item The system must be able to warn a user if they have entered identifying information. 
-    \item The system must be able to distinguish between type and severity of identifying information entered.
-    \item The system front-end must be contained in a portable web component.
-\end{enumerate}
-
-\begin{figure}[H]
-	\centering
- 	 \includegraphics[width=1.0\textwidth]{../../images/Information_Scraper_UCD.jpg}
-	\caption{UML Use Case of the Information Scraper}
-\end{figure}
-
-\subsubsection{AI Chatbot}
-\begin{enumerate}[label=R2.\arabic*.]
-    \item The system chatbot must be able to process user input and provide an appropriate response.
-    \item The system chatbot must be able to read in and recognise a user query and attempt to answer it.
-    \begin{enumerate}[label*=\arabic*.]
-        \item The system chatbot should attempt to answer a query if the bot is able to recognise user it.
-        \item The system chatbot should send the query to a human if the bot is unable to recognise user query.
-        \item The system chatbot should use a text recognition API to understand the input.
-    \end{enumerate}
-    \item The system chatbot must be able to gauge its own ability to respond to a query.
-    \item The system chatbot must be be able to provide appropriate responses to any query that it can solve.
-\end{enumerate}
-
-\begin{figure}[H]
-	\centering
- 	 \includegraphics[width=1.0\textwidth]{../../images/AI_Chatbot_UCD.jpg}
-	\caption{UML Use Case of the AI Chatbot}
-\end{figure}
-
-\subsubsection{AI Backend}
-\begin{enumerate}[label=R3.\arabic*.]
-    \item The system must host and server the AI Chatbot and Scraper respectively
-    \item The system must provide the library of responses that the AI has at its disposal.
-    \item The system must train on new and historic information to learn how to identify queries
-    \item The system  must train on new and historic information to learn how to identify personally identifying information.
-\end{enumerate}
-
-\begin{figure}[H]
-	\centering
- 	 \includegraphics[width=1.0\textwidth]{../../images/AI_Backend_UCD.jpg}
-	\caption{UML Use Case of the AI Backend}
-\end{figure}
+%%Below this you should have use case diagrams and block diagrams for the architecture
+\subsubsection{Subsystems}
 
 \subsection{User Characteristics}
 
@@ -228,7 +185,100 @@ This user will be notified when the automated system is unable to interpret the 
 %%\subsection{Assumptions and Dependencies}
 \section{Specific Requirements}
 %\subsection{External Interfaces}
-%\subsection{Functions}
+
+\subsection{Functional Requirements} %used to be \subsection{Function}
+
+\subsubsection{Authentication}
+\begin{enumerate}[label=R1.\arabic*.]
+	\item The system must be able to authenticate users and authorize them to access system features.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must be able to authenticate users using Auth0 and recieve an access token.
+		\item The system must be able to identify a users' Email after being authenticated.
+		\item The system must be able to check access tokens to see if they have correct permissions.
+	\end{enumerate}
+	\item The system must be able to deny users who haven't been authenticated to access system features
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must be able to check login status and access tokens.
+		\item The system must be able to check permissions within access tokens.
+	\end{enumerate}
+	\item The system must be able to allow new users to register for user profiles for authentication.
+	\item The system must be able to allow users to update their password.
+\end{enumerate}
+%%\subsubsection{UI}
+
+\subsubsection{Information Scraper}
+\begin{enumerate}[label=R2.\arabic*.]
+	\item The system must be able to identify personally identifying information.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must be able to read in strings to identify personally identifying information.
+		\item The system must be able to use a neural network to identify personally identifying information.
+		\item The system must be able to attach a severity to the personally identifying information.
+	\end{enumerate}
+	\item The system must be able to warn a user if they have entered identifying information.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must be able to highlight personally identifying information according to severity index.
+		\item The system must be able to prevent the user from sending personally identifying information.
+	\end{enumerate}
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/Information_Scraper_UCD.jpg}
+	\caption{UML Use Case of the Information Scraper}
+\end{figure}
+
+\subsubsection{Chatbot/Ticketbot}
+\begin{enumerate}[label=R3.\arabic*.]
+	\item The system must be able to process user queries to provide an appropriate response.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must be able to allow users to send a message to the chatbot.
+		\item The system must be able to use the QueryClassifier to to classify the user query.
+	\end{enumerate}
+	\item The system must be able to attempt to answer processed user queries/tickets.
+	      \begin{enumerate}[label*=\arabic*.]
+	      	\item The system must be able to use the classification of the query to obtain a response index.
+		\item The system must be able to send the query to a human if it cannot obtain a response index.
+		\item The system must be able to obtain a response using a response index from the Database Manager
+	      \end{enumerate}
+	\item The system must be able to use a text recognition API to understand the query.
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/AI_Chatbot_UCD.jpg}
+	\caption{UML Use Case of the Chatbot}
+\end{figure}
+
+\subsubsection{AI Backend}
+\begin{enumerate}[label=R4.\arabic*.]
+	\item The system must host and server the AI Chatbot and Scraper respectively
+	\item The system must provide the library of responses that the AI has at its disposal.
+	\item The system must train on new and historic information to learn how to identify queries
+	\item The system  must train on new and historic information to learn how to identify personally identifying information.
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/AI_Backend_UCD.jpg}
+	\caption{UML Use Case of the AI Backend}
+\end{figure}
+
+\subsubsection{Database Manager}
+\begin{enumerate}[label=R5.\arabic*.]
+	\item The system must allow other subsystems to persist information.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must store information into the system's database.
+	\end{enumerate}
+	\item The system must allow other subsystems to update information.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must edit information in the system's database.
+	\end{enumerate}
+	\item The system allow other subsystem to delete information.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must delete information in the system's database.
+	\end{enumerate}
+\end{enumerate}
+
 %\subsection{Performance Requirements}
 %\subsection{Design Constraints}
 %\subsubsection{Standards Compliance}
@@ -238,34 +288,34 @@ The non-functional requirements below will be listed by priority.
 
 \subsubsection{Availability}
 \begin{enumerate}
-    \item The system has to have high availability to handle customer queries and issues since it is meant to augment a customer support system, i.e. a ticket system.
-    \item The system should be available at least 99 percent of the time, not considering network errors.
+	\item The system has to have high availability to handle customer queries and issues since it is meant to augment a customer support system, i.e. a ticket system.
+	\item The system should be available at least 99 percent of the time, not considering network errors.
 \end{enumerate}
 
 %%\subsubsection{Reliability}
 
 \subsubsection{Performance}
 \begin{enumerate}
-    \item The system must answer queries as quickly and accurately as it can or divert the query to the relevant customer support specialist in good time. 
+	\item The system must answer queries as quickly and accurately as it can or divert the query to the relevant customer support specialist in good time. 
 \end{enumerate}
 
 \subsubsection{Scalability}
 \begin{enumerate}
-    \item The system should be able to scale appropriately to accommodate additional/growing customer queries, especially during peak work hours; it would be useful if the resources scaled down as well during “off peak” hours.
-    \item We have chosen to deploy our system to Docker, it is used in part to allow for efficient and easy scaling. More resources can be allocated to our system dynamically - on demand.
+	\item The system should be able to scale appropriately to accommodate additional/growing customer queries, especially during peak work hours; it would be useful if the resources scaled down as well during “off peak” hours.
+	\item We have chosen to deploy our system to Docker, it is used in part to allow for efficient and easy scaling. More resources can be allocated to our system dynamically - on demand.
 \end{enumerate}
 
 \subsubsection{Maintainability}
 \begin{enumerate}
-    \item The system structure will be modular to adhere to the concept of low coupling and high cohesion. This would help to make it maintainable since updated systems result in localized changes instead of changes everywhere throughout the system.
-    \item We will create a coding standards document which we will also adhere to throughout the system in order to increase readability.
+	\item The system structure will be modular to adhere to the concept of low coupling and high cohesion. This would help to make it maintainable since updated systems result in localized changes instead of changes everywhere throughout the system.
+	\item We will create a coding standards document which we will also adhere to throughout the system in order to increase readability.
 \end{enumerate}
 
 \subsubsection{Security}
 \begin{enumerate}
-    \item This pertains to ensuring the [authentication=appropriate word] of customers, to make sure that responses are sent to the correct users.
-    \item A log-in system would have to be implemented and private customer information would have to be secured i.e information that would used for authentication purposes like E-mail addresses.
-    \item We will be using OAuth for authentication purposes.
+	\item This pertains to ensuring the [authentication=appropriate word] of customers, to make sure that responses are sent to the correct users.
+	\item A log-in system would have to be implemented and private customer information would have to be secured i.e information that would used for authentication purposes like E-mail addresses.
+	\item We will be using OAuth for authentication purposes.
 \end{enumerate}
 
 %%\subsubsection{Portability}
@@ -281,42 +331,42 @@ The non-functional requirements below will be listed by priority.
 
 \subsubsection{Traceability Matrix}
 \begin{center}
- \begin{tabular}{||c | c | c | c ||} 
- \hline
-  & Information Scraper & AI Chatbot & AI Backend \\
- \hline\hline
- R1 & X &  &  \\
- \hline
- R2 & X &  &  \\
- \hline
- R3 & X &  &  \\
- \hline
- R4 & X &  &  \\
- \hline
- R5 &  & X &  \\
- \hline
- R6 &  & X &  \\
- \hline
- R6.1 &  & X &  \\
- \hline
- R6.2 &  & X &  \\
- \hline
- R6.3 &  & X &  \\
- \hline
- R7 &  & X &  \\
- \hline
- R8 &  & X &  \\
- \hline
- R9 &  &  & X \\
- \hline
- R10 &  &  & X \\
- \hline
- R11 &  &  & X \\
- \hline
- R12 &  &  & X \\
- \hline
-
-\end{tabular}
+	\begin{tabular}{||c | c | c | c ||} 
+		\hline
+		     & Information Scraper & AI Chatbot & AI Backend \\
+		\hline\hline
+		R1   & X                   &            &            \\
+		\hline
+		R2   & X                   &            &            \\
+		\hline
+		R3   & X                   &            &            \\
+		\hline
+		R4   & X                   &            &            \\
+		\hline
+		R5   &                     & X          &            \\
+		\hline
+		R6   &                     & X          &            \\
+		\hline
+		R6.1 &                     & X          &            \\
+		\hline
+		R6.2 &                     & X          &            \\
+		\hline
+		R6.3 &                     & X          &            \\
+		\hline
+		R7   &                     & X          &            \\
+		\hline
+		R8   &                     & X          &            \\
+		\hline
+		R9   &                     &            & X          \\
+		\hline
+		R10  &                     &            & X          \\
+		\hline
+		R11  &                     &            & X          \\
+		\hline
+		R12  &                     &            & X          \\
+		\hline
+		
+	\end{tabular}
 \end{center}
 
 %%\subsection{Additional Comments}
