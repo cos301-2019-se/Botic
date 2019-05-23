@@ -110,6 +110,9 @@ Botic will be the front-line for any company that provides customer service feed
 	\hline
 	Docker               & Containerization platform*.                                                                                                                                                                                                                                                                                                                                                                                              \\
 	\hline
+	Auth0		    &Authorization server; third party software/service; provides authorization and authentication as a service.*
+\\
+	\hline
 \end{tabular}
 
 \subsection{References}
@@ -163,7 +166,7 @@ Ports will be mapped to port 80; this is the standard port for API's and is the 
 %%\subsubsection{Operations} mention backup and recovery operations et cetera
 %%\subsubsection{Site Adaptation Requirements} mention dev and production modes
 
-\subsection{Product Functions}%%Functional Requirements
+\subsection{Product Functions}%%Functional Requirements;
 
 The Botic system consists of the frontend, AI backend which includes the chatbot API, message scrubber API, the classifier API and their neural networks. The frontend is a Single Page Application which houses the main user interface of the system. The Chatbot API is responsible for recieving messages and returning responses.\par
 
@@ -171,7 +174,58 @@ The Message Scrubber API checks whether or not information provided to it is pri
 
 %%Use a component diagram to illustrate this point
 %%Below this you should have use case diagrams and block diagrams for the architecture
-\subsubsection{Subsystems}
+\subsubsection{Authentication}
+
+This subsystem is to be responsible for the authentication and the authorization of customers and customer representatives. This involves the creation and update of user profiles of the mentioned roles. Auth0 will be used as an Authorization server and will be configured to make us of the OAuth 2.0 authorization framework in order to provide us with enough flexibility to create different grants/permissions to easily authorize different users for different activities in the system.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/implicit-grant.png}
+	\caption{Auth0 Solution Diagram\cite{Website:1}}
+\end{figure}
+
+\begin{enumerate}
+	\item The frontend initiates the flow when the user clicks on the sign in button and redirects the browser to the Auth0 			/authroze endpoint so that the user can be authenticated.
+	\item Auth0 then authenticates the user. If the user is using one of the supported social logins, they will be shown a 			consent page where there are permissions, which will be given to our system- Botic, that a listed and they would have to 		give their consent for Botic, through Auth0, to use.
+	\item Auth0 then redirects to Botic with an Access Token in the hash fragment of the URI, which the authentication 			module consumes. The happens because Auth0 calls an endpoint on the Botic fronend which processes the token from the 	URI. Botic can now extract the token, and the user is logged in.\cite{Website:1}
+\end{enumerate}
+
+\subsubsection{Information Scraper}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/Information_Scraper_UCD.jpg}
+	\caption{UML Use Case of the Information Scraper}
+\end{figure}
+
+The Information Scraper, or Message Scrubber, is a subsystem that is responsible for identifying personally identifying information as the user types in their query. It uses the PrivateInfoClassifier to classify words given to it and to produce a severity index. It is called by an interface that is implemented as an Angular service in the Botic frontend. The API itself is implemented in Python and served using gunicorn. It is containerized using Docker to make it more portable, and also to make it possible to run it and other subsystems in the same infrastructure without much difficulty.
+
+\subsubsection{Chatbot/Ticketbot}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/AI_Chatbot_UCD.jpg}
+	\caption{UML Use Case of the Chatbot}
+\end{figure}
+
+The Chatbot or 'Ticketbot' is the subsystem that is responsible for taking in customer queries and answering those queries. The Chatbot consults a QueryClassifier with a query to classify it i.e. whether it is a password, configuration, or other query for example. The classification and the query are then used to find the best response for the query using a neural network of responses, which was initially trained using historical data. The Chatbot is implemented using Nodejs and it is also containerized, for the same reasons as the previous subsystem.
+
+\subsubsection{AI Training}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/AI_Backend_UCD.jpg}
+	\caption{UML Use Case of the AI Backend}
+\end{figure}
+
+The AI Training subsystem is responsible for training the PrivateInfoClassifier, the QueryClassifier and the Responses neural networks. This is done using historic data which belongs to the ticketing system.
+
+\subsubsection{Database Manager}
+
+This subsystem is responsible for managing persistance in the system. It is called when data needs to be stored, updated, and deleted. Each endpoint will require that the subsystem calling it, identify itself. We intend to have this API secured using JSON Web Tokens. It will be implemented using Java, which when correctly uses, tends to outperform Nodejs is speed\cite{Website:2}  and is a much more rebust language than that of NodeJs's JavaScript\cite{Website:2}. This language choice is also made with consideration to the data analytics what will come about when analyzing and processing logs and their data.
+%%It's also much easier to translate knowledge we learnt in COS226 for concurrency usage, than learn to do it with another
+%%language due to time constraints. All team members know how to implement concurrency using Java.
+%%Also, in terms of maintainability, using Java over time will result in a much faster and robust system.
 
 \subsection{User Characteristics}
 
@@ -221,12 +275,6 @@ This user will be notified when the automated system is unable to interpret the 
 	\end{enumerate}
 \end{enumerate}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{../../images/Information_Scraper_UCD.jpg}
-	\caption{UML Use Case of the Information Scraper}
-\end{figure}
-
 \subsubsection{Chatbot/Ticketbot}
 \begin{enumerate}[label=R3.\arabic*.]
 	\item The system must be able to process user queries to provide an appropriate response.
@@ -243,25 +291,13 @@ This user will be notified when the automated system is unable to interpret the 
 	\item The system must be able to use a text recognition API to understand the query.
 \end{enumerate}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{../../images/AI_Chatbot_UCD.jpg}
-	\caption{UML Use Case of the Chatbot}
-\end{figure}
-
-\subsubsection{AI Backend}
+\subsubsection{AI Training}
 \begin{enumerate}[label=R4.\arabic*.]
-	\item The system must host and server the AI Chatbot and Scraper respectively
-	\item The system must provide the library of responses that the AI has at its disposal.
-	\item The system must train on new and historic information to learn how to identify queries
-	\item The system  must train on new and historic information to learn how to identify personally identifying information.
+	%\item The system must host and server the AI Chatbot and Scraper respectively
+	%\item The system must provide the library of responses that the AI has at its disposal.
+	\item The system must be able to train on new and historic information to learn how to classify queries
+	\item The system must be able to train on new and historic information to learn how to classify personally identifying information.
 \end{enumerate}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{../../images/AI_Backend_UCD.jpg}
-	\caption{UML Use Case of the AI Backend}
-\end{figure}
 
 \subsubsection{Database Manager}
 \begin{enumerate}[label=R5.\arabic*.]
@@ -375,7 +411,7 @@ The non-functional requirements below will be listed by priority.
 %%\subsection{Appendixes}
 
 \section{Architectural Design}
-Our system is an interactive system. We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural tactic/style is in line with making sure that the entire system has highly available. The first layer, has an MVC architecture within.
+Our system is an interactive system. We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural style is in line with making sure that the entire system has prioritizes availability. The first layer, follwos the MVC architecture-- that is how the Angular framework works. The rest of the system consists of an AI layer, as well as Database or Persistance layer.
 
 \includegraphics[width=1.0\textwidth]{../../images/Botic_Simplified_Architectural_Design.jpg}
 
