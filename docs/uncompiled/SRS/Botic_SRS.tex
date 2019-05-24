@@ -328,7 +328,12 @@ The non-functional requirements below will be listed by priority.
 	\item The system should be available at least 99 percent of the time, not considering network errors.
 \end{enumerate}
 
-%%\subsubsection{Reliability}
+\subsubsection{Reliability}
+\begin{enumerate}
+	\item The system has to be trustworthy, therefore no input given by the user would be stored and if personal information is identified, the system would warn the user first before sending through the ticket.
+	\item The system must also be able to be consistent in responses and respond with the correct response to the input that was given by the user.
+	\item The system should also be able to operate without failure for a specified number of tickets.
+\end{enumerate}
 
 \subsubsection{Performance}
 \begin{enumerate}
@@ -349,12 +354,75 @@ The non-functional requirements below will be listed by priority.
 
 \subsubsection{Security}
 \begin{enumerate}
-	\item This pertains to ensuring the [authentication=appropriate word] of customers, to make sure that responses are sent to the correct users.
+	\item This pertains to ensuring the authentication of customers, to make sure that responses are sent to the correct users.
 	\item A log-in system would have to be implemented and private customer information would have to be secured i.e information that would used for authentication purposes like E-mail addresses.
 	\item We will be using OAuth for authentication purposes.
 \end{enumerate}
 
-%%\subsubsection{Portability}
+\subsubsection{Durability}
+\begin{enumerate}
+	\item The system should be able to train by itself based on responses given by a representative without requiring the help of a developer, therefore maintenance and repair to the system should be limited only to updates to the front-end.
+\end{enumerate}
+
+\subsubsection{Privacy}
+\begin{enumerate}
+	\item The system should be able to identify personal information that was given by the user, and depending on the severity index, warn a user that personal information was sent.
+\end{enumerate}
+
+\subsubsection{Usability}
+\begin{enumerate}
+	\item The system should be easy to use and understand by any user using the system.  The system should also make it clear what it is being used for so that the user would not question on what to do.
+\end{enumerate}
+
+\subsection{Constraints}
+\begin{enumerate}
+	\item Being able to understand what the user is asking even if they use ‘slang’ abbreviations.  For example, using “R U” instead of “are you”.
+	\item Not being able to respond adequately to a new user query due to limited or insufficient  training.
+	\item Time it would take for a representative to get back to a user if the bot does not know what to respond.
+	\item Being prepared for unexpected inputs.
+	\item Understanding who the users are, where they are coming from and what they talked about in the past without being able to store/capture and train on data related to specific user data.
+	\item Context sensitivity: Handling the users’ possible propensity to change topics in the middle of an interaction which could lead to a possible breakdown in communication (the risk of which is also possible if the AI chooses the wrong context from an ambiguous line of 	conversation).
+	\item Ability to determine intent, especially when what is said does not quite match what is meant. (Natural language processing).  Examples:
+	\begin{enumerate}
+		\item Misused phrases
+		\item Intonation
+		\item Double meanings
+		\item Passive aggression
+		\item Poor pronunciation
+		\item Speech impairments
+		\item Slang
+		\item Non-native speakers
+	\end{enumerate}
+	\item Users requesting multiple tasks and the chatbot being able to respond to those multiple queries.
+\end{enumerate}
+
+\subsection{Technology Decisions}
+\subsubsection{Technologies}
+\begin{enumerate}
+	\item Angular
+	\item Fasttext
+	\item Docker
+	\item TravisCI
+	\item NodeJS
+	\item Python
+	\item Git
+	\item Gitkraken
+\end{enumerate}
+\subsubsection{Justifications}
+\begin{enumerate}
+	\item Angular: A highly portable framework that allows for rapid prototyping, instancing and general development of highly modular, portable applications and components thereof. Chosen because it was specified for by the client but supported by us because of the large amount of support the framework has, being built on nodejs and javascript as a whole. We as a team enjoy the benefits of wide-sweeping platform support.
+	\item FastText: An open source library that allows users and developers to create and use text classifiers and text representation. This is the main interface that we are using to train our AI chatbot to recognise the existence of personal information in a given string as well as recognise the type of query that the user is entering for the purposes of giving a suitable response.
+	\item Docker: A main goal for this project is to be portable across server implementations and client configurations. Hence the use of web technologies. To solve the server implementations docker provides invaluable aid in the form of containers that can house our backend systems without reck or concern for specific idiosyncrasies across azure, ubuntu and other services. 
+	\item TravisCI: Travis is a powerful service that we use to stage integration for our projects. The industry has moved to a standard wherein constant integration, deployment and updating have become the expected norm. To this end, Travis provides tools to integrate new builds on the fly.
+	\item NodeJS: Fast server-side javascript by way of Google Chrome’s runtime implementation is exactly what we need to create a networked application such as this. Because Angular is built on Nodejs, the backwards compatibility with existing Nodejs packages is invaluable to us as they mean that we do not have to implement any functionality that hasn’t already been considered to be a solved problem.
+	\item Git, GitHub, ZenHub and GitKraken: Git is an industry standard tool for version control so it is obvious that we would use it. Furthermore, because of its ubiquity, git integrates with a large number of tools that make development, version control and project management easier or larger teams.
+	\begin{enumerate}
+		\item Github: Hosts out code online to trigger hooks in other pieces of software (i.e. travis, docker, heroku) for the purposes of building, deployment and integration. It also keeps track of the versions and iterations of the code that each member of the group has created.
+		\item ZenHub: This combines the Kanban method of organising seen in applications like trello and the code integrated version control of github to create a project management environment that when managed well, allows for efficient creation and handling of short and long term issues in the project including but not limited to coding and documentation
+		\item GitKraken: The main problem with git is its aged command line interface that, while intuitive if one is proficient with it, does little for those who have an understanding of the methodology but lack the time required to master a piece of software that is meant to make the main job easier. Enter GitKraken, this piece of software offers a graphical interface for git that is easy to understand, as well as additional functionality such as a visualisation of the software tree and Kanban boards for organisation. We chose this as a team partly because it streamlines the problem of version control but also partly because we are granted a free professional license by the github student developer pack.
+	\end{enumerate}
+\end{enumerate}
+
 \subsection{Organizing the Specific Requirements}
 
 %%\subsubsection{System Mode}
