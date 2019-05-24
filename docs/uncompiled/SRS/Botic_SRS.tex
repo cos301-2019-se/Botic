@@ -139,9 +139,17 @@ However, for the purposes of this project, we will use a simple SPA to mimick th
 
 \subsubsection{System Interfaces}
 
-The ticket system interfaces with the message scrubber component by communicating to through the message scrubber's API endpoint. The ticket system sends individual words to the message scrubber which returns the severity of word-- the severity is meant to indicate the critical nature of the information revealed e.g. a password can be given the highest severity. This is done whilst the user is typing their message, and the words are highlighted accordingly in their parent field.\par
+The deployment diagram for the Botic system:
 
-The ticket system also interfaces with the chatbot component by communicating through its API endpoint as well. This is when the ticket system sends scrubbed information to the chatbot to gather a response. Once a call is made, the ticket system is sent a reponse through the same API endpoint it called.
+%The ticket system interfaces with the message scrubber component by communicating to through the message scrubber's API endpoint. The ticket system sends individual words to the message scrubber which returns the severity of word-- the severity is meant to indicate the critical nature of the information revealed e.g. a password can be given the highest severity. This is done whilst the user is typing their message, and the words are highlighted accordingly in their parent field.\par
+
+%The ticket system also interfaces with the chatbot component by communicating through its API endpoint as well. This is when the ticket system sends scrubbed information to the chatbot to gather a response. Once a call is made, the ticket system is sent a reponse through the same API endpoint it called.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/Botic_Deployment_Diagram.jpg}
+	\caption{UML Deployment Diagram}
+\end{figure}
 
 \subsubsection{User Interfaces}
 
@@ -486,7 +494,7 @@ Our system type is an interactive system, as it is focused on the customer's int
 
 \subsection{Architectural Style}
 
-We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural style is in line with making sure that the entire system has prioritizes availability. The relevantly independent and loosely coupled layers makes the testing and the development of the system less couplicated. As a result, maintanence and further updates of the system benefit as well.The 3 layers themselves will be the frontend, AI (artificial intelligence) layer, and then the Data persistence layer or database layer in short.\par
+We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural style is in line with making sure that the entire system prioritizes availability. The relevantly independent and loosely coupled layers makes the testing and the development of the system less couplicated. As a result, maintanence and further updates of the system benefit as well.The 3 layers themselves will be the frontend, AI (artificial intelligence) layer, and then the Data persistence layer or database layer in short.\par
 
 The first layer, follows the MVC architecture, the Model View Controller architecture. We will be using the Angular framework, as our client requires. Here, there is a controller for each view, and certain controller types, called services which we will use to interface with our AI layer components i.e. the Chatbot, and the Message Scrubber.\par
 
