@@ -63,20 +63,38 @@ This is done before merging a feature into dev branch on our Github repository. 
 As part of our Software Quality Assurance life cycle, we make use of verification\cite{Book:1} to ensure that our development activities are carried out correctly and according to the methodology we have chosen[, the Agile Unified Process]. This entails that the reviewer checks whether:
 \begin{enumerate}[label=-]
 	\item The feature implemented was required, according to the requirements specified in the SRS document.
-	\item The feature implemented fits in with the software design and that the software design principles were followed
-	\item The feature implemented has unit tests and that the tests pass those unit tests
-	\item The feature implemented has integration tests and that those tests pass
+	\item The feature implemented fits in with the software design and that the software design principles were followed.
+	\item The feature adheres to the coding standards that we have set out in our coding standards document.
+	\item The feature implemented has unit tests and that the tests pass those unit tests (Dynamic Validation)
+	\item The feature implemented has integration tests and that those tests pass (Dynamic Validation)
 \end{enumerate}
+\par
 
+\begin{figure}[H]
+	\centering
+	%\includegraphics[width=1.0\textwidth]{../../images/.jpg}
+	\caption{Peer reviews on Github}
+\end{figure}
 
-\section{Automated Testing}
+\section{Automated Testing and Continuous Integration}
+
+Whenever code is merged into dev or branch, Travis CI is used for continuous integration, as well as to run automated testing. Travis CI build all of our subsystems, including building the Docker images that house them, before uploading those images to our Docker repository (\url{https://hub.docker.com/r/alabamaliquidservices/botic}). Check our latest builds and tests here: \url{https://travis-ci.com/cos301-2019-se/Botic}.
+
+\subsection{Travis CI}
+
+Seperate scripts are ran to test each subsystem, and the results of those tests are pipped to Coveralls. Coveralls is a service that we use to indicate our code coverage.
 
 \subsection{Frontend Testing}
 
-All unit tests are written with an Angular Service and the test results are then displayed in the console after each build of the final project.
+*unit tests are written with an Angular Service and the test results are then displayed in the console after each build of the final project. However, on Travis CI we will be running unit tests on Headless Chrome\cite{Website:3} since it isn't practical to do them on a browser when Travis CI runs the automated test scripts.\par
+Karma and Jasmine are used to test the subsystem, while tslint used to check for errors, typos as well as to lint the relevant files according. As a result, the linter will be run first in preparation for the tests.
 
 \subsection{Message Scrubber}
 
 Pytest is the framework that will be used to test the Message Scrubber, which is coded using Python. The command to run the tests is just "pytest."
+
+\section{References}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \end{document}
