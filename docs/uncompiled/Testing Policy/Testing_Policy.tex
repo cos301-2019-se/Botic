@@ -57,13 +57,19 @@
 \end{titlepage}
 \tableofcontents
 \newpage
-\section{Testing Process}
+\section{Peer Review}
 
-\subsection{Peer Review}
+This is done before merging a feature into dev branch on our Github repository. Automatic merges are prevented and at least one other member of team is required to review the code. Once the review is done, then only can the merge proceed. \par
+As part of our Software Quality Assurance life cycle, we make use of verification\cite{Book:1} to ensure that our development activities are carried out correctly and according to the methodology we have chosen[, the Agile Unified Process]. This entails that the reviewer checks whether:
+\begin{enumerate}[label=-]
+	\item The feature implemented was required, according to the requirements specified in the SRS document.
+	\item The feature implemented fits in with the software design and that the software design principles were followed
+	\item The feature implemented has unit tests and that the tests pass those unit tests
+	\item The feature implemented has integration tests and that those tests pass
+\end{enumerate}
 
-This is done before merging a feature into dev branch on our Github repository. Automatic merges are prevented and at least one other member of team is required to review the code. Once the review is done, then only can the merge proceed.
 
-\subsection{Automated Testing}
+\section{Automated Testing}
 
 \subsection{Frontend Testing}
 
