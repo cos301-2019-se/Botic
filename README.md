@@ -2,7 +2,7 @@
 
 # Botic
 
-This project was developed by Alabama Liquid Snakes
+This project was developed by Alabama Liquid Snake
 
 **Botic** is a privacy-aware chatbot used to handle ticketing system messages.
 
