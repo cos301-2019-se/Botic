@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 
+import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
@@ -25,10 +26,9 @@ export class TextScraperService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
-  getBadWords(): Observable<badWord[]> {
+  /*
+  getBadWords(): Observable<any> {
     //API URL http://botic-ai-ms.herokuapp.com
-
-
 
     //Test1 - Call Test
     fetch('https://jsonplaceholder.typicode.com/todos/1')
@@ -58,18 +58,44 @@ export class TextScraperService {
 
     //Test3 - Heroku Test
     var fd = new FormData();
+    let response: string;
     fd.append("data", "Hi my name is Gareth and my surname is cucaracha and my password is america123.");
 
-    this.http.post(this.apiURL, fd).subscribe(
-      data => console.log("success: ", data),
-      error => console.log("api request failed", error)
-    );
+    return this.http.post(this.apiURL, fd);
+  }
+  */
 
+  getBadWords(): Observable<any> {
+    var fd = new FormData();
+    fd.append("data", "Hi my name is Gareth and my surname is cucaracha and my password is america123.");
 
+    return this.http.post(this.apiURL,fd).pipe(map((data: any) => {
+          var cooled = data.replace(/'/g,'"');
+          console.log(cooled);
+          var words = JSON.parse(cooled);
+          console.log("Data: " + JSON.stringify(words));
 
-		return of(BADWORDS);
+          //badWord badWords = [];
+
+          return words;
+        }));
   }
 
+  getBadWordsFromInput(input: string): Observable<any> {
+    var fd = new FormData();
+    fd.append("data", input);
+
+    return this.http.post(this.apiURL,fd).pipe(map((data: any) => {
+          var cooled = data.replace(/'/g,'"');
+          //console.log(cooled);
+          var words = JSON.parse(cooled);
+          //console.log("Data: " + JSON.stringify(words));
+
+          //badWord badWords = [];
+
+          return words;
+        }));
+  }  
 
   private log(message: string) {
     this.messageService.add(`${message}`);
