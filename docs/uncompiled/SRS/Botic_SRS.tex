@@ -110,6 +110,9 @@ Botic will be the front-line for any company that provides customer service feed
 	\hline
 	Docker               & Containerization platform*.                                                                                                                                                                                                                                                                                                                                                                                              \\
 	\hline
+	Auth0		    &Authorization server; third party software/service; provides authorization and authentication as a service.*
+\\
+	\hline
 \end{tabular}
 
 \subsection{References}
@@ -136,9 +139,17 @@ However, for the purposes of this project, we will use a simple SPA to mimick th
 
 \subsubsection{System Interfaces}
 
-The ticket system interfaces with the message scrubber component by communicating to through the message scrubber's API endpoint. The ticket system sends individual words to the message scrubber which returns the severity of word-- the severity is meant to indicate the critical nature of the information revealed e.g. a password can be given the highest severity. This is done whilst the user is typing their message, and the words are highlighted accordingly in their parent field.\par
+The deployment diagram for the Botic system:
 
-The ticket system also interfaces with the chatbot component by communicating through its API endpoint as well. This is when the ticket system sends scrubbed information to the chatbot to gather a response. Once a call is made, the ticket system is sent a reponse through the same API endpoint it called.
+%The ticket system interfaces with the message scrubber component by communicating to through the message scrubber's API endpoint. The ticket system sends individual words to the message scrubber which returns the severity of word-- the severity is meant to indicate the critical nature of the information revealed e.g. a password can be given the highest severity. This is done whilst the user is typing their message, and the words are highlighted accordingly in their parent field.\par
+
+%The ticket system also interfaces with the chatbot component by communicating through its API endpoint as well. This is when the ticket system sends scrubbed information to the chatbot to gather a response. Once a call is made, the ticket system is sent a reponse through the same API endpoint it called.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/Botic_Deployment_Diagram.jpg}
+	\caption{UML Deployment Diagram}
+\end{figure}
 
 \subsubsection{User Interfaces}
 
@@ -163,7 +174,7 @@ Ports will be mapped to port 80; this is the standard port for API's and is the 
 %%\subsubsection{Operations} mention backup and recovery operations et cetera
 %%\subsubsection{Site Adaptation Requirements} mention dev and production modes
 
-\subsection{Product Functions}%%Functional Requirements
+\subsection{Product Functions}%%Functional Requirements;
 
 The Botic system consists of the frontend, AI backend which includes the chatbot API, message scrubber API, the classifier API and their neural networks. The frontend is a Single Page Application which houses the main user interface of the system. The Chatbot API is responsible for recieving messages and returning responses.\par
 
@@ -171,7 +182,58 @@ The Message Scrubber API checks whether or not information provided to it is pri
 
 %%Use a component diagram to illustrate this point
 %%Below this you should have use case diagrams and block diagrams for the architecture
-\subsubsection{Subsystems}
+\subsubsection{Authentication}
+
+This subsystem is to be responsible for the authentication and the authorization of customers and customer representatives. This involves the creation and update of user profiles of the mentioned roles. Auth0 will be used as an Authorization server and will be configured to make us of the OAuth 2.0 authorization framework in order to provide us with enough flexibility to create different grants/permissions to easily authorize different users for different activities in the system.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/implicit-grant.png}
+	\caption{Auth0 Solution Diagram\cite{Website:1}}
+\end{figure}
+
+\begin{enumerate}
+	\item The frontend initiates the flow when the user clicks on the sign in button and redirects the browser to the Auth0 			/authroze endpoint so that the user can be authenticated.
+	\item Auth0 then authenticates the user. If the user is using one of the supported social logins, they will be shown a 			consent page where there are permissions, which will be given to our system- Botic, that a listed and they would have to 		give their consent for Botic, through Auth0, to use.
+	\item Auth0 then redirects to Botic with an Access Token in the hash fragment of the URI, which the authentication 			module consumes. The happens because Auth0 calls an endpoint on the Botic fronend which processes the token from the 	URI. Botic can now extract the token, and the user is logged in.\cite{Website:1}
+\end{enumerate}
+
+\subsubsection{Information Scraper}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/Information_Scraper_UCD.jpg}
+	\caption{UML Use Case of the Information Scraper}
+\end{figure}
+
+The Information Scraper, or Message Scrubber, is a subsystem that is responsible for identifying personally identifying information as the user types in their query. It uses the PrivateInfoClassifier to classify words given to it and to produce a severity index. It is called by an interface that is implemented as an Angular service in the Botic frontend. The API itself is implemented in Python and served using gunicorn. It is containerized using Docker to make it more portable, and also to make it possible to run it and other subsystems in the same infrastructure without much difficulty.
+
+\subsubsection{Chatbot/Ticketbot}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/AI_Chatbot_UCD.jpg}
+	\caption{UML Use Case of the Chatbot}
+\end{figure}
+
+The Chatbot or 'Ticketbot' is the subsystem that is responsible for taking in customer queries and answering those queries. The Chatbot consults a QueryClassifier with a query to classify it i.e. whether it is a password, configuration, or other query for example. The classification and the query are then used to find the best response for the query using a neural network of responses, which was initially trained using historical data. The Chatbot is implemented using Nodejs and it is also containerized, for the same reasons as the previous subsystem.
+
+\subsubsection{AI Training}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{../../images/AI_Backend_UCD.jpg}
+	\caption{UML Use Case of the AI Backend}
+\end{figure}
+
+The AI Training subsystem is responsible for training the PrivateInfoClassifier, the QueryClassifier and the Responses neural networks. This is done using historic data which belongs to the ticketing system.
+
+\subsubsection{Database Manager}
+
+This subsystem is responsible for managing persistance in the system. It is called when data needs to be stored, updated, and deleted. Each endpoint will require that the subsystem calling it, identify itself. We intend to have this API secured using JSON Web Tokens. It will be implemented using Java, which when correctly uses, tends to outperform Nodejs is speed\cite{Website:2}  and is a much more rebust language than that of NodeJs's JavaScript\cite{Website:2}. This language choice is also made with consideration to the data analytics what will come about when analyzing and processing logs and their data.
+%%It's also much easier to translate knowledge we learnt in COS226 for concurrency usage, than learn to do it with another
+%%language due to time constraints. All team members know how to implement concurrency using Java.
+%%Also, in terms of maintainability, using Java over time will result in a much faster and robust system.
 
 \subsection{User Characteristics}
 
@@ -221,12 +283,6 @@ This user will be notified when the automated system is unable to interpret the 
 	\end{enumerate}
 \end{enumerate}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{../../images/Information_Scraper_UCD.jpg}
-	\caption{UML Use Case of the Information Scraper}
-\end{figure}
-
 \subsubsection{Chatbot/Ticketbot}
 \begin{enumerate}[label=R3.\arabic*.]
 	\item The system must be able to process user queries to provide an appropriate response.
@@ -243,25 +299,13 @@ This user will be notified when the automated system is unable to interpret the 
 	\item The system must be able to use a text recognition API to understand the query.
 \end{enumerate}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{../../images/AI_Chatbot_UCD.jpg}
-	\caption{UML Use Case of the Chatbot}
-\end{figure}
-
-\subsubsection{AI Backend}
+\subsubsection{AI Training}
 \begin{enumerate}[label=R4.\arabic*.]
-	\item The system must host and server the AI Chatbot and Scraper respectively
-	\item The system must provide the library of responses that the AI has at its disposal.
-	\item The system must train on new and historic information to learn how to identify queries
-	\item The system  must train on new and historic information to learn how to identify personally identifying information.
+	%\item The system must host and server the AI Chatbot and Scraper respectively
+	%\item The system must provide the library of responses that the AI has at its disposal.
+	\item The system must be able to train on new and historic information to learn how to classify queries
+	\item The system must be able to train on new and historic information to learn how to classify personally identifying information.
 \end{enumerate}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1.0\textwidth]{../../images/AI_Backend_UCD.jpg}
-	\caption{UML Use Case of the AI Backend}
-\end{figure}
 
 \subsubsection{Database Manager}
 \begin{enumerate}[label=R5.\arabic*.]
@@ -292,7 +336,12 @@ The non-functional requirements below will be listed by priority.
 	\item The system should be available at least 99 percent of the time, not considering network errors.
 \end{enumerate}
 
-%%\subsubsection{Reliability}
+\subsubsection{Reliability}
+\begin{enumerate}
+	\item The system has to be trustworthy, therefore no input given by the user would be stored and if personal information is identified, the system would warn the user first before sending through the ticket.
+	\item The system must also be able to be consistent in responses and respond with the correct response to the input that was given by the user.
+	\item The system should also be able to operate without failure for a specified number of tickets.
+\end{enumerate}
 
 \subsubsection{Performance}
 \begin{enumerate}
@@ -313,12 +362,75 @@ The non-functional requirements below will be listed by priority.
 
 \subsubsection{Security}
 \begin{enumerate}
-	\item This pertains to ensuring the [authentication=appropriate word] of customers, to make sure that responses are sent to the correct users.
+	\item This pertains to ensuring the authentication of customers, to make sure that responses are sent to the correct users.
 	\item A log-in system would have to be implemented and private customer information would have to be secured i.e information that would used for authentication purposes like E-mail addresses.
 	\item We will be using OAuth for authentication purposes.
 \end{enumerate}
 
-%%\subsubsection{Portability}
+\subsubsection{Durability}
+\begin{enumerate}
+	\item The system should be able to train by itself based on responses given by a representative without requiring the help of a developer, therefore maintenance and repair to the system should be limited only to updates to the front-end.
+\end{enumerate}
+
+\subsubsection{Privacy}
+\begin{enumerate}
+	\item The system should be able to identify personal information that was given by the user, and depending on the severity index, warn a user that personal information was sent.
+\end{enumerate}
+
+\subsubsection{Usability}
+\begin{enumerate}
+	\item The system should be easy to use and understand by any user using the system.  The system should also make it clear what it is being used for so that the user would not question on what to do.
+\end{enumerate}
+
+\subsection{Constraints}
+\begin{enumerate}
+	\item Being able to understand what the user is asking even if they use ‘slang’ abbreviations.  For example, using “R U” instead of “are you”.
+	\item Not being able to respond adequately to a new user query due to limited or insufficient  training.
+	\item Time it would take for a representative to get back to a user if the bot does not know what to respond.
+	\item Being prepared for unexpected inputs.
+	\item Understanding who the users are, where they are coming from and what they talked about in the past without being able to store/capture and train on data related to specific user data.
+	\item Context sensitivity: Handling the users’ possible propensity to change topics in the middle of an interaction which could lead to a possible breakdown in communication (the risk of which is also possible if the AI chooses the wrong context from an ambiguous line of 	conversation).
+	\item Ability to determine intent, especially when what is said does not quite match what is meant. (Natural language processing).  Examples:
+	\begin{enumerate}
+		\item Misused phrases
+		\item Intonation
+		\item Double meanings
+		\item Passive aggression
+		\item Poor pronunciation
+		\item Speech impairments
+		\item Slang
+		\item Non-native speakers
+	\end{enumerate}
+	\item Users requesting multiple tasks and the chatbot being able to respond to those multiple queries.
+\end{enumerate}
+
+\subsection{Technology Decisions}
+\subsubsection{Technologies}
+\begin{enumerate}
+	\item Angular
+	\item Fasttext
+	\item Docker
+	\item TravisCI
+	\item NodeJS
+	\item Python
+	\item Git
+	\item Gitkraken
+\end{enumerate}
+\subsubsection{Justifications}
+\begin{enumerate}
+	\item Angular: A highly portable framework that allows for rapid prototyping, instancing and general development of highly modular, portable applications and components thereof. Chosen because it was specified for by the client but supported by us because of the large amount of support the framework has, being built on nodejs and javascript as a whole. We as a team enjoy the benefits of wide-sweeping platform support.
+	\item FastText: An open source library that allows users and developers to create and use text classifiers and text representation. This is the main interface that we are using to train our AI chatbot to recognise the existence of personal information in a given string as well as recognise the type of query that the user is entering for the purposes of giving a suitable response.
+	\item Docker: A main goal for this project is to be portable across server implementations and client configurations. Hence the use of web technologies. To solve the server implementations docker provides invaluable aid in the form of containers that can house our backend systems without reck or concern for specific idiosyncrasies across azure, ubuntu and other services. 
+	\item TravisCI: Travis is a powerful service that we use to stage integration for our projects. The industry has moved to a standard wherein constant integration, deployment and updating have become the expected norm. To this end, Travis provides tools to integrate new builds on the fly.
+	\item NodeJS: Fast server-side javascript by way of Google Chrome’s runtime implementation is exactly what we need to create a networked application such as this. Because Angular is built on Nodejs, the backwards compatibility with existing Nodejs packages is invaluable to us as they mean that we do not have to implement any functionality that hasn’t already been considered to be a solved problem.
+	\item Git, GitHub, ZenHub and GitKraken: Git is an industry standard tool for version control so it is obvious that we would use it. Furthermore, because of its ubiquity, git integrates with a large number of tools that make development, version control and project management easier or larger teams.
+	\begin{enumerate}
+		\item Github: Hosts out code online to trigger hooks in other pieces of software (i.e. travis, docker, heroku) for the purposes of building, deployment and integration. It also keeps track of the versions and iterations of the code that each member of the group has created.
+		\item ZenHub: This combines the Kanban method of organising seen in applications like trello and the code integrated version control of github to create a project management environment that when managed well, allows for efficient creation and handling of short and long term issues in the project including but not limited to coding and documentation
+		\item GitKraken: The main problem with git is its aged command line interface that, while intuitive if one is proficient with it, does little for those who have an understanding of the methodology but lack the time required to master a piece of software that is meant to make the main job easier. Enter GitKraken, this piece of software offers a graphical interface for git that is easy to understand, as well as additional functionality such as a visualisation of the software tree and Kanban boards for organisation. We chose this as a team partly because it streamlines the problem of version control but also partly because we are granted a free professional license by the github student developer pack.
+	\end{enumerate}
+\end{enumerate}
+
 \subsection{Organizing the Specific Requirements}
 
 %%\subsubsection{System Mode}
@@ -375,8 +487,23 @@ The non-functional requirements below will be listed by priority.
 %%\subsection{Appendixes}
 
 \section{Architectural Design}
-Our system is an interactive system. We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural tactic/style is in line with making sure that the entire system has highly available. The first layer, has an MVC architecture within.
 
-\includegraphics[width=1.0\textwidth]{../../images/Botic_Simplified_Architectural_Design.jpg}
+\subsection{System Type}
+
+Our system type is an interactive system, as it is focused on the customer's interaction with the Chatbot. This means that the interaction begins and ends with the customer. The N-tier architecture is useful for the design of interactive systems. This architecture is breaks the system down to a number of relatively independent and loosely coupled layers.\cite{Book:1}
+
+\subsection{Architectural Style}
+
+We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural style is in line with making sure that the entire system prioritizes availability. The relevantly independent and loosely coupled layers makes the testing and the development of the system less couplicated. As a result, maintanence and further updates of the system benefit as well.The 3 layers themselves will be the frontend, AI (artificial intelligence) layer, and then the Data persistence layer or database layer in short.\par
+
+The first layer, follows the MVC architecture, the Model View Controller architecture. We will be using the Angular framework, as our client requires. Here, there is a controller for each view, and certain controller types, called services which we will use to interface with our AI layer components i.e. the Chatbot, and the Message Scrubber.\par
+
+The second layer holds the Message Scrubber, as well as the Chatbot. The final layer contains the database as well as the Database Manager.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{../../images/Botic_Simplified_Architectural_Design.jpg}
+	\caption{3-Tier Architectural Diagram}
+\end{figure}
 
 \end{document}
