@@ -12,18 +12,30 @@ export class TextScraperComponent implements OnInit {
   userInput = "";
   markedText: string;
   badWords: badWord[];
+  badWordsString: string;
 
   chatBubblesMarkup = '';
 
   constructor(private TextScraperService: TextScraperService) { }
 
+  badWordsFromString(): void{
+    console.log("The words: " + this.badWordsString);
+    //var badwordsArray = JSON.parse(this.badWordsString);
+    //console.log(badwordsArray);
+    //return badwordsArray;
+  }
+
   getBadWords() : void{
-    this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
+    
+    this.badWords = [];
+    this.badWordsFromString();
     //console.log(this.badWords);
   }
 
   ngOnInit() {
+    this.badWords = [];
     this.runTests();
+    //this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
     this.getBadWords();
   }
 
@@ -92,8 +104,8 @@ export class TextScraperComponent implements OnInit {
     return this.chatBubblesMarkup;
   }
 
-  returnChanged(input: string, badWords: badWord[]): string{
-
+  returnChanged(input: string): string{
+    this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => this.badWords = badWords);
     var output = "";
 
     var array = input.split(" ");
@@ -105,10 +117,10 @@ export class TextScraperComponent implements OnInit {
     for(var i = 0; i < array.length; i++){
       isABadWord = false;
 
-      for (var j = 0; j < badWords.length; j++){
-        if (i == badWords[j].position){
+      for (var j = 0; j < this.badWords.length; j++){
+        if (i == this.badWords[j].position){
           isABadWord = true;
-          severity = badWords[j].severity;
+          severity = this.badWords[j].severity;
         }
       }
 
