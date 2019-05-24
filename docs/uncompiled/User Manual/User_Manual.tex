@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[linktocpage=true]{hyperref}
+
+\usepackage{mathpazo}
+
+\begin{document}
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+    \begin{center}
+            
+    	\textsc{\LARGE Alabama Liquid Snake}\\[0.8cm]
+    	\textsc{\Large University of Pretoria}\\[0.5cm]
+    	\textsc{\large Epi-Use}\\[0.5cm]
+    
+    	\HRule\\[0.4cm]
+    	
+    	{\huge\bfseries Botic - Privacy aware chatbot}\\[0.2cm]
+    	
+    	{\huge User Manual}\\[0.2cm]
+
+    	\HRule\\[0.5cm]
+
+	    \textsc{Justin Grenfell} - u16028440 \\[0cm]
+	    \textsc{Peter Msimanga} - u13042352 \\[0cm]
+	    \textsc{Alicia Mulder} - u14283124 \\[0cm]
+	    \textsc{Kyle Gaunt} - u15330967 \\[0cm]
+	    \textsc{Lesego Mabe} - u15055214 \\[0cm]
+    
+    \end{center}
+\end{titlepage}
+\tableofcontents
+\newpage
+\section{Introduction/System Overview}
+
+\subsection{System Configuration}
+
+\subsection{Installation}
+
+\section {Getting Started}
+
+\section{Using the System}
+
+\section{Troubleshooting}
+What follows is a list of possible error conditions that may occur during the deployment and/or usage of your Botic instance as well as a number of ways we recommend they be dealt with.
+
+\subsection{Deployment}
+\begin{itemize}
+    \item \textbf{Software doesn't install:} Check that you meet all of the prerequisites and that none of the packages installed were corrupted. During the download process
+    \item \textbf{Software doesn't run:} Check the dockerfile and the angular build to ensure that all of the necessary prerequisite packages were installed.    
+    \item \textbf{API calls return errors during runtime:} Ensure that your deployment environment is configured to allow cross-origin http requests.
+\end{itemize}
+
+\subsection {Usage}
+\begin{itemize}
+        \item \textbf{Bot does not respond.} Check your connection and ensure that the communication port that BOTIC communicates on is exposed.
+        \item\textbf{Bot is not highlighting information.} Check your connection to make sure information is being sent. Otherwise, ensure that your server is configured to allow BOTIC to make HTTP requests.
+        \item \textbf{Bot is giving incoherent responses.}Check your training data as well as your information digest in to see if it is loaded correctly and that your model is properly trained.
+\end{itemize}
+
+
+    
+
+
+
+\end{document}
