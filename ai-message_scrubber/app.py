@@ -95,10 +95,14 @@ def formatReturn(data):
 	return jsonObj
 
 def trainNetwork(fileName, label, model):
+	#texts = ['Hi, my name is bob and my password is 19283918293 and my username is BobRox123']
 	classifier = fasttext.supervised(fileName, model, label_prefix=label)
+	classifier = fasttext.load_model(model + '.bin', label_prefix=label)
+	labels = classifier.predict_proba(texts, k=5)
 	#print(labels)
 
 def findData(text, model, label):
+	print("Loading model...")
 	lists = []
 	lists.append(text)
 	classifier = fasttext.load_model(model + '.bin', label_prefix=label)
