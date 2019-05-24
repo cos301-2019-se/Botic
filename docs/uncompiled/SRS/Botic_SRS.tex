@@ -411,8 +411,23 @@ The non-functional requirements below will be listed by priority.
 %%\subsection{Appendixes}
 
 \section{Architectural Design}
-Our system is an interactive system. We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural style is in line with making sure that the entire system has prioritizes availability. The first layer, follwos the MVC architecture-- that is how the Angular framework works. The rest of the system consists of an AI layer, as well as Database or Persistance layer.
 
-\includegraphics[width=1.0\textwidth]{../../images/Botic_Simplified_Architectural_Design.jpg}
+\subsection{System Type}
+
+Our system type is an interactive system, as it is focused on the customer's interaction with the Chatbot. This means that the interaction begins and ends with the customer. The N-tier architecture is useful for the design of interactive systems. This architecture is breaks the system down to a number of relatively independent and loosely coupled layers.\cite{Book:1}
+
+\subsection{Architectural Style}
+
+We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural style is in line with making sure that the entire system has prioritizes availability. The relevantly independent and loosely coupled layers makes the testing and the development of the system less couplicated. As a result, maintanence and further updates of the system benefit as well.The 3 layers themselves will be the frontend, AI (artificial intelligence) layer, and then the Data persistence layer or database layer in short.\par
+
+The first layer, follows the MVC architecture, the Model View Controller architecture. We will be using the Angular framework, as our client requires. Here, there is a controller for each view, and certain controller types, called services which we will use to interface with our AI layer components i.e. the Chatbot, and the Message Scrubber.\par
+
+The second layer holds the Message Scrubber, as well as the Chatbot. The final layer contains the database as well as the Database Manager.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{../../images/Botic_Simplified_Architectural_Design.jpg}
+	\caption{3-Tier Architectural Diagram}
+\end{figure}
 
 \end{document}
