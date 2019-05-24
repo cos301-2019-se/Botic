@@ -11,15 +11,15 @@
 \begin{titlepage}
 	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
     \begin{center}
-            
+
     	\textsc{\LARGE Alabama Liquid Snake}\\[0.8cm]
     	\textsc{\Large University of Pretoria}\\[0.5cm]
     	\textsc{\large Epi-Use}\\[0.5cm]
-    
+
     	\HRule\\[0.4cm]
-    	
+
     	{\huge\bfseries Botic - Privacy aware chatbot}\\[0.2cm]
-    	
+
     	{\huge User Manual}\\[0.2cm]
 
     	\HRule\\[0.5cm]
@@ -29,20 +29,107 @@
 	    \textsc{Alicia Mulder} - u14283124 \\[0cm]
 	    \textsc{Kyle Gaunt} - u15330967 \\[0cm]
 	    \textsc{Lesego Mabe} - u15055214 \\[0cm]
-    
+
     \end{center}
 \end{titlepage}
 \tableofcontents
 \newpage
 \section{Introduction/System Overview}
-
+\begin{flushleft}
+	Botic is a customer service communication chat service that uses artificial intelligence to handle user requests regarding account information or company protocols, without compromising the user’s privacy or personal information.
+	Information provided by the user is reviewed and analyzed before transmission to ensure that no unnecessary private information is sent over the Internet. This will help reduce risk for users that may not be aware of privacy protection techniques or methods and will ensure that the company is not liable for any illegal gathering of information according to local and international laws.
+	There are three primary users that the system caters for, namely: the client, the client representative and the administrator.
+	The client is catered for by providing a secure and intelligent chat system that can answer their queries quickly and effectively all the while protecting their privacy as far as possible.
+	The client representative makes use of a platform that allows them to respond to requests that the artificial intelligence system is not sure how to handle, whilst also ensuring that no private information is compromised.
+	Lastly, an administrator is given a management suite that allows for custom configuration of the system to ensure that each company is provided a flexible and effective software solution.
+	System Configuration
+	The equipment, communications and networks used by the system are designed to be as interchangeable as possible to allow for each individual company to incorporate their own systems and technologies for maximum cohesion. It is important to note that no core components will be interchangeable, only those components that do not affect the core functionalities of the system (i.e. email services and login management).
+\end{flushleft}
 \subsection{System Configuration}
 
 \subsection{Installation}
 
 \section {Getting Started}
+\begin{flushleft}
+	Once installed, follow the confirmation email sent to the email used to register with Botic. The email will contain a unique key which should be entered into the “Registration Token” field. Once done, the system will confirm the token and the user will be taken through the setup process.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/ProductKey.png}
+
+\begin{flushleft}
+	As default, the account associated with the email used to register will be set as the system administrator. To add a new user, click “Add user”.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/CreateUser.jpg}
+
+\begin{flushleft}
+	Fill in the necessary fields. Once complete, click “Add user”. The new user has now been added.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/AddUserForm.png}
+
+\begin{flushleft}
+	To request a new password, click “Sign in” followed by “Forgot password”. Follow the steps and an email will be sent to the associated account with a link to change the password.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/Login.png}
+
+\begin{flushleft}
+	Once initiated, the system will require basic setup which can be done through the “Admin Page”.
+\end{flushleft}
 
 \section{Using the System}
+\begin{flushleft}
+	To access the chat service, navigate to http://botic-frontend.herokuapp.com/ and click “Chat”.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/Landing.png}
+
+\begin{flushleft}
+	Read through the User Agreement. Once complete, click on “Accept”.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/UserAgreement.png}
+
+\begin{flushleft}
+	You will be redirected to the chat page.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/ChatPage.png}
+
+\begin{flushleft}
+	Type your query into the text field, your text will be reviewed and any information that may prove to be a risk will be highlighted.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/Preview.png}
+
+\begin{flushleft}
+	Click send to submit your query. Queries will be handled and responded to by the system.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/Response.png}
+
+\begin{flushleft}
+	Follow the link to find the requested information.
+	To login to a client representative account, click “Sign in” in the top right corner.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/SignIn.png}
+
+\begin{flushleft}
+	You will be redirected to the AuthO sign in page.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/AuthO.png}
+
+\begin{flushleft}
+	After signing into your account, you will be redirected to file:///C:/Users/Kyle/Documents/GitHub/Botic/ui/RepHome.html
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/Rep.png}
+
+\begin{flushleft}
+	Queries that could not be handled by the system will appear here for the client representative to review and respond to.
+	Click “Log out” to logout of your account.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/LogOut.png}
+
+\begin{flushleft}
+	Then confirm that you want to log out by clicking “Yes”.
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{images/Confirm.png}
+
+\begin{flushleft}
+You will be returned to file:///C:/Users/Kyle/Documents/GitHub/Botic/ui/landingPage.html
+\end{flushleft}
 
 \section{Troubleshooting}
 What follows is a list of possible error conditions that may occur during the deployment and/or usage of your Botic instance as well as a number of ways we recommend they be dealt with.
@@ -50,7 +137,7 @@ What follows is a list of possible error conditions that may occur during the de
 \subsection{Deployment}
 \begin{itemize}
     \item \textbf{Software doesn't install:} Check that you meet all of the prerequisites and that none of the packages installed were corrupted. During the download process
-    \item \textbf{Software doesn't run:} Check the dockerfile and the angular build to ensure that all of the necessary prerequisite packages were installed.    
+    \item \textbf{Software doesn't run:} Check the dockerfile and the angular build to ensure that all of the necessary prerequisite packages were installed.
     \item \textbf{API calls return errors during runtime:} Ensure that your deployment environment is configured to allow cross-origin http requests.
 \end{itemize}
 
@@ -62,7 +149,7 @@ What follows is a list of possible error conditions that may occur during the de
 \end{itemize}
 
 
-    
+
 
 
 
