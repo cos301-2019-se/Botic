@@ -14,4 +14,10 @@ if [ -f "Botic_SRS.pdf" ]; then
 fi
 cd .. & cd ..
 #cd "uncompiled/Testing Policy"
+cd "uncompiled/Testing\Policy"
+if [ -f "Testing_Policy.pdf" ]; then
+    rm "../../compiled/Testing_Policy.pdf"; #remove old one
+    mv "Testing_Policy.pdf" "../../compiled"; #replace with new
+fi
+cd .. & cd ..
 #cd "uncompiled/User Manual"
