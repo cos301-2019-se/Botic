@@ -87,7 +87,7 @@ Seperate scripts are ran to test each subsystem, and the results of those tests 
 \subsection{Frontend Testing}
 
 *unit tests are written with an Angular Service and the test results are then displayed in the console after each build of the final project. However, on Travis CI we will be running unit tests on Headless Chrome\cite{Website:3} since it isn't practical to do them on a browser when Travis CI runs the automated test scripts.\par
-Karma and Jasmine are used to test the subsystem, while tslint used to check for errors, typos as well as to lint the relevant files according. As a result, the linter will be run first in preparation for the tests.
+Karma and Jasmine are used to test the subsystem, while tslint used to check for errors, typos as well as to lint the relevant files according. As a result, the linter will be run first in preparation for the tests. Jasmine is the framework with which we are going to use for our tests and Karma will be used to run those tests.
 
 \subsection{Message Scrubber}
 
