@@ -17,8 +17,7 @@ before_install:
   - "cd .."
   - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
   - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
-deploy: 
-  provider: script
+
 language: bash
 script: 
   - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"

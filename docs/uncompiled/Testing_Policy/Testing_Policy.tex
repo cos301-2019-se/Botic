@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+%%\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[linktocpage=true]{hyperref}
+
+%%Page layout
+\usepackage[margin=2.0cm]{geometry}
+\usepackage{bookmark}
+
+%%Figures
+\usepackage{float}
+
+\usepackage{mathpazo}
+
+%%Font and Numbers
+\renewcommand*\rmdefault{dayrom}
+\usepackage[T1]{fontenc}
+\normalfont
+\usepackage{enumitem}
+
+%%Packages for Referrences
+\usepackage{url}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
+
+%%Group Comments
+\usepackage{verbatim}
+
+\begin{document}
+\renewcommand{\familydefault}{\sfdefault}
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+	\begin{center}
+		            
+		\textsc{\LARGE Alabama Liquid Snake}\\[0.8cm]
+		\textsc{\Large University of Pretoria}\\[0.5cm]
+		\textsc{\large Epi-Use}\\[0.5cm]
+		    
+		\HRule\\[0.4cm]
+		    	
+		{\huge\bfseries Botic - Privacy aware chatbot}\\[0.2cm]
+		    	
+		{\huge Testing Policy}\\[0.2cm]
+		
+		\HRule\\[0.5cm]
+		
+		\textsc{Justin Grenfell} - u16028440 \\[0cm]
+		\textsc{Peter Msimanga} - u13042352 \\[0cm]
+		\textsc{Alicia Mulder} - u14283124 \\[0cm]
+		\textsc{Kyle Gaunt} - u15330967 \\[0cm]
+		\textsc{Lesego Mabe} - u15055214 \\[0cm]
+		    
+	\end{center}
+\end{titlepage}
+\tableofcontents
+\newpage
+\section{Peer Review}
+
+This is done before merging a feature into dev branch on our Github repository. Automatic merges are prevented and at least one other member of team is required to review the code. Once the review is done, then only can the merge proceed. \par
+As part of our Software Quality Assurance life cycle, we make use of verification\cite{Book:1} to ensure that our development activities are carried out correctly and according to the methodology we have chosen[, the Agile Unified Process]. This entails that the reviewer checks whether:
+\begin{enumerate}[label=-]
+	\item The feature implemented was required, according to the requirements specified in the SRS document.
+	\item The feature implemented fits in with the software design and that the software design principles were followed
+	\item The feature implemented has unit tests and that the tests pass those unit tests
+	\item The feature implemented has integration tests and that those tests pass
+\end{enumerate}
+
+
+\section{Automated Testing}
+
+\subsection{Frontend Testing}
+
+All unit tests are written with an Angular Service and the test results are then displayed in the console after each build of the final project.
+
+\subsection{Message Scrubber}
+
+Pytest is the framework that will be used to test the Message Scrubber, which is coded using Python. The command to run the tests is just "pytest."
+
+\end{document}
