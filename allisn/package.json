@@ -7,6 +7,9 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
+    "tslint": "tslint './src/**/*.{ts,tsx}'",
+    "tslint:fix": "npm run tslint -- --fix",
+    "prettier": "prettier --write --config ./.prettierrc './src/**/*.{ts,tsx}'",
     "e2e": "ng e2e",
     "postinstall": "ng build --aot -prod",
     "heroku-postbuild": "ng build --prod"
@@ -20,6 +23,7 @@
     "@angular/compiler-cli": "~7.2.0",
     "@angular/core": "~7.2.0",
     "@angular/forms": "~7.2.0",
+    "@angular/http": "^7.2.15",
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
@@ -38,6 +42,7 @@
     "npm": "^6.9.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "tslint-consistent-codestyle": "^1.15.1",
     "typescript": "~3.2.2",
     "zone.js": "~0.8.26"
   },
@@ -58,9 +63,11 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "prettier": "1.17.1",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.2.2"
   },
   "engines": {

@@ -2,25 +2,27 @@
   <div class="">
     <div class="">
       <!--Not necessary<li *ngFor="let badWord of badWords">{{badWord}}</li>-->
-      <div
-        [innerHTML]="displayChat() | safe: 'html'">
-      </div>
-
-      <p><b>Preview: </b><span [innerHTML]="returnChanged(userInput, badWords) | safe: 'html'"></span></p>
-      <textarea
-        contenteditable="true"
-        rows="4"
-        cols="48"
-        [(ngModel)]="userInput"
-        id="btn-input" class="form-control input-sm"
-        >
-      </textarea>
-
-      <div style="margin-top: 5px;">
-        <div style="">
-          <button class="btn primary" (click)="processResponse(userInput)">Send</button>
-        </div>
-      </div>
+              <div style="height:40vh;border:none;">
+                <div
+                [innerHTML]="displayChat() | safe: 'html'">
+                </div>
+              </div>
+              <p id="preview"><b>Preview: </b><span [innerHTML]="returnChanged(userInput) | safe: 'html'"></span></p>
+              <textarea
+                contenteditable="true"
+                rows="4"
+                cols="48"
+                [(ngModel)]="userInput"
+                id="btn-input" class="form-control input-sm"
+                >
+              </textarea>
+              <br>
+              <div style="margin-top: 5px;">
+                <div style="">
+                  <button class="btn primary" (click)="processResponse(userInput)" id="btnSend">Send</button>
+                </div>
+                <br>
+              </div>
     </div>
   </div>
 </div>
