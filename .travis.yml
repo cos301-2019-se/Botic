@@ -8,20 +8,21 @@ before_install:
   - "wget -qO- https://toolbelt.heroku.com/install.sh | sh"
   - "echo \"$DOCKER_PASSWORD\" | docker login -u \"$DOCKER_USERNAME\" --password-stdin"
   - "echo \"$HEROKU_PASSWORD\" | docker login -u \"$HEROKU_USERNAME\" --password-stdin registry.heroku.com"
-  - "cd $TRAVIS_BUILD_DIR/allisn"
-  - "docker build -t alabamaliquidservices/botic:latest-frontend ."
-  - "docker push alabamaliquidservices/botic:latest-frontend"
-  - "cd .. & cd $TRAVIS_BUILD_DIR/ai-message_scrubber"
+#  - "cd $TRAVIS_BUILD_DIR/allisn"
+#  - "docker build -t alabamaliquidservices/botic:latest-frontend ."
+#  - "docker push alabamaliquidservices/botic:latest-frontend"
+#  - "cd .. & cd $TRAVIS_BUILD_DIR/ai-message_scrubber"
+  - cd $TRAVIS_BUILD_DIR/ai-message_scrubber
   - "docker build -t alabamaliquidservices/botic:latest-ms ."
   - "docker push alabamaliquidservices/botic:latest-ms"
   - "cd .."
-  - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
+#  - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
   - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
 
 language: bash
 script: 
-  - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"
-  - "heroku container:release web --app $HEROKU_APP_NAME"
+#  - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"
+#  - "heroku container:release web --app $HEROKU_APP_NAME"
   - "docker push registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
   - "heroku container:release web --app $HEROKU_APP_NAME_TWO"
 services: 
