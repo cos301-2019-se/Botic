@@ -4,7 +4,7 @@ FROM python:3.8.0a3-stretch
 # Install python and pip
 # RUN apk add --no-cache --update python3 py3-pip bash
 ADD requirements.txt /tmp/requirements.txt
-ADD install_dependencies.sh /tmp/install_dependencies.sh
+# ADD install_dependencies.sh /tmp/install_dependencies.sh
 
 # Install dependencies
 RUN ./install_dependencies.sh
