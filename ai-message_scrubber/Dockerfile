@@ -6,7 +6,7 @@ FROM python:3.8.0a3-stretch
 ADD requirements.txt /tmp/requirements.txt
 
 # Install dependencies
-RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
+RUN install_dependencies.sh
 # RUN pip install --trusted-host pypi.python.org -r /tmp/requirements.txt
 
 # Add our code
