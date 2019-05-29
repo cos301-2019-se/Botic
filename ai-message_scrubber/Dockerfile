@@ -7,7 +7,7 @@ ADD requirements.txt /tmp/requirements.txt
 ADD install_dependencies.sh /tmp/install_dependencies.sh
 
 # Install dependencies
-RUN /tmp/install_dependencies.sh
+RUN ./install_dependencies.sh
 # RUN pip install --trusted-host pypi.python.org -r /tmp/requirements.txt
 
 # Add our code
