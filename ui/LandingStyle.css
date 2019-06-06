@@ -13,10 +13,6 @@ body {
     transform: translate(-50%, -50%);
     font-kerning: expanded;
     letter-spacing: 15px;
-    /*
-      dolce vita light
-      european underround
-    */
 }
 
 #title {
@@ -75,77 +71,77 @@ h1 {
     background-color:#000;
     display:none;
   }
-  #boxes .window {
-    position:absolute;
-    left:0;
-    top:0;
-    width:440px;
-    height:200px;
-    display:none;
-    z-index:9999;
-    padding:20px;
-    border-radius: 15px;
-    text-align: center;
-  }
-  #boxes #dialog {
-    width:450px;
-    height:auto;
-    padding:10px;
-    background-color:#ffffff;
-    font-family: 'Segoe UI Light', sans-serif;
-    font-size: 15pt;
-  }
-  .maintext{
-    text-align: center;
+#boxes .window {
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+  border-radius: 15px;
+  text-align: center;
+}
+#boxes #dialog {
+  width:450px;
+  height:auto;
+  padding:10px;
+  background-color:#ffffff;
+  font-family: 'Segoe UI Light', sans-serif;
+  font-size: 15pt;
+}
+.maintext{
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+  text-decoration: none;
+}
+
+#lorem{
     font-family: "Segoe UI", sans-serif;
+    font-size: 12pt;
+  text-align: left;
+}
+#popupfoot{
+    font-family: "Segoe UI", sans-serif;
+    font-size: 16pt;
+  padding: 10px 20px;
+}
+#popupfoot a{
     text-decoration: none;
-  }
+}
+.agree:hover{
+  background-color: #D1D1D1;
+}
+.popupoption:hover{
+    background-color:#D1D1D1;
+    color: green;
+}
+.popupoption2:hover{
+    color: red;
+}
 
-  #lorem{
-      font-family: "Segoe UI", sans-serif;
-      font-size: 12pt;
-    text-align: left;
-  }
-  #popupfoot{
-      font-family: "Segoe UI", sans-serif;
-      font-size: 16pt;
-    padding: 10px 20px;
-  }
-  #popupfoot a{
-      text-decoration: none;
-  }
-  .agree:hover{
-    background-color: #D1D1D1;
-  }
-  .popupoption:hover{
-      background-color:#D1D1D1;
-      color: green;
-  }
-  .popupoption2:hover{
-      color: red;
-  }
+.scrollable {
+    overflow: auto;
+}
 
-  .scrollable {
-      overflow: auto;
-  }
+@font-face {
+  font-family: "Euro";
+  src: url("media/europeunderground_light-webfont.woff")format("woff");
+}
 
-  @font-face {
-    font-family: "Euro";
-    src: url("media/europeunderground_light-webfont.woff")format("woff");
-  }
+h1 {
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
 
-  h1 {
-      font-family: sans-serif;
-      text-transform: uppercase;
-  }
-
-  #particles-js {
-      position: fixed;
-      width:100%;
-      height: 100%;
-      z-index: -1;
-      top:0;
-      left:0;
-      right: 0;
-      bottom:0;
-  }
+#particles-js {
+    position: fixed;
+    width:100%;
+    height: 100%;
+    z-index: -1;
+    top:0;
+    left:0;
+    right: 0;
+    bottom:0;
+}
