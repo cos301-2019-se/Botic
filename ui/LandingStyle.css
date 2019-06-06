@@ -23,6 +23,7 @@ body {
   letter-spacing: 50px;
   font-family: 'Euro';
   font-size: 300%;
+  user-select: none;
 }
 
 .btn {
