@@ -4,10 +4,8 @@
       <title>Botic Home</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="HomePageStyle.css">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-      <script src="js/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="HomePageStyle.css">
       <script>
          function openForm() {
            document.getElementById("myForm").style.display = "block";
@@ -15,13 +13,24 @@
            document.getElementById("subtitle").style.visibility = "hidden";
            document.getElementById("chat").style.visibility = "hidden";
          }
-         
+
          function closeForm() {
            document.getElementById("myForm").style.display = "none";
            document.getElementById("navbar").style.visibility = "visible";
            document.getElementById("subtitle").style.visibility = "visible";
            document.getElementById("chat").style.visibility = "visible";
          }
+      </script>
+      <script type="text/javascript">
+        var input = document.getElementById("btn-input");
+        if(input) {
+          input.addEventListener("keyup", function(event) {
+            if(event.keyCode === 13) {
+              event.preventDefault();
+              document.getElementById("btn-chat").click();
+            }
+          });
+        }
       </script>
    </head>
    <body>
@@ -45,76 +54,15 @@
          <p style="font-family:'Helvetica';color:#000;text-align:center">For any customer related queries, please make use of the chat function.</p>
       </div>
       <!-- CHAT -->
-      <div class="container" style="margin:auto;width:50%;padding:10px;width:100%;height:80vh;overflow:hidden;" id="chat">
-         <div class="row" style="width:246%;">
-            <div class="col-md-5" style="width: 100vh;">
-               <div class="panel panel-primary" style="height:70vh;border:none;">
+      <div class="container" style="margin:auto;padding:10px;width:100%;height:100%;overflow:hidden;" id="chat">
+         <div class="row" style="width:250%;">
+            <div class="col-md-5" style="width:100%;">
+               <div class="panel panel-primary" style="height:100%;border:none;">
                   <div class="panel-heading" style="background-color:#000;border:none;">
                      <span class="glyphicon glyphicon-comment"></span> Chat
                   </div>
-                  <div class="panel-body" style="height:65vh;border:none;">
-                     <ul class="chat" style="height:60vh;border:none;list-style:none;">
-                        <li class="left clearfix">
-                           <span class="chat-img pull-left">
-                           <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                           </span>
-                           <div class="chat-body clearfix">
-                              <div class="header">
-                                 <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                 <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                              </div>
-                              <p>
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                 dolor, quis ullamcorper ligula sodales.
-                              </p>
-                           </div>
-                        </li>
-                        <li class="right clearfix">
-                           <span class="chat-img pull-right">
-                           <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-                           </span>
-                           <div class="chat-body clearfix">
-                              <div class="header">
-                                 <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                                 <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                              </div>
-                              <p>
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                 dolor, quis ullamcorper ligula sodales.
-                              </p>
-                           </div>
-                        </li>
-                        <li class="left clearfix">
-                           <span class="chat-img pull-left">
-                           <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                           </span>
-                           <div class="chat-body clearfix">
-                              <div class="header">
-                                 <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                 <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
-                              </div>
-                              <p>
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                 dolor, quis ullamcorper ligula sodales.
-                              </p>
-                           </div>
-                        </li>
-                        <li class="right clearfix">
-                           <span class="chat-img pull-right">
-                           <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-                           </span>
-                           <div class="chat-body clearfix">
-                              <div class="header">
-                                 <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
-                                 <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                              </div>
-                              <p>
-                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                 dolor, quis ullamcorper ligula sodales.
-                              </p>
-                           </div>
-                        </li>
-                     </ul>
+                  <div class="panel-body" style="border:none;">
+                     <ul class="chat" style="height:100%;border:none;list-style:none;"></ul>
                   </div>
                   <div class="panel-footer">
                      <div class="input-group">
