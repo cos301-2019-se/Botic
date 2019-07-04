@@ -1,5 +1,4 @@
 Click==7.0
-Cython==0.29.7
 Flask==1.0.2
 Flask-Cors==3.0.7
 Jinja2==2.10.1
