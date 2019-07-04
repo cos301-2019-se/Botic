@@ -121,16 +121,14 @@ Classifying Brainstorming Results:
 = (A) automated
 = (AS) scrape(Information Scraper, Data)(1,1)(scraper, data) 
 = (AS) scrape(Information Scraper, Query)(1,1)(scraper, query)
-~ (AG) Part-of(Response, Reply)
 = (I) ISA(Response, Message)
 = (AS) scrape(Information Scraper,Response)(1,1)
 ~ (AS) suggest(Chatbot, Response, Customer Support Representative)(1,1,1)
-- (AS) respond(Customer Support Representative, Response, Customer, Interaction)
+= (AS) respond(Customer Support Representative, Response, Customer, Interaction)
 = (C) Information Scraper
-- (AS) feedback(Customer, Chatbot, Response, Query)(1,1,1,1)
-- (AS) feed
-- (AC) Feedback (of feedback)
-- (AS) absorb(Data, Feedback)
+= (AS) feedback(Customer, Chatbot, Response, Query)(1,1,1,1)
+= (AC) Feedback (of feedback)
+= (AS) absorb(Data, Feedback)
 
 + ask customer if the chatbot response is correct
 + should we assume that the customer representative is right? Should we only ask the customer

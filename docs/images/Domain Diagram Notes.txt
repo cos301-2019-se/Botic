@@ -1,0 +1,2 @@
+Update the domain diagram by adding more elements and follow the process outlined in 
+the textbook, in addition use the Domain Model Review Checklist

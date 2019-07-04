@@ -14,12 +14,6 @@
 
 \usepackage{mathpazo}
 
-%%Font and Numbers
-\renewcommand*\rmdefault{dayrom}
-\usepackage[T1]{fontenc}
-\normalfont
-\usepackage{enumitem}
-
 %%Packages for Referrences
 \usepackage{url}
 \usepackage{etoolbox}
@@ -28,6 +22,78 @@
 
 %%Group Comments
 \usepackage{verbatim}
+
+%Code Examples
+\usepackage{listings}
+\usepackage{color}
+\usepackage{bera}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    %basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+%%Font and Numbers
+\renewcommand*\rmdefault{dayrom}
+\usepackage[T1]{fontenc}
+\normalfont
+\usepackage{enumitem}
 
 \begin{document}
 \renewcommand{\familydefault}{\sfdefault}
@@ -61,22 +127,141 @@
 
 This document is meant to contain all details regarding the coding standards used in the development of all subsystems.
 
-\subsection{Required and optional Items}
+\subsection{Frontend: Angular}
+
+In Angular, each component makes use of a ts file, Typescript, which is a superset of JavaScript that enforces typing, a view which uses HTML (Hypertext Markup Language) as well as styled using CSS (Cascading Style Sheets). These are going to be the focus of the coding standards defined in this subsection, as well as the directories that contain the software artifacts written in the languages listed in the previous sentence.
+
 \subsubsection{Naming Conventions}
+
+Here we have decided to makes use of the package "tslint-consistent-codestyle." This packages add many useful coding rules that are not available when using vanilla TSLint, such as the ability to control the way declare a variable, function and et cetera.\cite{Website:4}
+
+The Angular CLI will be used for the creation of each component and service. New components are created using the command "ng g c" followed by the directory "components", and the subdirectory according to the function of the component, and lastly the name of the component. Here is an example:
+
+\begin{lstlisting}[language=bash]
+ng generate component components\layout\footer
+\end{lstlisting}
+Following this rule, services and models are seperated into their respective folders, and within those folders, they are separated and ordered according their the functions.\par
+Models, components and views are created using lowercase names. Since Angular CLI adds identifying information to the names of each file, i.e. ".component.ts" for components, ".component.html" for view, and ".service.ts" for services, the name of the file in lower case according the name of the component, as well as it's positioning in an appropriate directory, is enough.\par
+
+%add naming conventions for CSS
+
+In the Typescript files we will require that by default, camel case is used for both method names and variables. Members that are modifiers, however will need to have a leading underscore and the type is indicated using Pascal case.
+
+%% add a picture of an example of the file naming conventions (use the components one)
+
 \subsubsection{Layout Rules}
 
-We will be using Standardjs as the JavaScript standard style for the frontend. Here are a few of our standards:
-\begin{enumerate}
-	\item 2 spaces – for indentation
-	\item Single quotes for strings – except to avoid escaping
-	\item No unused variables – this one catches tons of bugs!
-	\item No semicolons – It's fine. Really!
-	\item More details
-	\item Space after keywords if (condition) { ... }
-	\item Space after function name function name (arg) { ... }
-	\item Always use === instead of == – but obj == null is allowed to check null || undefined.
-	\item Always handle the node.js err function parameter
-	\item Declare browser globals with /* global */ comment at top of file. Prevents accidental use of vaguely-named browser globals like open, length, event, and name. Example: /* global alert, prompt */ Exceptions are: window, document, and navigator
-\end{enumerate}
+Here is a snippet containing some of our coding standards:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "rulesDirectory": [
+    "node_modules/codelyzer",
+    "tslint-consistent-codestyle"
+  ],
+  "rules": {
+    "arrow-return-shorthand": true,
+    "callable-types": true,
+    "class-name": true,
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "curly": true,
+    "deprecation": {
+      "severity": "warn"
+    },
+    "eofline": true,
+    "forin": true,
+    "import-blacklist": [
+      true,
+      "rxjs",
+      "rxjs/Rx"
+    ],
+    "import-spacing": true,
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "interface-over-type-literal": true,
+    "label-position": true,
+    "max-line-length": [
+      true,
+      140
+    ],
+    "member-access": true,
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
+      }
+    ],
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-super": true,
+    "no-empty": false,
+    "no-empty-interface": true,
+    "no-eval": true,
+    "no-inferrable-types": [
+      true,
+      "ignore-params"
+    ],
+    "no-misused-new": true,
+    "no-non-null-assertion": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": false,
+    "no-string-throw": true,
+    "no-switch-case-fall-through": true,
+    "no-trailing-whitespace": true,
+    "no-unnecessary-initializer": true,
+    "no-unused-expression": true,
+    "no-use-before-declare": true,
+    "no-var-keyword": true,
+    "object-literal-sort-keys": false,
+  }
+}
+\end{lstlisting}
 
+Using Visual Studio Code and having installed TSLint from the market place (\url{https://marketplace.visualstudio.com/items?itemName=eg2.tslint}), all the errors will be displayed whilst one is coding, however, running the command "ng lint" will display all liniting errors within the project. These rules will be enforced using Prettier.
+
+\subsubsection{Commenting Practices}
+
+These haven't been defined just yet.
+
+%\subsection{Backend: Chatbot}
+%\subsubsection{Naming Conventions}
+%\subsubsection{Layout Rules}
+%\subsubsection{Commenting Practices}
+
+\section{File Structure}
+\subsection{Frontend: allisn directory}
+
+The Angular CLI will be used for the creation of each component and service. New components are created using the command "ng g c" followed by the directory "components", and the subdirectory according to the function of the component, and lastly the name of the component. Here is an example:
+
+\begin{lstlisting}[language=bash]
+ng generate component components\layout\footer
+\end{lstlisting}
+Following this rule, services and models are seperated into their respective folders, and within those folders, they are separated and ordered according their the functions.
+
+\subsection{Message Scrubber: ai-message-scrubber}
+
+All files are in the same directory for the time being.
+
+\section{References}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 \end{document}
