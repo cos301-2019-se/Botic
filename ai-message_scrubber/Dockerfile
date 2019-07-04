@@ -7,7 +7,10 @@ ADD requirements.txt /tmp/requirements.txt
 # ADD install_dependencies.sh /tmp/install_dependencies.sh
 
 # Install dependencies
-RUN ls
+RUN pip install --upgrade pip
+RUN pip install Cython
+RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
+
 # RUN pip install --trusted-host pypi.python.org -r /tmp/requirements.txt
 
 # Add our code
