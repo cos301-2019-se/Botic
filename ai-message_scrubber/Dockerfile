@@ -8,7 +8,6 @@ ADD requirements.txt /tmp/requirements.txt
 # Install dependencies
 RUN pip install --upgrade pip
 RUN pip install Cython
-RUN pip install language-selector
 RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 # RUN pip install --trusted-host pypi.python.org -r /tmp/requirements.txt
 
