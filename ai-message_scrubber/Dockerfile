@@ -7,6 +7,7 @@ ADD requirements.txt /tmp/requirements.txt
 
 # Install dependencies
 RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
+RUN pip3 install gunicorn
 # RUN pip install --trusted-host pypi.python.org -r /tmp/requirements.txt
 
 # Add our code
