@@ -1,0 +1,31 @@
+Requirements
+
+- The system must recieve customer queries.
+- The system must must be trained with past queries and answers.
+- The system must interface with the currently existing ticket system.
+- The system must store previous customer interactions.
+- The system must scrape past stored customer interation data for personal information.
+- The system must identify personal information with a customer's interaction.
+- The system must warn a customer of personal information included in a query.
+- The system must respond to a customer query.
+- The system must interpret a customer query.
+- The system must classify a customer query.
+- The system must scrape its responses to customer queries.
+- The system must allow customers to provide feedback.
+- The system must use feedback to improve future customer interactions.
+- The system must be able to authenticate users and authorize them to access system features.
+- The system must be able to authenticate users using Auth0 and recieve an access token.
+- The system must be able to identify a users' Email after being authenticated.
+- The system must be able to check access tokens to see if they have correct permissions.
+- The system must be able to deny users who haven't been authenticated to access system features
+- The system must be able to check login status and access tokens.
+- The system must be able to check permissions within access tokens.
+- The system must be able to allow new users to register for user profiles for authentication.
+- The system must be able to allow users to update their password.
+- The system must be able to attach a severity to the personally identifying information.
+- The system must be able to warn a user if they have entered identifying information.
+- The system must be able to highlight personally identifying information according to severity index.
+- The system must be able to process user queries to provide an appropriate response.
+- The system must be able to classify the user queries.
+- The system must be able to send the query to a human if it cannot obtain an appropriate response.
+- The system must be able to store current and previous customer interactions.
