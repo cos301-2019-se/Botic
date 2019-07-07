@@ -329,6 +329,13 @@ The non-functional requirements below will be listed by priority.
 	\item The system should be available at least 99 percent of the time, not considering network errors.
 \end{enumerate}
 
+\subsubsection{Security}
+\begin{enumerate}
+	\item This pertains to ensuring the authentication of customers, to make sure that responses are sent to the correct users.
+	\item A log-in system would have to be implemented and private customer information would have to be secured i.e information that would used for authentication purposes like E-mail addresses.
+	\item We will be using OAuth for authentication purposes.
+\end{enumerate}
+
 \subsubsection{Reliability}
 \begin{enumerate}
 	\item The system has to be trustworthy, therefore no input given by the user would be stored and if personal information is identified, the system would warn the user first before sending through the ticket.
@@ -353,28 +360,23 @@ The non-functional requirements below will be listed by priority.
 	\item We will create a coding standards document which we will also adhere to throughout the system in order to increase readability.
 \end{enumerate}
 
-\subsubsection{Security}
-\begin{enumerate}
-	\item This pertains to ensuring the authentication of customers, to make sure that responses are sent to the correct users.
-	\item A log-in system would have to be implemented and private customer information would have to be secured i.e information that would used for authentication purposes like E-mail addresses.
-	\item We will be using OAuth for authentication purposes.
-\end{enumerate}
+%%The following three subsections are not non-functional requirements.
+%\subsubsection{Durability}
+%\begin{enumerate}
+%	\item The system should be able to train by itself based on responses given by a representative without requiring the help of a developer, therefore maintenance and repair to the system should be limited only to updates to the front-end.
+%\end{enumerate}
 
-\subsubsection{Durability}
-\begin{enumerate}
-	\item The system should be able to train by itself based on responses given by a representative without requiring the help of a developer, therefore maintenance and repair to the system should be limited only to updates to the front-end.
-\end{enumerate}
+%\subsubsection{Privacy}
+%\begin{enumerate}
+%	\item The system should be able to identify personal information that was given by the user, and depending on the severity index, warn a user that personal information was sent.
+%\end{enumerate}
 
-\subsubsection{Privacy}
-\begin{enumerate}
-	\item The system should be able to identify personal information that was given by the user, and depending on the severity index, warn a user that personal information was sent.
-\end{enumerate}
+%\subsubsection{Usability}
+%\begin{enumerate}
+%	\item The system should be easy to use and understand by any user using the system.  The system should also make it clear what it is being used for so that the user would not question on what to do.
+%\end{enumerate}
 
-\subsubsection{Usability}
-\begin{enumerate}
-	\item The system should be easy to use and understand by any user using the system.  The system should also make it clear what it is being used for so that the user would not question on what to do.
-\end{enumerate}
-
+%These things are not actually constraints. They ought to be removed as well.
 \subsection{Constraints}
 \begin{enumerate}
 	\item Being able to understand what the user is asking even if they use ‘slang’ abbreviations.  For example, using “R U” instead of “are you”.
@@ -484,6 +486,8 @@ The non-functional requirements below will be listed by priority.
 \subsection{System Type}
 
 Our system type is an interactive system, as it is focused on the customer's interaction with the Chatbot. This means that the interaction begins and ends with the customer. The N-tier architecture is useful for the design of interactive systems. This architecture is breaks the system down to a number of relatively independent and loosely coupled layers.\cite{Book:1}
+
+\subsection{Architectural Tactics}
 
 \subsection{Architectural Style}
 
