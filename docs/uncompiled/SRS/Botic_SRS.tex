@@ -148,7 +148,8 @@ The deployment diagram for the Botic system:
 
 The user interface, which is ultimately the chatbot ticket interface, is meant to be a SPA-- Single Page Application. This should be made available online in a manner that supports all major web browsers.
 
-%%Discuss following Google's Material Design with the group
+%Discuss how the user interface will actually interface with the Chatbot API and what kind of API we intend to make
+
 
 \subsubsection{Hardware Interfaces}
 
@@ -236,6 +237,9 @@ The customer will be submitting information to the system in order to deal with 
 \subsubsection{Customer Support Representative}
 This user will be notified when the automated system is unable to interpret the customer's request and said request will be forwarded. The user will have the ability to respond with the result, whereby the system will sanitize the data once more and send it through to the customer.
 
+\subsubsection{Administrator}
+The system administrator is a super user who will be able to manage the system as well as register customers and customer support representative. The administrator will be able to feed the chatbot historic interactions so that it can be trained with the data to improve the correctness of response generation.
+
 %%\subsection{Constraints}
 %%\subsection{Assumptions and Dependencies}
 \section{Specific Requirements}
@@ -319,22 +323,75 @@ This user will be notified when the automated system is unable to interpret the 
 %\subsection{Performance Requirements}
 %\subsection{Design Constraints}
 %\subsubsection{Standards Compliance}
+
+\subsection{Organizing the Specific Requirements}
+
+%%\subsubsection{System Mode}
+%%\subsubsection{User Class}
+%%\subsubsection{Objects}
+%%\subsubsection{Feature}
+%%\subsubsection{Stimulus}
+%%\subsubsection{Response}
+%%\subsubsection{Functional Hierarchy}
+
+
+\subsubsection{Traceability Matrix}
+\begin{center}
+	\begin{tabular}{||c | c | c | c ||} 
+		\hline
+		     & Information Scraper & AI Chatbot & AI Backend \\
+		\hline\hline
+		R1   & X                   &            &            \\
+		\hline
+		R2   & X                   &            &            \\
+		\hline
+		R3   & X                   &            &            \\
+		\hline
+		R4   & X                   &            &            \\
+		\hline
+		R5   &                     & X          &            \\
+		\hline
+		R6   &                     & X          &            \\
+		\hline
+		R6.1 &                     & X          &            \\
+		\hline
+		R6.2 &                     & X          &            \\
+		\hline
+		R6.3 &                     & X          &            \\
+		\hline
+		R7   &                     & X          &            \\
+		\hline
+		R8   &                     & X          &            \\
+		\hline
+		R9   &                     &            & X          \\
+		\hline
+		R10  &                     &            & X          \\
+		\hline
+		R11  &                     &            & X          \\
+		\hline
+		R12  &                     &            & X          \\
+		\hline
+		
+	\end{tabular}
+\end{center}
+
 \subsection{Software System Attributes}%%Non-Functional Requirements (limited to 6)
 
 The non-functional requirements below will be listed by priority.
 
 \subsubsection{Availability}
 \begin{enumerate}
-	\item The system has to have high availability to handle customer queries and issues since it is meant to augment a customer support system, i.e. a ticket system.
-	\item The system should be available at least 99 percent of the time, not considering network errors.
+	\item The system has to have high availability to handle customer queries and issues since it is meant to augment a customer support system.
+	\item The system should be available at least 99 percent of the time.
 \end{enumerate}
 
-\subsubsection{Security}
-\begin{enumerate}
-	\item This pertains to ensuring the authentication of customers, to make sure that responses are sent to the correct users.
-	\item A log-in system would have to be implemented and private customer information would have to be secured i.e information that would used for authentication purposes like E-mail addresses.
-	\item We will be using OAuth for authentication purposes.
-\end{enumerate}
+%Perhaps you should include a CIA triad and AAA information set and some figures. 
+%\subsubsection{Security}
+%\begin{enumerate}
+%	\item This pertains to ensuring the authentication of customers, to make sure that responses are sent to the correct users.
+%	\item A log-in system would have to be implemented and private customer information would have to be secured i.e information that would used for authentication purposes like E-mail addresses.
+%	\item We will be using OAuth for authentication purposes.
+%\end{enumerate}
 
 \subsubsection{Reliability}
 \begin{enumerate}
@@ -343,6 +400,7 @@ The non-functional requirements below will be listed by priority.
 	\item The system should also be able to operate without failure for a specified number of tickets.
 \end{enumerate}
 
+%These are emergent properties that really relly on the performance of multiple if not all of the components of the system.
 \subsubsection{Performance}
 \begin{enumerate}
 	\item The system must answer queries as quickly and accurately as it can or divert the query to the relevant customer support specialist in good time. 
@@ -426,56 +484,6 @@ The non-functional requirements below will be listed by priority.
 	\end{enumerate}
 \end{enumerate}
 
-\subsection{Organizing the Specific Requirements}
-
-%%\subsubsection{System Mode}
-%%\subsubsection{User Class}
-%%\subsubsection{Objects}
-%%\subsubsection{Feature}
-%%\subsubsection{Stimulus}
-%%\subsubsection{Response}
-%%\subsubsection{Functional Hierarchy}
-
-\subsubsection{Traceability Matrix}
-\begin{center}
-	\begin{tabular}{||c | c | c | c ||} 
-		\hline
-		     & Information Scraper & AI Chatbot & AI Backend \\
-		\hline\hline
-		R1   & X                   &            &            \\
-		\hline
-		R2   & X                   &            &            \\
-		\hline
-		R3   & X                   &            &            \\
-		\hline
-		R4   & X                   &            &            \\
-		\hline
-		R5   &                     & X          &            \\
-		\hline
-		R6   &                     & X          &            \\
-		\hline
-		R6.1 &                     & X          &            \\
-		\hline
-		R6.2 &                     & X          &            \\
-		\hline
-		R6.3 &                     & X          &            \\
-		\hline
-		R7   &                     & X          &            \\
-		\hline
-		R8   &                     & X          &            \\
-		\hline
-		R9   &                     &            & X          \\
-		\hline
-		R10  &                     &            & X          \\
-		\hline
-		R11  &                     &            & X          \\
-		\hline
-		R12  &                     &            & X          \\
-		\hline
-		
-	\end{tabular}
-\end{center}
-
 %%\subsection{Additional Comments}
 %%\section{Support Information}
 %%\subsection{Table of Contents and Index}
@@ -488,6 +496,28 @@ The non-functional requirements below will be listed by priority.
 Our system type is an interactive system, as it is focused on the customer's interaction with the Chatbot. This means that the interaction begins and ends with the customer. The N-tier architecture is useful for the design of interactive systems. This architecture is breaks the system down to a number of relatively independent and loosely coupled layers.\cite{Book:1}
 
 \subsection{Architectural Tactics}
+
+In order to achieve and adhere to our quality attributes, we use architectural tactics. These are design decisions that influence the achievement of a quality attribute as they directly affect the system's response to some stimulus\cite{Book:2}.
+
+Below we list the architectural tactics that will be used satisfy our system's quality attributes (non-functional requirements), by order of the nonfunctional requirements listed above:
+
+\begin{center}
+	\begin{tabular}{|p{3cm}|p{7cm}|}
+	\hline
+	Availability & 
+	\hline
+	Security &
+	\hline
+	Reliability &
+	\hline
+	Performance &
+	\hline
+	Scalability &
+	\hline
+	Maintainability &
+	\hline
+	\end{tabular}
+\end{center}
 
 \subsection{Architectural Style}
 
