@@ -149,6 +149,22 @@ export class TextScraperComponent implements OnInit {
     return output;
   }
 
+  /*This function checks to see if a person has entered personal information,
+  if they have, first warn them, then the person gets the option to change the
+  message or send it with the personal information attached.
+  */
+    hasChecked = false;
+    onClickCall(userInput : string) : void {
+      if (this.hasChecked == false) {
+        this.returnChanged(userInput);
+        this.hasChecked = true;
+      }
+      else {
+        this.processResponse(userInput);
+        this.hasChecked = false;
+      }
+    }
+
  /*
  Maybr these need to go.
  */
