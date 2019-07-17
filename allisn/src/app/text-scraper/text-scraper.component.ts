@@ -16,6 +16,8 @@ export class TextScraperComponent implements OnInit {
 
   chatBubblesMarkup = '';
 
+  hasChecked = false;
+
   constructor(private TextScraperService: TextScraperService) { }
 
   badWordsFromString(): void{
@@ -153,16 +155,29 @@ export class TextScraperComponent implements OnInit {
   if they have, first warn them, then the person gets the option to change the
   message or send it with the personal information attached.
   */
-    hasChecked = false;
     onClickCall(userInput : string) : void {
       if (this.hasChecked == false) {
         this.returnChanged(userInput);
         this.hasChecked = true;
         if (this.badWords[0] == null) {
-          window.alert("No personal information entered, you may send the message by pressing the send button again.")
+          this.processResponse(userInput);
+          this.hasChecked = false;
         }
         else {
-          window.alert("Personal information has been added, are you sure you want to send it?")
+          window.alert("Personal information has been entered. See text above textbox for details.");
+          var theBadWordsAdded = "The following personal information has been added: ";
+
+          for (var i = 0; i < this.badWords.length - 1; i++) {
+            if (i == 0) {
+              theBadWordsAdded = theBadWordsAdded + this.badWords[i];
+            }
+            else {
+              theBadWordsAdded = theBadWordsAdded + " ," + this.badWords[i];
+            }
+          }
+
+          var replaceText = document.getElementById("preview");
+          replaceText.innerHTML = replaceText.innerHTML.replace(userInput, theBadWordsAdded);
         }
       }
       else {
