@@ -158,6 +158,12 @@ export class TextScraperComponent implements OnInit {
       if (this.hasChecked == false) {
         this.returnChanged(userInput);
         this.hasChecked = true;
+        if (this.badWords[0] == null) {
+          window.alert("No personal information entered, you may send the message by pressing the send button again.")
+        }
+        else {
+          window.alert("Personal information has been added, are you sure you want to send it?")
+        }
       }
       else {
         this.processResponse(userInput);
