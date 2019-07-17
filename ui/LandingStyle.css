@@ -11,23 +11,64 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-kerning: expanded;
+    letter-spacing: 15px;
+    /*
+      dolce vita light
+      european underround
+    */
+}
+
+#title {
+  position: fixed;
+  top: 20%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  letter-spacing: 50px;
+  font-family: 'Euro';
+  font-size: 300%;
+  /*
+    dolce vita light
+    european underround
+  */
 }
 
 .btn {
-    background: #2e77a8;
+    background: #00000000;
     width: 180px;
     height: 40px;
     padding: 4px 0;
-    color: white;
+    color: #000;
 
     position: absolute;
     left: 50%;
-    top: 75%;
+    top: 78%;
     transform: translateX(-50%) translateY(-50%);
     border-radius: 3px;
-    border: none;
+    border: 1px solid #000;
     text-transform: uppercase;
     font-family: sans-serif;
+
+    letter-spacing: 5px;
+}
+
+.btn:hover {
+  background: #000;
+  width: 180px;
+  height: 40px;
+  padding: 4px 0;
+  color: #fff;
+
+  position: absolute;
+  left: 50%;
+  top: 78%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 3px;
+  /* border: 1px solid #000; */
+  text-transform: uppercase;
+  font-family: sans-serif;
+
+  letter-spacing: 5px;
 }
 
 h1 {
@@ -68,7 +109,7 @@ h1 {
     font-size: 15pt;
   }
   .maintext{
-      text-align: center;
+    text-align: center;
     font-family: "Segoe UI", sans-serif;
     text-decoration: none;
   }
@@ -99,4 +140,9 @@ h1 {
 
   .scrollable {
       overflow: auto;
+  }
+
+  @font-face {
+    font-family: "Euro";
+    src: url("media/europeunderground_light-webfont.woff")format("woff");
   }
