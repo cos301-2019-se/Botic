@@ -19,6 +19,7 @@ import { CustomerChatComponent } from './components/customer-chat/customer-chat.
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { MessagesComponent } from './messages/messages.component';
+import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MessagesComponent } from './messages/messages.component';
     CustomerChatComponent,
     HeaderComponent,
     FooterComponent,
-    MessagesComponent
+    MessagesComponent,
+    CustomerSupportComponent
   ],
   imports: [
     BrowserModule,
