@@ -7,11 +7,13 @@
                 [innerHTML]="displayChat() | safe: 'html'">
                 </div>
               </div>
+              <!--This needs to change, not update with every keystroke-->
               <p id="preview"><b>Preview: </b><span [innerHTML]="returnChanged(userInput) | safe: 'html'"></span></p>
               <textarea
                 contenteditable="true"
                 rows="4"
                 cols="48"
+                <!---->
                 [(ngModel)]="userInput"
                 id="btn-input" class="form-control input-sm"
                 >
