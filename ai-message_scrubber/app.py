@@ -30,6 +30,7 @@ def scrub():
 		if response != '[]':
 			response = formatReturn(response)
 		response = jsonify(response)
+		response.headers.add('Access-Control-Allow-Origin', '*')
 		response.status_code = 202
 		return response
 
@@ -98,7 +99,6 @@ def trainNetwork(fileName, label, model):
 	#texts = ['Hi, my name is bob and my password is 19283918293 and my username is BobRox123']
 	classifier = fasttext.supervised(fileName, model, label_prefix=label)
 	classifier = fasttext.load_model(model + '.bin', label_prefix=label)
-	labels = classifier.predict_proba(texts, k=5)
 	#print(labels)
 
 def findData(text, model, label):
@@ -106,8 +106,12 @@ def findData(text, model, label):
 	lists = []
 	lists.append(text)
 	classifier = fasttext.load_model(model + '.bin', label_prefix=label)
-	labels = classifier.predict_proba(lists, k=32)
-	print(labels)
+	labels = classifier.predict_proba(lists, k=len(classifier.labels))
+	for k in labels:
+		for label in k:
+			if not(label[1] < 0.03126):
+				print(label)
+	#print(labels)
 
 if __name__ == '__main__':
 	#app.run(host='0.0.0.0')
