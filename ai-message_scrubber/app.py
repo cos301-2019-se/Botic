@@ -1,8 +1,10 @@
 from flask import Flask, request, json, jsonify
 import re
 import fasttext
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 import os
 
@@ -32,6 +34,7 @@ def scrub():
 		response = jsonify(response)
 		response.headers.add('Access-Control-Allow-Origin', '*')
 		response.status_code = 202
+		# response.headers.add('Access-Control-Allow-Origin', '*')
 		return response
 
 #@return: a string containing word indexes(as if the string was an array) which reveal private info 
@@ -114,5 +117,5 @@ def findData(text, model, label):
 	#print(labels)
 
 if __name__ == '__main__':
-	#app.run(host='0.0.0.0')
+	app.run(host='0.0.0.0')
 	app.run()

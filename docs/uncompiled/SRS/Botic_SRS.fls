@@ -1,0 +1,180 @@
+PWD C:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt
+INPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.tex
+OUTPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.log
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/article.cls
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/article.cls
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/size11.clo
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/size11.clo
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/cm/cmr10.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/inputenc.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/inputenc.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics/graphicx.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics/graphicx.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics/keyval.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics/keyval.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics/graphics.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics/graphics.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics/trig.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics/trig.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics-cfg/graphics.cfg
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics-cfg/graphics.cfg
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics-def/pdftex.def
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/graphics-def/pdftex.def
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/hyperref.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/hyperref.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/hobsub-hyperref.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/hobsub-hyperref.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/hobsub-hyperref.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/hobsub-generic.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/hobsub-generic.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/generic/ifxetex/ifxetex.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/generic/ifxetex/ifxetex.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/auxhook.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/auxhook.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/kvoptions.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/kvoptions.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/pd1enc.def
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/pd1enc.def
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/00miktex/hyperref.cfg
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/00miktex/hyperref.cfg
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/url/url.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/url/url.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/hpdftex.def
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/hpdftex.def
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/rerunfilecheck.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/rerunfilecheck.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/geometry/geometry.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/geometry/geometry.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/geometry/geometry.cfg
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/geometry/geometry.cfg
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/bookmark.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/bookmark.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/bkm-pdftex.def
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/bkm-pdftex.def
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/float/float.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/float/float.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/mathpazo.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/mathpazo.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/fontenc.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/fontenc.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/t1enc.def
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/t1enc.def
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecrm1095.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/enumitem/enumitem.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/enumitem/enumitem.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/etoolbox/etoolbox.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/etoolbox/etoolbox.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/tools/verbatim.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/tools/verbatim.sty
+INPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.aux
+INPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.aux
+OUTPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.aux
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/context/base/supp-pdf.mkii
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/context/base/supp-pdf.mkii
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/epstopdf-base.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/epstopdf-base.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/grfext.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/grfext.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/nameref.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/nameref.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/gettitlestring.sty
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/generic/oberdiek/gettitlestring.sty
+OUTPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.pdf
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecrm1728.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecrm1440.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecrm1200.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecrm2074.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/t1cmss.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/t1cmss.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecss1095.tfm
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecss1440.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecsx1440.tfm
+INPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.toc
+INPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.toc
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/ot1ppl.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/ot1ppl.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplr7t.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplr7t.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/adobe/palatino/pplr7t.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/omlzplm.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/omlzplm.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7m.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7m.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7m.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/omszplm.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/omszplm.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7y.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7y.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7y.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/omxzplm.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/omxzplm.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7v.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7v.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7v.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/ot1zplm.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/tex/latex/psnfss/ot1zplm.fd
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7t.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7t.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/public/mathpazo/zplmr7t.tfm
+OUTPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.toc
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecss1200.tfm
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecsx1200.tfm
+INPUT ../../images/Botic_Domain_Diagram.png
+INPUT ../../images/Botic_Domain_Diagram.png
+INPUT ../../images/Botic_Domain_Diagram.png
+INPUT ../../images/Botic_Domain_Diagram.png
+INPUT ../../images/Botic_Domain_Diagram.png
+INPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.bbl
+INPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.bbl
+INPUT C:/Users/Lesego/AppData/Local/Programs/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecsx1095.tfm
+INPUT ../../images/Botic_Deployment_Diagram.jpg
+INPUT ../../images/Botic_Deployment_Diagram.jpg
+INPUT ../../images/Botic_Deployment_Diagram.jpg
+INPUT ../../images/Botic_Deployment_Diagram.jpg
+INPUT ../../images/Botic_Deployment_Diagram.jpg
+INPUT ../../images/implicit-grant.png
+INPUT ../../images/implicit-grant.png
+INPUT ../../images/implicit-grant.png
+INPUT ../../images/implicit-grant.png
+INPUT ../../images/implicit-grant.png
+INPUT ../../images/Information_Scraper_UCD.jpg
+INPUT ../../images/Information_Scraper_UCD.jpg
+INPUT ../../images/Information_Scraper_UCD.jpg
+INPUT ../../images/Information_Scraper_UCD.jpg
+INPUT ../../images/Information_Scraper_UCD.jpg
+INPUT ../../images/AI_Chatbot_UCD.jpg
+INPUT ../../images/AI_Chatbot_UCD.jpg
+INPUT ../../images/AI_Chatbot_UCD.jpg
+INPUT ../../images/AI_Chatbot_UCD.jpg
+INPUT ../../images/AI_Chatbot_UCD.jpg
+INPUT ../../images/AI_Backend_UCD.jpg
+INPUT ../../images/AI_Backend_UCD.jpg
+INPUT ../../images/AI_Backend_UCD.jpg
+INPUT ../../images/AI_Backend_UCD.jpg
+INPUT ../../images/AI_Backend_UCD.jpg
+INPUT ../../images/Botic_Simplified_Architectural_Design.jpg
+INPUT ../../images/Botic_Simplified_Architectural_Design.jpg
+INPUT ../../images/Botic_Simplified_Architectural_Design.jpg
+INPUT ../../images/Botic_Simplified_Architectural_Design.jpg
+INPUT ../../images/Botic_Simplified_Architectural_Design.jpg
+INPUT c:/Users/Lesego/Documents/GitHub/Botic/docs/uncompiled/SRS/Botic_SRS.aux
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1095.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1095.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1200.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1200.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecss1095.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecss1095.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1440.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1440.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1095.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1095.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm2074.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm2074.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1200.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1200.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1440.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1440.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1728.pk
+INPUT C:/Users/Lesego/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1728.pk

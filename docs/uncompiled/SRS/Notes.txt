@@ -1,0 +1,143 @@
+moveDocuments Update; 
+
+Use Case 1: Record User Queries
+Use Case 2: Sanitize Private Information
+	 2.1 Identify identifiers
+Use Case 3: Prepare Historical Data Dataset: Process data into the correct format
+Use Case 4: Train Neural Network on Historical Data - Private Information
+Use Case 5: Chatbot responds to a request- Increase weighting or reward chatbot?
+	 5.1: Obtain request (through various means i.e. Email (SecureSMTP), HTTPS-JSON, SMS, 
+	 5.2: Classify request
+	 5.3: Get response from NN
+	 5.5: Respond to Customer (through various means)
+	 5.6: Optional- Get feedback/merit or demerit (learn only if issue was solved- should
+		customer rep that understands natural language, choose messages that matter in
+		in the ticket--threshold if too many?)
+Use Case 6: Train Chatbot Neural Network on Historic Data - Reponses
+Use Case 7: Chatbot Forwards to Customer Representative - This includes learning from the resp
+		-onse.
+Use Case 8: Setup a Database for Database Manager: a means to enter database credentials
+	 8.1 Specify kind of Database i.e. language
+	 8.2 Specify credentials
+	 8.3 Specify relations/collections/graphs
+Use Case 9: 
+
+Get Customer Rep to have a queue for chatbot responses
+
+Quality Requirements
+- Proactive, Immediate, Always available: Availability, Performance.
+- Security
+
+Definitions:
+	
+1. Sanitize: To identify, not to destroy, so that it becomes clear to the user that they may
+	remove it.
+2. Historical Data: A dataset containing messages as well as appropriate responses to those 
+	messages. It is used to train the chatbot's neural network.
+3. SAP: Systems Applications and Products in Data Processing
+
+Insights: Jhani works for an SAP/ERP making company. I think she would be the best person to
+help us with the data processing and data mining in the logs as well as database manager ie.
+answers to questions like which language is best for our feature, scope and etc. Also, point
+to the knowledge you gained from the Databases Module also referrence your competitive int-
+elligence stuff - especially the BIS, and Competitively Intelligent information. Also, have
+a look at the products on offer.
+
+The textbook has a domain model review checklist that we can use to review a domain model, I
+suggest that you go through the textbook and check for checklists that guide how to review 
+the different software artifacts that you are meant to produce. The Agile Principles, and the
+Software Design Principles for instance, are a good set of guidelines to review artifacts.
+
+In the readme, have a seperate section were you link the previous versions of the software
+documents.
+
+Make changes due to the feedback given to you by Mrs Baror-Henry.
+
+Bothersome questions: how do you teach something to learn from an arbitrary act.
+
+Collecting Application Domain Information
+- Business process descriptions: 
+
+Brainstorming:
+- Done
+
+Classifying Brainstorming Results:
+= (C) Person
+= (A) name
+= (A) email
+= (C) customer
+= (C) chatbot
+= (V) trained (chatbot)
+= (AS) interact(Customer, Chatbot)(1,1)(customer,assistant)
+= (AC) Interaction(of interact)
+= (A) start
+= (V) DateTime
+= (A) Duration
+= (AS) send(Customer,Query,Chatbot,Interaction)(1,1,1,1)(sender,query,target,context)
+= (C) Chatbot Trainer
+= (AS) train(Chatbot Trainer,Chatbot,Data)(1,1,1)(trainer,chatbot,data)
+= (C) Ticket system
+= (C) Customer Support Representative
+= (AS) store(Chatbot, Interaction, Data),(1,1,1)(preserver,data,storage)
+= (AG) Part-of(Data, Ticket System)(1,1)(data,system)
+= (I) ISA(Customer, Person)
+= (I) ISA(Customer Support Representative, Person)
+= (C) Data
+= (A) status
+= (V) historic
+= (C) Private Information Rule
+= (AG) Part-of(Private Information Rule, Data)(1..*,1)(rule,data)
+= (A) rule
+= (V) General Data Protection Regulation 
+= (V) Protection of Personal Information
+= (A) Territory
+= (V) United Kingdom
+= (V) South Africa
+= (C) Company
+= (A) name
+= (A) description
+= (AG) Part-of(Ticket System, Company)(1,1)
+= (C) Personal Information
+= (A) status
+= (V) unnecessary
+= (C) Message
+= (A) status
+= (V) captured
+= (C) Query
+= (I) ISA(Query, Message)
+= (AG) Part-of(Personal Information, Message)(*,0..*, 1)
+= (AG) Part-of(Message,Interaction)(1..*,1)
+= (AG) Part-of(Interaction, Data)(1..*,1)
+= (AS) warn(Chatbot, Customer, Personal Information)(1,1,1)(chatbot, customer, reason)
+= (A) preemptive
+= (AS) interpret(Chatbot, Query)(1,1)(interpreter,query)
+= (AS) classify(Chatbot, Query)(1,1)(classifier,query)
+= (AC) Classification (of classify)
+= (A) category
+- (AS) reply(Chatbot, Response, Customer Interaction)(1,1,1,1)(responder, response, customer, context)
+	{if scrape has personal data then suggest}*Look at how they do the thing in the textbook
+	++leave the above curly bracket content for now++
+= (C) Response
+= (A) automated
+= (AS) scrape(Information Scraper, Data)(1,1)(scraper, data) 
+= (AS) scrape(Information Scraper, Query)(1,1)(scraper, query)
+= (I) ISA(Response, Message)
+= (AS) scrape(Information Scraper,Response)(1,1)
+~ (AS) suggest(Chatbot, Response, Customer Support Representative)(1,1,1)
+= (AS) respond(Customer Support Representative, Response, Customer, Interaction)
+= (C) Information Scraper
+= (AS) feedback(Customer, Chatbot, Response, Query)(1,1,1,1)
+= (AC) Feedback (of feedback)
+= (AS) absorb(Data, Feedback)
+
++ ask customer if the chatbot response is correct
++ should we assume that the customer representative is right? Should we only ask the customer
+for feedback-- i.e. was this useful; if so, we should accomodate for the case where the inte-
+raction ends with no feedback
++ track how many times a trainer is executed on each chatbot component
++ in implementation, make sure that the interaction has a indicator of the customer that uses
+it
+
+Visualising the Domain Model
+- draw.io
+Message Scraper is essentially middleware- a clue to look for middleware architecture.
