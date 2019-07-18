@@ -95,7 +95,7 @@ export class TextScraperService {
 
           return words;
         }));
-  }  
+  }
 
   private log(message: string) {
     this.messageService.add(`${message}`);

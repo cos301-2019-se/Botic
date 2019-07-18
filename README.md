@@ -20,8 +20,8 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 - <a href="https://app.zenhub.com/workspaces/botic-5cc1a7ea036c7737a1fc9673/board?repos=182156004" target="_blank">ZenHub Project Management</a> (requires GitHub account)
 
 ### Documentation
-- <a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Botic_SRS.pdf" target="_blank">Software Requirements Specification</a>
-- <a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Coding_Standards.pdf" target="_blank">Coding Standards</a>
-- <a href="https://cos301-2019-se.github.io/Botic/docs/compiled/User_Manual.pdf" target="_blank">User Manual</a>
-- <a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Testing_Policy.pdf" target="_blank">Testing Policy</a>
-- <a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">Architecture and Deployment Diagrams</a>
+- <a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS.pdf" target="_blank">Software Requirements Specification</a>
+- <a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards.pdf" target="_blank">Coding Standards</a>
+- <a href="https://cos301-2019-se.github.io/Botic/compiled/User_Manual.pdf" target="_blank">User Manual</a>
+- <a href="https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy.pdf" target="_blank">Testing Policy</a>
+- <a href="https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">Architecture and Deployment Diagrams</a>
