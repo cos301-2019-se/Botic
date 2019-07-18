@@ -158,17 +158,36 @@ export class TextScraperComponent implements OnInit {
   */
     onClickCall(userInput : string) : void {
 
+      /*
+      Test Purposes:
+      */
+      var passed = 0;
+      var failed = 0;
+
       // window.alert(this.badWords.length);
       if (this.hasChecked == false) {
         this.returnChanged(userInput);
+        console.log("onClickCall has been called.");
+        passed++;
+        console.log("onClickCall has been called - hasChecked started on false");
+        passed++;
         this.hasChecked = true;
+        console.log("onClickCall has been called - hasChecked changed to true - checking if personal info has been entered");
+        passed++;
         if (this.badWords.length == 0) {
+          console.log("onClickCall has been called - no personal information has been identified.");
+          passed++;
+          console.log("onClickCall has been called - hasChecked changed back to false - no personal info");
+          passed++;
           this.processResponse(userInput);
           this.hasChecked = false;
         }
         else {
           window.alert("Personal information has been entered. See text above textbox for details.");
           var theBadWordsAdded = "The following personal information have been entered: ";
+
+          console.log("onClickCall has been called - personal information has been identified.");
+          passed++;
 
           // for (var i = 0; i < this.badWords.length; i++) {
           //   if (i == 0) {
@@ -181,12 +200,17 @@ export class TextScraperComponent implements OnInit {
 
           var replaceText = document.getElementById("preview");
           replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
+          console.log("onClickCall has been called - personal information displayed.");
+          passed++;
         }
       }
       else {
         this.processResponse(userInput);
         this.hasChecked = false;
+        console.log("onClickCall has been called - gave option to take out personal information");
+        passed++;
       }
+      console.log("Tests completed: " + passed + " passed, " + failed + " failed.")
     }
 
  /*
