@@ -70,7 +70,7 @@
 \section{Introduction}
 \subsection{Agile Unified Methodology}
 
-<Provide a Diagram of the AUM>
+%<Provide a Diagram of the AUM>
 
 Using the Agile Unified Methodology to take advantage of agile principles as well as work with a methodology based off the
 waterfall process, that has a simple linear and uncomplicated progression is what we have chosen to do. We anticipate that
@@ -78,8 +78,9 @@ the project will not have a high requirements change throughout development, and
 methodology more fitting.
 
 The Agile Unified Methodology makes use of Test-Driven Development, which makes it easier to develop high quality code.
-<Provide details of how we would deal with the set backs of the Test-Driven Development>
-<Additional motivations>
+
+%<Provide details of how we would deal with the set backs of the Test-Driven Development>
+%<Additional motivations>
 
 At the moment, phase 3 has high priority.
 
@@ -353,6 +354,12 @@ Using the steps as defined in \cite{Book:1} page 176 to 192, namely: identifying
 		Update Password & Y & Y & Y & Y & Y & Customer & Botic \\
 		\hline
 		Update Password & Y & Y & Y & Y & Y & Customer Support Rep & Botic \\
+		\hline
+		Update Password & Y & Y & Y & Y & Y & Admin & Botic \\
+		\hline
+		Login & Y & Y & Y & Y & Y & Admin & Botic \\
+		\hline
+		Logout & Y & Y & Y & Y & Y & Admin & Botic \\
 		\hline		
 	\end{tabular}
 \end{center}
@@ -378,9 +385,11 @@ Using role-based partitioning we produce the following use case groupings:
 	\hline
 	UC17: Deregister User & UC13: Register &  \\
 	\hline
-	 & UC15: Deregister & \\
+	U20: Update Password  & UC15: Deregister & \\
 	\hline
-	 & UC18: Update Password & \\
+	U21: Login & UC18: Update Password & \\
+	\hline
+	U22: Logout & & \\
 	\hline
 	\end{tabular}
 \end{center}
@@ -442,53 +451,53 @@ A requirements use case traceability matrix is useful for a number of reasons, o
 \end{center}
 
 \begin{center}
-	\hspace*{-1.1cm}\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+	\hspace*{-1.1cm}\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 	\hline
-	Requirement & Priority & UC11 & UC12 & UC13 & UC14 & UC15 & UC16 & UC17 & UC18 & UC19 \\
+	Requirement & Priority & UC11 & UC12 & UC13 & UC14 & UC15 & UC16 & UC17 & UC18 & UC19 & UC20 & UC21 & UC22 \\
 	\hline
-	R1.1 & 5 & & & & & & & & & \\
+	R1.1 & 5 & & & & & & & & & & & & \\
 	\hline
-	R1.2 & 5 & & & & & & & & & \\
+	R1.2 & 5 & & & & & & & & & & & &\\
 	\hline
-	R1.3 & 5 & & & & & & & & & \\
+	R1.3 & 5 & & & & & & & & & & & &\\
 	\hline
-	R2.1 & 5 & & & & & & & & & \\
+	R2.1 & 5 & & & & & & & & & & & &\\
 	\hline
-	R2.2 & 4 & & & & & & & & & \\
+	R2.2 & 4 & & & & & & & & & & & &\\
 	\hline 
-	R3.1 & 5 & & & & & & & & & \\
+	R3.1 & 5 & & & & & & & & & & & &\\
 	\hline
-	R3.2 & 4 & & & & & & & & & \\
+	R3.2 & 4 & & & & & & & & & & & &\\
 	\hline
-	R3.3.1 & 4 & & & & & & & & & \\
+	R3.3.1 & 4 & & & & & & & & & & & & \\
 	\hline
-	R3.3.2 & 5 & & & & & & & & & \\
+	R3.3.2 & 5 & & & & & & & & & & & &\\
 	\hline
-	R3.3.2.1 & 5 & & & & & & & & & \\
+	R3.3.2.1 & 5 & & & & & & & & &  & & &\\
 	\hline
-	R3.3.2.2 & 5 & & & & & & & & & \\
+	R3.3.2.2 & 5 & & & & & & & & & & & &\\
 	\hline
-	R3.3.2.3 & 5 & & & & & & & & & \\
+	R3.3.2.3 & 5 & & & & & & & & & & & &\\
 	\hline
-	R3.4 & 5 & & & & & & & & & \\
+	R3.4 & 5 & & & & & & & & & & & &\\
 	\hline
-	R4.1 & 3 & & & & & & & & & \\
+	R4.1 & 3 & & & & & & & & & & & &\\
 	\hline 
-	R4.2 & 3 & & & & & & & & & \\
+	R4.2 & 3 & & & & & & & & & & & &\\
 	\hline
-	R4.3 & 3 & & & & & & & & & \\
+	R4.3 & 3 & & & & & & & & & & & &\\
 	\hline
-	R5 & 3 & & & & & & & & & \\
+	R5 & 3 & & & & & & & & & & & &\\
 	\hline
-	R6.1 & 3 & & & & & & & & & \\
+	R6.1 & 3 & & & & & & & & & & & &\\
 	\hline
-	R7 & 4 & & & & & & & & & \\
+	R7 & 4 & & & & & & & & & & & &\\
 	\hline
-	R8 & 3 & & & & & & & & & \\
+	R8 & 3 & & & & & & & & & & & &\\
 	\hline
-	R9.1 & 4 & & & & & & & & & \\
+	R9.1 & 4 & & & & & & & & & & & & \\
 	\hline
-	UC Priority & & 4 & 4 & 4 & 4 & 4 & 4 & 3 & 4 & 4\\
+	UC Priority & & 4 & 4 & 4 & 4 & 4 & 4 & 3 & 4 & 4 & 4 & 4 & 4 \\
 	\hline
 	\end{tabular}
 \end{center}
@@ -558,63 +567,63 @@ In order to associate the quality attributes to the use cases, these below are t
 \end{center}
 
 \begin{center}
-	\hspace*{-1.1cm}\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+	\hspace*{-1.1cm}\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 	\hline
-	Security & Priority & UC11 & UC12 & UC13 & UC14 & UC15 & UC16 & UC17 & UC18 & UC19 \\
+	Security & Priority & UC11 & UC12 & UC13 & UC14 & UC15 & UC16 & UC17 & UC18 & UC19 & U20 & UC21 & UC22 \\
 	\hline
-	R1.1.1 & 5 & & & X & & X & & & X & \\
+	R1.1.1 & 5 & & & X & & X & & & X & & & & \\
 	\hline
-	R1.1.2 & 5 & X & X & & X & & & & & X \\
+	R1.1.2 & 5 & X & X & & X & & & & & X & & & \\
 	\hline
-	R1.1.3 & 5 & & & & & X & & X & X & X \\
+	R1.1.3 & 5 & & & & & X & & X & X & X & X & X & X\\
 	\hline
-	R1.2 & 5 & & & X & X & & X & & & \\
+	R1.2 & 5 & & & X & X & & X & & & & & &\\
 	\hline
-	R1.3 & 5 & & & & & & & & X & X \\
+	R1.3 & 5 & & & & & & & & X & X & X & &\\
 	\hline 
-	R1.4.1 & 5 & & & X & & X & & & X & \\
+	R1.4.1 & 5 & & & X & & X & & & X & & & &\\
 	\hline
-	R1.4.2 & 5 & & & & & & & & & \\
+	R1.4.2 & 5 & & & & & & & & & & & &\\
 	\hline
-	R1.4.3 & 5 & X & X & & X & & & & & X \\
+	R1.4.3 & 5 & X & X & & X & & & & & X & & &\\
 	\hline
-	R1.4.4 & 5 & & & & & & & & & \\
+	R1.4.4 & 5 & & & & & & & & & & & &\\
 	\hline
-	R1.4.5 & 5 & & & & & & & & & \\
+	R1.4.5 & 5 & & & & & & & & & & & &\\
 	\hline
-	R1.5 & 5 & X & X & X & X & X & X & X & X & X \\
+	R1.5 & 5 & X & X & X & X & X & X & X & X & X & X & X & X \\
 	\hline
-	Availability & & & & & & & & & & \\
+	Availability & & & & & & & & & & & & & \\
 	\hline
-	R1.1.1 & 5 & X & X & X & X & X & X & X & X & X \\
+	R1.1.1 & 5 & X & X & X & X & X & X & X & X & X & X & X & X \\
 	\hline
-	R1.2.1 & 5 & X & X & X & X & X & X & X & X & X \\
+	R1.2.1 & 5 & X & X & X & X & X & X & X & X & X & X & X & X \\
 	\hline
-	R1.2.2 & 5 & X & X & X & X & X & X & X & X & X \\
+	R1.2.2 & 5 & X & X & X & X & X & X & X & X & X & X & X & X \\
 	\hline 
-	R1.3 & 5 & X & X & X & X & X & X & X & X & X \\
+	R1.3 & 5 & X & X & X & X & X & X & X & X & X & X & X & X \\
 	\hline
-	Reliability & & & & & & & & & & \\
+	Reliability & & & & & & & & & & & & &\\
 	\hline
-	R1.1.1 & 4 & & & & & & & & & \\
+	R1.1.1 & 4 & & & & & & & & & & & &\\
 	\hline
-	R1.1.2 & 4 & & & & & & & & & \\
+	R1.1.2 & 4 & & & & & & & & & & & &\\
 	\hline
-	R1.2 & 4 & & & & & & & & & \\
+	R1.2 & 4 & & & & & & & & & & & &\\
 	\hline
-	Performance & & & & & & & & & & \\
+	Performance & & & & & & & & & & & & &\\
 	\hline
-	R1.1.1 & 3 & & & & & & & & & \\
+	R1.1.1 & 3 & & & & & & & & & & & &\\
 	\hline
-	R1.1.2 & 3 & & & & & & & & & \\
+	R1.1.2 & 3 & & & & & & & & & & & &\\
 	\hline
-	Maintainability & & & & & & & & & & \\
+	Maintainability & & & & & & & & & & & & & \\
 	\hline
-	R1.1 & 2 & X & X & X & X & X & X & X & X & X \\
+	R1.1 & 2 & X & X & X & X & X & X & X & X & X & X & X & X \\
 	\hline
-	R1.2 & 2 & X & X & X & X & X & X & X & X & X \\
+	R1.2 & 2 & X & X & X & X & X & X & X & X & X & X & X & X\\
 	\hline
-	UC Priority & & 4 & 4 & 4 & 4 & 4 & 4 & 3 & 4 & 4\\
+	UC Priority & & 4 & 4 & 4 & 4 & 4 & 4 & 3 & 4 & 4 & 4 & 4 \\
 	\hline
 	\end{tabular}
 \end{center}
@@ -661,7 +670,7 @@ The specification of use case scopes will help us define where the use cases sta
 	TUCEW a customer support representative gets redirected to the customer support chat page.
 	\item[] \textbf{UC12.} Logout\\*
 	TUCBW a customer support representative clicks the "Sigh Out" button on the customer support chat page.\\*
-	TUCEW a customer support representative gets redirected to the customer support chat page.
+	TUCEW a customer support representative gets redirected to the home page.
 	\item[] \textbf{UC13.} Register\\*
 	TUCBW a customer clicks on the "Register" button on the home page. \\*
 	TUCEW a customer gets the message "You have been Registered" and gets redirected to the home page.
@@ -684,6 +693,15 @@ The specification of use case scopes will help us define where the use cases sta
 	\item[] \textbf{U19.} Update Password\\*
 	TUCBW the customer support representative clicks the "Update Password" link on the customer support chat page.\\*
 	TUCEW the customer support representative recieves the message "Password Updated" and being redirected to the home page. 
+	\item[] \textbf{UC20.} Update Password \\*
+	TUCBW the administrator clicking the "Update Password" link on the Botic Admin page.\\*
+	TUCEW the administrator recieving the message "Password Updated" and being redirected to the home page.
+	\item[] \textbf{UC21.} Login \\*
+	TUCBW the administrator clicking the "Sign In" button on the home page. \\*
+	TUCEW the administrator being redirected to the Botic Admin page.
+	\item[] \textbf{UC22.} Logout \\*
+	TUCBW the administrator clicking the "Sign Out" button on the Botic Admin page.
+	TUCEW the administrator being redirected to the home page.
 \end{itemize}
 
 \subsubsection{Visualizing Use Case Contexts}
@@ -695,6 +713,64 @@ Here a "User" encompasses: Administrator, Customer and Customer Support Represen
 	\hspace*{-1.8cm}\includegraphics[width=1.2\textwidth]{../../images/Botic_Use_Case_Context_Diagrams.png}
 	\caption{Use Case Contexts}
 \end{figure}
+
+\subsubsection{Reviewing Use Case Specifications}
+
+All items in the use case review checklist on page 190 in book\cite{Book:1} have been checked, all pass.
+
+\subsubsection{Allocating the Use Cases to Iterations}
+
+The agile method of effort estimation has been used here. Highest point is 5 and the lowest is 1. Let us assume for now, that the team is capable of handling the amount of work in each use case.
+%It is enough to have reasonable effort estimation points at the moment; this section should be reviewed and fixed after the demo.
+%The priorities of the use cases have to be updated as well to produce some reasonable values.
+
+\begin{center}
+	\hspace*{-1.8cm}\begin{tabular}{|c|c|p{2.4cm}|p{1.2cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1cm}|}
+	\hline
+	Use Case & Priority & Effort (Agile) & Depend On & Iteration-1  1wks 05/29/19 - 06/03/19 & Iteration-2 3wks 06/06/19 - 06/24/19 & Iteration-3 2wks 07/08/19 - 07/19/19 & Iteration-4 3wks 07/22/19 - 08/09/19 & Iteration-5 2wks  08/12/19 - 08/23/19 & IT-6 2.5wks 08/26/ - 09/11/\\
+	\hline
+	UC1 & 5 & 4 & None & & & & 4 & & \\
+	\hline
+	UC2 & 5 & 4 & UC1 & & & & 4 & & \\
+	\hline
+	UC3 & 5 & 5 & UC9 & 1 & 1 & 1 & 1 & 1 & \\
+	\hline
+	UC4 & 5 & 3 & UC6 & & & & 1 & 2 & \\
+	\hline
+	UC5 & 5 & 3 & UC4 & & & & 1 & 2 & \\
+	\hline
+	UC6 & 4 & 2 & UC3 & & & & 2 & & \\
+	\hline
+	UC7 & 4 & 5 & UC8 & & & 2 & 2 & 1 & \\
+	\hline
+	UC8 & 4 & 4 & None & & & & 2 & 2 & \\
+	\hline
+	UC9 & 5 & 2 & None & 1 & 1 & & & & \\
+	\hline
+	UC10 & 5 & 1 & UC9 & 1 & & & & & \\
+	\hline
+	UC11 & 4 & 2 & None & 1 & 1 & & & & \\
+	\hline
+	UC12 & 4 & 1 & UC11 & 1 & & & & & \\
+	\hline
+	UC13 & 4 & 2 & None & & 2 & & & & \\
+	\hline
+	UC14 & 4 & 2 & None & & 2& & & & \\
+	\hline
+	UC15 & 4 & 2 & UC13 & & & 2 &  &  & \\
+	\hline
+	UC16 & 4 & 2 & None & & & 2 &  & & \\
+	\hline
+	UC17 & 3 & 2 & UC16 & & & 2  & & & \\
+	\hline
+	UC18 & 4 & 2 & UC13 & & & 2 & & & \\
+	\hline
+	UC19 & 4 & 2 & UC11 & & & 2 & & & \\
+	\hline
+	Total Effort &  & 50 & & 5 & 7 & 13 & 17 & 8 & \\
+	\hline
+	\end{tabular}
+\end{center}
 
 \subsection{Allocating Use Cases and Subsystems to Iterations}
 
