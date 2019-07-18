@@ -167,7 +167,7 @@ export class TextScraperComponent implements OnInit {
           window.alert("Personal information has been entered. See text above textbox for details.");
           var theBadWordsAdded = "The following personal information has been added: ";
 
-          for (var i = 0; i < this.badWords.length - 1; i++) {
+          for (var i = 0; i < this.badWords.length; i++) {
             if (i == 0) {
               theBadWordsAdded = theBadWordsAdded + this.badWords[i];
             }
@@ -177,7 +177,7 @@ export class TextScraperComponent implements OnInit {
           }
 
           var replaceText = document.getElementById("preview");
-          replaceText.innerHTML = replaceText.innerHTML.replace(userInput, theBadWordsAdded);
+          replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " | safe: 'html'");
         }
       }
       else {
