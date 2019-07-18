@@ -37,7 +37,7 @@ export class TextScraperComponent implements OnInit {
   ngOnInit() {
     this.badWords = [];
     this.runTests();
-    //this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
+    // this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
     this.getBadWords();
   }
 
@@ -123,6 +123,7 @@ export class TextScraperComponent implements OnInit {
   returnChanged(input: string): string{
     this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => this.badWords = badWords);
     var output = "";
+    // this.badWords = [];
 
     var array = input.split(" ");
     output = "";
@@ -156,28 +157,30 @@ export class TextScraperComponent implements OnInit {
   message or send it with the personal information attached.
   */
     onClickCall(userInput : string) : void {
+
+      // window.alert(this.badWords.length);
       if (this.hasChecked == false) {
         this.returnChanged(userInput);
         this.hasChecked = true;
-        if (this.badWords[0] == null) {
+        if (this.badWords.length == 0) {
           this.processResponse(userInput);
           this.hasChecked = false;
         }
         else {
           window.alert("Personal information has been entered. See text above textbox for details.");
-          var theBadWordsAdded = "The following personal information has been added: ";
+          var theBadWordsAdded = "The following personal information have been entered: ";
 
-          for (var i = 0; i < this.badWords.length; i++) {
-            if (i == 0) {
-              theBadWordsAdded = theBadWordsAdded + this.badWords[i];
-            }
-            else {
-              theBadWordsAdded = theBadWordsAdded + " ," + this.badWords[i];
-            }
-          }
+          // for (var i = 0; i < this.badWords.length; i++) {
+          //   if (i == 0) {
+          //     theBadWordsAdded = theBadWordsAdded + this.badWords[i];
+          //   }
+          //   else {
+          //     theBadWordsAdded = theBadWordsAdded + ", " + this.badWords[i];
+          //   }
+          // }
 
           var replaceText = document.getElementById("preview");
-          replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " | safe: 'html'");
+          replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
         }
       }
       else {
