@@ -247,78 +247,65 @@ The system administrator is a super user who will be able to manage the system a
 
 \subsection{Functional Requirements} %used to be \subsection{Function}
 
-\subsubsection{Authentication}
-\begin{enumerate}[label=R1.\arabic*.]
-	\item The system must be able to authenticate users and authorize them to access system features.
-	\begin{enumerate}[label*=\arabic*.]
-		\item The system must be able to authenticate users using Auth0 and recieve an access token.
-		\item The system must be able to identify a users' Email after being authenticated.
-		\item The system must be able to check access tokens to see if they have correct permissions.
-	\end{enumerate}
-	\item The system must be able to deny users who haven't been authenticated to access system features
-	\begin{enumerate}[label*=\arabic*.]
-		\item The system must be able to check login status and access tokens.
-		\item The system must be able to check permissions within access tokens.
-	\end{enumerate}
-	\item The system must be able to allow new users to register for user profiles for authentication.
-	\item The system must be able to allow users to update their password.
-\end{enumerate}
+Requirements are labelled with "R" and constraints with "C."
+	
+\subsubsection{User Interface}
+\begin{itemize}
+  \item[] R1.1 The system must allow a customer to enter a query and click on a button to send it.
+  \item[] R1.2 The system must warn a customer of personal information included in a query.
+  \item[] R2.2 The system must be able to highlight personally identifying information according to severity index.
+  \item[] R3.3.2.2 The system must be able to highlight personally identifying information according to severity index.
+  \item[] R3.3.2.3 The system must be able to warn the client representative if they have entered identifying information.
+  \item[] R4.1 The system must allow customers to thumbs up a query response.
+  \item[] R4.2 The system must allow customers to thumbs down a query response.
+  \item[] R5 The system must allow queries to be sent to customer support representatives if not answered satisfactorily.
+  \item[] C1 The system must use an Angular Single Page Application for the user interface.
+\end{itemize}
 %%\subsubsection{UI}
 
 \subsubsection{Information Scraper}
-\begin{enumerate}[label=R2.\arabic*.]
-	\item The system must be able to identify personally identifying information.
-	\begin{enumerate}[label*=\arabic*.]
-		\item The system must be able to read in strings to identify personally identifying information.
-		\item The system must be able to use a neural network to identify personally identifying information.
-		\item The system must be able to attach a severity to the personally identifying information.
-	\end{enumerate}
-	\item The system must be able to warn a user if they have entered identifying information.
-	\begin{enumerate}[label*=\arabic*.]
-		\item The system must be able to highlight personally identifying information according to severity index.
-		\item The system must be able to prevent the user from sending personally identifying information.
-	\end{enumerate}
-\end{enumerate}
+\begin{itemize}
+  \item[] R2.1 The system must be able to attach a severity to the personally identifying information.
+  \item[] R3.1 The system must scrape its customer query responses for personal information.
+  \item[] R3.3.2.1 The system must be able to identify personal information in a customer representative's response. 
+  \item[] C3.1 The system must use word2vec for identifying personal information in customer queries.
+  \item[] C5.2 The system must determine if the response contains personally identifying information.
+\end{itemize}
 
-\subsubsection{Chatbot/Ticketbot}
-\begin{enumerate}[label=R3.\arabic*.]
-	\item The system must be able to process user queries to provide an appropriate response.
-	\begin{enumerate}[label*=\arabic*.]
-		\item The system must be able to allow users to send a message to the chatbot.
-		\item The system must be able to use the QueryClassifier to to classify the user query.
-	\end{enumerate}
-	\item The system must be able to attempt to answer processed user queries/tickets.
-	      \begin{enumerate}[label*=\arabic*.]
-	      	\item The system must be able to use the classification of the query to obtain a response index.
-		\item The system must be able to send the query to a human if it cannot obtain a response index.
-		\item The system must be able to obtain a response using a response index from the Database Manager
-	      \end{enumerate}
-	\item The system must be able to use a text recognition API to understand the query.
-\end{enumerate}
+\subsubsection{Query Classification}
+\begin{itemize}
+  \item[] R3.2 The system must be able to classify the user queries.
+  \item[] C3.2 The system must use word2vec for classifying customer queries.
+\end{itemize}
 
-\subsubsection{AI Training}
-\begin{enumerate}[label=R4.\arabic*.]
-	%\item The system must host and server the AI Chatbot and Scraper respectively
-	%\item The system must provide the library of responses that the AI has at its disposal.
-	\item The system must be able to train on new and historic information to learn how to classify queries
-	\item The system must be able to train on new and historic information to learn how to classify personally identifying information.
-\end{enumerate}
+\subsubsection{Response Generation}
+\begin{itemize}
+  \item[] R3.3.1 The system must generate a response if it certain that it can.
+  \item[] C5.1 The system must generate an automated response based on the query classification.
+\end{itemize}
 
-\subsubsection{Database Manager}
-\begin{enumerate}[label=R5.\arabic*.]
-	\item The system must allow other subsystems to persist information.
-	\begin{enumerate}[label*=\arabic*.]
-		\item The system must store information into the system's database.
-	\end{enumerate}
-	\item The system must allow other subsystems to update information.
-	\begin{enumerate}[label*=\arabic*.]
-		\item The system must edit information in the system's database.
-	\end{enumerate}
-	\item The system allow other subsystem to delete information.
-	\begin{enumerate}[label*=\arabic*.]
-		\item The system must delete information in the system's database.
-	\end{enumerate}
-\end{enumerate}
+\subsubsection{Chatbot}
+\begin{itemize}
+  \item[] R1.3 The system must be able to recieve customer queries.
+  \item[] R3.3.2 The system must be able to send the query to a customer support representative if it cannot obtain an appropriate response.
+  \item[] R3.4 The system must be able to send a query response back to a customer.
+  \item[] R4.3 The system must be able to recieve customer feedback.
+  \item[] R5 The system must allow queries to be sent to customer support representatives if not answered satisfactorily.
+  \item[] R8 The system must interface with the currently existing ticket system.
+  \item[] C2 The system must provide an API for the SPA to interact with.
+\end{itemize}
+
+\subsubsection{Chatbot Trainer}
+\begin{itemize}
+  \item[] R6.1 The system must store previous customer interactions with positive feedback.
+  \item[] R7 The system must must be trained with previous customer queries and responses.
+  \item[] C4 The system must use Machine Learning or Deep Neural Networks in order to be trained with previous customer queries and responses.
+\end{itemize}
+
+\subsubsection{Data Persistence}
+\begin{itemize}
+  \item[] R9.1 The system must scrape customer interation data for personal information before storing.
+\end{itemize}
 
 %\subsection{Performance Requirements}
 %\subsection{Design Constraints}
@@ -337,81 +324,140 @@ The system administrator is a super user who will be able to manage the system a
 
 \subsubsection{Traceability Matrix}
 \begin{center}
-	\begin{tabular}{||c | c | c | c ||} 
-		\hline
-		     & Information Scraper & AI Chatbot & AI Backend \\
-		\hline\hline
-		R1   & X                   &            &            \\
-		\hline
-		R2   & X                   &            &            \\
-		\hline
-		R3   & X                   &            &            \\
-		\hline
-		R4   & X                   &            &            \\
-		\hline
-		R5   &                     & X          &            \\
-		\hline
-		R6   &                     & X          &            \\
-		\hline
-		R6.1 &                     & X          &            \\
-		\hline
-		R6.2 &                     & X          &            \\
-		\hline
-		R6.3 &                     & X          &            \\
-		\hline
-		R7   &                     & X          &            \\
-		\hline
-		R8   &                     & X          &            \\
-		\hline
-		R9   &                     &            & X          \\
-		\hline
-		R10  &                     &            & X          \\
-		\hline
-		R11  &                     &            & X          \\
-		\hline
-		R12  &                     &            & X          \\
-		\hline
-		
+	\hspace*{-1.3cm}\begin{tabular}{|c|c|c|c|c|c|c|c|}
+	\hline
+	R & UI & Info Scraper & Query Classification & Resp Generation & Chatbot & Chatbot Trainer & Data Persistence \\
+	\hline
+	R1.1 & X & & & & & & \\
+	\hline
+	R1.2 & X & & & & & & \\
+	\hline
+	R1.3 & & & & X & & & \\
+	\hline
+	R2.1 & & X & & & & & \\
+	\hline
+	R2.2 & X & & & & & & \\
+	\hline
+	R3.1 & & X & & & & & \\
+	\hline
+	R3.2 & & & X & & & & \\
+	\hline
+	R3.3.1 & & & & X & & & \\
+	\hline
+	R3.3.2 & & & & & X & & \\
+	\hline
+	R3.3.2.1 & & X & & & & & \\
+	\hline
+	R3.3.2.2 & X & & & & & & \\
+	\hline
+	R3.3.2.3 & X & & & & & & \\
+	\hline
+	R3.4 & & & & & X & & \\
+	\hline
+	R4.1 & X & & & & & & \\
+	\hline
+	R4.2 & X & & & & & & \\
+	\hline
+	R4.3 & X & & & & & & \\
+	\hline
+	R5 & X & & & & X & & \\
+	\hline
+	R6.1 & & & & & & X & \\
+	\hline
+	R7 & & & & & & X & \\
+	\hline
+	R8 & & & & & X & & \\
+	\hline
+	R9.1 & & & & & & & X \\
+	\hline
+	C1 & X & & & & & & \\
+	\hline
+	C2 & & & & & X & & \\
+	\hline
+	C3.1 & X & & & & & & \\
+	\hline
+	C3.2 & & & X & & & & \\
+	\hline
+	C4 & & & & & & X & \\
+	\hline
+	C5.1 & & & & X & & & \\
+	\hline
+	C5.2 & & X & & & & & \\
+	\hline
 	\end{tabular}
 \end{center}
+
+Key: UI = User Interface, Info Scraper = Information Scraper, Resp Generation =  Response Generation.
 
 \subsection{Software System Attributes}%%Non-Functional Requirements (limited to 6)
 
 The non-functional requirements below will be listed by priority.
 
 \subsubsection{Availability}
-\begin{enumerate}
-	\item The system has to have high availability to handle customer queries and issues since it is meant to augment a customer support system.
-	\item The system should be available at least 99 percent of the time.
+\begin{enumerate}[label=R1.\arabic*.]
+	\item The system must have high availability to handle customer queries.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system should be available at least 99 percent of the time.
+	\end{enumerate}
+	\item The system must ensure that errors that occur throughout the system are handled appropriately and provide sufficient
+information.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must provide error messages when errors occur.
+		\item The system must ensure to keep a traces that show what led to errors.
+	\end{enumerate}
+	\item The system must ensure that errors are localized and that their effect is minimized throughout the system.
 \end{enumerate}
 
 %Perhaps you should include a CIA triad and AAA information set and some figures. 
-%\subsubsection{Security}
-%\begin{enumerate}
-%	\item This pertains to ensuring the authentication of customers, to make sure that responses are sent to the correct users.
-%	\item A log-in system would have to be implemented and private customer information would have to be secured i.e information that would used for authentication purposes like E-mail addresses.
-%	\item We will be using OAuth for authentication purposes.
-%\end{enumerate}
+\subsubsection{Security}
+\begin{enumerate}[label=R1.\arabic*.]
+	\item The system must be able to authenticate users and authorize them to access system features.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must be able to identify and authenticate customers.
+		\item The system must be able to identify and authenticate customer support representatives.
+		\item The system must be able to deny users who haven't been authenticated to access system features
+	\end{enumerate}
+	\item The system must be able to allow new users to register for user profiles for authentication.
+	\item The system must be able to allow users to update their password.
+	\item The system must ensure that confidentiality of customer and customer support representative interactions are ensured and maintained across the system.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must ensure that customers can interact with the system in a secured manner.
+		\item The system must ensure that customer queries are sent in a secured manner.
+		\item The system must ensure that customer support representatives care interact with the system in a secured manner.
+		\item The system must ensure that customer support representative response are sent in a secured manner.
+		\item The system must ensure that all queries and responses are processed in a secured manner.
+	\end{enumerate}
+	\item The system must ensure that information disclosed during error management is not revealing of internal architecture, design, and configuration information.
+\end{enumerate}
 
 \subsubsection{Reliability}
-\begin{enumerate}
-	\item The system has to be trustworthy, therefore no input given by the user would be stored and if personal information is identified, the system would warn the user first before sending through the ticket.
-	\item The system must also be able to be consistent in responses and respond with the correct response to the input that was given by the user.
-	\item The system should also be able to operate without failure for a specified number of tickets.
+\begin{enumerate}[label=R1.\arabic*.]
+	\item The system must ensure that responses to customer queries are done in a reliable manner.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must ensure that customer support representative are authorized to respond to customer queries.
+		\item The system must ensure that queries are responses sent throughout the system are complete and consistent.
+	\end{enumerate}
+	\item The system must ensure that it is at least 80 percent certain that an autogenerated response is correct before responding to a query.
 \end{enumerate}
 
 %These are emergent properties that really relly on the performance of multiple if not all of the components of the system.
 \subsubsection{Performance}
-\begin{enumerate}
-	\item The system must answer queries as quickly and accurately as it can or divert the query to the relevant customer support specialist in good time. 
+\begin{enumerate}[label=R1.\arabic*.]
+	\item The system must ensure that personal information is highlighted according to severity in real-time.
+	\begin{enumerate}[label*=\arabic*.]
+		\item The system must ensure that a severity of a word is recieved within a second of it being typed.
+		\item The system must ensure that a word or set of words containing personal information are highlighted in less than a second after recieving the severity.
+	\end{enumerate}
 \end{enumerate}
 
+%Check this out as well
 \subsubsection{Scalability}
 \begin{enumerate}
 	\item The system should be able to scale appropriately to accommodate additional/growing customer queries, especially during peak work hours; it would be useful if the resources scaled down as well during “off peak” hours.
-	\item We have chosen to deploy our system to Docker, it is used in part to allow for efficient and easy scaling. More resources can be allocated to our system dynamically - on demand.
+	\item We have chosen to deploy our system to Docker, it is used in part to allow for efficient and easy scaling.% More resources can be allocated to our system dynamically - on demand.
 \end{enumerate}
 
+%Need to check this out
 \subsubsection{Maintainability}
 \begin{enumerate}
 	\item The system structure will be modular to adhere to the concept of low coupling and high cohesion. This would help to make it maintainable since updated systems result in localized changes instead of changes everywhere throughout the system.
@@ -435,7 +481,7 @@ The non-functional requirements below will be listed by priority.
 %\end{enumerate}
 
 %These things are not actually constraints. They ought to be removed as well.
-\subsection{Constraints}
+\subsection{Challenges}
 \begin{enumerate}
 	\item Being able to understand what the user is asking even if they use ‘slang’ abbreviations.  For example, using “R U” instead of “are you”.
 	\item Not being able to respond adequately to a new user query due to limited or insufficient  training.
@@ -504,17 +550,17 @@ Below we list the architectural tactics that will be used satisfy our system's q
 \begin{center}
 	\begin{tabular}{|p{3cm}|p{7cm}|}
 	\hline
-	Availability & 
+	Availability & \\
 	\hline
-	Security &
+	Security & \\
 	\hline
-	Reliability &
+	Reliability & \\
 	\hline
-	Performance &
+	Performance & \\
 	\hline
-	Scalability &
+	Scalability & \\
 	\hline
-	Maintainability &
+	Maintainability & \\
 	\hline
 	\end{tabular}
 \end{center}
