@@ -1,5 +1,5 @@
 Saving model after training
-===============================
+==============================
 https://stackoverflow.com/questions/51281241/gensim-word2vec-model-trained-but-not-saved
 
 Gensim
