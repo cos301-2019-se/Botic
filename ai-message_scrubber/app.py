@@ -1,22 +1,23 @@
 from flask import Flask, request, json, jsonify
 import re
+import fasttext
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
 import os
-# port = int(os.environ.get("PORT", 5000))
-# app.run(host='0.0.0.0', port=port)
-
-# @app.route('/')
-# def test():
-#	return 'Welcome to the Message Scrubber API!'
 
 @app.route('/',methods=['GET','POST'])
 def test():
 	if request.method == 'POST' or request.method == 'GET':
-		print("test" + request.form.get('data'))
+		trainNetwork("dataset/dataset.txt", "__label__", "scrubModel")
+		response = jsonify('Model has been trained :)')
+		response.status_code = 202
+		return response
+	response = jsonify('Model training failed')
+	response.status_code = 400
+	return response
 
 @app.route('/scrub', methods=['GET', 'POST'])
 def scrub():
@@ -27,9 +28,11 @@ def scrub():
 			response.status_code = 400
 			return response
 		response = check(input_data)
+		findData(input_data, "scrubModel", "__label__")
 		if response != '[]':
 			response = formatReturn(response)
 		response = jsonify(response)
+		response.headers.add('Access-Control-Allow-Origin', '*')
 		response.status_code = 202
 		# response.headers.add('Access-Control-Allow-Origin', '*')
 		return response
@@ -94,6 +97,24 @@ def formatReturn(data):
 		jsonObj += "\'severity\':" + y[1] + "},"
 	jsonObj = jsonObj[0:-1] + "]"
 	return jsonObj
+
+def trainNetwork(fileName, label, model):
+	#texts = ['Hi, my name is bob and my password is 19283918293 and my username is BobRox123']
+	classifier = fasttext.supervised(fileName, model, label_prefix=label)
+	classifier = fasttext.load_model(model + '.bin', label_prefix=label)
+	#print(labels)
+
+def findData(text, model, label):
+	print("Loading model...")
+	lists = []
+	lists.append(text)
+	classifier = fasttext.load_model(model + '.bin', label_prefix=label)
+	labels = classifier.predict_proba(lists, k=len(classifier.labels))
+	for k in labels:
+		for label in k:
+			if not(label[1] < 0.03126):
+				print(label)
+	#print(labels)
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0')
