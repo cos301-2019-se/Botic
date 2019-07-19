@@ -20,6 +20,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CustomerSupportComponent } from './components/customer-support/customer
     HeaderComponent,
     FooterComponent,
     MessagesComponent,
-    CustomerSupportComponent
+    CustomerSupportComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
