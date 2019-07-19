@@ -1,6 +1,10 @@
 import gensim
 import pandas as pd
 import numpy as np
+from sklearn.manifold import TSNE
+import matplotlib.pyplot as plt
+
+
 def arrayFromFile(filename):
     text_file = open(filename, "r")
     lines = text_file.read().split('\r\n')
@@ -19,7 +23,8 @@ dataset = arrayFromFile("dataset.txt")
 #print(sent[:2])
 #for s in dataset:
 #    print(s)
-model = gensim.models.Word2Vec([s.encode('utf-8').split(" ") for s in dataset], min_count=5, size= 182,workers=5, window =5)
+model = gensim.models.Word2Vec([s.split(' ') for s in dataset], min_count=5, size= 182,workers=5, window =5)
+#model = gensim.models.Word2Vec([s for s in dataset], min_count=5, size= 182,workers=5, window =5)
 
 #print(model['password'])
 
@@ -29,6 +34,8 @@ model = gensim.models.Word2Vec([s.encode('utf-8').split(" ") for s in dataset], 
 print(model.predict_output_word(['my', 'name', 'is'], topn=5))
 
 print(model.most_similar('name')[:5])
+
+print(len(model.wv.vocab))
 
 def display_closestwords_tsnescatterplot(model, word, size):
     arr = np.empty((0,size), dtype='f')
@@ -57,4 +64,4 @@ def display_closestwords_tsnescatterplot(model, word, size):
 
     plt.show()
 
-display_closestwords_tsnescatterplot(model, 'password', 50)
+display_closestwords_tsnescatterplot(model, 'password', 182)
