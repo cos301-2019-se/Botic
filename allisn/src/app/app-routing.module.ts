@@ -6,11 +6,13 @@ import { LandingComponent } from './components/pages/landing/landing.component';
 import { CustomerChatComponent } from './components/customer-chat/customer-chat.component';
 import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
 import { AuthGuard } from './services/security/auth/auth.guard';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'chat', component: CustomerChatComponent },
-  { path: 'repHome', component: CustomerSupportComponent}
+  { path: 'repHome', component: CustomerSupportComponent},
+  { path: 'admin', component: AdminDashboardComponent}
 ];
 
 @NgModule({
