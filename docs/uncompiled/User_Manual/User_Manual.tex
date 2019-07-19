@@ -156,4 +156,25 @@ What follows is a list of possible error conditions that may occur during the de
         \item \textbf{Bot is giving incoherent responses.}Check your training data as well as your information digest in to see if it is loaded correctly and that your model is properly trained.
 \end{itemize}
 
+\section{Auth0 Third-Party Authentication Software}
+\begin{flushleft}
+	Botic uses a third-party authentication service to verify users and their credentials. This section of the user manual will demonstrate how to work with Auth0, but Botic has been designed to allow for clients to make use of their authentication service of choice.
+	To add a new ADMINISTRATOR to the system, from the Auth0 Dashboard, click on "Users & Roles" in the left menu panel followed by "Users" in the dropdown menu.
+	\includegraphics[width=1.0\textwidth]{UsersButton.png}
+	Select the user that you want to add as an administrator. Scroll down to where their "user_id" is displayed and copy the user id.
+	\includegraphics[width=1.0\textwidth]{UserID.png}
+	Next, click on "Rules" in the left menu panel.
+	\includegraphics[width=1.0\textwidth]{RulesButton.png}
+	Click on the edit icon of the "Redirect Logins" Rule.
+	\includegraphics[width=1.0\textwidth]{RulesPage.png}
+	Navigate to the if statement called "Admin" and, inside the last bracket, add:
+	 || (user.user_id === "USER_ID")
+	where USER_ID is the user_id value that you copied earlier.
+	\includegraphics[width=1.0\textwidth]{AddAdmin.png}
+	Click on "Save" to complete the addition of the new administrator.
+	\includegraphics[width=1.0\textwidth]{Save.png}
+
+
+\end{flushleft}
+
 \end{document}
