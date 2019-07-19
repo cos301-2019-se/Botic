@@ -50,7 +50,7 @@
 	\textbf{In the case of the client:} the device will connect to the online Heroku component. That component will send the client's query through to the server which houses the company specific trained neural network. An appropriate response will be formulated. Depending on the response, it will either be forwarded to a client representative or sent back to the client.\\[0.5cm]
 	\textbf{In the case of the client representative:} the device will connect to the online Heroku component which will forward a response that the company specific trained neural network was unable to respond to. The client representative will then review the case and provide the system with the correct response to send through to the client.\\[0.5cm]
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{Diagram1.PNG}
+\includegraphics[width=1.0\textwidth]{media/Diagram1.PNG}
 
 \subsection{Installation}
 \begin{flushleft}
@@ -61,22 +61,22 @@
 \begin{flushleft}
 	Once installed, follow the confirmation email sent to the email used to register with Botic. The email will contain a unique key which should be entered into the “Registration Token” field. Once done, the system will confirm the token and the user will be taken through the setup process.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{ProductKey.png}
+\includegraphics[width=1.0\textwidth]{media/ProductKey.png}
 
 \begin{flushleft}
 	As default, the account associated with the email used to register will be set as the system administrator. To add a new user, click “Add user”.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{CreateUser.jpg}
+\includegraphics[width=1.0\textwidth]{media/CreateUser.jpg}
 
 \begin{flushleft}
 	Fill in the necessary fields. Once complete, click “Add user”. The new user has now been added.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{AddUserForm.png}
+\includegraphics[width=1.0\textwidth]{media/AddUserForm.png}
 
 \begin{flushleft}
 	To request a new password, click “Sign in” followed by “Forgot password”. Follow the steps and an email will be sent to the associated account with a link to change the password.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{Login.png}
+\includegraphics[width=1.0\textwidth]{media/Login.png}
 
 \begin{flushleft}
 	Once initiated, the system will require basic setup which can be done through the “Admin Page”.
@@ -86,54 +86,54 @@
 \begin{flushleft}
 	To access the chat service, navigate to http://botic-frontend.herokuapp.com/ and click “Chat”.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{Landing.png}
+\includegraphics[width=1.0\textwidth]{media/Landing.png}
 
 \begin{flushleft}
 	Read through the User Agreement. Once complete, click on “Accept”.
 \end{flushleft}
-\includegraphics[height=0.91\textwidth]{UserAgreement.png}
+\includegraphics[height=0.91\textwidth]{media/UserAgreement.png}
 
 \begin{flushleft}
 	You will be redirected to the chat page.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{ChatPage.png}
+\includegraphics[width=1.0\textwidth]{media/ChatPage.png}
 
 \begin{flushleft}
 	Type your query into the text field, your text will be reviewed and any information that may prove to be a risk will be highlighted.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{Preview.png}
+\includegraphics[width=1.0\textwidth]{media/Preview.png}
 
 \begin{flushleft}
 	Click send to submit your query. Queries will be handled and responded to by the system.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{Response.png}
+\includegraphics[width=1.0\textwidth]{media/Response.png}
 
 \begin{flushleft}
 	Follow the link to find the requested information.
 	To login to a client representative account, click “Sign in” in the top right corner.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{Login.png}
+\includegraphics[width=1.0\textwidth]{media/Login.png}
 
 \begin{flushleft}
 	You will be redirected to the AuthO sign in page.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{AuthO.png}
+\includegraphics[width=1.0\textwidth]{media/AuthO.png}
 
 \begin{flushleft}
 	After signing into your account, you will be redirected to file:///C:/Users/Kyle/Documents/GitHub/Botic/ui/RepHome.html
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{Rep.png}
+\includegraphics[width=1.0\textwidth]{media/Rep.png}
 
 \begin{flushleft}
 	Queries that could not be handled by the system will appear here for the client representative to review and respond to.
 	Click “Log out” to logout of your account.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{LogOut.png}
+\includegraphics[width=1.0\textwidth]{media/LogOut.png}
 
 \begin{flushleft}
 	Then confirm that you want to log out by clicking “Yes”.
 \end{flushleft}
-\includegraphics[width=1.0\textwidth]{Confirm.png}
+\includegraphics[width=1.0\textwidth]{media/Confirm.png}
 
 \begin{flushleft}
 You will be returned to file:///C:/Users/Kyle/Documents/GitHub/Botic/ui/landingPage.html
@@ -158,23 +158,57 @@ What follows is a list of possible error conditions that may occur during the de
 
 \section{Auth0 Third-Party Authentication Software}
 \begin{flushleft}
-	Botic uses a third-party authentication service to verify users and their credentials. This section of the user manual will demonstrate how to work with Auth0, but Botic has been designed to allow for clients to make use of their authentication service of choice.
-	To add a new ADMINISTRATOR to the system, from the Auth0 Dashboard, click on "Users & Roles" in the left menu panel followed by "Users" in the dropdown menu.
-	\includegraphics[width=1.0\textwidth]{UsersButton.png}
-	Select the user that you want to add as an administrator. Scroll down to where their "user_id" is displayed and copy the user id.
-	\includegraphics[width=1.0\textwidth]{UserID.png}
-	Next, click on "Rules" in the left menu panel.
-	\includegraphics[width=1.0\textwidth]{RulesButton.png}
-	Click on the edit icon of the "Redirect Logins" Rule.
-	\includegraphics[width=1.0\textwidth]{RulesPage.png}
-	Navigate to the if statement called "Admin" and, inside the last bracket, add:
-	 || (user.user_id === "USER_ID")
-	where USER_ID is the user_id value that you copied earlier.
-	\includegraphics[width=1.0\textwidth]{AddAdmin.png}
-	Click on "Save" to complete the addition of the new administrator.
-	\includegraphics[width=1.0\textwidth]{Save.png}
-
-
+	Botic uses a third-party authentication service to verify users and their credentials. This section of the user manual will demonstrate how to work with Auth0, but Botic has been designed to allow for clients to make use of their authentication service of choice.\\[0.5cm]
+	To add a new ADMINISTRATOR to the system, from the Auth0 Dashboard, click on "Users \& Roles" in the left menu panel followed by "Users" in the dropdown menu.\\[0.5cm]
 \end{flushleft}
+\includegraphics[width=0.3\textwidth]{media/UsersButton.PNG}
+\begin{flushleft}
+	Select the user that you want to add as an administrator. Scroll down to where their "user\_id" is displayed and copy the user id.\\[0.5cm]
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{media/UserID.PNG}
+\begin{flushleft}
+        Next, click on "Rules" in the left menu panel.\\[0.5cm]
+\end{flushleft}
+\includegraphics[width=0.3\textwidth]{media/RulesButton.PNG}
+\begin{flushleft}
+    Click on the edit icon of the "Redirect Logins" Rule.\\[0.5cm]
+\end{flushleft}	
+\includegraphics[width=1.0\textwidth]{media/RulesPage.PNG}
+\begin{flushleft}
+    Navigate to the if statement called "Admin" and, inside the last bracket, add:\\[0.5cm]
+	 || (user.user\_id === "USER\_ID")\\[0.5cm]
+	where USER\_ID is the user\_id value that you copied earlier.\\[0.5cm]
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{media/AddAdmin.PNG}
+\begin{flushleft}
+	Click on "Save" to complete the addition of the new administrator.\\[0.5cm]
+\end{flushleft}
+\includegraphics[width=0.2\textwidth]{media/Save.PNG}
 
+\begin{flushleft}
+    To add a new CLIENT REPRESENTATIVE to the system, from the Auth0 Dashboard, click on "Users \& Roles" in the left menu panel followed by "Users" in the dropdown menu.\\[0.5cm]
+\end{flushleft}
+\includegraphics[width=0.3\textwidth]{media/UsersButton.PNG}
+\begin{flushleft}
+	Select the user that you want to add as a CR. Scroll down to where their "user\_id" is displayed and copy the user id.\\[0.5cm]
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{media/UserID.PNG}
+\begin{flushleft}
+        Next, click on "Rules" in the left menu panel.\\[0.5cm]
+\end{flushleft}
+\includegraphics[width=0.3\textwidth]{media/RulesButton.PNG}
+\begin{flushleft}
+    Click on the edit icon of the "Redirect Logins" Rule.\\[0.5cm]
+\end{flushleft}	
+\includegraphics[width=1.0\textwidth]{media/RulesPage.PNG}
+\begin{flushleft}
+    Navigate to the if statement called "Client Representative" and, inside the last bracket, add:\\[0.5cm]
+	 || (user.user\_id === "USER\_ID")\\[0.5cm]
+	where USER\_ID is the user\_id value that you copied earlier.\\[0.5cm]
+\end{flushleft}
+\includegraphics[width=1.0\textwidth]{media/AddCR.PNG}
+\begin{flushleft}
+	Click on "Save" to complete the addition of the new CR.\\[0.5cm]
+\end{flushleft}
+\includegraphics[width=0.2\textwidth]{media/Save.PNG}
 \end{document}

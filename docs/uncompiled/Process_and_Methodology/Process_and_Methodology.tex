@@ -268,13 +268,19 @@ Key: UI = User Interface, Info Scraper = Information Scraper, Resp Generation = 
 	\end{enumerate}
 	\item The system must ensure that errors that occur throughout the system are handled appropriately and provide sufficient
 information.
+%	
 	\begin{enumerate}[label*=\arabic*.]
 		\item The system must provide error messages when errors occur.
+%tactic: place emphasis on exception handling and the use of try and catch statements. Always include.
 		\item The system must ensure to keep a traces that show what led to errors.
+%logs
 	\end{enumerate}
 	\item The system must ensure that errors are localized and that their effect is minimized throughout the system.
+%in effect the result of the application of an architectural tactic in this regard is fault masking or repairs being made
+%also, if code is not replicated and modules are highly cohesive
 \end{enumerate}
 
+%Availability subsumes reliability; reliability is a subset of availability.
 \paragraph{Reliability}
 \begin{enumerate}[label=R1.\arabic*.]
 	\item The system must ensure that responses to customer queries are done in a reliable manner.
@@ -775,11 +781,77 @@ The agile method of effort estimation has been used here. Highest point is 5 and
 \subsection{Allocating Use Cases and Subsystems to Iterations}
 
 \subsection{Producing an Architecture Design}
- - Links to relevent documentation
-- Special consideration should be made during modeling and analysis to show resources that need protection and entities that access those resources
-- Apply security patterns and security design principles to ensure that security requirements are satisfied.
-- security test plan to guide the security test process
- 
+ %- Links to relevent documentation
+%- Special consideration should be made during modeling and analysis to show resources that need protection and entities that access those resources
+%- Apply security patterns and security design principles to ensure that security requirements are satisfied.
+%- security test plan to guide the security test process
+
+"The design process needs to be performed recursively down the hierarchy until the leaf node components are relatively easy to design and implement." - \cite{Book:1}
+
+In producing the architecture design of the system we will follow the architectural design process outlined in \cite{Book:1}'s chapter 6.3 as well as additional considerations brought forth by our Software Engineering classes and recommended material in SWEBOK (Software Engineering Body of Knowledge) version and \cite{Book:2}. Agile principles will be followed, thus we intend to cover just enough of what is needed. Here we will cover: Design objectives; System Type; Architectural Style; Subsystem functions, interfaces, and interaction behaviour; and lastly, we will review the architectural design.
+
+\subsubsection{Design Objectives}
+
+The system quality attributes outline the essense of the business objectives and priorities of the system. Stated in order, they are: Availability, Security, Reliability, Performance, Scalability and Maintainability. Our design objectives are to achieve these quality attributes, in priority, in serving the responsibilities of the system. 
+
+In order to achieve these quality attributes architectural tactics, which are "techniques an architect can use to achieve the required quality attributes"\cite{Book:2}, will be used. These tactics will then be used to form the architectural design in a manner resembling "first principles." 
+
+\paragraph{Availability}
+Looking at the quality attributes involving availability and following the design checklist for availability as specified by \cite{Book:2}, we realise that in order to fascilitate the application of tactics that improve availability, we would have to include the following into our system:
+\begin{itemize}
+	\item[] Logging of faults
+	\item[] Notifying appropriate entities of the faults
+	\item[] Disable the source of events causing the fault
+	\item[] Be temporarily available if need be
+	\item[] Fix or mask the fault/failure
+	\item[] or Operate in a degraded mode
+\end{itemize}
+
+In order for these to be effected, faults need to be detected, the system needs to be able to recover from faults, and it is appropriate to have a measure of preventing faults before they happen.
+
+In order to log faults, the fault detection mechanism or tactics need to be able to store the detected 'faulty' state. The memento design pattern would clearly be useful here. We can even go as far as to have types of faults being associated with the types of mechanisms set out to identify each. For these, we may apply the Abstract Factory Pattern in order to produce specific fault logs, and store them in our fault logging database through the memento pattern. Event's can be stored in this way, so that we may be able to have a trace of operations that led to an error.
+
+Once that is stored in the caretaker, which in and of itself is a state change, we notify the module responsible for notifying the relevant parties of faults in the system. In order to effect these responsibilities, we would have to assign functionality that stores fault logs, and notifies users. These will be done in reference to use cases, because availability is an attribute that affects users - which are the actors in the use cases. The fault detection mechanisms (architectural tactics) depend on what the particular operations of the modules, thus each of the modules or subsystems stand to have their own fault detection mechanisms (availability architectural patterns). This logic applies to tactics responsible for recovering from faults, and preventing faults.
+
+The table below provides the subsystems yeilded from functional clusters for high cohesion, and their system types as well as our chosen fault detection tactic, recovery tactic and fault prevention tactic. These are only subsystems that are necessary, and ordered according to priority.:
+
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Chatbot Subsystem & Transformational Subsystem & 
+		\hline
+	\end{tabular}	
+\end{center}
+
+
+Two modules will be produced here: one for log management, and another for notification. These require that data be persisted.
+
+In the table below, for each quality attribute specified, we will go throught the architectural tactics applied for each to be realized.
+
+\begin{center}
+	\begin{tabular}{|p{3cm}|p{7cm}|}
+	\hline
+	Availability & \\
+	\hline
+	Security & \\
+	\hline
+	Reliability & \\
+	\hline
+	Performance & \\
+	\hline
+	Scalability & \\
+	\hline
+	Maintainability & \\
+	\hline
+	\end{tabular}
+\end{center}
+
+%This needs to be somewhere, but probably not here
+In the previous sections we have outlined the use cases and their subsystems- as determined by mostly role-based and type based partitioning, requirements and their functional clusters. In adhering to the software design principles of "Low Coupling and High Cohesion", amongst others, it is noticable that the use case subsystems rely on operations that are shared with use cases of other subsystems, in fact, the functional clusters produced during requirements analysis produce better coupling and cohesion. This means that we can freely or apply other principles such as "Seperation of Concerns", "Information Hiding" etc.
+
+\subsubsection{Determine System Type}
+%This out to be done in layers i.e. first layer of granularity
+
 Planning Phase: Succeeded.
  - First meeting with client
  - Use Case-iteration allocation matrix here.
