@@ -37,8 +37,8 @@ export class TextScraperComponent implements OnInit {
   ngOnInit() {
     this.badWords = [];
     this.runTests();
-    // this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
-    this.getBadWords();
+    this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
+    // this.getBadWords();
   }
 
   /*
