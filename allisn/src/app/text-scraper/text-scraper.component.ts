@@ -83,6 +83,10 @@ export class TextScraperComponent implements OnInit {
       {
         message : "What's the meaning of life?",
         response: 'I\'m having trouble finding an answer, click <a href="#">here</a> to talk to a real person.'
+      },
+      {
+        message : "What do you know about cooking?",
+        response : "I'm unsure of how to respond, please enter your email address to forward your ticket to a representative<br /><input type='text'/>&nbsp;<input class='btn primary' type='submit' value='send'>"
       }
     ];
 
