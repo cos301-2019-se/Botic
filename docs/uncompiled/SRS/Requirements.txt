@@ -1,0 +1,184 @@
+Ought to be starting and refining the documentation from scratch.
+Seems like a good thing to go to school for this one tomorrow.
+
+// Function Requirements
+
+R: A Responsibility of the system.
+
+R1 The system must allow customers to send customer queries.
+R1.1 The system must allow a customer to enter a query and click on a button to send it.
+R1.2 The system must warn a customer of personal information included in a query.
+R1.3 The system must be able to recieve customer queries.
+
+R2 The system must identify personal information within a customer's query.
+R2.1 The system must be able to attach a severity to the personally identifying information.
+R2.2 The system must be able to highlight personally identifying information according to severity index.
+
+R3 The system must respond to a customer query.
+R3.1 The system must scrape its customer query responses for personal information.
+R3.2 The system must be able to classify the user queries.
+R3.3 The system must be able to process user queries to provide an appropriate response.
+R3.3.1 The system must generate a response if it certain that it can.
+R3.3.2 The system must be able to send the query to a customer support representative
+  if it cannot obtain an appropriate response.
+R3.3.2.1 The system must be able to identify personal information in a customer representative's response. 
+R3.3.2.3 The system must be able to warn the customer representative if they have entered identifying information.
+R3.3.2.2 The system must be able to highlight personally identifying information according to severity index.
+R3.4 The system must be able to send a query response back to a customer.
+
+R4 The system must allow customers to provide feedback on answered queries.
+R4.1 The system must allow customers to thumbs up a query response.
+R4.2 The system must allow customers to thumbs down a query response.
+R4.3 The system must be able to recieve customer feedback.
+
+R5 The system must allow queries to be sent to customer support representatives if not
+    answered satisfactorily.
+
+R6 The system must use feedback to improve future customer interactions.
+R6.1 The system must store previous customer interactions with positive feedback.
+
+R7 The system must must be trained with previous customer queries and responses.
+
+R8 The system must interface with the currently existing ticket system.
+
+R9 The system must allow system administrators to provide historic customer interactions.
+R9.1 The system must scrape customer interation data for personal information before storing.
+
+//Security Requirements
+
+R9 The system must be able to authenticate users and authorize them to access system features.
+R9.1 The system must be able to identify and authenticate customers.
+R9.2 The system must be able to identify and authenticate customer support representatives.
+R9.3 The system must be able to deny users who haven't been authenticated to access system features
+
+R10 The system must be able to allow new users to register for user profiles for authentication.
+== administrators must approve customer support representatives
+
+R11 The system must be able to allow users to update their password.
+
+//Availability
+
+R13 The system must have high availability to handle customer queries.
+R13.1 The system should be available at least 99 percent of the time.
+
+
+R14 The system must ensure that errors that occur throughout the system are handled appropriately and provide sufficient
+information.
+R14.1 The system must provide error messages when errors occur.
+R14.2 The system must ensure to keep a traces that show what led to errors.
+
+R15 The system must ensure that errors are localized and that their effect is minimized throughout the system.
+
+//Reliability
+
+The system must ensure that responses to customer queries are done in a reliable manner.
+ - The system must ensure that customer support representative are authorized to respond to customer queries.
+ - The system must ensure that queries are responses sent throughout the system are complete and consistent.
+
+Include information on how certain a chatbot should be before generating an auto response or defering to human.
+
+The system must ensure that integrity is maintained with regard to customer responses.
+ - Checking the auto generated responses, and authorizing that customer support representatives are the ones that 
+ answered the queries.
+ "Integrity requirements is needed to ensure Reliability and Accuracy of the information. Reliability can be ensured by 
+ checking software functionality and Accuracy can be ensured by checking that the data is modified by authorized person in 
+ authorized manner and by Ensuring that handled data is Complete and consistent. Implementation of Security Controls like Hashing,
+  Digital Signatures assist in ensuring Integrity. Specifications like Protocols, Data Randomness Strength (e.g. Salt Length) 
+  etc should be captured as a part of Security Checklist."
+
+//Performance
+How many total active users should the chatbot handle concurrently?
+How many queries should it handle correctly?
+How long should it take to generate an autogenerated response?
+How long should it highlight personal information as it is typed?
+
+The system must ensure that personal information is highlighted according to severity in real-time.
+ - The system must ensure that a severity of a word is recieved within a second of it being typed.
+ - The system must ensure that a word or set of words containing personal information are highlighted
+   in less than a second after recieving the severity.
+
+//Scalability
+
+-- containerization of all our subsystems and using docker produces, an architecture that allows for
+individual scaling of each subsystem.
+-- management of hard and soft system resources i.e. CPU, Memory Usage, and system locks, software buffers
+The system must be able to handle a growing number of customer requests.
+
+//Maintainability
+
+%"...the labour or wall clock time required to make, test, and deploy the modification."
+-- multiple subsystems are isolated, containerized and can be scaled and deployed independently
+-- in this way, we maintain high cohesion and low coupling of subsystems.
+-- layered architectural style used as first layer of granularity, proxies too (proxy design pattern)
+-- include some information on the layered style
+The system must be maintainable and capable of change.
+  -- The system must allow for simple management of new features.
+  -- The system must allow 
+
+The system must allow for system changes and modifications to the UI to be made as seemlessly as possible.
+The system must be able to have user interface changes done by ownwers of the ticketing systems.
+
+The system must allow for system changes to the database to be made as seemlessly as possible.
+"What can change?"
+- ask client
+- the User Interface or more specifically, the ticketing system
+- the database can change along with the ticketing system
+- the natural language application can change (from word2vec to something else)
+- the training method and application can change (from ML or DNN to something else)
+- our client did tell us that the user interface is disposable, that it can change -HIGH PRIORITY
+
+//Security
+
+The system must ensure that all customer interaction information that is stored is stored securely.
+ - The system must ensure that customer queries are stored securely.
+ - The system must ensure that customer support representative responses are stored securely.
+
+The system must ensure that confidentiality of customer and customer support representative
+ interactions are ensured and maintained across the system.
+ - The system must ensure that customers can interact with the system in a secured manner.
+ - The system must ensure that customer queries are sent in a secured manner.
+ - The system must ensure that customer support representatives care interact with the system in a secured manner.
+ - The system must ensure that customer support representative response are sent in a secured manner.
+ - The system must ensure that all queries and responses are processed in a secured manner.
+
+ : when data is at rest, in transit and during processing
+ "Processes like Encryption, Steganography, Masking etc assist in assuring Data and Process Confidentiality. 
+ Security Checklist should contain specifications required to implement these like, Protocols to Use, Encryption Strength, 
+ usage of Processes ensuring confidentiality like Random Number Generator etc"
+
+The system must ensure that information disclosed during error management is not revealing of internal architecture, design,
+and configuration information.
+
+//Constraints
+
+Each has priority of 5
+These constraints also affect the quality attributes and the decisions to be made with
+regards to the architectural tatics as well as architectural design decisions.
+So then, technology decisions have to be made after the revelant architectural design decisions have been
+made, in which case one would have to decide which technologies would be able to realize those architectural decisions--
+this includes the amount of support you'll need, side effects of choosing one, and compatibility with other technology
+decisions.
+
+C1 The system must use an Angular Single Page Application for the user interface.
+
+C2 The system must provide an API for the SPA to interact with.
+
+C3 The system must use Natural Language Processing through word2vec to process customer queries.
+C3.1 The system must use word2vec for identifying personal information in customer queries.
+C3.2 The system must use word2vec for classifying customer queries.
+
+C4 The system must use Machine Learning or Deep Neural Networks in order to be trained with previous customer queries and responses.
+
+C5 The system must generate an automated response to a customer query.
+C5.1 The system must generate an automated response based on the query classification.
+C5.2 The system must determine if the response contains personally identifying information.
+
+For my sake, I'll have to capture the scenarios in a sentence rather than draw out tables and diagrams.
+These ought to be enough as they are at the moment. Time is not on my side, the rest of the quality
+requirements ought to be specified in phase 5 as part of the requirements change. This is
+by Aglie standards. At this rate, we won'tbe able to get much done, it will also enable us
+know how best to change an architecture.
+
+Use quality attribute scenarios in the next phase.
+
+Priorities: 1 to 5, with 5 being the highest

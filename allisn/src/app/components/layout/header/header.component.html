@@ -36,7 +36,7 @@
     <div style="width:100%; display:table-row; text-align:center;" id="subtitle">
       <p id="message"style="font-family:'Helvetica';color:#000;text-align:center">For any customer related queries, please make use of the chat function.</p>
       <div *ngIf="auth.isLoggedIn">
-        Hello, <u>{{auth.userProfile?}}</u>. Welcome to Botic! Please submit your query.
+        Hello, <u>{{auth.userProfile?.name}}</u>. Welcome to Botic! Please submit your query.
       </div>
     </div> 
 </div>

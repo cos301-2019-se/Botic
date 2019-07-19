@@ -1,13 +1,12 @@
 <div class="">
   <div class="">
     <div class="">
-      <!--Not necessary<li *ngFor="let badWord of badWords">{{badWord}}</li>-->
               <div style="height:40vh;border:none;">
                 <div
                 [innerHTML]="displayChat() | safe: 'html'">
                 </div>
               </div>
-              <p id="preview"><b>Preview: </b><span [innerHTML]="returnChanged(userInput) | safe: 'html'"></span></p>
+              <p id="preview"><span [innerHTML]=""></span></p>
               <textarea
                 contenteditable="true"
                 rows="4"
@@ -19,7 +18,7 @@
               <br>
               <div style="margin-top: 5px;">
                 <div style="">
-                  <button class="btn primary" (click)="processResponse(userInput)" id="btnSend">Send</button>
+                  <button class="btn primary" (click)="onClickCall(userInput)" id="btnSend">Send</button>
                 </div>
                 <br>
               </div>
