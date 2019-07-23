@@ -807,24 +807,75 @@ Looking at the quality attributes involving availability and following the desig
 	\item[] or Operate in a degraded mode
 \end{itemize}
 
-In order for these to be effected, faults need to be detected, the system needs to be able to recover from faults, and it is appropriate to have a measure of preventing faults before they happen.
+In order for these to be effected, faults need to be detected, the system needs to be able to recover from faults, and it is appropriate to have a measure of preventing faults before they happen.\\*
 
-In order to log faults, the fault detection mechanism or tactics need to be able to store the detected 'faulty' state. The memento design pattern would clearly be useful here. We can even go as far as to have types of faults being associated with the types of mechanisms set out to identify each. For these, we may apply the Abstract Factory Pattern in order to produce specific fault logs, and store them in our fault logging database through the memento pattern. Event's can be stored in this way, so that we may be able to have a trace of operations that led to an error.
+In order to log faults, the fault detection mechanism or tactic need to be able to store the detected 'faulty' state. The memento design pattern would clearly be useful here. We can even go as far as to have types of faults being associated with the types of mechanisms set out to identify each. For these, we may apply the Abstract Factory Pattern in order to produce specific fault logs, and store them in our fault logging database through the memento pattern. Event's can be stored in this way, so that we may be able to have a trace of operations that led to an error.\\*
 
-Once that is stored in the caretaker, which in and of itself is a state change, we notify the module responsible for notifying the relevant parties of faults in the system. In order to effect these responsibilities, we would have to assign functionality that stores fault logs, and notifies users. These will be done in reference to use cases, because availability is an attribute that affects users - which are the actors in the use cases. The fault detection mechanisms (architectural tactics) depend on what the particular operations of the modules, thus each of the modules or subsystems stand to have their own fault detection mechanisms (availability architectural patterns). This logic applies to tactics responsible for recovering from faults, and preventing faults.
+Once that is stored in the caretaker, which in and of itself is a state change, we notify the module responsible for notifying the relevant parties of faults in the system. In order to effect these responsibilities, we would have to assign functionality that stores fault logs, and notifies users. These will be done in reference to use cases, because availability is an attribute that affects users - which are the actors in the use cases. The fault detection mechanisms (architectural tactics) depend on the particular operations of the modules, thus each of the modules or subsystems stand to have their own fault detection mechanisms (availability architectural patterns). This logic applies to tactics responsible for recovering from faults, and preventing faults.\\*
 
-The table below provides the subsystems yeilded from functional clusters for high cohesion, and their system types as well as our chosen fault detection tactic, recovery tactic and fault prevention tactic. These are only subsystems that are necessary, and ordered according to priority.:
+The table below provides the subsystems yeilded from functional clusters for high cohesion, and their system types as well as our chosen fault detection tactic, recovery tactic and fault prevention tactic. These are only subsystems that are necessary, and ordered according to priority. The architectural tactics are solution specific, therefore we expect to add many more of them as the development of the project continues; software engineering is a wicked problem afterall:
 
 \begin{center}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		Chatbot Subsystem & Transformational Subsystem & 
+		Chatbot Subsystem & Transformational Subsystem & ping/echo, Retry & Exception Handling & Removal from Service\\
 		\hline
 	\end{tabular}	
 \end{center}
-
+Please note that the Chatbot Subsystem consists of the Message Scraper, Classifier and the Response Generator subsystems.
 
 Two modules will be produced here: one for log management, and another for notification. These require that data be persisted.
+
+\paragraph{Security}
+Looking at the quality requirements involving security in following the design checklist specified by \cite{Book:1}, we find that it is useful to use physical security as a model for software security as indicated by \cite{Book:2}. This results in the four categories of focus for this quality attribute: detect, resist, react, and recover. \\*
+
+In order to support the design and the analysis of security in our system we will pay attention to the following, and ensure that these responsibilities are assigned and met:
+\begin{itemize}
+	\item[] Identify the actor
+	\item[] Authenticate the actor
+	\item[] Authorize actors
+	\item[] Grant or deny access to data or services
+	\item[] Record attempts to access or modify data or services
+	\item[] Encrypt data
+	\item[] Recognize reduced availability for resources or services and inform appropriate personnel and restrict access
+	\item[] Recover from an attack
+	\item[] Verify checksums and hash values
+\end{itemize}
+ With regards to our data we shall ensure that the following is observed:
+\begin{itemize}
+	\item[] Seperation of data of different sensitivities
+	\item[] Ensure different access to data of different sensitivities
+	\item[] Ensure that access to sensitive data is logged and that the log files is suitably protected
+	\item[] Ensure that data is suitably encrypted and that keys are separated from the encrypted data
+	\item[] Ensure that data can be restored if it is inappropriately modified
+\end{itemize}
+
+This attribute modifies or enhances modules introduced in the availability requirement analysis above, this includes the assignment of new responsibilities in particular, certain logs have to be stored securely-- those logging access to sensitive information. It also makes use of the notification module to let the appropriate personnel know that their system is being attacked, when these attacks are detected.\\*
+
+The table below includes the architectural tactics we will employ with respect to each of the four categories (detection, resistance, reaction, and recovery) we defined earlier, the subsystems and their subsystem types. These are in order of priority:
+\begin{center}
+	\hspace*{-1.5cm}\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+		\hline
+		User Interface Subsystem & Interactive Subsystem & Detect service denial, Detect message delay & Identify actors, Authenticate actors, Authorize actors, Encrypt data, Separate entities & Revoke access, Lock computer, Inform Actors & Maintain Audit Trail \\
+		\hline
+		Chabtot Subsystem & Transformational Subsystem & Verify Message Integrity, Detect service denial & Identify actors, Authorize actors, Encrypt data & Revoke access, Inform Actors & Maintain Audit Trail \\
+		\hline
+		Chatbot Trainer Subsystem & Transformational Subsystem & & Authorize actors, Encrypt data & Inform Actors & Maintain Audit Trail, Data Model checklist above* \\
+		\hline
+		Database Subsystem & Database subsystem & & Authorize actors, Encrypt data, Separate entities & Inform Actors & Maintain Audit Trail, Data Model checklist above* \\
+		\hline
+	\end{tabular}
+\end{center}
+Note: we mention the UI subsystem, but what we really mean are the operations performable by the roles of Administrator and Customer Representative. The UI is how they interact with the system.
+
+These are not meant to be exhaustive; they are meant to be revised according to future needs and adapted with feedback.
+
+\paragraph{Reliability}
+All of these concerns are encapsulated in the availability analysis above as well as the security analysis above. The requirements have nonetheless been associated with the revelant use cases.
+
+\paragraph{Performance}
+Here we will look at design decisions that affect the performance of the system. Here we will consider two contributors to the response time: processing time and blocked time\cite{Book:2}. In these our architectural tactics will be concerned with the control of resource demand as well as the management of resources.
+
 
 In the table below, for each quality attribute specified, we will go throught the architectural tactics applied for each to be realized.
 
