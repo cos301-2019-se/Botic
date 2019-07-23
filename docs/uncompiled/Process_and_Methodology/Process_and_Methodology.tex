@@ -822,7 +822,7 @@ The table below provides the subsystems yeilded from functional clusters for hig
 		\hline
 	\end{tabular}	
 \end{center}
-Please note that the Chatbot Subsystem consists of the Message Scraper, Classifier and the Response Generator subsystems.
+Please note that the Chatbot Subsystem consists of the Message Scraper, Classifier and the Response Generator subsystems; thus all the mentioned tactics actually apply to each of this subsystem's components.
 
 Two modules will be produced here: one for log management, and another for notification. These require that data be persisted.
 
@@ -874,8 +874,28 @@ These are not meant to be exhaustive; they are meant to be revised according to 
 All of these concerns are encapsulated in the availability analysis above as well as the security analysis above. The requirements have nonetheless been associated with the revelant use cases.
 
 \paragraph{Performance}
-Here we will look at design decisions that affect the performance of the system. Here we will consider two contributors to the response time: processing time and blocked time\cite{Book:2}. In these our architectural tactics will be concerned with the control of resource demand as well as the management of resources.
+Here we will look at design decisions that affect the performance of the system. Here we will consider two contributors to the response time: processing time and blocked time\cite{Book:2}. In these our architectural tactics will be concerned with the control of resource demand as well as the management of resources. \\*
 
+A design checklist proposed by \cite{Book:2} suggests useful design considerations for the sake of ensuring performance; other than just following this checklist as in, on pages 142 to 144, we will note especially that under resource management, it is advised that we manage and monitor important resources under normal and overloaded operation; resources such as process and thread models-- a detail that involves the availability quality attribute. \\*
+
+The table below includes the architectural tactics that we will employ with respect to the control of resource demand and the management of resources in our system. This will only be for the performance critical components, and ordered by importance. The list contains the following columns: subsystem, subsystem type, control resource demand, and manage resources. This is not an exhaustive list, but alas software engineering is a wicked problem:
+\begin{center}
+	\begin{tabular}{|c|c|p{5cm}|p{6cm}|}
+		\hline
+		Chatbot Subsystem & Transformational Subsystem & Prioritize Events, Increase resource efficiency, Reduce overhead & Increase resources*, Introduce concurrency, Load balancer, Schedule resources \\
+		\hline
+		Message Scraper & Transformation Subsystem & Prioritize Events, Increase resource efficiency & Increase resource*, Introduce concurrency, Load balancer, schedule resources \\
+		\hline
+	\end{tabular}
+\end{center}
+Note: With regards to "Increase resources" we mean to say that a recommended deployment environment ought to be a cloud platform such as PaaS (Platform as a Service) which would dynamically increase or reduce resources based on demand and bill the customer accordingly.
+
+\paragraph{Scalability}
+Looking into design decisions affecting scalability, we have to consider the impact of adding or of removing resources, and these measures will reflect on associated availability as well as the load that will be assigned to existing and new resources\cite{Book:2}. Here, two kinds of scalability will be dealt with: horizontal scalability (adding more resources to individual units), vertical scalability (adding more resources to individual nodes).\\*
+
+%This quality attribute places emphasisr on the resources of the system; these were placed under special attention during the analysis of the performance attribute especially when it came to introducing concurrency. As an unqualified note, all of the scheduling data structures will have have their data split by some acceptable policy and the load balancers will have to be reconfigured
+
+\
 
 In the table below, for each quality attribute specified, we will go throught the architectural tactics applied for each to be realized.
 
