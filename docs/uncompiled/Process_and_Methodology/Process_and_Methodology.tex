@@ -893,32 +893,19 @@ Note: With regards to "Increase resources" we mean to say that a recommended dep
 \paragraph{Scalability}
 Looking into design decisions affecting scalability, we have to consider the impact of adding or of removing resources, and these measures will reflect on associated availability as well as the load that will be assigned to existing and new resources\cite{Book:2}. Here, two kinds of scalability will be dealt with: horizontal scalability (adding more resources to individual units), vertical scalability (adding more resources to individual nodes).\\*
 
-%This quality attribute places emphasisr on the resources of the system; these were placed under special attention during the analysis of the performance attribute especially when it came to introducing concurrency. As an unqualified note, all of the scheduling data structures will have have their data split by some acceptable policy and the load balancers will have to be reconfigured
+%This quality attribute places emphasisr on the resources of the system; these were placed under special attention during the analysis of the performance attribute especially when it came to introducing concurrency. As an unqualified note, all of the scheduling data structures will have have their data split by some acceptable policy and the load balancers will have to be reconfigured to account for new nodes.
 
-\
+\paragraph{Maintainability}
 
-In the table below, for each quality attribute specified, we will go throught the architectural tactics applied for each to be realized.
+Maintainability may encapsulate some aspects of modifiability as well as testability and availability. All three of these will be observed as well as that which is required for maintanence management from \cite{Book:1}. \\*
 
-\begin{center}
-	\begin{tabular}{|p{3cm}|p{7cm}|}
-	\hline
-	Availability & \\
-	\hline
-	Security & \\
-	\hline
-	Reliability & \\
-	\hline
-	Performance & \\
-	\hline
-	Scalability & \\
-	\hline
-	Maintainability & \\
-	\hline
-	\end{tabular}
-\end{center}
+In as far as modifiability is concerned, our architectural tactics in this regard, concern all of our system and its subsystems; they are reducing the size of modules through spliting modules, increasing cohesion by increasing semantic coherence, reducing coupling by encapsulation, using an intermediary, restrict dependencies, refactoring and abstract common services. \\*
 
-%This needs to be somewhere, but probably not here
-In the previous sections we have outlined the use cases and their subsystems- as determined by mostly role-based and type based partitioning, requirements and their functional clusters. In adhering to the software design principles of "Low Coupling and High Cohesion", amongst others, it is noticable that the use case subsystems rely on operations that are shared with use cases of other subsystems, in fact, the functional clusters produced during requirements analysis produce better coupling and cohesion. This means that we can freely or apply other principles such as "Seperation of Concerns", "Information Hiding" etc.
+Looking at architectural tactics for testability we are mostly going to rely on language specific testing tools, especially those that can allow us to follow state, pause and playback tests. It is also useful to follow documentation. The high priority subsystems, in terms of availability and functional responsibilities are high priorities for testing. \\*
+
+Availability has already been covered above. As far as preparing the system for maintainability is concerns, during development we will pay close attention to the application of software design principles as well as the application of software design patterns.
+
+"An aspect of testing in that arena is logging of operational data produced by the system, so that when failures occur, the logged data can be analyzed in the lab to try to reproduce the faults."\cite{Book:2}
 
 \subsubsection{Determine System Type}
 %This out to be done in layers i.e. first layer of granularity
