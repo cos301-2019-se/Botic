@@ -242,7 +242,6 @@ The system administrator is a super user who will be able to manage the system a
 
 Users with Administrator credentials will have the ability to change the settings and operational preferences of the program to better suit the needs of its company's requirements. Admin will have control over the program as a whole including access control, privacy preferences and overall system operation.
 
-
 %%\subsection{Constraints}
 %%\subsection{Assumptions and Dependencies}
 \section{Specific Requirements}
@@ -547,17 +546,79 @@ Our system type is an interactive system, as it is focused on the customer's int
 
 \subsection{Architectural Style}
 
-We will be using a 3-tier architectural style for the first level of granularity as a result. This architectural style is in line with making sure that the entire system prioritizes availability. The relevantly independent and loosely coupled layers makes the testing and the development of the system less couplicated. As a result, maintanence and further updates of the system benefit as well.The 3 layers themselves will be the frontend, AI (artificial intelligence) layer, and then the Data persistence layer or database layer in short.\par
+\subsubsection{Determine System Types}
+%This ought to be done in layers i.e. first layer of granularity
 
-The first layer, follows the MVC architecture, the Model View Controller architecture. We will be using the Angular framework, as our client requires. Here, there is a controller for each view, and certain controller types, called services which we will use to interface with our AI layer components i.e. the Chatbot, and the Message Scrubber.\par
+From a top view of the entire system, we have observed that the system is more of an interactive system type. Our system is focused on the customer's interaction with the Chatbot, the customer support's interaction, and the administrator's interaction. This means that the interaction begins and ends with each user. The results in the ordering of all subsystems into a number of layers. This has the consequence of creating a clear and well-documented separation of concerns\cite{Book:2}. 
 
-The second layer holds the Message Scrubber, as well as the Chatbot. The final layer contains the database as well as the Database Manager.
+The layers that result are the following:
+\begin{enumerate}
+	\item The User Interface Layer
+	\item The Chatbot Layer
+	\item The Training Layer
+	\item The Persistance Layer
+\end{enumerate}
+*This comes from the application of a 4-Tier Architecture.
+
+These four layers we treat as the total system's four main subsystems. Each of these layers, or subsystems, produce exhibit system types of their own. Going into each, we will apply the architectural design process until the we find that the individual leaf node elements are relatively easy to design and implement\cite{Book:1}. \\*
+
+Now we have a look at the "User Interface Layer." This layer deals heavily with actor requests and responses; all actors primarily interact with this subsystem in order satisfy business processes. This is clearly an interactive subsystem.\par
+
+Looking at the Chatbot layer, we observe that the layers in a transformational subsystem. The Support layer, or rather the Training layer we observe a transformational subsystem. The Perisistance Layer, however, is very clearly an object-persistence subsystem.
+
+\subsubsection{Applying Architectural Styles}
+%for each system and subsystem have a look how each design decision made with respect each quality attribute affects each architectural style chosen
+
+\paragraph{Entire System}
+The whole system adheres to the 4-Tier architectural style. It's layers or subsystems include: The User Interface Layer, the Chatbot Layer, the Support/Training Layer, and lastly the Persistence Layer. This architectural style ensure that all the subsystems and modules can be seperate and thus developed seperately with minimal interaction between them (changes), ensuring adherance to the software design principles of high cohesion and low coupling\cite{Book:2}. This makes our entire system more portable and modifiable (and thus maintainable). Here is the solution:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{../../images/Botic_Simplified_Architectural_Design.jpg}
-	\caption{3-Tier Architectural Diagram}
+	\hspace*{-2.1cm}\includegraphics[width=1.25\textwidth]{../../images/Botic_Layered_Architecture.png}
+	\caption{Architectural Stye of the System}
 \end{figure}
+
+The allowed-to-use relation here is denoted by the geometric adjacency of the layers from left to right-- layers on the left use layers on the right and the layers on the right are used by the layers on the left ONLY. The connections between each layer are made to be through encrypted channels. An appropriate technology will be used to implement this during the implementation phase e.g. SSL.
+
+\paragraph{The User Interface Subsystem}
+The User Interface Layer that is also an interactive subsystem uses an MVC architectural style. Using this architectural style, we ensure that user interface interface functionality, something that tends to change frequently especially in response to knew design trends *Quote IMY theory notes, be kept seperate from the application functionality and yet be ever responsive to user input, the most important thing in an interactive system\cite{Book:2}. This is the solution:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{../../images/User_Interface_MVC.png}
+	\caption{Architectural Style of the User Interface}
+\end{figure}
+
+\paragraph{The Chatbot Layer}
+The Chatbot Layer is a transformational subsystem, and will use a Main Program and Subroutines architectural style.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../../images/Chatbot_Layer_Architecture.png}
+	\caption{Architectural Style of the Chatbot Layer}
+\end{figure}
+
+\paragraph{The Training Layer}
+This layer is a transformational subsystem and will also use a Main Program and Subroutines architectural style.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../../images/Training_Layer_Architecture.png}
+	\caption{Architectural Style of the Training Layer}
+\end{figure}
+
+The ChatbotTrainer is a single container that has 4 instances: these are to service requests from the user interface (requests which are sent by the Administrator user), one to train the Message Scraper, one to train the Classifier, and one to train the Response Generator. It uses the Strategy Desgin Pattern to switch different training strategies/methods to suit each subsystem it services. This results in multiple instances of the same subsystem, but each using a different training method and data on a different chatbot subsystem.
+
+\paragraph{The Persisitance Layer}
+This layer is a clear candidate for the Persistence Framework architectural style, and it's architectural style is just that. Here is our solution:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{../../images/Persistence_Layer_Architecture.png}
+	\caption{Architectural Style of the Persistence Layer}
+\end{figure}
+
+In accordance to the architectural tactics we have chosen to observe to achieve availability and security quality attributes and requirements, in particular the security tactic to seperate access and data of different sensitivities, we have made the decision to have three databases. The first is for logs and audit trails, the second for the data models what would be used for the chatbot subsystems, and the third for recording queries and responses-- data that is concerned with the functional business processes.
 
 \section{References}
 \bibliographystyle{IEEEtran}
