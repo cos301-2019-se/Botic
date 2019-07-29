@@ -32,7 +32,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
     </tr>
     <tr>
         <td>Coding Standards</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards.pdf" target="_blank">v1 (Demo1,2,3)</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards.pdf" target="_blank">v1</a></td>
     </tr>
     <tr>
         <td>User Manual</td>
@@ -40,7 +40,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
     </tr>
     <tr>
         <td>Testing Policy</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy.pdf" target="_blank">v1 (Demo1,2,3)</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy.pdf" target="_blank">v1</a></td>
     </tr>
 </table>
 <!--<a href="https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">Architecture and Deployment Diagrams</a>-->
