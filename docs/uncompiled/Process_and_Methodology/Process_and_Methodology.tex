@@ -799,12 +799,12 @@ In order to achieve these quality attributes architectural tactics, which are "t
 \paragraph{Availability}
 Looking at the quality attributes involving availability and following the design checklist for availability as specified by \cite{Book:2}, we realise that in order to fascilitate the application of tactics that improve availability, we would have to include the following into our system:
 \begin{itemize}
-	\item[] Logging of faults
-	\item[] Notifying appropriate entities of the faults
-	\item[] Disable the source of events causing the fault
-	\item[] Be temporarily available if need be
-	\item[] Fix or mask the fault/failure
-	\item[] or Operate in a degraded mode
+	\item[] 1. Logging of faults
+	\item[] 2. Notifying appropriate entities of the faults
+	\item[] 3. Disable the source of events causing the fault
+	\item[] 4. Be temporarily available if need be
+	\item[] 5. Fix or mask the fault/failure
+	\item[] 6. or Operate in a degraded mode
 \end{itemize}
 
 In order for these to be effected, faults need to be detected, the system needs to be able to recover from faults, and it is appropriate to have a measure of preventing faults before they happen.\\*
@@ -816,7 +816,7 @@ Once that is stored in the caretaker, which in and of itself is a state change, 
 The table below provides the subsystems yeilded from functional clusters for high cohesion, and their system types as well as our chosen fault detection tactic, recovery tactic and fault prevention tactic. These are only subsystems that are necessary, and ordered according to priority. The architectural tactics are solution specific, therefore we expect to add many more of them as the development of the project continues; software engineering is a wicked problem afterall:
 
 \begin{center}
-	\begin{tabular}{|c|c|c|c|c|}
+	\hspace*{-1.2cm}\begin{tabular}{|c|c|c|c|c|}
 		\hline
 		Subsystem & Subsystem Type & Fault Detection & Recovery from Faults & Fault Prevention \\
 		\hline
@@ -833,23 +833,23 @@ Looking at the quality requirements involving security in following the design c
 
 In order to support the design and the analysis of security in our system we will pay attention to the following, and ensure that these responsibilities are assigned and met:
 \begin{itemize}
-	\item[] Identify the actor
-	\item[] Authenticate the actor
-	\item[] Authorize actors
-	\item[] Grant or deny access to data or services
-	\item[] Record attempts to access or modify data or services
-	\item[] Encrypt data
-	\item[] Recognize reduced availability for resources or services and inform appropriate personnel and restrict access
-	\item[] Recover from an attack
-	\item[] Verify checksums and hash values
+	\item[] 1. Identify the actor
+	\item[] 2. Authenticate the actor
+	\item[] 3. Authorize actors
+	\item[] 4. Grant or deny access to data or services
+	\item[] 5. Record attempts to access or modify data or services
+	\item[] 6. Encrypt data
+	\item[] 7. Recognize reduced availability for resources or services and inform appropriate personnel and restrict access
+	\item[] 8. Recover from an attack
+	\item[] 9. Verify checksums and hash values
 \end{itemize}
  With regards to our data we shall ensure that the following is observed:
 \begin{itemize}
-	\item[] Seperation of data of different sensitivities
-	\item[] Ensure different access to data of different sensitivities
-	\item[] Ensure that access to sensitive data is logged and that the log files is suitably protected
-	\item[] Ensure that data is suitably encrypted and that keys are separated from the encrypted data
-	\item[] Ensure that data can be restored if it is inappropriately modified
+	\item[] 1. Seperation of data of different sensitivities
+	\item[] 2. Ensure different access to data of different sensitivities
+	\item[] 3. Ensure that access to sensitive data is logged and that the log files is suitably protected
+	\item[] 4. Ensure that data is suitably encrypted and that keys are separated from the encrypted data
+	\item[] 5. Ensure that data can be restored if it is inappropriately modified
 \end{itemize}
 
 This attribute modifies or enhances modules introduced in the availability requirement analysis above, this includes the assignment of new responsibilities in particular, certain logs have to be stored securely-- those logging access to sensitive information. It also makes use of the notification module to let the appropriate personnel know that their system is being attacked, when these attacks are detected.\\*
@@ -884,7 +884,7 @@ A design checklist proposed by \cite{Book:2} suggests useful design consideratio
 
 The table below includes the architectural tactics that we will employ with respect to the control of resource demand and the management of resources in our system. This will only be for the performance critical components, and ordered by importance. The list contains the following columns: subsystem, subsystem type, control resource demand, and manage resources. This is not an exhaustive list, but alas software engineering is a wicked problem:
 \begin{center}
-	\begin{tabular}{|c|c|p{5cm}|p{6cm}|}
+	\hspace*{-1.5cm}\begin{tabular}{|c|c|p{5cm}|p{6cm}|}
 		\hline
 		Subsystem & Subsystem Type & Control Resource Demand & Manage Resources \\
 		\hline
@@ -988,24 +988,36 @@ This layer is a clear candidate for the Persistence Framework architectural styl
 In accordance to the architectural tactics we have chosen to observe to achieve availability and security quality attributes and requirements, in particular the security tactic to seperate access and data of different sensitivities, we have made the decision to have three databases. The first is for logs and audit trails, the second for the data models what would be used for the chatbot subsystems, and the third for recording queries and responses-- data that is concerned with the functional business processes.
 
 \section{Iterative Phase}
- Interative Phase:
-- All artifacts are listed and the changes can be checked out by cross referencing appropriate artifacts.
-- Each phase should logically include changes to all the implementation documentation.
-- Special consideration should be made during modeling and analysis to show resources that need protection and entities that access those resources
-- Practice secure coding to ensure that security principles and security patterns are applied to produce secure code during the implementation phase-- use quality assurance reviewing to make sure of this.
-- Also test for security-- test for each quality requirement really; apply static and dynamic security testing. Functional testing, security test
-- Domain modeling should identify and capture security related domain concepts and relationships like the roles and resources accessed by the roles as well as related access priviledges
-- Design for security and other non functional requirements important during actor-system interaction modeling
+
+%Important to go through the quality attributes and develop their use cases i.e. security: misuse cases
+%Important to indicate how we used knowledge gained from all of our modules in university (capstone project)
+
+%Interative Phase:
+%- All artifacts are listed and the changes can be checked out by cross referencing appropriate artifacts.
+%- Each phase should logically include changes to all the implementation documentation.
+%- Special consideration should be made during modeling and analysis to show resources that need protection and entities that access those resources
+%- Practice secure coding to ensure that security principles and security patterns are applied to produce secure code during the implementation phase-- use quality assurance reviewing to make sure of this.
+%- Also test for security-- test for each quality requirement really; apply static and dynamic security testing. Functional testing, security test
+%- Domain modeling should identify and capture security related domain concepts and relationships like the roles and resources accessed by the roles as well as related access priviledges
+%- Design for security and other non functional requirements important during actor-system interaction modeling
 
 \subsection{Phase 1:}
- - Demo 1 happened here.
- - Phase 2 artifacts to be listed here.
+%- Demo 1 happened here.
+%- Phase 2 artifacts to be listed here.
 
 \subsubsection{Accomodating Requirements Change}
  
 \subsubsection{Domain Modeling}
+
+\begin{figure}[H]
+	\centering
+	\hspace*{-1.7cm}\includegraphics[width=1.2\textwidth]{../../images/Botic_Domain_Diagram.png}
+	\caption{UML Domain Model of the Botic System}
+\end{figure}
  
 \subsubsection{Actor-System Iteraction Modeling and User Interface Design}
+
+
  
 \subsubsection{Behavior Modeling and Responsibility Assignment}
  
