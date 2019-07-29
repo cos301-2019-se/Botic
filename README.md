@@ -43,4 +43,4 @@ The project consists of two parts, both applied to an arbitrary ticketing system
         <td><a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Testing_Policy.pdf" target="_blank">v1</a></td>
     </tr>
 </table>
-- <!--<a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">Architecture and Deployment Diagrams</a>-->
+<!--<a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">Architecture and Deployment Diagrams</a>-->
