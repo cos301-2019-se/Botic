@@ -28,19 +28,19 @@ The project consists of two parts, both applied to an arbitrary ticketing system
     </tr>
     <tr>
         <td>Software Requirements Specification</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Botic_SRS_v1.pdf" target="_blank">v1</a>, <a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Botic_SRS_v2.pdf" target="_blank">v2</a>, <a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Botic_SRS_v3.pdf" target="_blank">v3</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v1.pdf" target="_blank">v1 (Demo1)</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v2.pdf" target="_blank">v2 (Demo2)</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v3.pdf" target="_blank">v3 (Demo3)</a></td>
     </tr>
     <tr>
         <td>Coding Standards</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Coding_Standards.pdf" target="_blank">v1</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards.pdf" target="_blank">v1 (Demo1,2,3)</a></td>
     </tr>
     <tr>
         <td>User Manual</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/docs/compiled/User_Manual_v1.pdf" target="_blank">v1</a>, <a href="https://cos301-2019-se.github.io/Botic/docs/compiled/User_Manual_v2.pdf" target="_blank">v2</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v1.pdf" target="_blank">v1 (Demo1,2)</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v2.pdf" target="_blank">v2 (Demo3)</a></td>
     </tr>
     <tr>
         <td>Testing Policy</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Testing_Policy.pdf" target="_blank">v1</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy.pdf" target="_blank">v1 (Demo1,2,3)</a></td>
     </tr>
 </table>
-<!--<a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">Architecture and Deployment Diagrams</a>-->
+<!--<a href="https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">Architecture and Deployment Diagrams</a>-->
