@@ -776,11 +776,11 @@ The agile method of effort estimation has been used here. Highest point is 5 and
 	%start here
 	UC20 & 3 & 2 & UC21 & & & 2 & & & \\
 	\hline
-	UC21 & 4 & 2 & None & & & 2 & & & \\
+	UC21 & 4 & 2 & None & 2 & &  & & & \\
 	\hline
-	UC22 & 4 & 2 & None & & & 2 & & & \\
+	UC22 & 4 & 2 & None & 2 & & & & & \\
 	\hline
-	Total Effort &  & 50 & & 15 & 3 & 7 & 17 & 8 & \\
+	Total Effort &  & 56 & & 19 & 3 & 9 & 17 & 8 & \\
 	\hline
 	\end{tabular}
 \end{center}
@@ -1022,16 +1022,9 @@ In accordance to the architectural tactics we have chosen to observe to achieve 
 	\caption{UML Domain Model of the Botic System}
 \end{figure}
  
-\subsubsection{Actor-System Iteraction Modeling and User Interface Design}
+\subsubsection{Actor-System Interaction Modeling and User Interface Design}
 
-
-%Use Case-based test cases. These seem like an easier way to get test cases setup.
-%U15, U14, U13, UC3
-
-%Use Case 9:
-%\item[] \textbf{UC9.} Login\\*
-%	TUCBW a customer clicks the "Sign In" button on the home page. \\*
-%	TUCEW a customer gets redirected to the customer chat page (and it is opened).
+\paragraph{Actor-System Interaction Modeling}
 
 \begin{table}[h!]
 	\centering
@@ -1089,7 +1082,7 @@ In accordance to the architectural tactics we have chosen to observe to achieve 
 	\caption{UC16: Register User}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline
@@ -1111,7 +1104,7 @@ In accordance to the architectural tactics we have chosen to observe to achieve 
 	\caption{UC17: Deregister User}
 \end{table}
  
-\begin{table}[h!]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline
@@ -1179,7 +1172,7 @@ In accordance to the architectural tactics we have chosen to observe to achieve 
 	\caption{UC12: Logout}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline
@@ -1197,7 +1190,7 @@ In accordance to the architectural tactics we have chosen to observe to achieve 
 	\caption{UC13: Register}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline
@@ -1216,7 +1209,7 @@ In accordance to the architectural tactics we have chosen to observe to achieve 
 \end{table}
 
 
-\begin{table}[h!]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline
@@ -1233,6 +1226,49 @@ In accordance to the architectural tactics we have chosen to observe to achieve 
 	\end{tabular}
 	\caption{UC15: Deregister}
 \end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Chatbot \\
+		\hline
+		 & 0. The system displays the customer chat page. \\
+		\hline
+		1. TUCBW a customer typing a message into the input box in the customer chat page. & 2. The system detects private or personal information as the customer types in their query and warns them if it is detected by highlighting it according to severity. \\
+		\hline
+		3. The customer clicks the "Send Query" button to send the query to the chatbot & 4. 	The system (a) answers the customer query, or (b) forwards the query to a customer support representative \\
+		\hline
+		5. TUCCW UC6 to provide feedback and finally TUCEW a customer recieving a "Session has ended" message. & \\
+		\hline
+	\end{tabular}
+	\caption{UC3: Ask Bot Assistance}
+\end{table}
+
+\paragraph{User Interface Design}
+%this is where you can more readily implement knowledge gained from IMY 320
+
+%guideline 12.1 in chapter 12 of book 1 provides motivation for the use of SPA-- limiting the number of container pages contributes to better user experience.
+This stage will make use of the user interface design process outlined by \cite{Book:1}. We begin by identifying major system displays; these and user input and user actions as well as the information displayed are provided in the following tables, each corresponding to a particular expanded use case (produced in the previous step):
+
+\begin{table}[H]
+	\centering
+	\hspace*{-0.17cm}\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{5cm}|}
+		\hline
+		Expanded Use Case Step & System Display & Information Displayed & User Input & User Actions \\
+		\hline
+		0 & Botic Home Page & & & \\
+		\hline
+		3 & System Login Page & & Requested Information & i. enters Email address and password, or ii. clicks on Single Sign On option \\
+		\hline
+		4 & System Login Page & "Incorrect Login Details", "Correct Login (Loading)" & Requested Information & i. enters correct Email address and password, or ii. Clicks to grant permission to use Single Sign On \\
+		\hline
+	\end{tabular}
+	\caption{Major System Displays for the Administrator Login use case}
+\end{table}
+All login use cases feature the same system displays, information displayed, user input and user actions. Thus, by agile principles, the table above is enough to represent all relevant use cases. The Logout use cases will not be analysed in this manner, they are short and involve a simple button click.
+
+Note: Client feedback has suggested that the user interface is for demo purposes only and is "throw-away." It currently does not involve many elements at all and the moment, thus this would be all for this stage.
 
 \subsubsection{Behavior Modeling and Responsibility Assignment}
  
