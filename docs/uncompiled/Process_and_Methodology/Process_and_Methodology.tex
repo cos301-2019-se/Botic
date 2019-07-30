@@ -751,29 +751,36 @@ The agile method of effort estimation has been used here. Highest point is 5 and
 	\hline
 	UC8 & 4 & 4 & None & & & & 2 & 2 & \\
 	\hline
-	UC9 & 5 & 2 & None & 1 & 1 & & & & \\
+	UC9 & 5 & 2 & UC13 & 1 & 1 & & & & \\
 	\hline
 	UC10 & 5 & 1 & UC9 & 1 & & & & & \\
 	\hline
-	UC11 & 4 & 2 & None & 1 & 1 & & & & \\
+	UC11 & 4 & 2 & UC14 & 1 & 1 & & & & \\
 	\hline
 	UC12 & 4 & 1 & UC11 & 1 & & & & & \\
 	\hline
-	UC13 & 4 & 2 & None & & 2 & & & & \\
+	UC13 & 4 & 2 & None & 2 & & & & & \\
 	\hline
-	UC14 & 4 & 2 & None & & 2& & & & \\
+	UC14 & 4 & 2 & None & 2 & & & & & \\
 	\hline
-	UC15 & 4 & 2 & UC13 & & & 2 &  &  & \\
+	UC15 & 4 & 2 & UC13 & 2 & & &  &  & \\
 	\hline
-	UC16 & 4 & 2 & None & & & 2 &  & & \\
+	UC16 & 4 & 2 & None & 2 & & &  & & \\
 	\hline
-	UC17 & 3 & 2 & UC16 & & & 2  & & & \\
+	UC17 & 3 & 2 & UC16 & 2 & & & & & \\
 	\hline
 	UC18 & 4 & 2 & UC13 & & & 2 & & & \\
 	\hline
 	UC19 & 4 & 2 & UC11 & & & 2 & & & \\
 	\hline
-	Total Effort &  & 50 & & 5 & 7 & 13 & 17 & 8 & \\
+	%start here
+	UC20 & 3 & 2 & UC21 & & & 2 & & & \\
+	\hline
+	UC21 & 4 & 2 & None & & & 2 & & & \\
+	\hline
+	UC22 & 4 & 2 & None & & & 2 & & & \\
+	\hline
+	Total Effort &  & 50 & & 15 & 3 & 7 & 17 & 8 & \\
 	\hline
 	\end{tabular}
 \end{center}
@@ -1018,7 +1025,215 @@ In accordance to the architectural tactics we have chosen to observe to achieve 
 \subsubsection{Actor-System Iteraction Modeling and User Interface Design}
 
 
+%Use Case-based test cases. These seem like an easier way to get test cases setup.
+%U15, U14, U13, UC3
+
+%Use Case 9:
+%\item[] \textbf{UC9.} Login\\*
+%	TUCBW a customer clicks the "Sign In" button on the home page. \\*
+%	TUCEW a customer gets redirected to the customer chat page (and it is opened).
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		 & 0. The System displays the home page.\\
+		\hline
+		1. TUCBW the administrator clicking the "Sign In" button on the home page. & 2. The accordingly displays the login page.\\
+		\hline
+		3. The admin (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option. & 4. The system displays (a) an "incorrect login" error message (b) a "correct login" details message. \\
+		\hline
+		5. TUCEW the administrator being redirected to the Botic Admin page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC21. Login}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		 & 0. The System displays Botic Admin page.\\
+		\hline
+		1. TUCBW the administrator clicking the "Sign Out" button on the Botic Admin page. & 2. The system clears the admin's current session and logs them out. \\
+		\hline
+		3. TUCEW the administrator being redirected to the home page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC22. Logout}
+\end{table}
  
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		\multicolumn{2}{|c|}{Precondition: The Administrator must have logged in.} \\
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		 & 0. The System displays the Botic Admin page.\\
+		\hline
+		1. TUCBW an Admin clicks on the "Register User" button on the Botic Admin page. & 2. The system prompts the admin for all necessary details for the user being registered. \\
+		\hline
+		3. The Admin clicks the "Confirm Registration" button. & 4. The system registers the user and sends them an Email to update their password, along with a randomly generated password. \\
+		\hline
+		5. TUCEW the Admin receives the message "User Has Been Registered." & \\
+		\hline
+		\multicolumn{2}{|c|}{Postcondition: NONE} \\
+		\hline
+	\end{tabular}
+	\caption{UC16: Register User}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		\multicolumn{2}{|c|}{Precondition: The Administrator must have logged in.} \\
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		& 0. The System displays the Botic Admin page. \\
+		\hline
+		1. TUCBW an Admin clicking on the "Deregister User" button on the Botic Admin page. & 2. The system displays all users in three columns according to their user types i.e. customer, customer support representative, admin.\\
+		\hline
+		3. The administrator clicks on the delete icon next to the appropriate user & 4. The system (a) deletes the user from the system, (b) sends a deletion confirmation to the admin being deleted. \\
+		\hline
+		5. (a) TUCEW the Admin recieves the message "User Has Been Deregistered.", (b) TUCEW the Admin recieving the message "Deletion Request Sent." & \\
+		\hline
+		\multicolumn{2}{|c|}{Postcondition: NONE} \\
+		\hline
+	\end{tabular}
+	\caption{UC17: Deregister User}
+\end{table}
+ 
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Authentication \\
+		\hline
+		 & 0. The System displays the home page.\\
+		\hline
+		1. TUCBW the customer clicking the "Sign In" button on the home page. & 2. The accordingly displays the login page.\\
+		\hline
+		3. The customer (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option. & 4. The system displays (a) an "incorrect login" error message (b) a "correct login" details message. \\
+		\hline
+		5. TUCEW a customer gets redirected to the customer chat page (and it is opened). & \\
+		\hline
+	\end{tabular}
+	\caption{UC9: Login}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Authentication \\
+		\hline
+		 & 0. The System displays the customer chat page.\\
+		\hline
+		1. TUCBW the administrator clicking the "Sign Out" button on the Botic Admin page. & 2. The system clears the customer's current session and logs them out. \\
+		\hline
+		3. TUCEW the customer being redirected to the home page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC10: Logout}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer Support Representative & System: Authentication \\
+		\hline
+		 & 0. The System displays the home page.\\
+		\hline
+		1. TUCBW the customer support rep. clicking the "Sign In" button on the home page. & 2. The accordingly displays the login page.\\
+		\hline
+		3. The customer support rep. (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option. & 4. The system displays (a) an "incorrect login" error message (b) a "correct login" details message. \\
+		\hline
+		5. TUCEW a customer gets redirected to the customer support chat page (and it is opened). & \\
+		\hline
+	\end{tabular}
+	\caption{UC11: Login}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer Support Representative & System: Authentication \\
+		\hline
+		 & 0. The system displays the customer support chat page. \\
+		\hline
+		1. TUCBW a customer support representative clicks the "Sigh Out" button on the customer support chat page. & 2. The system clears the customer support rep's current session and logs them out. \\
+		\hline
+		3. TUCEW a customer support representative gets redirected to the home page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC12: Logout}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Authentication \\
+		\hline
+		& 0. The system displays the home page. \\
+		\hline
+		1. TUCBW a customer clicks on the "Register" button on the home page. & 2. The system (a) prompts the user for their name, Email and password (b) allows them to register via Single Sign On.\\
+		\hline
+		3. The customer (a) clicks the "Confirm Registration" button, or (b) clicks the relevant profile for Single Sign On. & 4. The system registers the customer and sends a default password via Email to Single Sign On users. \\
+		\hline
+		5. TUCEW a customer gets the message "You have been Registered" and gets redirected to the home page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC13: Register}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer Support Representative & System: Authentication \\
+		\hline
+		 & 0. The system displays the home page. \\
+		\hline
+		1. TUCBW a customer support representative clicks on the "Register" button on the home page. & 2. The system (a) prompts the user for their name, Email and password (b) allows them to register via Single Sign On. \\
+		\hline
+		3. The customer (a) clicks the "Confirm Registration" button, or (b) clicks the relevant profile for Single Sign On. & 4. The system sends an Email to an Administrator to approve the request along with a link to approve it. It displays a message saying "Registration Pending."\\
+		\hline
+		5. TUCEW a customer support representative recieves a notification with the message "You have been Approved." & \\
+		\hline
+	\end{tabular}
+	\caption{UC14: Register}
+\end{table}
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Authentication\\
+		\hline
+		 & 0. The system displays the customer chat page. \\
+		\hline
+		1. TUCBW a customer clicks on the "Deregister" button on customer chat page. & 2. The system prompts the user if they are sure they intend to deregister. \\
+		\hline
+		3. The customer cofirms deregistration by clicking "Confirm" & 4. The system deletes all relevant data partaining to the customer according to deletion policies.\\
+		\hline
+		5. TUCEW a customer recieves "Customer profile has been successfully deregistered" message and is redirected to the home page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC15: Deregister}
+\end{table}
+
 \subsubsection{Behavior Modeling and Responsibility Assignment}
  
 \subsubsection{Deriving Design Class Diagram}
