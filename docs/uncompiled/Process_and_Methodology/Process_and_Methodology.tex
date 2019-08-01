@@ -9,6 +9,16 @@
 \usepackage[margin=2.0cm]{geometry}
 \usepackage{bookmark}
 
+%%Table Colours
+\usepackage{color}
+\definecolor{blue}{rgb}{0.392,0.584,0.929}
+\usepackage{colortbl}
+
+%%For Use Case Scenarios
+\usepackage{eulervm}
+\usepackage[charter]{mathdesign}
+\usepackage{xcolor}
+
 %%Figures
 \usepackage{float}
 
@@ -751,29 +761,36 @@ The agile method of effort estimation has been used here. Highest point is 5 and
 	\hline
 	UC8 & 4 & 4 & None & & & & 2 & 2 & \\
 	\hline
-	UC9 & 5 & 2 & None & 1 & 1 & & & & \\
+	UC9 & 5 & 2 & UC13 & 1 & 1 & & & & \\
 	\hline
 	UC10 & 5 & 1 & UC9 & 1 & & & & & \\
 	\hline
-	UC11 & 4 & 2 & None & 1 & 1 & & & & \\
+	UC11 & 4 & 2 & UC14 & 1 & 1 & & & & \\
 	\hline
 	UC12 & 4 & 1 & UC11 & 1 & & & & & \\
 	\hline
-	UC13 & 4 & 2 & None & & 2 & & & & \\
+	UC13 & 4 & 2 & None & 2 & & & & & \\
 	\hline
-	UC14 & 4 & 2 & None & & 2& & & & \\
+	UC14 & 4 & 2 & None & 2 & & & & & \\
 	\hline
-	UC15 & 4 & 2 & UC13 & & & 2 &  &  & \\
+	UC15 & 4 & 2 & UC13 & 2 & & &  &  & \\
 	\hline
-	UC16 & 4 & 2 & None & & & 2 &  & & \\
+	UC16 & 4 & 2 & None & 2 & & &  & & \\
 	\hline
-	UC17 & 3 & 2 & UC16 & & & 2  & & & \\
+	UC17 & 3 & 2 & UC16 & 2 & & & & & \\
 	\hline
 	UC18 & 4 & 2 & UC13 & & & 2 & & & \\
 	\hline
 	UC19 & 4 & 2 & UC11 & & & 2 & & & \\
 	\hline
-	Total Effort &  & 50 & & 5 & 7 & 13 & 17 & 8 & \\
+	%start here
+	UC20 & 3 & 2 & UC21 & & & 2 & & & \\
+	\hline
+	UC21 & 4 & 2 & None & 2 & &  & & & \\
+	\hline
+	UC22 & 4 & 2 & None & 2 & & & & & \\
+	\hline
+	Total Effort &  & 56 & & 19 & 3 & 9 & 17 & 8 & \\
 	\hline
 	\end{tabular}
 \end{center}
@@ -799,12 +816,12 @@ In order to achieve these quality attributes architectural tactics, which are "t
 \paragraph{Availability}
 Looking at the quality attributes involving availability and following the design checklist for availability as specified by \cite{Book:2}, we realise that in order to fascilitate the application of tactics that improve availability, we would have to include the following into our system:
 \begin{itemize}
-	\item[] Logging of faults
-	\item[] Notifying appropriate entities of the faults
-	\item[] Disable the source of events causing the fault
-	\item[] Be temporarily available if need be
-	\item[] Fix or mask the fault/failure
-	\item[] or Operate in a degraded mode
+	\item[] 1. Logging of faults
+	\item[] 2. Notifying appropriate entities of the faults
+	\item[] 3. Disable the source of events causing the fault
+	\item[] 4. Be temporarily available if need be
+	\item[] 5. Fix or mask the fault/failure
+	\item[] 6. or Operate in a degraded mode
 \end{itemize}
 
 In order for these to be effected, faults need to be detected, the system needs to be able to recover from faults, and it is appropriate to have a measure of preventing faults before they happen.\\*
@@ -816,7 +833,7 @@ Once that is stored in the caretaker, which in and of itself is a state change, 
 The table below provides the subsystems yeilded from functional clusters for high cohesion, and their system types as well as our chosen fault detection tactic, recovery tactic and fault prevention tactic. These are only subsystems that are necessary, and ordered according to priority. The architectural tactics are solution specific, therefore we expect to add many more of them as the development of the project continues; software engineering is a wicked problem afterall:
 
 \begin{center}
-	\begin{tabular}{|c|c|c|c|c|}
+	\hspace*{-1.2cm}\begin{tabular}{|c|c|c|c|c|}
 		\hline
 		Subsystem & Subsystem Type & Fault Detection & Recovery from Faults & Fault Prevention \\
 		\hline
@@ -833,23 +850,23 @@ Looking at the quality requirements involving security in following the design c
 
 In order to support the design and the analysis of security in our system we will pay attention to the following, and ensure that these responsibilities are assigned and met:
 \begin{itemize}
-	\item[] Identify the actor
-	\item[] Authenticate the actor
-	\item[] Authorize actors
-	\item[] Grant or deny access to data or services
-	\item[] Record attempts to access or modify data or services
-	\item[] Encrypt data
-	\item[] Recognize reduced availability for resources or services and inform appropriate personnel and restrict access
-	\item[] Recover from an attack
-	\item[] Verify checksums and hash values
+	\item[] 1. Identify the actor
+	\item[] 2. Authenticate the actor
+	\item[] 3. Authorize actors
+	\item[] 4. Grant or deny access to data or services
+	\item[] 5. Record attempts to access or modify data or services
+	\item[] 6. Encrypt data
+	\item[] 7. Recognize reduced availability for resources or services and inform appropriate personnel and restrict access
+	\item[] 8. Recover from an attack
+	\item[] 9. Verify checksums and hash values
 \end{itemize}
  With regards to our data we shall ensure that the following is observed:
 \begin{itemize}
-	\item[] Seperation of data of different sensitivities
-	\item[] Ensure different access to data of different sensitivities
-	\item[] Ensure that access to sensitive data is logged and that the log files is suitably protected
-	\item[] Ensure that data is suitably encrypted and that keys are separated from the encrypted data
-	\item[] Ensure that data can be restored if it is inappropriately modified
+	\item[] 1. Seperation of data of different sensitivities
+	\item[] 2. Ensure different access to data of different sensitivities
+	\item[] 3. Ensure that access to sensitive data is logged and that the log files is suitably protected
+	\item[] 4. Ensure that data is suitably encrypted and that keys are separated from the encrypted data
+	\item[] 5. Ensure that data can be restored if it is inappropriately modified
 \end{itemize}
 
 This attribute modifies or enhances modules introduced in the availability requirement analysis above, this includes the assignment of new responsibilities in particular, certain logs have to be stored securely-- those logging access to sensitive information. It also makes use of the notification module to let the appropriate personnel know that their system is being attacked, when these attacks are detected.\\*
@@ -884,7 +901,7 @@ A design checklist proposed by \cite{Book:2} suggests useful design consideratio
 
 The table below includes the architectural tactics that we will employ with respect to the control of resource demand and the management of resources in our system. This will only be for the performance critical components, and ordered by importance. The list contains the following columns: subsystem, subsystem type, control resource demand, and manage resources. This is not an exhaustive list, but alas software engineering is a wicked problem:
 \begin{center}
-	\begin{tabular}{|c|c|p{5cm}|p{6cm}|}
+	\hspace*{-1.5cm}\begin{tabular}{|c|c|p{5cm}|p{6cm}|}
 		\hline
 		Subsystem & Subsystem Type & Control Resource Demand & Manage Resources \\
 		\hline
@@ -988,26 +1005,457 @@ This layer is a clear candidate for the Persistence Framework architectural styl
 In accordance to the architectural tactics we have chosen to observe to achieve availability and security quality attributes and requirements, in particular the security tactic to seperate access and data of different sensitivities, we have made the decision to have three databases. The first is for logs and audit trails, the second for the data models what would be used for the chatbot subsystems, and the third for recording queries and responses-- data that is concerned with the functional business processes.
 
 \section{Iterative Phase}
- Interative Phase:
-- All artifacts are listed and the changes can be checked out by cross referencing appropriate artifacts.
-- Each phase should logically include changes to all the implementation documentation.
-- Special consideration should be made during modeling and analysis to show resources that need protection and entities that access those resources
-- Practice secure coding to ensure that security principles and security patterns are applied to produce secure code during the implementation phase-- use quality assurance reviewing to make sure of this.
-- Also test for security-- test for each quality requirement really; apply static and dynamic security testing. Functional testing, security test
-- Domain modeling should identify and capture security related domain concepts and relationships like the roles and resources accessed by the roles as well as related access priviledges
-- Design for security and other non functional requirements important during actor-system interaction modeling
+
+%Important to go through the quality attributes and develop their use cases i.e. security: misuse cases
+%Important to indicate how we used knowledge gained from all of our modules in university (capstone project)
+
+%Interative Phase:
+%- All artifacts are listed and the changes can be checked out by cross referencing appropriate artifacts.
+%- Each phase should logically include changes to all the implementation documentation.
+%- Special consideration should be made during modeling and analysis to show resources that need protection and entities that access those resources
+%- Practice secure coding to ensure that security principles and security patterns are applied to produce secure code during the implementation phase-- use quality assurance reviewing to make sure of this.
+%- Also test for security-- test for each quality requirement really; apply static and dynamic security testing. Functional testing, security test
+%- Domain modeling should identify and capture security related domain concepts and relationships like the roles and resources accessed by the roles as well as related access priviledges
+%- Design for security and other non functional requirements important during actor-system interaction modeling
 
 \subsection{Phase 1:}
- - Demo 1 happened here.
- - Phase 2 artifacts to be listed here.
+%- Demo 1 happened here.
+%- Phase 2 artifacts to be listed here.
 
 \subsubsection{Accomodating Requirements Change}
  
 \subsubsection{Domain Modeling}
+
+\begin{figure}[H]
+	\centering
+	\hspace*{-1.7cm}\includegraphics[width=1.2\textwidth]{../../images/Botic_Domain_Diagram.png}
+	\caption{UML Domain Model of the Botic System}
+\end{figure}
  
-\subsubsection{Actor-System Iteraction Modeling and User Interface Design}
+\subsubsection{Actor-System Interaction Modeling and User Interface Design}
+
+\paragraph{Actor-System Interaction Modeling}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		 & 0. The System displays the home page.\\
+		\hline
+		1. TUCBW the administrator clicking the "Sign In" button on the home page. & 2. The accordingly displays the login page.\\
+		\hline
+		3. The admin (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option. & 4. The system displays (a) an "incorrect login" error message (b) a "correct login" details message. \\
+		\hline
+		5. TUCEW the administrator being redirected to the Botic Admin page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC21. Login}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		 & 0. The System displays Botic Admin page.\\
+		\hline
+		1. TUCBW the administrator clicking the "Sign Out" button on the Botic Admin page. & 2. The system clears the admin's current session and logs them out. \\
+		\hline
+		3. TUCEW the administrator being redirected to the home page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC22. Logout}
+\end{table}
  
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		\multicolumn{2}{|c|}{Precondition: The Administrator must have logged in.} \\
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		 & 0. The System displays the Botic Admin page.\\
+		\hline
+		1. TUCBW an Admin clicks on the "Register User" button on the Botic Admin page. & 2. The system prompts the admin for all necessary details for the user being registered. \\
+		\hline
+		3. The Admin clicks the "Confirm Registration" button. & 4. The system registers the user and sends them an Email to update their password, along with a randomly generated password. \\
+		\hline
+		5. TUCEW the Admin receives the message "User Has Been Registered." & \\
+		\hline
+		\multicolumn{2}{|c|}{Postcondition: NONE} \\
+		\hline
+	\end{tabular}
+	\caption{UC16: Register User}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		\multicolumn{2}{|c|}{Precondition: The Administrator must have logged in.} \\
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		& 0. The System displays the Botic Admin page. \\
+		\hline
+		1. TUCBW an Admin clicking on the "Deregister User" button on the Botic Admin page. & 2. The system displays all users in three columns according to their user types i.e. customer, customer support representative, admin.\\
+		\hline
+		3. The administrator clicks on the delete icon next to the appropriate user & 4. The system (a) deletes the user from the system, (b) sends a deletion confirmation to the admin being deleted. \\
+		\hline
+		5. (a) TUCEW the Admin recieves the message "User Has Been Deregistered.", (b) TUCEW the Admin recieving the message "Deletion Request Sent." & \\
+		\hline
+		\multicolumn{2}{|c|}{Postcondition: NONE} \\
+		\hline
+	\end{tabular}
+	\caption{UC17: Deregister User}
+\end{table}
+ 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Authentication \\
+		\hline
+		 & 0. The System displays the home page.\\
+		\hline
+		1. TUCBW the customer clicking the "Sign In" button on the home page. & 2. The accordingly displays the login page.\\
+		\hline
+		3. The customer (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option. & 4. The system displays (a) an "incorrect login" error message (b) a "correct login" details message. \\
+		\hline
+		5. TUCEW a customer gets redirected to the customer chat page (and it is opened). & \\
+		\hline
+	\end{tabular}
+	\caption{UC9: Login}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Authentication \\
+		\hline
+		 & 0. The System displays the customer chat page.\\
+		\hline
+		1. TUCBW the administrator clicking the "Sign Out" button on the Botic Admin page. & 2. The system clears the customer's current session and logs them out. \\
+		\hline
+		3. TUCEW the customer being redirected to the home page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC10: Logout}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer Support Representative & System: Authentication \\
+		\hline
+		 & 0. The System displays the home page.\\
+		\hline
+		1. TUCBW the customer support rep. clicking the "Sign In" button on the home page. & 2. The accordingly displays the login page.\\
+		\hline
+		3. The customer support rep. (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option. & 4. The system displays (a) an "incorrect login" error message (b) a "correct login" details message. \\
+		\hline
+		5. TUCEW a customer gets redirected to the customer support chat page (and it is opened). & \\
+		\hline
+	\end{tabular}
+	\caption{UC11: Login}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer Support Representative & System: Authentication \\
+		\hline
+		 & 0. The system displays the customer support chat page. \\
+		\hline
+		1. TUCBW a customer support representative clicks the "Sigh Out" button on the customer support chat page. & 2. The system clears the customer support rep's current session and logs them out. \\
+		\hline
+		3. TUCEW a customer support representative gets redirected to the home page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC12: Logout}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Authentication \\
+		\hline
+		& 0. The system displays the home page. \\
+		\hline
+		1. TUCBW a customer clicks on the "Register" button on the home page. & 2. The system (a) prompts the user for their name, Email and password (b) allows them to register via Single Sign On.\\
+		\hline
+		3. The customer (a) clicks the "Confirm Registration" button, or (b) clicks the relevant profile for Single Sign On. & 4. The system registers the customer and sends a default password via Email to Single Sign On users. \\
+		\hline
+		5. TUCEW a customer gets the message "You have been Registered" and gets redirected to the home page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC13: Register}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer Support Representative & System: Authentication \\
+		\hline
+		 & 0. The system displays the home page. \\
+		\hline
+		1. TUCBW a customer support representative clicks on the "Register" button on the home page. & 2. The system (a) prompts the user for their name, Email and password (b) allows them to register via Single Sign On. \\
+		\hline
+		3. The customer (a) clicks the "Confirm Registration" button, or (b) clicks the relevant profile for Single Sign On. & 4. The system sends an Email to an Administrator to approve the request along with a link to approve it. It displays a message saying "Registration Pending."\\
+		\hline
+		5. TUCEW a customer support representative recieves a notification with the message "You have been Approved." & \\
+		\hline
+	\end{tabular}
+	\caption{UC14: Register}
+\end{table}
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Authentication\\
+		\hline
+		 & 0. The system displays the customer chat page. \\
+		\hline
+		1. TUCBW a customer clicks on the "Deregister" button on customer chat page. & 2. The system prompts the user if they are sure they intend to deregister. \\
+		\hline
+		3. The customer cofirms deregistration by clicking "Confirm" & 4. The system deletes all relevant data partaining to the customer according to deletion policies.\\
+		\hline
+		5. TUCEW a customer recieves "Customer profile has been successfully deregistered" message and is redirected to the home page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC15: Deregister}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Chatbot \\
+		\hline
+		 & 0. The system displays the customer chat page. \\
+		\hline
+		1. TUCBW a customer typing a message into the input box in the customer chat page. & 2. The system detects private or personal information as the customer types in their query and warns them if it is detected by highlighting it according to severity. \\
+		\hline
+		3. The customer clicks the "Send Query" button to send the query to the chatbot & 4. 	The system (a) answers the customer query, or (b) forwards the query to a customer support representative \\
+		\hline
+		5. TUCCW UC6 to provide feedback and finally TUCEW a customer recieving a "Session has ended" message. & \\
+		\hline
+	\end{tabular}
+	\caption{UC3: Ask Bot Assistance}
+\end{table}
+
+\paragraph{User Interface Design}
+%this is where you can more readily implement knowledge gained from IMY 320
+
+%guideline 12.1 in chapter 12 of book 1 provides motivation for the use of SPA-- limiting the number of container pages contributes to better user experience.
+This stage will make use of the user interface design process outlined by \cite{Book:1}. We begin by identifying major system displays; these and user input and user actions as well as the information displayed are provided in the following tables, each corresponding to a particular expanded use case (produced in the previous step):
+
+\begin{table}[H]
+	\centering
+	\hspace*{-0.17cm}\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{5cm}|}
+		\hline
+		Expanded Use Case Step & System Display & Information Displayed & User Input & User Actions \\
+		\hline
+		0 & Botic Home Page & & & \\
+		\hline
+		3 & System Login Page & & Requested Information & i. enters Email address and password, or ii. clicks on Single Sign On option \\
+		\hline
+		4 & System Login Page & "Incorrect Login Details", "Correct Login (Loading)" & Requested Information & i. enters correct Email address and password, or ii. Clicks to grant permission to use Single Sign On \\
+		\hline
+	\end{tabular}
+	\caption{Major System Displays for the Administrator Login use case}
+\end{table}
+All login use cases feature the same system displays, information displayed, user input and user actions. Thus, by agile principles, the table above is enough to represent all relevant use cases. The Logout use cases will not be analysed in this manner, they are short and involve a simple button click.
+
+Note: Client feedback has suggested that the user interface is for demo purposes only and is "throw-away." It currently does not involve many elements at all and the moment, thus this would be all for this stage.
+
 \subsubsection{Behavior Modeling and Responsibility Assignment}
+
+\paragraph{Behavior Modeling}
+
+Most of the use cases in this iteration involve the user interface subsystem, which is an interactive subsystem. It is because of this, that the focus of this section will be Object Interaction Modeling which is concerned with the modeling of interactive systems \cite{Book:1}. The Ask Bot Assistance use case has some involvement with the user interface as well as the transformational chatbot subsystem; this means that we may include some activity modeling which is suitable for transformational subsystems according to \cite{Book:1}. Since background processes are being analysed, we may show how the architectural tactics and other design decisions are implemented in the behavior of the system objects.\\*
+
+We will only use sequence diagrams to model the behaviour of our systems during use case execution. This is because sequence diagrams are semantically equivalent to the other interaction diagram, communication diagrams\cite{Book:1}. Because we are a novice team, it is recommended that even though we use agile principles, we ought to follow all the steps of OIM, we however will leave out trivial use cases such as those that are the same for different actors\cite{Book:1}.\\*
+
+The first step has already been fulfilled as information has already been collected and actor-system interaction models for the use cases in this iteration have already been produced. We now focus on identifying the nontrivial steps; which are the step that require background processing i.e. objects in the system to interact and work together to produce a desired result. The following are the use cases we have decided to have their behaviour modelled for this iteration, the nontrivial steps are highlighted:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		 & 0. The System displays the home page.\\
+		\hline
+		1. TUCBW the administrator clicking the "Sign In" button on the home page. & 2. The accordingly displays the login page.\\
+		\hline
+		3. The admin (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option. &\cellcolor{blue} 4. The system displays (a) an "incorrect login" error message (b) a "correct login" details message. \\
+		\hline
+		5. \cellcolor{blue} TUCEW the administrator being redirected to the Botic Admin page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC21. Login}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		\multicolumn{2}{|c|}{Precondition: The Administrator must have logged in.} \\
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		 & 0. The System displays the Botic Admin page.\\
+		\hline
+		1. TUCBW an Admin clicks on the "Register User" button on the Botic Admin page. & 2. The system prompts the admin for all necessary details for the user being registered. \\
+		\hline
+		3. The Admin clicks the "Confirm Registration" button. & \cellcolor{blue} 4. The system registers the user and sends them an Email to update their password, along with a randomly generated password. \\
+		\hline
+		5. TUCEW the Admin receives the message "User Has Been Registered." & \\
+		\hline
+		\multicolumn{2}{|c|}{Postcondition: NONE} \\
+		\hline
+	\end{tabular}
+	\caption{UC16: Register User}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		\multicolumn{2}{|c|}{Precondition: The Administrator must have logged in.} \\
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		& 0. The System displays the Botic Admin page. \\
+		\hline
+		1. TUCBW an Admin clicking on the "Deregister User" button on the Botic Admin page. & \cellcolor{blue} 2. The system displays all users in three columns according to their user types i.e. customer, customer support representative, admin.\\
+		\hline
+		3. The administrator clicks on the delete icon next to the appropriate user & \cellcolor{blue} 4. The system (a) deletes the user from the system, (b) sends a deletion confirmation to the admin being deleted. \\
+		\hline
+		5. (a) TUCEW the Admin recieves the message "User Has Been Deregistered.", (b) TUCEW the Admin recieving the message "Deletion Request Sent." & \\
+		\hline
+		\multicolumn{2}{|c|}{Postcondition: NONE} \\
+		\hline
+	\end{tabular}
+	\caption{UC17: Deregister User}
+\end{table}
+ 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer Support Representative & System: Authentication \\
+		\hline
+		 & 0. The system displays the home page. \\
+		\hline
+		1. TUCBW a customer support representative clicks on the "Register" button on the home page. & 2. The system (a) prompts the user for their name, Email and password (b) allows them to register via Single Sign On. \\
+		\hline
+		3. The customer (a) clicks the "Confirm Registration" button, or (b) clicks the relevant profile for Single Sign On. & \cellcolor{blue} 4. The system sends an Email to an Administrator to approve the request along with a link to approve it. It displays a message saying "Registration Pending."\\
+		\hline
+		5. TUCEW a customer support representative recieves a notification with the message "You have been Approved." & \\
+		\hline
+	\end{tabular}
+	\caption{UC14: Register}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Chatbot \\
+		\hline
+		 & 0. The system displays the customer chat page. \\
+		\hline
+		1. TUCBW a customer typing a message into the input box in the customer chat page. & \cellcolor{blue} 2. The system detects private or personal information as the customer types in their query and warns them if it is detected by highlighting it according to severity. \\
+		\hline
+		3. The customer clicks the "Send Query" button to send the query to the chatbot & \cellcolor{blue} 4. 	The system (a) answers the customer query, or (b) forwards the query to a customer support representative \\
+		\hline
+		5. \cellcolor{blue} TUCCW UC6 to provide feedback and finally TUCEW a customer recieving a "Session has ended" message. & \\
+		\hline
+	\end{tabular}
+	\caption{UC3: Ask Bot Assistance}
+\end{table}
+
+Now we continue OIM by writing scenarios for the nontrivial steps. These we will use to produce the UML sequence diagrams. To avoid sequence diagrams that are too lengthly and complex, the methodology we use, the Agile Unified Method, only models the nontrivial steps featured in expanded use cases \cite{Book:1}. As I'm sure you can notice, some nontrivial requests have been highlighted as well, we do this because they involve relevent system activities that may just have only been implied in the nontrivial steps-- it is done for clarity's sake. The following are the use case scenarios for the selected use cases.
+
+\begin{table}[H]
+	\centering
+	\fcolorbox{black}[HTML]{E9F0E9}{\parbox{\textwidth}{
+		\begin{enumerate}[label=3.]
+			\item The admin (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option.
+		\end{enumerate}
+		\begin{enumerate}[label=4.\arabic*.]
+			\item The Signin GUI (header widget) signs in a user using the login controller.
+			\item The login controller creates a login log for the user using the IP address of the user.
+			\item The login controller enters a login attempt in the login log for the user.
+			\item The login controller saves the login log with the Database Manager.
+			\item The login controller signs in the user using the authentication service.
+			\item The authentication service authorizes the user using WebAuth.
+			\item WebAuth returns an access token to the authentication service.
+			\item The authentication service validates the access token using WebAuth.
+			\item If the access token is valid
+			\begin{enumerate}[label*=\arabic*.]
+				\item The authentication service obtains the user profile from WebAuth using the access token.
+				\item The authentication service creates a session for the user.
+				\item The authentication service stores the access token in the user's session.
+				\item The authentication returns a true login in status to the login controller.
+			\end{enumerate}
+			\item else, 
+			\begin{enumerate}[label*=\arabic*.]
+				\item The authenitication returns a failed login status to the login.
+			\end{enumerate}
+			\item If the login status is true
+			\begin{enumerate}[label*=\arabic*.]
+				\item The login controller gets the login log from the database manager using the IP address of the user.
+				\item If the login log is too old or doesn't exist
+				\begin{enumerate}[label*=\arabic*.]
+					\item The login controller signs out the user using the authentication service.
+					\item The authentication service clears the user's session.
+					\item If login log doesn't exist
+					\begin{enumerate}[label*=\arabic*.]
+						\item The login controller returns an "IP address change during login; please login again." message to the Signin GUI.
+					\end{enumerate}
+					\item else, 
+					\begin{enumerate}[label*=\arabic*.]
+						\item The login controller returns a "login took too long" message to the Signin GUI. 
+					\end{enumerate}
+					\item The Signin GUI displays the message.
+				\end{enumerate}
+				\item else,
+				\begin{enumerate}[label*=\arabic*.]
+					\item The login controller enters a successful login attempt log in the login log for the user.
+					\item The login controller saves the login log with the Database Manager.
+					\item The login controller checks the user's scope/permissions.
+					\item The login controller redirects the user to their appropriate page. 
+				\end{enumerate}
+			\end{enumerate}
+			\item else,
+			\begin{enumerate}[label*=\arabic*.]
+				\item The login controller redirects the user to the home page. 
+			\end{enumerate}
+		\end{enumerate}
+	}}
+	\caption{Use Case Scenario for UC21: Login}
+\end{table}
+We use Auth0 as a third party authentication server to log users in and return the user token to our system so that we may "sign them in." We interface with Auth0 by using WebAuth.\\*
+
+The scenarios will now be converted into scenario tables. This helps with the conversion from the scenarios to sequence diagrams. The scenario table for use case 21 will not be constructed. The scenario is enough. The methodology specifies that is optional. \\*
+
+The next step is the construction of the sequence diagrams for each use case scenario (and corresponding use case scenario table if it exists).
+
+\paragraph{Responsibility Assginment}
  
 \subsubsection{Deriving Design Class Diagram}
  
@@ -1016,7 +1464,7 @@ In accordance to the architectural tactics we have chosen to observe to achieve 
 \subsubsection{Integration}
  
 \subsubsection{Deployment}
-
+%Place acceptance testing after this one as well as customer feedback
 \subsection{Phase 2:} 
  - Demo 2 happened here
  - Phase 2 artifacts to be listed here.

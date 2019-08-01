@@ -20,13 +20,13 @@ export class AuthService {
     scope: AUTH_CONFIG.SCOPE,
   });
 
-  userProfile: any;
+userProfile: any;
 
-  //logged in state, for actions throughout the app
-  isLoggedIn: boolean;
-  loggedInBehavior = new BehaviorSubject<boolean>(this.isLoggedIn);
+//logged in state, for actions throughout the app
+isLoggedIn: boolean;
+loggedInBehavior = new BehaviorSubject<boolean>(this.isLoggedIn);
 
-  constructor(private router: Router) {
+constructor(private router: Router) {
     //have to use local storage at some point-- better than cookies?
     const localProfile = localStorage.getItem('profile');
 
@@ -36,14 +36,14 @@ export class AuthService {
     } else if (!this.isValidToken && localProfile) {
       this.logout();
     }
-   }
+}
 
-   setLoggedIn(value: boolean) {
-     this.loggedInBehavior.next(value);
-     this.isLoggedIn = value;
-   }
+setLoggedIn(value: boolean) {
+  this.loggedInBehavior.next(value);
+  this.isLoggedIn = value;
+}
 
-   login(redirect?: string) {
+  login(redirect?: string) {
      const REDIRECT = redirect ? redirect : this.router.url;
      localStorage.setItem('authRedirect', REDIRECT);
      //authorize request with Auth0
@@ -70,9 +70,11 @@ export class AuthService {
      this.auth0.client.userInfo(authResult.accessToken, (err, profile) => {
        if (profile) {
          this.setSession(authResult, profile);
+         //this redirect seems reduntant
          this.router.navigate([localStorage.getItem('authRedirect') || '/']);
          this.clearRedirect();
        } else if (err) {
+         //this is not correct error handling
          console.error(`Error authenticating: ${err.error}`);
        }
      });
@@ -91,6 +93,10 @@ export class AuthService {
      //update the login status of user
      this.setLoggedIn(true);
      // activate the chatbot; the code below redirects to chat
+     //depending on the data in the profile we can redirect to different pages
+    //all we have to do now is block the routes.
+     // console.log("Profile: " + JSON.stringify(profile));
+     // console.log(authResult);
      this.router.navigate([ROUTE_NAMES.CHAT]);
    }
 
