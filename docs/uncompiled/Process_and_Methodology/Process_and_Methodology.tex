@@ -9,6 +9,16 @@
 \usepackage[margin=2.0cm]{geometry}
 \usepackage{bookmark}
 
+%%Table Colours
+\usepackage{color}
+\definecolor{blue}{rgb}{0.392,0.584,0.929}
+\usepackage{colortbl}
+
+%%For Use Case Scenarios
+\usepackage{eulervm}
+\usepackage[charter]{mathdesign}
+\usepackage{xcolor}
+
 %%Figures
 \usepackage{float}
 
@@ -1271,6 +1281,181 @@ All login use cases feature the same system displays, information displayed, use
 Note: Client feedback has suggested that the user interface is for demo purposes only and is "throw-away." It currently does not involve many elements at all and the moment, thus this would be all for this stage.
 
 \subsubsection{Behavior Modeling and Responsibility Assignment}
+
+\paragraph{Behavior Modeling}
+
+Most of the use cases in this iteration involve the user interface subsystem, which is an interactive subsystem. It is because of this, that the focus of this section will be Object Interaction Modeling which is concerned with the modeling of interactive systems \cite{Book:1}. The Ask Bot Assistance use case has some involvement with the user interface as well as the transformational chatbot subsystem; this means that we may include some activity modeling which is suitable for transformational subsystems according to \cite{Book:1}. Since background processes are being analysed, we may show how the architectural tactics and other design decisions are implemented in the behavior of the system objects.\\*
+
+We will only use sequence diagrams to model the behaviour of our systems during use case execution. This is because sequence diagrams are semantically equivalent to the other interaction diagram, communication diagrams\cite{Book:1}. Because we are a novice team, it is recommended that even though we use agile principles, we ought to follow all the steps of OIM, we however will leave out trivial use cases such as those that are the same for different actors\cite{Book:1}.\\*
+
+The first step has already been fulfilled as information has already been collected and actor-system interaction models for the use cases in this iteration have already been produced. We now focus on identifying the nontrivial steps; which are the step that require background processing i.e. objects in the system to interact and work together to produce a desired result. The following are the use cases we have decided to have their behaviour modelled for this iteration, the nontrivial steps are highlighted:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		 & 0. The System displays the home page.\\
+		\hline
+		1. TUCBW the administrator clicking the "Sign In" button on the home page. & 2. The accordingly displays the login page.\\
+		\hline
+		3. The admin (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option. &\cellcolor{blue} 4. The system displays (a) an "incorrect login" error message (b) a "correct login" details message. \\
+		\hline
+		5. \cellcolor{blue} TUCEW the administrator being redirected to the Botic Admin page. & \\
+		\hline
+	\end{tabular}
+	\caption{UC21. Login}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		\multicolumn{2}{|c|}{Precondition: The Administrator must have logged in.} \\
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		 & 0. The System displays the Botic Admin page.\\
+		\hline
+		1. TUCBW an Admin clicks on the "Register User" button on the Botic Admin page. & 2. The system prompts the admin for all necessary details for the user being registered. \\
+		\hline
+		3. The Admin clicks the "Confirm Registration" button. & \cellcolor{blue} 4. The system registers the user and sends them an Email to update their password, along with a randomly generated password. \\
+		\hline
+		5. TUCEW the Admin receives the message "User Has Been Registered." & \\
+		\hline
+		\multicolumn{2}{|c|}{Postcondition: NONE} \\
+		\hline
+	\end{tabular}
+	\caption{UC16: Register User}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		\multicolumn{2}{|c|}{Precondition: The Administrator must have logged in.} \\
+		\hline
+		Actor: Administrator & System: Authentication \\
+		\hline
+		& 0. The System displays the Botic Admin page. \\
+		\hline
+		1. TUCBW an Admin clicking on the "Deregister User" button on the Botic Admin page. & \cellcolor{blue} 2. The system displays all users in three columns according to their user types i.e. customer, customer support representative, admin.\\
+		\hline
+		3. The administrator clicks on the delete icon next to the appropriate user & \cellcolor{blue} 4. The system (a) deletes the user from the system, (b) sends a deletion confirmation to the admin being deleted. \\
+		\hline
+		5. (a) TUCEW the Admin recieves the message "User Has Been Deregistered.", (b) TUCEW the Admin recieving the message "Deletion Request Sent." & \\
+		\hline
+		\multicolumn{2}{|c|}{Postcondition: NONE} \\
+		\hline
+	\end{tabular}
+	\caption{UC17: Deregister User}
+\end{table}
+ 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer Support Representative & System: Authentication \\
+		\hline
+		 & 0. The system displays the home page. \\
+		\hline
+		1. TUCBW a customer support representative clicks on the "Register" button on the home page. & 2. The system (a) prompts the user for their name, Email and password (b) allows them to register via Single Sign On. \\
+		\hline
+		3. The customer (a) clicks the "Confirm Registration" button, or (b) clicks the relevant profile for Single Sign On. & \cellcolor{blue} 4. The system sends an Email to an Administrator to approve the request along with a link to approve it. It displays a message saying "Registration Pending."\\
+		\hline
+		5. TUCEW a customer support representative recieves a notification with the message "You have been Approved." & \\
+		\hline
+	\end{tabular}
+	\caption{UC14: Register}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		Actor: Customer & System: Chatbot \\
+		\hline
+		 & 0. The system displays the customer chat page. \\
+		\hline
+		1. TUCBW a customer typing a message into the input box in the customer chat page. & \cellcolor{blue} 2. The system detects private or personal information as the customer types in their query and warns them if it is detected by highlighting it according to severity. \\
+		\hline
+		3. The customer clicks the "Send Query" button to send the query to the chatbot & \cellcolor{blue} 4. 	The system (a) answers the customer query, or (b) forwards the query to a customer support representative \\
+		\hline
+		5. \cellcolor{blue} TUCCW UC6 to provide feedback and finally TUCEW a customer recieving a "Session has ended" message. & \\
+		\hline
+	\end{tabular}
+	\caption{UC3: Ask Bot Assistance}
+\end{table}
+
+Now we continue OIM by writing scenarios for the nontrivial steps. These we will use to produce the UML sequence diagrams. To avoid sequence diagrams that are too lengthly and complex, the methodology we use, the Agile Unified Method, only models the nontrivial steps featured in expanded use cases \cite{Book:1}. As I'm sure you can notice, some nontrivial requests have been highlighted as well, we do this because they involve relevent system activities that may just have only been implied in the nontrivial steps-- it is done for clarity's sake. The following are the use case scenarios for the selected use cases.
+
+\begin{table}[H]
+	\centering
+	\fcolorbox{black}[HTML]{E9F0E9}{\parbox{\textwidth}{
+		\begin{enumerate}[label=3.]
+			\item The admin (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option.
+		\end{enumerate}
+		\begin{enumerate}[label=4.\arabic*.]
+			\item The Signin GUI (header widget) signs in a user using the login controller.
+			\item The login controller creates a login log for the user using the IP address of the user.
+			\item The login controller enters a login attempt in the login log for the user.
+			\item The login controller saves the login log with the Database Manager.
+			\item The login controller signs in the user using the authentication service.
+			\item The authentication service authorizes the user using WebAuth.
+			\item WebAuth returns an access token to the authentication service.
+			\item The authentication service validates the access token using WebAuth.
+			\item If the access token is valid
+			\begin{enumerate}[label*=\arabic*.]
+				\item The authentication service obtains the user profile from WebAuth using the access token.
+				\item The authentication service creates a session for the user.
+				\item The authentication service stores the access token in the user's session.
+				\item The authentication returns a true login in status to the login controller.
+			\end{enumerate}
+			\item else, 
+			\begin{enumerate}[label*=\arabic*.]
+				\item The authenitication returns a failed login status to the login.
+			\end{enumerate}
+			\item If the login status is true
+			\begin{enumerate}[label*=\arabic*.]
+				\item The login controller gets the login log from the database manager using the IP address of the user.
+				\item If the login log is too old or doesn't exist
+				\begin{enumerate}[label*=\arabic*.]
+					\item The login controller signs out the user using the authentication service.
+					\item The authentication service clears the user's session.
+					\item If login log doesn't exist
+					\begin{enumerate}[label*=\arabic*.]
+						\item The login controller returns an "IP address change during login; please login again." message to the Signin GUI.
+					\end{enumerate}
+					\item else, 
+					\begin{enumerate}[label*=\arabic*.]
+						\item The login controller returns a "login took too long" message to the Signin GUI. 
+					\end{enumerate}
+					\item The Signin GUI displays the message.
+				\end{enumerate}
+				\item else,
+				\begin{enumerate}[label*=\arabic*.]
+					\item The login controller enters a successful login attempt log in the login log for the user.
+					\item The login controller saves the login log with the Database Manager.
+					\item The login controller checks the user's scope/permissions.
+					\item The login controller redirects the user to their appropriate page. 
+				\end{enumerate}
+			\end{enumerate}
+			\item else,
+			\begin{enumerate}[label*=\arabic*.]
+				\item The login controller redirects the user to the home page. 
+			\end{enumerate}
+		\end{enumerate}
+	}}
+	\caption{Use Case Scenario for UC21: Login}
+\end{table}
+We use Auth0 as a third party authentication server to log users in and return the user token to our system so that we may "sign them in." We interface with Auth0 by using WebAuth.\\*
+
+The scenarios will now be converted into scenario tables. This helps with the conversion from the scenarios to sequence diagrams. The scenario table for use case 21 will not be constructed. The scenario is enough. The methodology specifies that is optional. \\*
+
+The next step is the construction of the sequence diagrams for each use case scenario (and corresponding use case scenario table if it exists).
+
+\paragraph{Responsibility Assginment}
  
 \subsubsection{Deriving Design Class Diagram}
  
@@ -1279,7 +1464,7 @@ Note: Client feedback has suggested that the user interface is for demo purposes
 \subsubsection{Integration}
  
 \subsubsection{Deployment}
-
+%Place acceptance testing after this one as well as customer feedback
 \subsection{Phase 2:} 
  - Demo 2 happened here
  - Phase 2 artifacts to be listed here.
