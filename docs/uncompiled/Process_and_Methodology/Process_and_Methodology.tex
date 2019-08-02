@@ -1397,19 +1397,17 @@ Now we continue OIM by writing scenarios for the nontrivial steps. These we will
 			\item The admin (a) enters their Email address and password and clicks "Log In" (b) clicks on an appropriate Single Sign On option.
 		\end{enumerate}
 		\begin{enumerate}[label=4.\arabic*.]
-			\item The Signin GUI (header widget) signs in a user using the login controller.
-			\item The login controller creates a login log for the user using the IP address of the user.
-			\item The login controller enters a login attempt in the login log for the user.
+			\item The Signin GUI (header widget) signs in with the login controller.
+			\item The login controller creates a login log for the user using the IP address of the user and login attempt.
 			\item The login controller saves the login log with the Database Manager.
-			\item The login controller signs in the user using the authentication service.
+			\item The login controller signs in using the authentication service.
 			\item The authentication service authorizes the user using WebAuth.
 			\item WebAuth returns an access token to the authentication service.
 			\item The authentication service validates the access token using WebAuth.
 			\item If the access token is valid
 			\begin{enumerate}[label*=\arabic*.]
 				\item The authentication service obtains the user profile from WebAuth using the access token.
-				\item The authentication service creates a session for the user.
-				\item The authentication service stores the access token in the user's session.
+				\item The authentication service creates a session for the user using access token.
 				\item The authentication returns a true login in status to the login controller.
 			\end{enumerate}
 			\item else, 
@@ -1421,8 +1419,8 @@ Now we continue OIM by writing scenarios for the nontrivial steps. These we will
 				\item The login controller gets the login log from the database manager using the IP address of the user.
 				\item If the login log is too old or doesn't exist
 				\begin{enumerate}[label*=\arabic*.]
-					\item The login controller signs out the user using the authentication service.
-					\item The authentication service clears the user's session.
+					\item The login controller signs out using the authentication service.
+					\item The authentication service clears the session.
 					\item If login log doesn't exist
 					\begin{enumerate}[label*=\arabic*.]
 						\item The login controller returns an "IP address change during login; please login again." message to the Signin GUI.
@@ -1435,9 +1433,8 @@ Now we continue OIM by writing scenarios for the nontrivial steps. These we will
 				\end{enumerate}
 				\item else,
 				\begin{enumerate}[label*=\arabic*.]
-					\item The login controller enters a successful login attempt log in the login log for the user.
+					\item The login controller enters a login success in the login log.
 					\item The login controller saves the login log with the Database Manager.
-					\item The login controller checks the user's scope/permissions.
 					\item The login controller redirects the user to their appropriate page. 
 				\end{enumerate}
 			\end{enumerate}
@@ -1453,7 +1450,21 @@ We use Auth0 as a third party authentication server to log users in and return t
 
 The scenarios will now be converted into scenario tables. This helps with the conversion from the scenarios to sequence diagrams. The scenario table for use case 21 will not be constructed. The scenario is enough. The methodology specifies that is optional. \\*
 
-The next step is the construction of the sequence diagrams for each use case scenario (and corresponding use case scenario table if it exists).
+The next step is the construction of the sequence diagrams for each use case scenario (and corresponding use case scenario table if it exists). These are the informal sequence diagrams for the chosen use cases:
+
+\begin{figure}[H]
+	\centering
+	\hspace*{-1.5cm}\includegraphics[width=1.2\textwidth]{../../images/Informal_Sequence_Diagram_UC21.png}
+	\caption{Informal Sequence Diagram for UC21}
+\end{figure}
+
+The next step is to decide on the names as well as the types of the object instances that send as also receive message, we do this as well as determine function names, parameters and return types. This produces designl sequence diagrams. These are the design sequence diagrams of the chosen use cases:
+
+\begin{figure}[H]
+	\centering
+	\hspace*{-1.5cm}\includegraphics[width=1.2\textwidth]{../../images/Design_Sequence_Diagram_UC21.png}
+	\caption{Informal Sequence Diagram for UC21}
+\end{figure}
 
 \paragraph{Responsibility Assginment}
  
