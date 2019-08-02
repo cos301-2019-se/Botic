@@ -962,7 +962,7 @@ The whole system adheres to the 4-Tier architectural style. It's layers or subsy
 	\caption{Architectural Stye of the System}
 \end{figure}
 
-The allowed-to-use relation here is denoted by the geometric adjacency of the layers from left to right-- layers on the left use layers on the right and the layers on the right are used by the layers on the left ONLY. The connections between each layer are made to be through encrypted channels. An appropriate technology will be used to implement this during the implementation phase e.g. SSL.
+The allowed-to-use relation here is denoted by the geometric adjacency of the layers from left to right-- layers on the left use layers on the right and the layers on the right are used by the layers on the left. The exception here is the connection between the user interface as well as the persistence layer, as this is required to store information from controllers within the UI's MVC architecture, as well as obtaining information or data for UI level use case i.e. displaying users or obtaining user information. The connections between each layer are made to be through encrypted channels. An appropriate technology will be used to implement this during the implementation phase e.g. SSL.
 
 \paragraph{The User Interface Subsystem}
 The User Interface Layer that is also an interactive subsystem uses an MVC architectural style. Using this architectural style, we ensure that user interface interface functionality, something that tends to change frequently especially in response to knew design trends *Quote IMY theory notes, be kept seperate from the application functionality and yet be ever responsive to user input, the most important thing in an interactive system\cite{Book:2}. This is the solution:
@@ -1463,11 +1463,44 @@ The next step is to decide on the names as well as the types of the object insta
 \begin{figure}[H]
 	\centering
 	\hspace*{-1.5cm}\includegraphics[width=1.2\textwidth]{../../images/Design_Sequence_Diagram_UC21.png}
-	\caption{Informal Sequence Diagram for UC21}
+	\caption{Design Sequence Diagram for UC21}
 \end{figure}
 
+This concludes behavioural modeling.
+
 \paragraph{Responsibility Assginment}
+
+In this stage we will apply responsibility assignment patterns and thus apply various software design principles. This application will be done a use case per use case basis. Situation specific patterns, such as the GoF (Gang of Four) patterns will also be applied where applicable. GRASP, General Responsibility Assignment Software Patterns, \cite{Book:1} will not be neglected either.\\*
+
+For each use case we will show the design pattern that has been applied, how it has been applied and why it has been applied. 
+In addition to the patterns stated above, security patterns, as presented by \cite{Book:1}, will be applied if applicable.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{5cm}|p{10cm}|}
+		\hline 
+		Pattern Applied & Reason Applied \\
+		\hline
+		Controller & Decouples the SignIn GUI from the business objects i.e. Authentication, and fasciliates for better seperation of concerns. The presences of the database manager, prevents the loginController from being too bloated. These then promote high cohesion as well as separation of concerns. LoginController is able to monitor out of sequence logins through login logs for a more robust handling of the use case.\cite{Book:1}\\
+		\hline
+		Creator & The creator pattern is used for the creation of LoginLogs. The loginController is assigned the responsibility of the creation of this object since it not only has the information necessary for it's creation, but it is the only object that use and changes it throughout the use case.\cite{Book:1}\\
+		\hline
+		Role/RBAC & Role based access control is applied to ensure that each user type should not have unauthorized access to functionality and data. Access tokens have scopes, and scopes are checked to see which pages a logged in user in meant to be redirected to. Other pages are prevented from access at the implementation level.\cite{Book:1}\\
+		\hline
+		Factory Method & LoginControllers create a specific type of log, the loginLog. The factory method pattern is used to ensure the central management of the creation of log items. Each kind of controler will be able to produce it's own log type. This also makes it easier to add new kinds of logs as the number of use cases increase.\\
+		\hline
+		Bridge Pattern & This is applied to decouple the LoginController from the database in order to eliminate the problems associated with direct database access \cite{Book:1}. This has resulted in the introduction of the Database Manager or DBMgr for short as well as it's respective DBAccess implementations (each for different databases).\\
+		\hline
+	\end{tabular}
+	\caption{Pattern Application for Use Case 21: Login}
+\end{table}
  
+Here is the resultant behavoural diagram for Use Case 21:
+
+\begin{figure}[H]
+		\centering
+		\hspace*{-1.7cm}\includegraphics[width=1.2\textwidth]{../../images/Patternted_Design_Sequence_Diagram_UC21.png}
+		\caption{Modified Design Sequence Diagram for UC21}
+\end{figure}
 \subsubsection{Deriving Design Class Diagram}
  
 \subsubsection{Test-Driven Development}
