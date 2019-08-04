@@ -1484,7 +1484,7 @@ In addition to the patterns stated above, security patterns, as presented by \ci
 		\hline
 		Creator & The creator pattern is used for the creation of LoginLogs. The loginController is assigned the responsibility of the creation of this object since it not only has the information necessary for it's creation, but it is the only object that use and changes it throughout the use case.\cite{Book:1}\\
 		\hline
-		Role/RBAC & Role based access control is applied to ensure that each user type should not have unauthorized access to functionality and data. Access tokens have scopes, and scopes are checked to see which pages a logged in user in meant to be redirected to. Other pages are prevented from access at the implementation level.\cite{Book:1}\\
+		Role/RBAC & Role based access control is applied to ensure that each user type should not have unauthorized access to functionality and data. Access tokens have scopes, and scopes are checked to see which pages a logged in user in meant to be redirected to. Other pages are prevented from access at the implementation level.\cite{Book:1} The loginController will be the object checking these scopes before redirection.\\
 		\hline
 		Factory Method & LoginControllers create a specific type of log, the loginLog. The factory method pattern is used to ensure the central management of the creation of log items. Each kind of controler will be able to produce it's own log type. This also makes it easier to add new kinds of logs as the number of use cases increase.\\
 		\hline
@@ -1502,7 +1502,15 @@ Here is the resultant behavoural diagram for Use Case 21:
 		\caption{Modified Design Sequence Diagram for UC21}
 \end{figure}
 \subsubsection{Deriving Design Class Diagram}
- 
+
+Here we derived a Design Class Diagram which will serve as a blueprint for test-driven development, integration testing, and maintanence-- it is a desgin specification of the classes and the class structure, their operations and attributes, as well as the relationships between the classes\cite{Book:1}. The Design Class Diagram, or DCD, is the only one in the whole system and it updated after each iteration\cite{Book:1}. Here is the current Design Class Diagram:
+
+\begin{figure}[H]
+		\centering
+		\hspace*{-1.7cm}\includegraphics[width=1.2\textwidth]{../../images/Design_Class_Diagram.png}
+		\caption{System Design Class Diagram}
+\end{figure}
+
 \subsubsection{Test-Driven Development}
  
 \subsubsection{Integration}
