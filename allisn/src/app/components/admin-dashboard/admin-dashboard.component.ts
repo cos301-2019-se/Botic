@@ -9,7 +9,7 @@ export class AdminDashboardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit() {
   }
 
 }

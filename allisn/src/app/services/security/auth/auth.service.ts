@@ -10,7 +10,7 @@ import { ROUTE_NAMES } from 'src/app/routes.config';
   providedIn: 'root'
 })
 export class AuthService {
-  //create Auth0 instance
+  // create Auth0 instance
   private auth0 = new auth0.WebAuth({
     clientID: AUTH_CONFIG.CLIENT_ID,
     domain: AUTH_CONFIG.CLIENT_DOMAIN,
@@ -20,14 +20,14 @@ export class AuthService {
     scope: AUTH_CONFIG.SCOPE,
   });
 
-userProfile: any;
+public userProfile: any;
 
-//logged in state, for actions throughout the app
-isLoggedIn: boolean;
-loggedInBehavior = new BehaviorSubject<boolean>(this.isLoggedIn);
+// logged in state, for actions throughout the app
+public isLoggedIn: boolean;
+public loggedInBehavior = new BehaviorSubject<boolean>(this.isLoggedIn);
 
 constructor(private router: Router) {
-    //have to use local storage at some point-- better than cookies?
+    // have to use local storage at some point-- better than cookies?
     const localProfile = localStorage.getItem('profile');
 
     if (this.isValidToken) {
@@ -38,21 +38,21 @@ constructor(private router: Router) {
     }
 }
 
-setLoggedIn(value: boolean) {
+public setLoggedIn(value: boolean) {
   this.loggedInBehavior.next(value);
   this.isLoggedIn = value;
 }
 
-  login(redirect?: string) {
+  public login(redirect?: string) {
      const REDIRECT = redirect ? redirect : this.router.url;
      localStorage.setItem('authRedirect', REDIRECT);
-     //authorize request with Auth0
+     // authorize request with Auth0
      this.auth0.authorize();
    }
 
-   processAuth() {
-     console.log("Inside processAuth()");
-     //if Auth0 hash parsed, get the profile
+   public processAuth() {
+     console.log('Inside processAuth()');
+     // if Auth0 hash parsed, get the profile
      this.auth0.parseHash((err, authResult) => {
        if (authResult && authResult.accessToken) {
          window.location.hash = '';
@@ -66,46 +66,46 @@ setLoggedIn(value: boolean) {
    }
 
    private getProfile(authResult) {
-     //use the accessToken to retrieve the user's profile and to set a session
+     // use the accessToken to retrieve the user's profile and to set a session
      this.auth0.client.userInfo(authResult.accessToken, (err, profile) => {
        if (profile) {
          this.setSession(authResult, profile);
-         //this redirect seems reduntant
+         // this redirect seems reduntant
          this.router.navigate([localStorage.getItem('authRedirect') || '/']);
          this.clearRedirect();
        } else if (err) {
-         //this is not correct error handling
+         // this is not correct error handling
          console.error(`Error authenticating: ${err.error}`);
        }
      });
    }
 
    private setSession(authResult, profile) {
-     //save the session data and update the status for login
+     // save the session data and update the status for login
      const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + Date.now());
-     
-     //set the tokens and the expiration in localStorage
+
+     // set the tokens and the expiration in localStorage
      localStorage.setItem('access_token', authResult.accessToken);
      localStorage.setItem('expires_at', expiresAt);
      localStorage.setItem('profile', JSON.stringify(profile));
      this.userProfile = profile;
 
-     //update the login status of user
+     // update the login status of user
      this.setLoggedIn(true);
      // activate the chatbot; the code below redirects to chat
-     //depending on the data in the profile we can redirect to different pages
-    //all we have to do now is block the routes.
+     // depending on the data in the profile we can redirect to different pages
+    // all we have to do now is block the routes.
      // console.log("Profile: " + JSON.stringify(profile));
      // console.log(authResult);
      this.router.navigate([ROUTE_NAMES.CHAT]);
    }
 
    private clearRedirect() {
-     //remove the redirect that is stored in localStorage
+     // remove the redirect that is stored in localStorage
      localStorage.removeItem('authRedirect');
    }
 
-   logout() {
+   public logout() {
      // remove all auth items from localStorage
      localStorage.removeItem('access_token');
      localStorage.removeItem('profile');

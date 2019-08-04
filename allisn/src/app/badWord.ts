@@ -1,4 +1,4 @@
-export class badWord{
-	position: number;
-	severity: number;
+export class badWord {
+	public position: number;
+	public severity: number;
 }

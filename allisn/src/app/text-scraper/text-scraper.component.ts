@@ -9,32 +9,32 @@ import { badWord } from '../badWord';
 })
 
 export class TextScraperComponent implements OnInit {
-  userInput = "";
-  markedText: string;
-  badWords: badWord[];
-  badWordsString: string;
+  public userInput = '';
+  public markedText: string;
+  public badWords: badWord[];
+  public badWordsString: string;
 
-  chatBubblesMarkup = '';
+  public chatBubblesMarkup = '';
 
-  hasChecked = false;
+  public hasChecked = false;
 
   constructor(private TextScraperService: TextScraperService) { }
 
-  badWordsFromString(): void{
-    console.log("The words: " + this.badWordsString);
-    //var badwordsArray = JSON.parse(this.badWordsString);
-    //console.log(badwordsArray);
-    //return badwordsArray;
+  public badWordsFromString(): void {
+    console.log('The words: ' + this.badWordsString);
+    // var badwordsArray = JSON.parse(this.badWordsString);
+    // console.log(badwordsArray);
+    // return badwordsArray;
   }
 
-  getBadWords() : void{
+  public getBadWords(): void {
 
     this.badWords = [];
     this.badWordsFromString();
-    //console.log(this.badWords);
+    // console.log(this.badWords);
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.badWords = [];
     this.runTests();
     // this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
@@ -48,8 +48,8 @@ export class TextScraperComponent implements OnInit {
    back to you as soon as I can." And then show a textbox where they can enter
    their email.
   */
-  botResponse(input: string): string{
-    var response ='';
+  public botResponse(input: string): string {
+    let response = '';
 
     response += '<span class="chat-img pull-right">';
     response += '<img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />';
@@ -60,25 +60,25 @@ export class TextScraperComponent implements OnInit {
 
     response += '<strong class="pull-right primary-font">Allisn</strong>';
     response += '</div>';
-    response += '<p>'+input+'</p>';
+    response += '<p>' + input + '</p>';
     response += '</div>';
 
     return response;
   }
 
-  userResponse(input: string): string {
-    var response = '';
-    response +='<span class="chat-img pull-left">';
-    response +='   <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />';
-    response +='</span>'
+  public userResponse(input: string): string {
+    let response = '';
+    response += '<span class="chat-img pull-left">';
+    response += '   <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />';
+    response += '</span>';
 
-    response +='<div class="chat-body clearfix">';
-    response +='<div class="header">'
-    response +='<strong class="primary-font">You</strong>';
-    response +='</div>';
-    response +='<p>&nbsp;'+input+'</p>';
-    response +='</div>';
-    response +='<br />';
+    response += '<div class="chat-body clearfix">';
+    response += '<div class="header">';
+    response += '<strong class="primary-font">You</strong>';
+    response += '</div>';
+    response += '<p>&nbsp;' + input + '</p>';
+    response += '</div>';
+    response += '<br />';
 
     return response;
   }
@@ -86,25 +86,25 @@ export class TextScraperComponent implements OnInit {
   /*
    maybe integrate the AI into a standalone component.
   */
-  processResponse(input: string): void{
-    var botAI = [
+  public processResponse(input: string): void {
+    let botAI = [
       {
-        message : "I forgot my password",
+        message : 'I forgot my password',
         response: 'Follow this <a href="">link</a> to reset your password.'
       },
       {
-        message : "What's the meaning of life?",
+        message : 'What\'s the meaning of life?',
         response: 'I\'m having trouble finding an answer, click <a href="#">here</a> to talk to a real person.'
       }
     ];
 
     this.chatBubblesMarkup += this.userResponse(input);
-    this.chatBubblesMarkup += "<br />";
+    this.chatBubblesMarkup += '<br />';
 
-    var botResponse = "I'm sorry, my responses are limited, you must ask the right questions.";
+    let botResponse = 'I\'m sorry, my responses are limited, you must ask the right questions.';
 
-    for (var i = 0; i < botAI.length; i++){
-      if (input.includes(botAI[i].message)){
+    for (let i = 0; i < botAI.length; i++) {
+      if (input.includes(botAI[i].message)) {
         botResponse = botAI[i].response;
       }
     }
@@ -112,7 +112,7 @@ export class TextScraperComponent implements OnInit {
     this.chatBubblesMarkup += this.botResponse(botResponse);
   }
 
-  displayChat(): string{
+  public displayChat(): string {
     return this.chatBubblesMarkup;
   }
 
@@ -120,33 +120,34 @@ export class TextScraperComponent implements OnInit {
    if the string is returned and the badwords array is empty, maybe don't show
    the preview.
   */
-  returnChanged(input: string): string{
+  public returnChanged(input: string): string {
     this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => this.badWords = badWords);
-    var output = "";
+    let output = '';
     // this.badWords = [];
 
-    var array = input.split(" ");
-    output = "";
+    let array = input.split(' ');
+    output = '';
 
-    var isABadWord = false;
-    var severity = 0;
+    let isABadWord = false;
+    let severity = 0;
 
-    for(var i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
       isABadWord = false;
 
-      for (var j = 0; j < this.badWords.length; j++){
-        if (i == this.badWords[j].position){
+      for (let j = 0; j < this.badWords.length; j++) {
+        if (i == this.badWords[j].position) {
           isABadWord = true;
           severity = this.badWords[j].severity;
         }
       }
 
-      if (isABadWord == true)
-        output += '<span style="color:'+this.getColor(severity)+';">' + array[i] + '</span>';
-      else
+      if (isABadWord == true) {
+        output += '<span style="color:' + this.getColor(severity) + ';">' + array[i] + '</span>';
+      } else {
         output += array[i];
+      }
 
-      output += " ";
+      output += ' ';
     }
 
     return output;
@@ -156,37 +157,36 @@ export class TextScraperComponent implements OnInit {
   if they have, first warn them, then the person gets the option to change the
   message or send it with the personal information attached.
   */
-    onClickCall(userInput : string) : void {
+    public onClickCall(userInput: string): void {
 
       /*
       Test Purposes:
       */
-      var passed = 0;
-      var failed = 0;
+      let passed = 0;
+      let failed = 0;
 
       // window.alert(this.badWords.length);
       if (this.hasChecked == false) {
         this.returnChanged(userInput);
-        console.log("onClickCall has been called.");
+        console.log('onClickCall has been called.');
         passed++;
-        console.log("onClickCall has been called - hasChecked started on false");
+        console.log('onClickCall has been called - hasChecked started on false');
         passed++;
         this.hasChecked = true;
-        console.log("onClickCall has been called - hasChecked changed to true - checking if personal info has been entered");
+        console.log('onClickCall has been called - hasChecked changed to true - checking if personal info has been entered');
         passed++;
         if (this.badWords.length == 0) {
-          console.log("onClickCall has been called - no personal information has been identified.");
+          console.log('onClickCall has been called - no personal information has been identified.');
           passed++;
-          console.log("onClickCall has been called - hasChecked changed back to false - no personal info");
+          console.log('onClickCall has been called - hasChecked changed back to false - no personal info');
           passed++;
           this.processResponse(userInput);
           this.hasChecked = false;
-        }
-        else {
-          window.alert("Personal information has been entered. See text above textbox for details.");
-          var theBadWordsAdded = "The following personal information have been entered: ";
+        } else {
+          window.alert('Personal information has been entered. See text above textbox for details.');
+          let theBadWordsAdded = 'The following personal information have been entered: ';
 
-          console.log("onClickCall has been called - personal information has been identified.");
+          console.log('onClickCall has been called - personal information has been identified.');
           passed++;
 
           // for (var i = 0; i < this.badWords.length; i++) {
@@ -198,58 +198,60 @@ export class TextScraperComponent implements OnInit {
           //   }
           // }
 
-          var replaceText = document.getElementById("preview");
-          replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
-          console.log("onClickCall has been called - personal information displayed.");
+          let replaceText = document.getElementById('preview');
+          replaceText.innerHTML = replaceText.innerHTML.replace('', theBadWordsAdded + ' ' + this.returnChanged(userInput));
+          console.log('onClickCall has been called - personal information displayed.');
           passed++;
         }
-      }
-      else {
+      } else {
         this.processResponse(userInput);
         this.hasChecked = false;
-        console.log("onClickCall has been called - gave option to take out personal information");
+        console.log('onClickCall has been called - gave option to take out personal information');
         passed++;
       }
-      console.log("Tests completed: " + passed + " passed, " + failed + " failed.")
+      console.log('Tests completed: ' + passed + ' passed, ' + failed + ' failed.');
     }
 
  /*
  Maybr these need to go.
  */
-  highlight(input: string, badWords: badWord[]): boolean {
+  public highlight(input: string, badWords: badWord[]): boolean {
 
-    for (var i = 0; i < badWords.length; i++)
-      if (i == badWords[i].position){
+    for (let i = 0; i < badWords.length; i++) {
+      if (i == badWords[i].position) {
 
         return true;
       }
+    }
 
     return false;
   }
 
-  applyHighlights(input: string, badWords: string[]): string{
+  public applyHighlights(input: string, badWords: string[]): string {
 
-    var output = "";
+    let output = '';
 
-    var array = input.split(" ");
-    output = "";
+    let array = input.split(' ');
+    output = '';
 
-    var isABadWord = false;
+    let isABadWord = false;
 
-    for(var i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
       isABadWord = false;
 
-      for (var j = 0; j < badWords.length; j++){
-        if (array[i].includes(badWords[j]))
+      for (let j = 0; j < badWords.length; j++) {
+        if (array[i].includes(badWords[j])) {
           isABadWord = true;
+        }
       }
 
-      if (isABadWord == true)
+      if (isABadWord == true) {
         output += '<mark>' + array[i] + '</mark>';
-      else
+      } else {
         output += array[i];
+      }
 
-      output += " ";
+      output += ' ';
     }
 
     return output.replace(/\n$/g, '\n\n');
@@ -263,33 +265,36 @@ export class TextScraperComponent implements OnInit {
   2. when to write a tests
   3. What outputs to test for
  */
-  runTests(): void {
+  public runTests(): void {
 
-    var passed = 0;
-    var failed = 0;
+    let passed = 0;
+    let failed = 0;
 
-    //botResponse
-    if (typeof(this.botResponse('')) == "string")
+    // botResponse
+    if (typeof(this.botResponse('')) == 'string') {
       passed++;
-    else
+    } else {
       failed++;
-    console.log("botResponse returns string " + (typeof(this.botResponse('')) == "string"));
+    }
+    console.log('botResponse returns string ' + (typeof(this.botResponse('')) == 'string'));
 
-    //userResponse
-    if (typeof(this.userResponse('')) == "string")
+    // userResponse
+    if (typeof(this.userResponse('')) == 'string') {
       passed++;
-    else
+    } else {
       failed++;
-    console.log("userResponse returns string " + (typeof(this.botResponse('')) == "string"));
+    }
+    console.log('userResponse returns string ' + (typeof(this.botResponse('')) == 'string'));
 
-    //processResponse
+    // processResponse
 
-    //displayChat
-    if (typeof(this.displayChat()) == "string")
+    // displayChat
+    if (typeof(this.displayChat()) == 'string') {
       passed++;
-    else
+    } else {
       failed++;
-    console.log("displayChat returns string " + (typeof(this.botResponse('')) == "string"));
+    }
+    console.log('displayChat returns string ' + (typeof(this.botResponse('')) == 'string'));
 
     /*
     //returnChanged
@@ -326,12 +331,12 @@ export class TextScraperComponent implements OnInit {
       failed++;
     console.log("applyHighlights() returns string " + (typeof(this.applyHighlights('',this.badWords)) == "string"));
     */
-    console.log('\nTests completed. ' + passed +' passed, ' + failed + ' failed.');
+    console.log('\nTests completed. ' + passed + ' passed, ' + failed + ' failed.');
 
   }
 
-  getColor(severity: number): string {
-    switch(severity){
+  public getColor(severity: number): string {
+    switch (severity) {
       case 0:
         return 'fuchsia';
 

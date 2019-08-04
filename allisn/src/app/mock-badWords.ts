@@ -1,4 +1,4 @@
-import { badWord } from './badWord'
+import { badWord } from './badWord';
 
 export const BADWORDS: badWord[] = [
 	{ position: 1, severity: 0},

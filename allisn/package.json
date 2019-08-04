@@ -8,7 +8,7 @@
     "test": "ng test",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
-    "tslint": "tslint './src/**/*.{ts,tsx}'",
+    "tslint": "tslint './src/**/*.{ts,tsx}' --force",
     "tslint:fix": "npm run tslint -- --fix",
     "prettier": "prettier --write --config ./.prettierrc './src/**/*.{ts,tsx}'",
     "e2e": "ng e2e",

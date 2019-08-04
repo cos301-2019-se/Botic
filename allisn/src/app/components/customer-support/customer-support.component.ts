@@ -9,7 +9,7 @@ export class CustomerSupportComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit() {
   }
 
 }

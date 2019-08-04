@@ -11,7 +11,7 @@ import { BADWORDS } from './mock-badWords';
 
 import { MessageService } from './message.service';
 
-//Committable Change
+// Committable Change
 @Injectable({
   providedIn: 'root'
 })
@@ -65,33 +65,33 @@ export class TextScraperService {
   }
   */
 
-  getBadWords(): Observable<any> {
-    var fd = new FormData();
-    fd.append("data", "Hi my name is Gareth and my surname is cucaracha and my password is america123.");
+  public getBadWords(): Observable<any> {
+    let fd = new FormData();
+    fd.append('data', 'Hi my name is Gareth and my surname is cucaracha and my password is america123.');
 
-    return this.http.post(this.apiURL,fd).pipe(map((data: any) => {
-          var cooled = data.replace(/'/g,'"');
+    return this.http.post(this.apiURL, fd).pipe(map((data: any) => {
+          let cooled = data.replace(/'/g, '"');
           console.log(cooled);
-          var words = JSON.parse(cooled);
-          console.log("Data: " + JSON.stringify(words));
+          let words = JSON.parse(cooled);
+          console.log('Data: ' + JSON.stringify(words));
 
-          //badWord badWords = [];
+          // badWord badWords = [];
 
           return words;
         }));
   }
 
-  getBadWordsFromInput(input: string): Observable<any> {
-    var fd = new FormData();
-    fd.append("data", input);
+  public getBadWordsFromInput(input: string): Observable<any> {
+    let fd = new FormData();
+    fd.append('data', input);
 
-    return this.http.post(this.apiURL,fd).pipe(map((data: any) => {
-          var cooled = data.replace(/'/g,'"');
-          //console.log(cooled);
-          var words = JSON.parse(cooled);
-          //console.log("Data: " + JSON.stringify(words));
+    return this.http.post(this.apiURL, fd).pipe(map((data: any) => {
+          let cooled = data.replace(/'/g, '"');
+          // console.log(cooled);
+          let words = JSON.parse(cooled);
+          // console.log("Data: " + JSON.stringify(words));
 
-          //badWord badWords = [];
+          // badWord badWords = [];
 
           return words;
         }));

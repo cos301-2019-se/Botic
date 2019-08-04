@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { LandingComponent } from './components/pages/landing/landing.component';
 import { CustomerChatComponent } from './components/customer-chat/customer-chat.component';
