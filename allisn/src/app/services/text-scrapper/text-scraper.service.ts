@@ -6,10 +6,10 @@ import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
-import { badWord } from './badWord';
-import { BADWORDS } from './mock-badWords';
+import { badWord } from '../../models/badWord';
+import { BADWORDS } from '../../models/mock-badWords';
 
-import { MessageService } from './message.service';
+import { MessageService } from '../message/message.service';
 
 // Committable Change
 @Injectable({

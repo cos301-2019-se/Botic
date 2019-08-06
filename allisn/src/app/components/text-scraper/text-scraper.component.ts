@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { TextScraperService } from '../text-scraper.service';
-import { badWord } from '../badWord';
+import { TextScraperService } from '../../services/text-scrapper/text-scraper.service';
+import { badWord } from '../../models/badWord';
 
 @Component({
   selector: 'app-text-scraper',

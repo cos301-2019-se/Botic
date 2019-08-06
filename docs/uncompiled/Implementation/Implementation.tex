@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+%%\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[linktocpage=true]{hyperref}
+
+%%Page layout
+\usepackage[margin=2.0cm]{geometry}
+\usepackage{bookmark}
+
+%%Table Colours
+\usepackage{color}
+\definecolor{blue}{rgb}{0.392,0.584,0.929}
+\usepackage{colortbl}
+
+%%For Use Case Scenarios
+\usepackage{eulervm}
+\usepackage[charter]{mathdesign}
+\usepackage{xcolor}
+
+%%Figures
+\usepackage{float}
+
+\usepackage{mathpazo}
+
+%%Font and Numbers
+\renewcommand*\rmdefault{dayrom}
+\usepackage[T1]{fontenc}
+\normalfont
+\usepackage{enumitem}
+
+%%Packages for Referrences
+\usepackage{url}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
+
+%%Group Comments
+\usepackage{verbatim}
+
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\begin{document}
+\renewcommand{\familydefault}{\sfdefault}
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+	\begin{center}
+		            
+		\textsc{\LARGE Alabama Liquid Snake}\\[0.8cm]
+		\textsc{\Large University of Pretoria}\\[0.5cm]
+		\textsc{\large Epi-Use}\\[0.5cm]
+		    
+		\HRule\\[0.4cm]
+		    	
+		{\huge\bfseries Botic - Privacy aware chatbot}\\[0.2cm]
+		    	
+		{\huge Implementation Details}\\[0.2cm]
+		
+		\HRule\\[0.5cm]
+		
+		\textsc{Justin Grenfell} - u16028440 \\[0cm]
+		\textsc{Peter Msimanga} - u13042352 \\[0cm]
+		\textsc{Alicia Mulder} - u14283124 \\[0cm]
+		\textsc{Kyle Gaunt} - u15330967 \\[0cm]
+		\textsc{Lesego Mabe} - u15055214 \\[0cm]
+		    
+	\end{center}
+\end{titlepage}
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+This documents follows the implementation decisions made during the project development stage. Implementation decisions will be covered in each interation, and categorized further according to the use cases.
+
+\subsection{Interation 1}
+
+\subsubsection{UC21: Login}
+
+%include picture representing the Angular Architecture
+
+The Angular SPA application framework does not necessarily have a direct mapping to our architectural designs and decisions; as to be expected. The View will be bundled into varous Angular components. The Controllers will be bundled into various Angular services. The Model will also be represented as Angular services. This is how we will map each of the Angular constructs to the architecture we have chosen.\\*
+
+The Design Class Diagram represents certain constructs that are not necessarily Angular or Typescript contructs. Since we have made the decision to represent all our controllers as Angular services, we will have to create an Interface to represent the Abstract Controller class. Each Concrete Controller will thus be represented as an "implemented" Angular Service; \cite{Website:5} provides a tutorial on how to do this.
+
+The "shared" folder will contain classes and objects  that are shared across the system, i.e. log classes, data structures, and others.
+
+\section{References}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

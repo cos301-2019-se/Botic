@@ -10,6 +10,7 @@ import { ROUTE_NAMES } from 'src/app/routes.config';
   providedIn: 'root'
 })
 export class AuthService {
+  
   // create Auth0 instance
   private auth0 = new auth0.WebAuth({
     clientID: AUTH_CONFIG.CLIENT_ID,

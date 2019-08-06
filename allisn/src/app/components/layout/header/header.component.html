@@ -21,7 +21,7 @@
           <div style="display: table-row; width: 100%; vertical-align: middle; height: 40px;">
             <!--this must be shown only when not logged in-->
             <div *ngIf="!auth.isLoggedIn">
-              <input type="button" value="Sign In" class="login" (click)="auth.login()" style="width:120px;" />
+              <input type="button" value="Sign In" class="login" (click)="login()" style="width:120px;" />
             </div>
 
             <!--this must be shown only when logged in-->

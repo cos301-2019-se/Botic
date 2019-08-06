@@ -36,7 +36,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
     </tr>
     <tr>
         <td>Coding Standards</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards.pdf" target="_blank">v1</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v1.pdf" target="_blank">v1</a></td>
     </tr>
     <tr>
         <td>User Manual</td>
