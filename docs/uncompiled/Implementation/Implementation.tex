@@ -87,11 +87,24 @@ This documents follows the implementation decisions made during the project deve
 
 %include picture representing the Angular Architecture
 
+\paragraph{Dealing with the MVC}
 The Angular SPA application framework does not necessarily have a direct mapping to our architectural designs and decisions; as to be expected. The View will be bundled into varous Angular components. The Controllers will be bundled into various Angular services. The Model will also be represented as Angular services. This is how we will map each of the Angular constructs to the architecture we have chosen.\\*
 
+\paragraph{Angular and Abstract Classes}
 The Design Class Diagram represents certain constructs that are not necessarily Angular or Typescript contructs. Since we have made the decision to represent all our controllers as Angular services, we will have to create an Interface to represent the Abstract Controller class. Each Concrete Controller will thus be represented as an "implemented" Angular Service; \cite{Website:5} provides a tutorial on how to do this.
 
-The "shared" folder will contain classes and objects  that are shared across the system, i.e. log classes, data structures, and others.
+\paragraph{Updates to File Structure}
+The "shared" folder will contain classes and objects  that are shared across the system, i.e. log classes, data structures, and others.\par
+
+\paragraph{Database Manager}
+An Angular Service will be created to interface with the Database Manager API; this is done to decouple all networking away from each use case controller that will need to store or retrive any data or objects to and from the available databases.\par
+The database manager itself was developed to be a RESTful api using the help of the tutorials in \cite{Website:6}, \cite{Website:7}, and \cite{Website:8}.\par
+Since we have already begun the use of Typescript in our Angular frontend, we can continue using it in our Node API. The benefits of this are getting a more "universal" language and standard for our project, including testing, having less errors because we now use a type safe language rather than JavaScript, Typescript can allow our IDEs to expose project modules easily and the more robust language offers more reliability\cite{Website:9}. To this end, the tuturial in \cite{Website:9} helped us use TypeScript instead of JavaScript in our RESTful Node API. So, whenever a package is installed from npm, just install the types as well, which are usually of the form "@types/<package-name>." To build the project, use "npm tsc". It will create all the necessary JavaScript files from the TypeScript files. They will be in the "build" folder, which you can run using "node ./build/app.js" for example.
+
+\paragraph{Session Implementation}
+LocalStorage has it's advantages and disadvantages, particularily that it is vulnerable to Cross Site Scripting attacks. etc etc we have chosen to use Cookies instead...motivation...motivation\par
+
+But we however, use the bridge pattern to decouple how the session is stored. One can change this from Cookies to LocalStorage this way.
 
 \section{References}
 \bibliographystyle{IEEEtran}
