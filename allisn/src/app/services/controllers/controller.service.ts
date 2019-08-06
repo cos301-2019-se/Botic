@@ -1,22 +1,26 @@
 /**
  * File Name: controller.service.ts
- * Version number:
+ * Version number: Original
  * Author name: Lesego Mabe
  * Project name: Botic
  * Organization: Alabama Liquid Snakes
  * Related Use Cases: UC21
  * Update History: Consult GitHub Commits and Comments
- * Reviewers: 
- * 
+ * Reviewers:
+ *
  */
 
 import { Injectable } from '@angular/core';
-//import { } from '';
+
+// tslint:disable-next-line: no-implicit-dependencies
+// tslint:disable-next-line: no-submodule-imports
+
+import { Log } from '../../shared/Logs/Log';
+
 
 @Injectable()
 export abstract class Controller {
 
-    //this member is used to hold a concrete log
-    private log;
-    
+    // this member is used to hold a concrete log
+    protected log: Log;
 }

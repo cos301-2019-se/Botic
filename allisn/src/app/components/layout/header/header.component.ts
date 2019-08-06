@@ -11,6 +11,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
+import { LoginControllerService } from '../../../services/controllers/login/login-controller.service';
 import { AuthService } from '../../../services/security/auth/auth.service';
 
 @Component({
@@ -20,25 +21,29 @@ import { AuthService } from '../../../services/security/auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  // won't need to make a new one...just take from the main component
+  constructor(public loginController: LoginControllerService) {
+    loginController.continueSignIn();
+  }
 
   public username: string;
 
+  // tslint:disable-next-line: typedef
   public ngOnInit() {
   }
 
-  public logout() {
-    //call the login controller
-    //this.auth.logout();
+  public logout(): void {
+    // call the login controller
+    // this.loginController.signOut();
   }
 
   /**
    * Method name:   Login()
    * Purpose:       Log a user into the system. This method uses the loginController.
    */
-  public login() {
-    //a call to the login controller
-    //this.auth.login();
+  public login(): void {
+    // a call to the login controller
+    this.loginController.signIn();
   }
 
 
