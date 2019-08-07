@@ -24,6 +24,7 @@ const app = express();
 
 // Parse incoming requests using body-parser
 app.use(bodyParser.json());
+// Make "true" to fix possible deprecation warning
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(router);
 

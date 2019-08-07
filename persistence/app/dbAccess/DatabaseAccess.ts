@@ -1,5 +1,5 @@
 /**
- * File Name: DatabaseAccess.js
+ * File Name: DatabaseAccess.ts
  * Version number: Original
  * Author name: Lesego Mabe
  * Project name: Botic
@@ -16,14 +16,18 @@
  *             it easy to add or change databases.
  */
 
-// this dummy database will be removed
+abstract class DatabaseAccess {
+  protected abstract connectDB(): void;
 
-const todos =  [
-    {
-      id: 1,
-      title: "lunch",
-      description: "Go for lunc by 2pm"
-    }
-];
+  protected abstract disconnectDB(): void;
 
-export default todos;
+  public abstract save(): void;
+
+  public abstract delete(): void;
+
+  public abstract update(): void;
+
+  public abstract get(): any;
+}
+
+export default DatabaseAccess;

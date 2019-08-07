@@ -1,5 +1,5 @@
 /**
- * File Name: DatabaseManager.js
+ * File Name: DatabaseManager.ts
  * Version number: Original
  * Author name: Lesego Mabe
  * Project name: Botic
@@ -16,51 +16,60 @@
  */
 
 import DatabaseAccess from '../dbAccess/DatabaseAccess';
+import LogDBAccess from '../dbAccess/LogDBAccess';
 
 class DatabaseManager {
-    // wondering why this function is not 'async'? Me too.
-    saveLog(req: any, res: any) {
 
-    }
+  // edit: no need- definite assignment assertion modifier, '!', used here as this property will be initialized elsewhere
+  private logDbAccess: DatabaseAccess;
 
-    getLog(req: any, res: any) {
+  constructor() {
+    this.logDbAccess = new LogDBAccess();
+  }
 
-    }
+  // wondering why this function is not 'async'? Me too.
+  saveLog(req: any, res: any) {
+    this.logDbAccess.save();
+  }
 
-    // example
-    getAllTodos(req: any, res: any) {
-        return res.status(200).send({
-            success: 'true',
-            message: 'todos retrieved successfully',
-            todos: DatabaseAccess,
-        });
-    }
+  getLog(req: any, res: any) {
+    this.logDbAccess.get();
+  }
 
-    // example
-    createTodo(req: any, res: any) {
-        if (!req.body.title) {
-          return res.status(400).send({
-            success: 'false',
-            message: 'title is required',
-          });
-        } else if (!req.body.description) {
-          return res.status(400).send({
-            success: 'false',
-            message: 'description is required',
-          });
-        }
-        const todo = {
-          id: DatabaseAccess.length + 1,
-          title: req.body.title,
-          description: req.body.description,
-        };
-        DatabaseAccess.push(todo);
-        return res.status(201).send({
+  // example
+  getAllTodos(req: any, res: any) {
+      return res.status(200).send({
           success: 'true',
-          message: 'todo added successfully',
-          todo,
+          message: 'todos retrieved successfully',
+          todos: DatabaseAccess,
+      });
+  }
+
+  // example
+  createTodo(req: any, res: any) {
+      if (!req.body.title) {
+        return res.status(400).send({
+          success: 'false',
+          message: 'title is required',
         });
-    }
+      } else if (!req.body.description) {
+        return res.status(400).send({
+          success: 'false',
+          message: 'description is required',
+        });
+      }
+      const todo = {
+        id: DatabaseAccess.length + 1,
+        title: req.body.title,
+        description: req.body.description,
+      };
+      //DatabaseAccess.push(todo);
+      return res.status(201).send({
+        success: 'true',
+        message: 'todo added successfully',
+        todo,
+      });
+  }
 }
 
 const databaseManager = new DatabaseManager();
