@@ -89,7 +89,7 @@ export class AuthService {
     // use the accessToken to retrieve the user's profile and to set a session
     this.auth0.client.userInfo(authResult.accessToken, (err, profile) => {
       if (profile) {
-        this.startSession(authResult, profile);
+        this.startSession(authResult.accessToken, profile);
         // this redirect seems reduntant
         this.router.navigate([localStorage.getItem('authRedirect') || '/']);
         this.clearRedirect();
@@ -108,7 +108,7 @@ export class AuthService {
     // set the tokens and the expiration in localStorage
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('expires_at', expiresAt);
-    localStorage.setItem('profile', JSON.stringify(profile));
+    localStorage.setItem('profile', JSON.stringify(profile)); //local storage can only store string data
     this.userProfile = profile;
 
     // update the login status of user

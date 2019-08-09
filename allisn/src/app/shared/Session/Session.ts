@@ -17,12 +17,21 @@
  */
 
  export class Session {
-     public startSession(token: JSON, profile: JSON): void {
-         // store session in Cookie
-         // take implementation from auth.service.ts
-     }
+    /**
+     * Method name: startSession()
+     * @param token
+     * @param profile
+     * 
+     * Purpose: This function starts the session by storing all relevant data, i.e. passed in parameters, 
+     * is stored.
+     */
+    public startSession(token: string, profile: string): void {
+        localStorage.setItem('token', token);
+        localStorage.setItem('profile', JSON.stringify(profile));
+    }
 
-     public endSession(): void {
-         // clear everything
-     }
+    public endSession(): void {
+        // clear everything
+        localStorage.clear();
+    }
  }
