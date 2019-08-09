@@ -17,11 +17,53 @@
 import { Log } from '../Logs/Log';
 
 export class LoginLog extends Log {
-    constructor(adminIP: JSON, loginAttempt: JSON) {
+
+    constructor(userIP: string, loginAttempt: string) {
         super();
+
+        const attemptInfo = JSON.stringify(loginAttempt);
+        const attemptObject = JSON.parse(attemptInfo);
+        
+
+        this.timestamp = attemptObject.timestamp;
+        this.context = attemptObject.context;
+        this.userIP = userIP;
+        this.userId = null;
     }
 
-    public enterSuccess(loginSuccess: JSON): void {
-        // change log state
+    protected userIP: string;
+    // check if these match up with auth0's
+    protected loginTime: string;
+
+    /**
+     * Method name: enterSuccess() is a checkpoint when the user has logged in, 
+     * it process and stores the timestamp and sets the userID.
+     * @param loginSuccess contains the timestamp, userID
+     */
+    public enterSuccess(loginSuccess: string): void {
+        const successObject = JSON.parse(JSON.stringify(loginSuccess));
+
+        this.userId = successObject.userId;
+        this.loginTime = successObject.timestamp;
+    }
+
+    public getLoginIime(): string {
+        return this.loginTime;
+    }
+
+    public getLoginIP(): string {
+        return this.userIP;
+    }
+
+    public getTimestamp(): string {
+        return this.timestamp;
+    }
+
+    public getContext(): string {
+        return this.context;
+    }
+
+    public getUserId(): string {
+        return this.userId;
     }
 }

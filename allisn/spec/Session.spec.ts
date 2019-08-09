@@ -16,13 +16,14 @@ describe('Session startSession function should create a session for a user.', ()
             '"name": "John Doe",' +
             '"given_name": "John",' +
             '"family_name": "Doe",' +
+            '"user_id": "google-oath2|5484181818181818",' +
             '"nickname": "a man",' +
             '"created_at": "2019-05-20T02:35:54.008Z",' +
             '"last_ip": "102.250.6.57",' +
             '"last_login": "2019-08-01T14:49:41.062Z",' +
             '"logins_count": 9' + '}';
 
-        let spy = spyOn(session, 'startSession');
+        const spy = spyOn(session, 'startSession');
         session.startSession(fakeToken, fakeProfile);
         expect(spy).toHaveBeenCalled();
         expect(spy).toHaveBeenCalledWith(fakeToken, fakeProfile);
@@ -37,6 +38,7 @@ describe('Session startSession function should create a session for a user.', ()
             '"name": "John Doe",' +
             '"given_name": "John",' +
             '"family_name": "Doe",' +
+            '"user_id": "google-oath2|5484181818181818",' +
             '"nickname": "a man",' +
             '"created_at": "2019-05-20T02:35:54.008Z",' +
             '"last_ip": "102.250.6.57",' +
@@ -70,6 +72,7 @@ describe('Session endSession should clear the session of a user.', () => {
             '"name": "John Doe",' +
             '"given_name": "John",' +
             '"family_name": "Doe",' +
+            '"user_id": "google-oath2|5484181818181818",' +
             '"nickname": "a man",' +
             '"created_at": "2019-05-20T02:35:54.008Z",' +
             '"last_ip": "102.250.6.57",' +

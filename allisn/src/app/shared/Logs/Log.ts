@@ -17,7 +17,11 @@
 
  // tslint:disable-next-line: interface-name
  export abstract class Log {
-    protected timestamp: JSON;
-    protected context: JSON;
-    protected userId: JSON;
+    protected timestamp: string;
+    protected context: string;
+    protected userId: string;
+
+    public abstract getTimestamp(): string;
+    public abstract getContext(): string;
+    public abstract getUserId(): string;
  }
