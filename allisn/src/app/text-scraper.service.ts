@@ -81,21 +81,21 @@ export class TextScraperService {
         }));
   }
 
-  getBadWordsFromInput(input: string): Observable<badWord[]> {
-    // var fd = new FormData();
-    // fd.append("data", input);
-    //
-    // return this.http.post(this.apiURL,fd).pipe(map((data: any) => {
-    //       var cooled = data.replace(/'/g,'"');
-    //       //console.log(cooled);
-    //       var words = JSON.parse(cooled);
-    //       //console.log("Data: " + JSON.stringify(words));
-    //
-    //       //badWord badWords = [];
-    //
-    //       return words;
-    //     }));
-    return of(BADWORDS);
+  getBadWordsFromInput(input: string): Observable<any> {
+    var fd = new FormData();
+    fd.append("data", input);
+
+    return this.http.post(this.apiURL,fd).pipe(map((data: any) => {
+          var cooled = data.replace(/'/g,'"');
+          //console.log(cooled);
+          var words = JSON.parse(cooled);
+          //console.log("Data: " + JSON.stringify(words));
+
+          //badWord badWords = [];
+
+          return words;
+        }));
+    // return of(BADWORDS);
   }
 
   private log(message: string) {
