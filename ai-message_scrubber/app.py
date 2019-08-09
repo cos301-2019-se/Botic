@@ -1,14 +1,16 @@
 from flask import Flask, request, json, jsonify
 import re
 import fasttext
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 import os
 
 @app.route('/',methods=['GET','POST'])
+@cross_origin
 def test():
 	if request.method == 'POST' or request.method == 'GET':
 		trainNetwork("dataset/dataset.txt", "__label__", "scrubModel")
