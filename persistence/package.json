@@ -5,8 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "node_modules/.bin/babel-node app.js",
-    "tsc": "tsc"
+    "run": "node build/app.js",
+    "tsc": "tsc",
+    "tslint": "tslint './app/**/*.{ts,tsx}' --force",
+    "tslint:fix": "npm run tslint -- --fix"
   },
   "repository": {
     "type": "git",
@@ -33,5 +35,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.6.8",
     "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "tslint-consistent-codestyle": "^1.15.1"
   }
 }

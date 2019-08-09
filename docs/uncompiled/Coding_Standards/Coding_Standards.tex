@@ -191,10 +191,6 @@ In the Typescript files we will require that by default, camel case is used for 
 Here is a snippet containing some of our coding standards and additional formating rules with are checked in our code using tsLint:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "rulesDirectory": [
-    "node_modules/codelyzer",
-    "tslint-consistent-codestyle"
-  ],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
@@ -285,15 +281,34 @@ These haven't been defined just yet.
 %\subsubsection{Layout Rules}
 %\subsubsection{Commenting Practices}
 
-\subsection{Persistence Layer}
-\subsubsection{Naming Conventions}
-\subsubsection{Formating Conventions}
-\subsubsection{Commenting Practices}
-\subsubsection{Enforcement}
+\subsection{Other Subsystems using TypeScript}
+
+The Persistence layer, as well as the Chatbot layer (both APIs and modules) will be using TypeScript which will be transpiled into JavaScript. Since we have already begun the use of Typescript in our Angular frontend, we can continue using it in our Node API. The benefits of this are getting a more "universal" language and standard for our project, including testing, having less errors because we now use a type safe language rather than JavaScript, Typescript can allow our IDEs to expose project modules easily and the more robust language offers more reliability\cite{Website:9}. To this end, the tuturial in \cite{Website:9} helped us use TypeScript instead of JavaScript in a RESTful API.
+
+Like in the frontend, we will stick to the same formating rules, and the relevant naming conventions. Tslint will be soon be deprecated though, and migrations to Eslint will be emphasized \cite{Website:13}. We will migrate to Eslint, once we are confident that other high priority issues have been handled. The naming conventions for the Persistence API as well as Chatbot API will have to be checked manually however, for the time being. The rules meant to be enforced are:
+
+\begin{lstlisting}[language=json,firstnumber=1]
+"naming-convention": [
+            true,
+            {"type": "default", "format": "camelCase", "leadingUnderscore": "forbid", "trailingUnderscore": "forbid"},
+            {"type": "method", "modifiers": "public", "format": "camelCase"},
+            {"type": "member", "modifiers": "private", "leadingUnderscore": "require"},
+            {"type": "type", "format": "PascalCase"}
+        ],
+\end{lstlisting}
 
 \subsection{Code Review Checklist}
 
-%How and what is checked
+The code review checklist provided by \cite{Book:1} will be used to infer our code review checklist: 
+
+\begin{enumerate}
+	\item Does the program correctly implement the functionality and conform to the design spec?
+	\item Does the implementation comply to coding standards?
+	\item Are the programming constructs correctly used?
+	\item Are there any potential performance bottlenecks, or the inability to fulfill timing constraints?
+\end{enumerate}
+
+These will be reviewed as the project continues.
 
 \section{References}
 \bibliographystyle{IEEEtran}

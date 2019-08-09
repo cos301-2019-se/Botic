@@ -6,8 +6,7 @@
  * Organization: Alabama Liquid Snakes
  * Related Use Cases: UC21
  * Update History: Consult GitHub Commits and Comments
- * Reviewers: 
- * 
+ * Reviewers:
  */
 
 /**

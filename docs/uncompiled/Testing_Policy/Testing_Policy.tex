@@ -57,6 +57,11 @@
 \end{titlepage}
 \tableofcontents
 \newpage
+
+\section{Introduction}
+
+The development approach will be Test Driven Development as it can reduce prerelease defects densities by 90 percent compared to similar projects that do not use it, and it can improve programmer productivity\cite{Book:1}. It is ideal for solo programming\cite{Book:1}, which is the programming technique we will be following.
+
 \section{Peer Review}
 
 This is done before merging a feature into dev branch on our Github repository. Automatic merges are prevented and at least one other member of team is required to review the code. Once the review is done, then only can the merge proceed. \par
@@ -78,7 +83,7 @@ As part of our Software Quality Assurance life cycle, we make use of verificatio
 
 \section{Automated Testing and Continuous Integration}
 
-Whenever code is merged into dev or branch, Travis CI is used for continuous integration, as well as to run automated testing. Travis CI build all of our subsystems, including building the Docker images that house them, before uploading those images to our Docker repository (\url{https://hub.docker.com/r/alabamaliquidservices/botic}). Check our latest builds and tests here: \url{https://travis-ci.com/cos301-2019-se/Botic}.
+Whenever code is merged into dev or branch, Travis CI is used for continuous integration, as well as to run automated testing once more before deployment. Travis CI will build all of our subsystems, including building the Docker images that house them, before uploading those images to our Docker repository (\url{https://hub.docker.com/r/alabamaliquidservices/botic}). Check our latest builds and tests here: \url{https://travis-ci.com/cos301-2019-se/Botic}.
 
 \subsection{Travis CI}
 
@@ -86,8 +91,14 @@ Seperate scripts are ran to test each subsystem, and the results of those tests 
 
 \subsection{Frontend Testing}
 
-*unit tests are written with an Angular Service and the test results are then displayed in the console after each build of the final project. However, on Travis CI we will be running unit tests on Headless Chrome\cite{Website:3} since it isn't practical to do them on a browser when Travis CI runs the automated test scripts.\par
+Travis CI we will be running unit tests on Headless Chrome\cite{Website:3} since it isn't practical to do them on a browser when Travis CI runs the automated test scripts.\par
 Karma and Jasmine are used to test the subsystem, while tslint used to check for errors, typos as well as to lint the relevant files according. As a result, the linter will be run first in preparation for the tests. Jasmine is the framework with which we are going to use for our tests and Karma will be used to run those tests.
+
+\subsubsection{TypeScript Classes in 'shared' Folder}
+
+The classes in the shared folder are those that are meant to be used across the system by various controllers, services and others. We will use the same testing framework, i.e. Jasmine, to test these. The unit tests will be developed first, according to the Test Driven Development philosophy.\\*
+
+These test classes, or rather unit tests, will be in the "spec" folder that is in the root "allisn/".
 
 \subsection{Message Scrubber}
 
