@@ -169,6 +169,7 @@ export class TextScraperComponent implements OnInit {
           if (this.badWords.length == 0) {
             this.processResponse(userInput);
             this.hasChecked = false;
+            document.getElementById("btn-input").reset();
           }
           else {
             window.alert("Personal information has been entered. See text above textbox for details.");
@@ -182,6 +183,7 @@ export class TextScraperComponent implements OnInit {
         else {
           this.processResponse(userInput);
           this.hasChecked = false;
+          document.getElementById("btn-input").innerHTML = "";
         }
 
     }
