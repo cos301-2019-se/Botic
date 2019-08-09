@@ -50,3 +50,35 @@ describe('Session startSession function should create a session for a user.', ()
     });
 
 });
+
+describe('Session endSession should clear the session of a user.', () => {
+
+    it('Should be defined', () => {
+        const session = new Session();
+
+        const spy = spyOn(session, 'endSession');
+        session.endSession();
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('Should clear access token and profile from localStorage',() => {
+        const session = new Session();
+
+        const fakeToken = 'dBjftJeZ4CVP.mB92K27uhbUJU1p1r.wW1gFWFOEjXk';
+        const fakeProfile = '{ "email": "johndoe@gmail.com",' +
+            '"email_verified": true,' +
+            '"name": "John Doe",' +
+            '"given_name": "John",' +
+            '"family_name": "Doe",' +
+            '"nickname": "a man",' +
+            '"created_at": "2019-05-20T02:35:54.008Z",' +
+            '"last_ip": "102.250.6.57",' +
+            '"last_login": "2019-08-01T14:49:41.062Z",' +
+            '"logins_count": 9' + '}';
+        
+        session.startSession(fakeToken, fakeProfile);
+        session.endSession();
+        expect(localStorage.getItem('token')).toBe(null);
+        expect(localStorage.getItem('profile')).toBe(null);
+    });
+});
