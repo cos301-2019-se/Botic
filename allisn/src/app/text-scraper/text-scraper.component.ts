@@ -158,41 +158,41 @@ export class TextScraperComponent implements OnInit {
   */
     onClickCall(userInput : string) : void {
 
-      /*
-      Test Purposes:
-      */
-      var passed = 0;
-      var failed = 0;
+        // window.alert(this.badWords.length);
+        if (this.hasChecked == false) {
+          this.returnChanged(userInput);
 
-      // window.alert(this.badWords.length);
-      if (this.hasChecked == false) {
-        this.returnChanged(userInput);
-        this.hasChecked = true;
-        if (this.badWords.length == 0) {
+          setTimeout(() => {
+
+          this.hasChecked = true;
+
+          if (this.badWords.length == 0) {
+            this.processResponse(userInput);
+            this.hasChecked = false;
+          }
+          else {
+            window.alert("Personal information has been entered. See text above textbox for details.");
+            var theBadWordsAdded = "The following personal information have been entered: ";
+
+            // for (var i = 0; i < this.badWords.length; i++) {
+            //   if (i == 0) {
+            //     theBadWordsAdded = theBadWordsAdded + this.badWords[i];
+            //   }
+            //   else {
+            //     theBadWordsAdded = theBadWordsAdded + ", " + this.badWords[i];
+            //   }
+            // }
+
+            var replaceText = document.getElementById("preview");
+            replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
+          }
+        }, 2000);
+        }
+        else {
           this.processResponse(userInput);
           this.hasChecked = false;
         }
-        else {
-          window.alert("Personal information has been entered. See text above textbox for details.");
-          var theBadWordsAdded = "The following personal information have been entered: ";
 
-          // for (var i = 0; i < this.badWords.length; i++) {
-          //   if (i == 0) {
-          //     theBadWordsAdded = theBadWordsAdded + this.badWords[i];
-          //   }
-          //   else {
-          //     theBadWordsAdded = theBadWordsAdded + ", " + this.badWords[i];
-          //   }
-          // }
-
-          var replaceText = document.getElementById("preview");
-          replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
-        }
-      }
-      else {
-        this.processResponse(userInput);
-        this.hasChecked = false;
-      }
     }
 
  /*
