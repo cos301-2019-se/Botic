@@ -13,28 +13,19 @@ def arrayFromFile(filename):
 
 dataset = arrayFromFile("dataset.txt")
 
-# Store them in a pandas dataframe
-
-
-# Create the list of list format of the custom corpus for gensim modeling
-
-
 # show the example of list of list format of the custom corpus for gensim modeling
 #print(sent[:2])
 #for s in dataset:
 #    print(s)
-model = gensim.models.Word2Vec([s.split(' ') for s in dataset], min_count=5, size= 182,workers=5, window =5)
+model = gensim.models.Word2Vec([s.split(' ') for s in dataset], min_count=5, size= 182,workers=5, window =11, iter=1000)
+model.save("model.word2vec");
 #model = gensim.models.Word2Vec([s for s in dataset], min_count=5, size= 182,workers=5, window =5)
-
 #print(model['password'])
 
-#print('Models')
-#print('=========')
-
-print(model.predict_output_word(['my', 'name', 'is'], topn=5))
-
-print(model.most_similar('name')[:5])
-
+print('Models')
+print('=========')
+print(model.predict_output_word(['my', 'name', 'is', 'and', 'password'], topn=5))
+#print(model.most_similar('name')[:5])
 print(len(model.wv.vocab))
 
 def display_closestwords_tsnescatterplot(model, word, size):
@@ -64,4 +55,4 @@ def display_closestwords_tsnescatterplot(model, word, size):
 
     plt.show()
 
-display_closestwords_tsnescatterplot(model, 'password', 182)
+# display_closestwords_tsnescatterplot(model, 'password', 182)
