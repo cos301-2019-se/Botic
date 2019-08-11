@@ -15,12 +15,12 @@
  *             it easy to add or change databases.
  */
 
-abstract class DatabaseAccess {
-  protected abstract connectDB(): void;
+export abstract class DatabaseAccess {
+  protected abstract connect(): void;
 
-  protected abstract disconnectDB(): void;
+  protected abstract disconnect(): void;
 
-  public abstract save(): void;
+  public abstract save(item: string): void | boolean;
 
   public abstract delete(): void;
 
@@ -28,5 +28,3 @@ abstract class DatabaseAccess {
 
   public abstract get(): any;
 }
-
-export default DatabaseAccess;

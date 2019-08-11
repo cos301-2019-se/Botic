@@ -15,8 +15,8 @@
  *             case controllers from the databases and their respective implementations.
  */
 
-import DatabaseAccess from '../dbAccess/DatabaseAccess';
-import LogDBAccess from '../dbAccess/LogDBAccess';
+import { DatabaseAccess } from '../dbAccess/DatabaseAccess';
+import { LogDBAccess } from '../dbAccess/LogDBAccess';
 
 class DatabaseManager {
 
@@ -29,7 +29,7 @@ class DatabaseManager {
 
   // wondering why this function is not 'async'? Me too.
   saveLog(req: any, res: any) {
-    this.logDbAccess.save();
+    // this.logDbAccess.save();
   }
 
   getLog(req: any, res: any) {

@@ -1,6 +1,6 @@
 "use strict";
 /**
- * File Name: DatabaseAccess.js
+ * File Name: DatabaseAccess.ts
  * Version number: Original
  * Author name: Lesego Mabe
  * Project name: Botic
@@ -8,7 +8,6 @@
  * Related Use Cases: UC21
  * Update History: Consult GitHub Commits and Comments
  * Reviewers:
- *
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
@@ -16,12 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *             It is part of our application of the Bridge Design Pattern to our Database Manager, to make
  *             it easy to add or change databases.
  */
-// this dummy database will be removed
-var todos = [
-    {
-        id: 1,
-        title: "lunch",
-        description: "Go for lunc by 2pm"
+var DatabaseAccess = /** @class */ (function () {
+    function DatabaseAccess() {
     }
-];
-exports.default = todos;
+    return DatabaseAccess;
+}());
+exports.DatabaseAccess = DatabaseAccess;

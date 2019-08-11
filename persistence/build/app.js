@@ -18,33 +18,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Purpose  :  This is the Database Manager API.
  */
 var express = require('express');
-var DatabaseAccess_1 = __importDefault(require("./dbAccess/DatabaseAccess"));
+var index_1 = __importDefault(require("./routes/index"));
+var bodyParser = require('body-parser');
 // Set up the express app
 var app = express();
-// get all todos
-app.get('/api/v1/todos', function (req, res) {
-    res.status(200).send({
-        success: 'true',
-        message: 'todos retrieved successfully',
-        todos: DatabaseAccess_1.default
-    });
-});
-// saveLog endpoint
-app.post('/saveLog', function (req, res) {
-    res.status(200).send({
-        success: 'true',
-        message: 'log saved successfully'
-    });
-});
-// getLog endpoint
-app.get('/getLog', function (req, res) {
-    res.status(200).send({
-        success: 'true',
-        message: 'log retrieved successfully'
-    });
-});
-// here we include the full log in JSON format as retrieved from the database.
-var PORT = 5000;
+// Parse incoming requests using body-parser
+app.use(bodyParser.json());
+// Make "true" to fix possible deprecation warning
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(index_1.default);
+var PORT = process.env.PORT || 5000;
 app.listen(PORT, function () {
     console.log("server running on port " + PORT);
 });
