@@ -169,21 +169,33 @@ export class TextScraperComponent implements OnInit {
           if (this.badWords.length == 0) {
             this.processResponse(userInput);
             this.hasChecked = false;
-            document.getElementById("btn-input").reset();
+            // document.getElementById("btn-input").reset();
           }
           else {
-            window.alert("Personal information has been entered. See text above textbox for details.");
-            var theBadWordsAdded = "The following personal information have been entered: ";
 
-            var replaceText = document.getElementById("preview");
-            replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
+             if (true) {
+              window.alert("A password have been detected, please remove the password in order to send the ticket.");
+              this.hasChecked = false;
+
+              var theBadWordsAdded = "The following personal information have been entered: ";
+
+              var replaceText = document.getElementById("preview");
+              replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
+            }
+            else {
+              window.alert("Personal information has been entered. See text above textbox for details.");
+              var theBadWordsAdded = "The following personal information have been entered: ";
+
+              var replaceText = document.getElementById("preview");
+              replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
+            }
           }
         }, 2000);
         }
         else {
           this.processResponse(userInput);
           this.hasChecked = false;
-          document.getElementById("btn-input").innerHTML = "";
+          // document.getElementById("btn-input").innerHTML = "";
         }
 
     }
