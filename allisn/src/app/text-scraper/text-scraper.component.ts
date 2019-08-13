@@ -152,6 +152,31 @@ export class TextScraperComponent implements OnInit {
     return output;
   }
 
+  /**
+  * This function checks if a password is being detected (so checking if the severity is 3).
+  * If it is 3 then return true.
+  * This would then be used in the function onClickCall to determine if the user
+  * still has the option to send.  So if it returns true, the user would not be
+  * allowed to send the ticket at all.
+  */
+  checkIfSeverityIsThree(input: string): boolean {
+    this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => this.badWords = badWords);
+
+    var array = input.split(" ");
+    var severity = 0;
+
+    for(var i = 0; i < array.length; i++){
+      for (var j = 0; j < this.badWords.length; j++){
+        if (i == this.badWords[j].position){
+          severity = this.badWords[j].severity;
+          if (severity == 3) return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
   /*This function checks to see if a person has entered personal information,
   if they have, first warn them, then the person gets the option to change the
   message or send it with the personal information attached.
@@ -172,9 +197,8 @@ export class TextScraperComponent implements OnInit {
             // document.getElementById("btn-input").reset();
           }
           else {
-
-             if (true) {
-              window.alert("A password have been detected, please remove the password in order to send the ticket.");
+             if (this.checkIfSeverityIsThree(userInput) == true) {
+              window.alert("Really sensitive information, e.g. a password, has been detected and therefore the ticket cannot be sent through, please remove the information in order to continue.");
               this.hasChecked = false;
 
               var theBadWordsAdded = "The following personal information have been entered: ";
