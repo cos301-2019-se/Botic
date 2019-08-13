@@ -10,7 +10,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 import os
 
 @app.route('/',methods=['GET','POST'])
-@cross_origin
+@cross_origin()
 def test():
 	if request.method == 'POST' or request.method == 'GET':
 		trainNetwork("dataset/dataset.txt", "__label__", "scrubModel")
