@@ -181,7 +181,7 @@ export class TextScraperComponent implements OnInit {
   if they have, first warn them, then the person gets the option to change the
   message or send it with the personal information attached.
   */
-    onClickCall(userInput : string) : void {
+  onClickCall(userInput : string) : void {
 
         // window.alert(this.badWords.length);
         if (this.hasChecked == false) {
@@ -219,7 +219,6 @@ export class TextScraperComponent implements OnInit {
         else {
           this.processResponse(userInput);
           this.hasChecked = false;
-          // document.getElementById("btn-input").innerHTML = "";
         }
 
     }
