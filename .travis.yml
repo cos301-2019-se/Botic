@@ -12,20 +12,20 @@ before_install:
   - "npm run test-headless"
   - "docker build -t alabamaliquidservices/botic:latest-frontend ."
   - "docker push alabamaliquidservices/botic:latest-frontend"
-#  - "cd .. & cd $TRAVIS_BUILD_DIR/ai-message_scrubber"
-#  - cd $TRAVIS_BUILD_DIR/ai-message_scrubber
-#  - "docker build -t alabamaliquidservices/botic:latest-ms ."
-#  - "docker push alabamaliquidservices/botic:latest-ms"
-#  - "cd .."
+  - "cd .. & cd $TRAVIS_BUILD_DIR/ai-message_scrubber"
+  - cd $TRAVIS_BUILD_DIR/ai-message_scrubber
+  - "docker build -t alabamaliquidservices/botic:latest-ms ."
+  - "docker push alabamaliquidservices/botic:latest-ms"
+  - "cd .."
   - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
-#  - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
+  - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
 
 language: bash
 script: 
   - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"
   - "heroku container:release web --app $HEROKU_APP_NAME"
-#  - "docker push registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
-#  - "heroku container:release web --app $HEROKU_APP_NAME_TWO"
+  - "docker push registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
+  - "heroku container:release web --app $HEROKU_APP_NAME_TWO"
 services: 
   - docker
 sudo: required
