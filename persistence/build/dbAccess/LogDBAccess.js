@@ -78,25 +78,31 @@ var LogDBAccess = /** @class */ (function (_super) {
     // tslint:disable-next-line: typedef
     LogDBAccess.prototype.connectDB = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, error_1;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var client, db, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
                     case 0:
-                        _b.trys.push([0, 2, , 3]);
-                        _a = this;
-                        return [4 /*yield*/, mongodb_1.MongoClient.connect(this.connectionString, { useNewUrlParser: true })];
+                        console.log('inside logAccess connectDB');
+                        _a.label = 1;
                     case 1:
-                        _a.client = _b.sent();
-                        console.log('Connected to database.');
-                        if (this.client) {
-                            this.db = this.client.db('logs');
-                        }
-                        return [3 /*break*/, 3];
+                        _a.trys.push([1, 3, , 4]);
+                        console.log('Trying to connect.');
+                        return [4 /*yield*/, mongodb_1.MongoClient.connect(this.connectionString, { useNewUrlParser: true })];
                     case 2:
-                        error_1 = _b.sent();
-                        console.log('Unable to connect to database.');
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                        client = _a.sent();
+                        console.log('Connected to database.');
+                        db = void 0;
+                        if (client) {
+                            db = client.db('logs');
+                            console.log('db is ' + JSON.stringify(this.db));
+                            return [2 /*return*/, db];
+                        }
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_1 = _a.sent();
+                        console.log(error_1);
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
@@ -105,31 +111,36 @@ var LogDBAccess = /** @class */ (function (_super) {
         // not necessary, apparently
     };
     LogDBAccess.prototype.save = function (log) {
-        this.connectDB();
+        // console.log('Inside logAccess save');
+        // this.connectDB();
         this.saveMongo(log);
     };
     // tslint:disable-next-line: typedef
     LogDBAccess.prototype.saveMongo = function (log) {
         return __awaiter(this, void 0, void 0, function () {
-            var logObject, results, error_2;
+            var results, logObject, client, db, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
+                        _a.trys.push([0, 5, , 6]);
                         logObject = JSON.parse(JSON.stringify(log));
-                        this.connect();
-                        return [4 /*yield*/, this.db.collection('loginlogs').insertOne({
-                                userIP: logObject.userIP, attemptTime: logObject.attemptTime, context: logObject.context,
-                            })];
+                        return [4 /*yield*/, mongodb_1.MongoClient.connect(this.connectionString, { useNewUrlParser: true })];
                     case 1:
-                        results = _a.sent();
-                        console.log(results.insertedId);
-                        return [3 /*break*/, 3];
+                        client = _a.sent();
+                        db = void 0;
+                        if (!client) return [3 /*break*/, 3];
+                        db = client.db('logs');
+                        return [4 /*yield*/, db.collection('loginlogs').insertOne(logObject)];
                     case 2:
+                        results = _a.sent();
+                        return [2 /*return*/, results.insertedId];
+                    case 3: throw new Error('Cannot connect to the database.');
+                    case 4: return [3 /*break*/, 6];
+                    case 5:
                         error_2 = _a.sent();
-                        console.log('error connecting to database.');
-                        return [2 /*return*/, false];
-                    case 3: return [2 /*return*/];
+                        console.log(error_2);
+                        return [2 /*return*/, error_2];
+                    case 6: return [2 /*return*/];
                 }
             });
         });

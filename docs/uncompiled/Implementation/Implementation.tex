@@ -105,10 +105,9 @@ We have chosen to use MongoDB to store logs instead of a particular RDBMS like P
 
 Since we have already begun the use of Typescript in our Angular frontend, we can continue using it in our Node API. The benefits of this are getting a more "universal" language and standard for our project, including testing, having less errors because we now use a type safe language rather than JavaScript, Typescript can allow our IDEs to expose project modules easily and the more robust language offers more reliability\cite{Website:9}. To this end, the tuturial in \cite{Website:9} helped us use TypeScript instead of JavaScript in our RESTful Node API. So, whenever a package is installed from npm, just install the types as well, which are usually of the form "@types/<package-name>." To build the project, use "npm tsc". It will create all the necessary JavaScript files from the TypeScript files. They will be in the "build" folder, which you can run using "node ./build/app.js" for example.\\*
 
-\paragraph{Session Implementation}
-LocalStorage has it's advantages and disadvantages, particularily that it is vulnerable to Cross Site Scripting attacks. etc etc we have chosen to use Cookies instead...motivation...motivation\par
+\paragraph{JWT Tokens: Integrity and Authorization}
 
-But we however, use the bridge pattern to decouple how the session is stored. One can change this from Cookies to LocalStorage this way.
+We use JSON Web Tokens in order to ensure that the data that is sent to and from the Persistence API maintains integrity. JWTs do this by using a hash function, to hash the header and payload, to produce the signature of the token \cite{Website:13}. The hash function uses a secret key, one that we use internally in our subsystems, so in verifying the token, the secret key guarantees that the token came from an authorized (subsystem) source and that the data was not changed -- otherwise the token is rejected \cite{Website: 13}. These are only signed and encoded, so they don't guarantee security for sensative data, just that the data was unchanged and that it came from an authorized source \cite{Website: 14}.
 
 \section{References}
 \bibliographystyle{IEEEtran}

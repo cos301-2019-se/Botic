@@ -34,14 +34,21 @@ export class LogDBAccess extends DatabaseAccess {
 
     // tslint:disable-next-line: typedef
     protected async connectDB() {
+        console.log('inside logAccess connectDB');
         try {
-            this.client = await MongoClient.connect(this.connectionString, { useNewUrlParser: true });
+            console.log('Trying to connect.');
+            const client = await MongoClient.connect(this.connectionString, { useNewUrlParser: true });
             console.log('Connected to database.');
-            if (this.client) {
-                this.db = this.client.db('logs');
+            let db: Db;
+            
+            if (client) {
+                db = client.db('logs');
+                console.log('db is ' + JSON.stringify(this.db));
+                return db;
             }
+            
         } catch (error) {
-            console.log('Unable to connect to database.');
+            console.log(error);
         }
     }
 
@@ -49,28 +56,41 @@ export class LogDBAccess extends DatabaseAccess {
         // not necessary, apparently
     }
 
-    public save(log: string): void | boolean {
-        this.connectDB();
+    public save(log: string): any {
+        // console.log('Inside logAccess save');
+        // this.connectDB();
         this.saveMongo(log);
     }
 
     // tslint:disable-next-line: typedef
     public async saveMongo(log: string) {
+        let results;
+
         try {
             // determine the kind of log
             const logObject = JSON.parse(JSON.stringify(log));
+            
+            // console.log('log ' + JSON.stringify(log));
 
-            this.connect();
+            // console.log('attemptTime ' + logObject.attemptTime);
+            
+            const client = await MongoClient.connect(this.connectionString, { useNewUrlParser: true });
+            // console.log('Connected to database.');
+            let db: Db;
+            
+            if (client) {
+                db = client.db('logs');
+                results = await db.collection('loginlogs').insertOne(logObject);
+    
+                return results.insertedId;
+                // return true;
+            } else {
+                throw new Error('Cannot connect to the database.');
+            }
 
-            const results = await this.db.collection('loginlogs').insertOne({
-                userIP: logObject.userIP, attemptTime: logObject.attemptTime, context: logObject.context,
-            });
-
-            console.log(results.insertedId);
-            // return true;
         } catch (error) {
-            console.log('error connecting to database.');
-            return false;
+            console.log(error);
+            return error;
         }
     }
 

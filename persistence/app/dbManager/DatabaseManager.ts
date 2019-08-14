@@ -17,23 +17,52 @@
 
 import { DatabaseAccess } from '../dbAccess/DatabaseAccess';
 import { LogDBAccess } from '../dbAccess/LogDBAccess';
+import { Request, Response } from 'express';
 
 class DatabaseManager {
 
-  // edit: no need- definite assignment assertion modifier, '!', used here as this property will be initialized elsewhere
-  private logDbAccess: DatabaseAccess;
-
   constructor() {
-    this.logDbAccess = new LogDBAccess();
+    
   }
 
   // wondering why this function is not 'async'? Me too.
-  saveLog(req: any, res: any) {
+  // tslint:disable-next-line: typedef
+  public async saveLog(req: Request, res: Response) {
     // this.logDbAccess.save();
+
+    // process the log in the body
+    // if only use case controllers are allowed to send logs, then define a regex to check
+    // for the word 'controller' in the component part.
+    // if (res.locals.jwtPayload.componen
+
+    // console.log('Inside savelog');
+    let result;
+    try {
+
+      // console.log('about to call log access');
+
+      const logDbAccess = new LogDBAccess();
+
+      result = await logDbAccess.save(req.body);
+
+      // console.log('result: ' + result);
+    } catch (error) {
+      console.log(error);
+      res.status(598).send(error);
+      return;
+    }
+
+    if (result) {
+      res.locals.message = result;
+      res.status(200).send('Log saved successfully.');
+    } else {
+      res.locals.message = result;
+      res.status(599).send('Error: Incorrect Log format.');
+    }
   }
 
   getLog(req: any, res: any) {
-    this.logDbAccess.get();
+    // this.logDbAccess.get();
   }
 
   // example

@@ -14,11 +14,12 @@
  * Purpose  :  This is will be used to handle our routes so that we can use router middleware for our API.
  */
 
-var express = require('express');
+import { Router } from 'express';
 
 import DatabaseManager from '../dbManager/DatabaseManager';
+import { checkToken } from '../middleware/checkToken';
 
-const router = express.Router();
+const router = Router();
 
 // get all todos: example
 router.get('/api/v1/todos', DatabaseManager.getAllTodos);
@@ -27,7 +28,7 @@ router.get('/api/v1/todos', DatabaseManager.getAllTodos);
 router.post('/api/v1/todos', DatabaseManager.createTodo);
 
 // saveLog endpoint
-router.post('/saveLog', DatabaseManager.saveLog);
+router.post('/saveLog', [checkToken], DatabaseManager.saveLog);
 
 // getLog endpoint
 router.get('/getLog', DatabaseManager.getLog);

@@ -23,9 +23,9 @@ var bodyParser = require('body-parser');
 const app = express();
 
 // Parse incoming requests using body-parser
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 // Make "true" to fix possible deprecation warning
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(router);
 
 const PORT = process.env.PORT || 5000;
