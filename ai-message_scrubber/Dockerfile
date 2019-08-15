@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install h5py
+RUN pip install --no-binary=h5py h5py
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 5000
