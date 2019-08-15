@@ -25,21 +25,56 @@ var DatabaseManager_1 = __importDefault(require("./DatabaseManager"));
 var httpMocks = require('node-mocks-http');
 
 describe('DatabaseManager saveLog function saves the log', function () {
-    it('saveLog function handles the request.', function () {
+    
+  it('saveLog function handles the request.', function () {
 
-        const fakeLog = { "attemptTime": "2019-05-20T02:35:54.008Z", "context": "loginController" };
+    const fakeLog = { "userIP": "123.15.56.93", "attemptTime": "2019-05-20T02:35:54.008Z", "context": "loginController" };
 
-        var req = httpMocks.createRequest({
-          method: 'POST',
-          url: '/saveLog',
-          body: fakeLog,
-        });
-
-        var res = httpMocks.createResponse();
-
-        DatabaseManager_1.default.saveLog(req,res);
-        
-        // this is strange: can't access the message inside the response
-        expect(res.statusCode).toEqual(200);
+    var req = httpMocks.createRequest({
+      method: 'POST',
+      url: '/saveLog',
+      body: fakeLog,
     });
+
+    var res = httpMocks.createResponse();
+
+    DatabaseManager_1.default.saveLog(req,res);
+    
+    // this is strange: can't access the message inside the response
+    expect(res.statusCode).toEqual(200);
+  });
+});
+
+describe('DatabaseManager getLog function retrieves the log', () => {
+
+  it('getLog function handles the request', () => {
+    const fakeIP = '107.89.15.96';
+    const fakeLog = { "userIP": "123.15.56.93", "attemptTime": new Date(), "context": "loginController" };
+
+    var req = httpMocks.createRequest({
+      method: 'POST',
+      url: '/saveLog',
+      body: fakeLog,
+    });
+
+    //statusCode becomes 200 by default
+    var res = httpMocks.createResponse();
+    res.status(0);
+    
+    DatabaseManager_1.default.saveLog(req,res);
+    
+    req = httpMocks.createRequest({
+      method: 'GET',
+      url: '/getLog',
+      body: fakeIP,
+    });
+
+    res = httpMocks.createResponse();
+    res.status(0);
+    
+    DatabaseManager_1.default.getLog(req,res);
+    
+    expect(res.statusCode).toEqual(200);
+
+  });
 });

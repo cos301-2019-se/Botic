@@ -25,79 +25,82 @@ class DatabaseManager {
     
   }
 
-  // wondering why this function is not 'async'? Me too.
   // tslint:disable-next-line: typedef
   public async saveLog(req: Request, res: Response) {
-    // this.logDbAccess.save();
-
-    // process the log in the body
     // if only use case controllers are allowed to send logs, then define a regex to check
     // for the word 'controller' in the component part.
-    // if (res.locals.jwtPayload.componen
 
-    // console.log('Inside savelog');
     let result;
     try {
-
-      // console.log('about to call log access');
-
       const logDbAccess = new LogDBAccess();
-
+      console.log('things going well');
       result = await logDbAccess.save(req.body);
 
-      // console.log('result: ' + result);
-    } catch (error) {
-      console.log(error);
-      res.status(598).send(error);
-      return;
-    }
-
-    if (result) {
-      res.locals.message = result;
-      res.status(200).send('Log saved successfully.');
-    } else {
-      res.locals.message = result;
-      res.status(599).send('Error: Incorrect Log format.');
-    }
-  }
-
-  getLog(req: any, res: any) {
-    // this.logDbAccess.get();
-  }
-
-  // example
-  getAllTodos(req: any, res: any) {
-      return res.status(200).send({
+      if (result === 'inserted') {
+        return res.status(201).send({
           success: 'true',
-          message: 'todos retrieved successfully',
-          todos: DatabaseAccess,
-      });
-  }
-
-  // example
-  createTodo(req: any, res: any) {
-      if (!req.body.title) {
-        return res.status(400).send({
-          success: 'false',
-          message: 'title is required',
+          message: 'Log saved successfully.',
         });
-      } else if (!req.body.description) {
+      } else if (result === 'error') {
         return res.status(400).send({
           success: 'false',
-          message: 'description is required',
+          message: 'Database error.',
         });
       }
-      const todo = {
-        id: DatabaseAccess.length + 1,
-        title: req.body.title,
-        description: req.body.description,
-      };
-      //DatabaseAccess.push(todo);
-      return res.status(201).send({
-        success: 'true',
-        message: 'todo added successfully',
-        todo,
+      console.log('You have got to be kidding me.');
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send({
+        success: 'false',
+        message: error,
       });
+    }
+  }
+
+  // tslint:disable-next-line: typedef
+  public async getLog(req: Request, res: Response) {
+    console.log('DatabaseManager: inside getLog');
+    try {
+      const logDbAccess = new LogDBAccess();
+
+      const result = await logDbAccess.get(req.body);
+      
+      if ( result === 'error' ) {
+
+        return res.status(500).send({
+          success: 'false',
+          message: 'Database error.',
+        });
+
+      } else if ( result === 'none') {
+
+        return res.status(428).send({
+          success: 'false',
+          message: 'No recent login attempt from this IP.',
+        });
+
+      } else if (result) {
+
+        return res.status(200).send({
+          success: 'true',
+          message: 'Retrieved log successfully',
+          log: result,
+        });
+
+      }
+
+      res.status(500).send({
+        success: 'false',
+        message: 'Something is up',
+      });
+
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        success: 'false',
+        message: error,
+      });
+    }
   }
 }
 

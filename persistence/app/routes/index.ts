@@ -21,14 +21,8 @@ import { checkToken } from '../middleware/checkToken';
 
 const router = Router();
 
-// get all todos: example
-router.get('/api/v1/todos', DatabaseManager.getAllTodos);
-
-// create a todo: example
-router.post('/api/v1/todos', DatabaseManager.createTodo);
-
 // saveLog endpoint
-router.post('/saveLog', [checkToken], DatabaseManager.saveLog);
+router.post('/saveLog', DatabaseManager.saveLog);
 
 // getLog endpoint
 router.get('/getLog', DatabaseManager.getLog);

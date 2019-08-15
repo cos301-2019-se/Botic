@@ -14,15 +14,19 @@ describe('LogDBAccess save function saves a log into the database', () => {
         logDBAccess.save(fakeLog);
         expect(spy).toHaveBeenCalledWith(fakeLog);
     });
+});
 
-    /* integration testing to cover this; 
-    it('log is saved into database', () => {
+describe('LogDBAccess get function gets log from the database', () => {
+
+    it('get function is define', () => {
         const logDBAccess = new LogDBAccess();
-        
-        const fakeLog = ' { "userIP": "102.250.6.57", "attemptTime": "2019-05-20T02:35:54.008Z", "context": "loginController" } ';
-        logDBAccess.save(fakeLog);
 
-        expect(logDBAccess.client).toBeDefined(); //check results in db, and drop test db
+        const spy = spyOn(logDBAccess, 'get');
+
+        const fakeIP = '107.5.23.69';
+
+        logDBAccess.get(fakeIP);
+        expect(spy).toHaveBeenCalled();
     });
-    */
+    
 });

@@ -15,3 +15,14 @@ describe('DatabaseManager saveLog function saves the log', function () {
         expect(spy).toHaveBeenCalled();
     });
 });
+describe('DatabaseManager getLog function gets the log', function () {
+    it('getLog function is defined.', function () {
+        var spy = spyOn(DatabaseManager_1.default, 'getLog');
+        // tslint:disable-next-line: prefer-const
+        var req;
+        // tslint:disable-next-line: prefer-const
+        var res;
+        DatabaseManager_1.default.getLog(req, res);
+        expect(spy).toHaveBeenCalled();
+    });
+});

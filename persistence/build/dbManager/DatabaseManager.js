@@ -46,16 +46,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * Purpose  :  This is class was made to handle all database queries. It was introduced to decouple all use
- *             case controllers from the databases and their respective implementations.
- */
-var DatabaseAccess_1 = require("../dbAccess/DatabaseAccess");
 var LogDBAccess_1 = require("../dbAccess/LogDBAccess");
 var DatabaseManager = /** @class */ (function () {
     function DatabaseManager() {
     }
-    // wondering why this function is not 'async'? Me too.
     // tslint:disable-next-line: typedef
     DatabaseManager.prototype.saveLog = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
@@ -65,64 +59,86 @@ var DatabaseManager = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         logDbAccess = new LogDBAccess_1.LogDBAccess();
+                        console.log('things going well');
                         return [4 /*yield*/, logDbAccess.save(req.body)];
                     case 1:
                         result = _a.sent();
+                        if (result === 'inserted') {
+                            return [2 /*return*/, res.status(201).send({
+                                    success: 'true',
+                                    message: 'Log saved successfully.',
+                                })];
+                        }
+                        else if (result === 'error') {
+                            return [2 /*return*/, res.status(400).send({
+                                    success: 'false',
+                                    message: 'Database error.',
+                                })];
+                        }
+                        console.log('You have got to be kidding me.');
                         return [3 /*break*/, 3];
                     case 2:
                         error_1 = _a.sent();
                         console.log(error_1);
-                        res.status(598).send(error_1);
-                        return [2 /*return*/];
-                    case 3:
-                        if (result) {
-                            res.locals.message = result;
-                            res.status(200).send('Log saved successfully.');
-                        }
-                        else {
-                            res.locals.message = result;
-                            res.status(599).send('Error: Incorrect Log format.');
-                        }
-                        return [2 /*return*/];
+                        return [2 /*return*/, res.status(500).send({
+                                success: 'false',
+                                message: error_1,
+                            })];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
     };
+    // tslint:disable-next-line: typedef
     DatabaseManager.prototype.getLog = function (req, res) {
-        // this.logDbAccess.get();
-    };
-    // example
-    DatabaseManager.prototype.getAllTodos = function (req, res) {
-        return res.status(200).send({
-            success: 'true',
-            message: 'todos retrieved successfully',
-            todos: DatabaseAccess_1.DatabaseAccess,
-        });
-    };
-    // example
-    DatabaseManager.prototype.createTodo = function (req, res) {
-        if (!req.body.title) {
-            return res.status(400).send({
-                success: 'false',
-                message: 'title is required',
+        return __awaiter(this, void 0, void 0, function () {
+            var logDbAccess, result, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log('DatabaseManager: inside getLog');
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        logDbAccess = new LogDBAccess_1.LogDBAccess();
+                        return [4 /*yield*/, logDbAccess.get(req.body)];
+                    case 2:
+                        result = _a.sent();
+                        if (result === 'error') {
+                            return [2 /*return*/, res.status(500).send({
+                                    success: 'false',
+                                    message: 'Database error.',
+                                })];
+                        }
+                        else if (result === 'none') {
+                            return [2 /*return*/, res.status(428).send({
+                                    success: 'false',
+                                    message: 'No recent login attempt from this IP.',
+                                })];
+                        }
+                        else if (result) {
+                            return [2 /*return*/, res.status(200).send({
+                                    success: 'true',
+                                    message: 'Retrieved log successfully',
+                                    log: result,
+                                })];
+                        }
+                        res.status(500).send({
+                            success: 'false',
+                            message: 'Something is up',
+                        });
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_2 = _a.sent();
+                        console.log(error_2);
+                        res.status(500).send({
+                            success: 'false',
+                            message: error_2,
+                        });
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
             });
-        }
-        else if (!req.body.description) {
-            return res.status(400).send({
-                success: 'false',
-                message: 'description is required',
-            });
-        }
-        var todo = {
-            id: DatabaseAccess_1.DatabaseAccess.length + 1,
-            title: req.body.title,
-            description: req.body.description,
-        };
-        //DatabaseAccess.push(todo);
-        return res.status(201).send({
-            success: 'true',
-            message: 'todo added successfully',
-            todo: todo,
         });
     };
     return DatabaseManager;

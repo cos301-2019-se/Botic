@@ -26,5 +26,5 @@ export abstract class DatabaseAccess {
 
   public abstract update(): void;
 
-  public abstract get(): any;
+  public abstract get(id: string): any;
 }

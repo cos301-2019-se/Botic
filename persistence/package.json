@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "node build/app.js",
+    "start": "node build/app.js",
     "tsc": "tsc",
     "tslint": "tslint './app/**/*.{ts,tsx}' --force",
     "tslint:fix": "npm run tslint -- --fix"

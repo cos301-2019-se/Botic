@@ -59,20 +59,17 @@ export class LogDBAccess extends DatabaseAccess {
     public save(log: string): any {
         // console.log('Inside logAccess save');
         // this.connectDB();
-        this.saveMongo(log);
+        return this.saveMongo(log);
     }
 
     // tslint:disable-next-line: typedef
-    public async saveMongo(log: string) {
+    protected async saveMongo(log: string) {
         let results;
 
         try {
             // determine the kind of log
             const logObject = JSON.parse(JSON.stringify(log));
-            
-            // console.log('log ' + JSON.stringify(log));
-
-            // console.log('attemptTime ' + logObject.attemptTime);
+            logObject.attemptTime = new Date(logObject.attemptTime);
             
             const client = await MongoClient.connect(this.connectionString, { useNewUrlParser: true });
             // console.log('Connected to database.');
@@ -82,7 +79,7 @@ export class LogDBAccess extends DatabaseAccess {
                 db = client.db('logs');
                 results = await db.collection('loginlogs').insertOne(logObject);
     
-                return results.insertedId;
+                return 'inserted';
                 // return true;
             } else {
                 throw new Error('Cannot connect to the database.');
@@ -90,7 +87,7 @@ export class LogDBAccess extends DatabaseAccess {
 
         } catch (error) {
             console.log(error);
-            return error;
+            return 'error';
         }
     }
 
@@ -102,7 +99,62 @@ export class LogDBAccess extends DatabaseAccess {
 
     }
 
-    public get(): any {
+    public get(identifier: string): Promise<string> {
+        console.log('LogDBAccess inside get');
+        return this.getMongo(identifier);
+    }
 
+    // tslint:disable-next-line: typedef
+    protected async getMongo(identifier: string) {
+
+        let log;
+        console.log('LogDBAccess inside getMongo');
+        try {
+
+            const client = await MongoClient.connect(this.connectionString, { useNewUrlParser: true });
+            // console.log('Connected to database.');
+            let db: Db;
+            
+            if (client) {
+
+                db = client.db('logs');
+                // insert collection finding logic here
+                
+                const logCursor = await db.collection('loginlogs').aggregate(
+                    [
+                        // tslint:disable: object-literal-key-quotes
+                        { '$match': { 'userIP': JSON.parse(JSON.stringify(identifier)).userIP } },
+                        { '$redact': {
+                            '$cond': {
+                                'if': {
+                                    '$gt': [
+                                        { '$subtract': [ new Date(), '$attemptTime' ] },
+                                        1000 * 60 * 10,
+                                    ],
+                                },
+                                'then': '$$PRUNE',
+                                'else': '$$KEEP',
+                            },
+                        }},
+                    ]);
+
+                const logResult = await logCursor.toArray();
+                console.log(logResult);
+                if (logResult.length === 0) {
+                    return 'none';
+                } else {
+                    log = logResult[0];
+                    return JSON.stringify(log);
+                }
+                
+            } else {
+                throw new Error('Cannot connect to the database.');
+            }
+
+        } catch (error) {
+            console.log(error);
+            // in future, send this to someone
+            return 'error';
+        }
     }
 }
