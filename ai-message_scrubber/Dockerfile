@@ -8,6 +8,7 @@ ADD requirements.txt /tmp/requirements.txt
 
 # Install dependencies
 RUN pip install Cython
+RUN pip install h5py
 RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 RUN pip3 install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.13.1-py3-none-any.whl
 
