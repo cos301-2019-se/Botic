@@ -45,10 +45,10 @@ def inDictionary(dictionary, searchWord):
 	
 def search(text,target,n):
 	'''Searches for text, and retrieves n words either side of the text, which are retuned seperatly'''
-	print("\ttext: " + text)
-	print("\tTarget: " + target)
+	print("text: " + text)
+	print("Target: " + target)
 	array = text.split(' ')
-	print("\tword is " + str(array.index(target)) + " in " + str(len(array)-1))
+	print("word is " + str(array.index(target)) + " in " + str(len(array)-1))
 	
 	word = r"\W*([\w]+)"
 	
@@ -66,7 +66,9 @@ def search(text,target,n):
 	
 	if (position + n > numWords):
 		right = numWords - position
-		
+	
+	
+	
 	groups = re.search(r'{}\W*{}{}'.format(word*left,target,word*right), text)
 	
 	if left == 0:
@@ -144,15 +146,18 @@ def addEntry(position, severity):
 def investigate(sentence, word, position):
 	context_list = context(sentence, word)
 	possibleOutputs = model.predict_output_word(context_list, topn=5)
-	print("\t" + str(possibleOutputs))
+	print(possibleOutputs)
 	
 	if isReservedWord(possibleOutputs[0][0].upper()):		
 		severity = getSeverity(possibleOutputs[0][0])
 		entry = addEntry(position, severity)
-		print("\n\tWord might be: " + str(possibleOutputs[0]))
+		print("Word might be: " + str(possibleOutputs[0]))
 		return entry
 	else:
 		return ""
+	
+	
+#print("ARRAY ENTRY("+possibleOutputs[0][0]+"): " + entry);
 		
 def parseInfo(info):
 	changed = "["
@@ -183,23 +188,34 @@ def parseInfo(info):
 	changed += "]"
 	return changed
 
+#analyse(string)
 
-def tests():
-	#A normal sentence with no PII
-	testStrings = {
-		"My life is a movie",
-		"My date of birth is 11223344",
-		"My name is Borealis, like the lights in the sky.",
-		"My name is persephone.",
-		"My password is 12321.",
-		"65678 is my password?",
-		
-		
-	}
-	
-	for string in testStrings:
-		print("")
-		print("String: " + string)
-		print("\nparsed Info: " + parseInfo(string))
+string = "My date of birth is 11223344"
+words0 = "My name is Borealis, like the lights in the sky."
+words1 = "My name is persephone."
+words2 = "My password is 12321."
+words3 = "65678 is my password?"
+words4 = "My life is a movie"
 
-tests()
+print("String: " + string)
+print("parsed Info: " + parseInfo(string))
+
+print("\nString: " + words0)
+print("parsed Info: " + parseInfo(words0))
+
+print("\nString: " + words1)
+print("parsed Info: " + parseInfo(words1))
+
+print("\nString: " + words2)
+print("parsed Info: " + parseInfo(words2))
+
+print("\nString: " + words3)
+print("parsed Info: " + parseInfo(words3))
+
+print("\nString: " + words4)
+print("parsed Info: " + parseInfo(words4))
+
+
+#analyse(words1)
+#analyse(words2)
+#analyse(words3)

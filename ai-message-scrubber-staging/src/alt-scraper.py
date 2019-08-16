@@ -58,7 +58,7 @@ def reservedWordSeverity(word):
                 if (word == "PASSWORD"):
                     return 2
                 else:
-                    if (word == "username"):
+                    if (word == "USERNAME"):
                         return 1
                     else:
                         return -1
