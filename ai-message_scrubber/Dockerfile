@@ -1,5 +1,5 @@
 # Using an official Python runtime as a parent image
-FROM python:3.8.0a3-stretch
+FROM ubuntu:18.04
 
 # Set the working directory to /app
 WORKDIR /app
@@ -7,8 +7,19 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+# Setup necessary updates
+RUN apt-get update && \
+	apt-get -y install sudo
+RUN sudo apt -y upgrade
+
+# Install python
+RUN sudo apt install -y python3
+RUN sudo apt install -y python3-pip
+
 # Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
+RUN pip3 install h5py
+RUN pip3 install Cython
+RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 5000
 
