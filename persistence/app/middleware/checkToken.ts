@@ -24,7 +24,7 @@ const jwtSecret = 'D!MN';
 
 export let checkToken: RequestHandler = (req: Request, res: Response, next: NextFunction) => {
     // obtain token from header
-    const token = req.headers['auth'] as string;
+    const token = req.headers['Authorization'] as string;
     let jwtPayload;
 
     // attempt token validation and obtain data
@@ -32,6 +32,7 @@ export let checkToken: RequestHandler = (req: Request, res: Response, next: Next
         // because this is a middleware function
         jwtPayload = jwt.verify(token, jwtSecret) as any;
         res.locals.jwtPayload = jwtPayload;
+        console.log(jwtPayload);
     } catch (error) {
         // respond with 401 (unauthorized error code)
         res.status(401).send();
@@ -41,7 +42,7 @@ export let checkToken: RequestHandler = (req: Request, res: Response, next: Next
     // respond with a new token that has a new expiry
     const { subsystem, component } = jwtPayload;
     const newToken = jwt.sign({ subsystem, component }, jwtSecret, {
-        expiresIn: '1h',
+        
     });
     res.setHeader('token', newToken);
 

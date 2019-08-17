@@ -22,10 +22,10 @@ import { checkToken } from '../middleware/checkToken';
 const router = Router();
 
 // saveLog endpoint
-router.post('/saveLog', DatabaseManager.saveLog);
+router.post('/saveLog', [checkToken] , DatabaseManager.saveLog);
 
 // getLog endpoint
-router.get('/getLog', DatabaseManager.getLog);
+router.get('/getLog', [checkToken], DatabaseManager.getLog);
 // here we include the full log in JSON format as retrieved from the database.
 
 export default router;

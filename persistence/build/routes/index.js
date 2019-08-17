@@ -19,10 +19,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 var express_1 = require("express");
 var DatabaseManager_1 = __importDefault(require("../dbManager/DatabaseManager"));
+var checkToken_1 = require("../middleware/checkToken");
 var router = express_1.Router();
 // saveLog endpoint
-router.post('/saveLog', DatabaseManager_1.default.saveLog);
+router.post('/saveLog', [checkToken_1.checkToken], DatabaseManager_1.default.saveLog);
 // getLog endpoint
-router.get('/getLog', DatabaseManager_1.default.getLog);
+router.get('/getLog', [checkToken_1.checkToken], DatabaseManager_1.default.getLog);
 // here we include the full log in JSON format as retrieved from the database.
 exports.default = router;

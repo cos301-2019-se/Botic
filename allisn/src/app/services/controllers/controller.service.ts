@@ -22,5 +22,5 @@ import { Log } from '../../shared/Logs/Log';
 export abstract class Controller {
 
     // this member is used to hold a concrete log
-    protected log: Log;
+    protected log: any;
 }

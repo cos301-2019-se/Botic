@@ -192,12 +192,12 @@ body {
   
   @font-face {
 	font-family: "Euro";
-	src: url("../../../assets/europeunderground_light-webfont.woff")format("woff");
+	src: url("../../../../assets/europeunderground_light-webfont.woff")format("woff");
 }
 
 @font-face {
 	font-family: "EuroBlack";
-	src: url("../../../assets/europeunderground_black-webfont.woff")format("woff");
+	src: url("../../../../assets/europeunderground_black-webfont.woff")format("woff");
 }
   
   h1 {

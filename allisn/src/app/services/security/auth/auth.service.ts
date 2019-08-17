@@ -75,7 +75,7 @@ export class AuthService {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken) {
         window.location.hash = '';
-        this.userInfo(authResult);
+        this.getUserInfo(authResult);
       } else if (err) {
         this.clearRedirect();
         this.router.navigate([ROUTE_NAMES.HOME]);
@@ -85,7 +85,7 @@ export class AuthService {
   }
 
   // tslint:disable-next-line: naming-convention
-  private userInfo(authResult): void {
+  private getUserInfo(authResult): void {
     // use the accessToken to retrieve the user's profile and to set a session
     this.auth0.client.userInfo(authResult.accessToken, (err, profile) => {
       if (profile) {
@@ -102,13 +102,11 @@ export class AuthService {
 
   // tslint:disable-next-line: naming-convention
   private startSession(authResult, profile): void {
-    // save the session data and update the status for login
+    
+    this.session = new Session();
     const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + Date.now());
+    this.session.startSession(authResult.accessToken, expiresAt, profile);
 
-    // set the tokens and the expiration in localStorage
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('expires_at', expiresAt);
-    localStorage.setItem('profile', JSON.stringify(profile)); //local storage can only store string data
     this.userProfile = profile;
 
     // update the login status of user
@@ -116,8 +114,7 @@ export class AuthService {
     // activate the chatbot; the code below redirects to chat
     // depending on the data in the profile we can redirect to different pages
   // all we have to do now is block the routes.
-    // console.log("Profile: " + JSON.stringify(profile));
-    // console.log(authResult);
+    
     this.router.navigate([ROUTE_NAMES.CHAT]);
   }
 
@@ -132,9 +129,6 @@ export class AuthService {
 
     this.session.endSession();
     
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('profile');
-    localStorage.removeItem('expires_at');
     localStorage.removeItem('authRedirect');
     this.clearRedirect();
 
@@ -148,7 +142,9 @@ export class AuthService {
 
   get isValidToken(): boolean {
     // check if the access token hasn't expired
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    
+    const expiresAt = (this.session !== null) ? this.session.getExpiresAt() : (this.session = new Session()).getExpiresAt();
+
     return Date.now() < expiresAt;
   }
 }

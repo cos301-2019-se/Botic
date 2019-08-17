@@ -31,9 +31,10 @@ class DatabaseManager {
     // for the word 'controller' in the component part.
 
     let result;
+    
     try {
       const logDbAccess = new LogDBAccess();
-      console.log('things going well');
+      
       result = await logDbAccess.save(req.body);
 
       if (result === 'inserted') {
@@ -47,7 +48,7 @@ class DatabaseManager {
           message: 'Database error.',
         });
       }
-      console.log('You have got to be kidding me.');
+  
     } catch (error) {
       console.log(error);
       return res.status(500).send({
@@ -59,7 +60,7 @@ class DatabaseManager {
 
   // tslint:disable-next-line: typedef
   public async getLog(req: Request, res: Response) {
-    console.log('DatabaseManager: inside getLog');
+    
     try {
       const logDbAccess = new LogDBAccess();
 

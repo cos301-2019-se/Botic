@@ -24,9 +24,10 @@ describe('Session startSession function should create a session for a user.', ()
             '"logins_count": 9' + '}';
 
         const spy = spyOn(session, 'startSession');
-        session.startSession(fakeToken, fakeProfile);
+        const expiresAt = JSON.stringify((1565981349 * 1000) + Date.now());
+        session.startSession(fakeToken, expiresAt, fakeProfile);
         expect(spy).toHaveBeenCalled();
-        expect(spy).toHaveBeenCalledWith(fakeToken, fakeProfile);
+        expect(spy).toHaveBeenCalledWith(fakeToken, expiresAt, fakeProfile);
     });
 
     it('Should store accessToken and profile in localStorage.', () => {
@@ -45,7 +46,7 @@ describe('Session startSession function should create a session for a user.', ()
             '"last_login": "2019-08-01T14:49:41.062Z",' +
             '"logins_count": 9' + '}';
         // tslint:disable-next-line: no-trailing-whitespace        
-        localStorage.setItem('a',fakeToken);
+        localStorage.setItem('a', fakeToken);
         expect(localStorage.getItem('a')).toBe(fakeToken);
         // expect(sessionStorage.getItem('userProfile') === fakeProfile).toBe(true);
         // honestly, after spending several hours looking for a solution to this, it's not worth it tbh (5+hrs)
@@ -79,9 +80,24 @@ describe('Session endSession should clear the session of a user.', () => {
             '"last_login": "2019-08-01T14:49:41.062Z",' +
             '"logins_count": 9' + '}';
         
-        session.startSession(fakeToken, fakeProfile);
+        const expiresAt = JSON.stringify((1565981349 * 1000) + Date.now());
+        session.startSession(fakeToken, expiresAt, fakeProfile);
         session.endSession();
         expect(localStorage.getItem('token')).toBe(null);
         expect(localStorage.getItem('profile')).toBe(null);
+    });
+});
+
+describe('Session getExpiresAt must return the expirey time of a session.', () => {
+
+    it('getExpiresAt must be defined.', () => {
+
+        const session = new Session();
+        const spy = spyOn(session, 'getExpiresAt');
+
+        session.getExpiresAt();
+
+        expect(spy).toHaveBeenCalled();
+        
     });
 });

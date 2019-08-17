@@ -59,7 +59,6 @@ var DatabaseManager = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         logDbAccess = new LogDBAccess_1.LogDBAccess();
-                        console.log('things going well');
                         return [4 /*yield*/, logDbAccess.save(req.body)];
                     case 1:
                         result = _a.sent();
@@ -75,7 +74,6 @@ var DatabaseManager = /** @class */ (function () {
                                     message: 'Database error.',
                                 })];
                         }
-                        console.log('You have got to be kidding me.');
                         return [3 /*break*/, 3];
                     case 2:
                         error_1 = _a.sent();
@@ -96,13 +94,10 @@ var DatabaseManager = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log('DatabaseManager: inside getLog');
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 3, , 4]);
+                        _a.trys.push([0, 2, , 3]);
                         logDbAccess = new LogDBAccess_1.LogDBAccess();
                         return [4 /*yield*/, logDbAccess.get(req.body)];
-                    case 2:
+                    case 1:
                         result = _a.sent();
                         if (result === 'error') {
                             return [2 /*return*/, res.status(500).send({
@@ -127,16 +122,16 @@ var DatabaseManager = /** @class */ (function () {
                             success: 'false',
                             message: 'Something is up',
                         });
-                        return [3 /*break*/, 4];
-                    case 3:
+                        return [3 /*break*/, 3];
+                    case 2:
                         error_2 = _a.sent();
                         console.log(error_2);
                         res.status(500).send({
                             success: 'false',
                             message: error_2,
                         });
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
             });
         });

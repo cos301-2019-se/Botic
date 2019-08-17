@@ -100,7 +100,7 @@ export class LogDBAccess extends DatabaseAccess {
     }
 
     public get(identifier: string): Promise<string> {
-        console.log('LogDBAccess inside get');
+    
         return this.getMongo(identifier);
     }
 
@@ -108,7 +108,7 @@ export class LogDBAccess extends DatabaseAccess {
     protected async getMongo(identifier: string) {
 
         let log;
-        console.log('LogDBAccess inside getMongo');
+        
         try {
 
             const client = await MongoClient.connect(this.connectionString, { useNewUrlParser: true });
@@ -139,7 +139,6 @@ export class LogDBAccess extends DatabaseAccess {
                     ]);
 
                 const logResult = await logCursor.toArray();
-                console.log(logResult);
                 if (logResult.length === 0) {
                     return 'none';
                 } else {

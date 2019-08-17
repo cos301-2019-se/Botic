@@ -23,13 +23,14 @@ var jwt = __importStar(require("jsonwebtoken"));
 var jwtSecret = 'D!MN';
 exports.checkToken = function (req, res, next) {
     // obtain token from header
-    var token = req.headers['auth'];
+    var token = req.headers['Authorization'];
     var jwtPayload;
     // attempt token validation and obtain data
     try {
         // because this is a middleware function
         jwtPayload = jwt.verify(token, jwtSecret);
         res.locals.jwtPayload = jwtPayload;
+        console.log(jwtPayload);
     }
     catch (error) {
         // respond with 401 (unauthorized error code)
@@ -38,9 +39,7 @@ exports.checkToken = function (req, res, next) {
     }
     // respond with a new token that has a new expiry
     var subsystem = jwtPayload.subsystem, component = jwtPayload.component;
-    var newToken = jwt.sign({ subsystem: subsystem, component: component }, jwtSecret, {
-        expiresIn: '1h',
-    });
+    var newToken = jwt.sign({ subsystem: subsystem, component: component }, jwtSecret, {});
     res.setHeader('token', newToken);
     // pass controll to the Database Manager
     next();

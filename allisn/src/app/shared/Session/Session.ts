@@ -25,13 +25,22 @@
      * Purpose: This function starts the session by storing all relevant data, i.e. passed in parameters, 
      * is stored.
      */
-    public startSession(token: string, profile: string): void {
-        localStorage.setItem('token', token);
+    public startSession(token: string, expiresAt: string, profile: string): void {
+        
         localStorage.setItem('profile', JSON.stringify(profile));
+        localStorage.setItem('access_token', token);
+        localStorage.setItem('expires_at', expiresAt);
+
+    }
+
+    public getExpiresAt(): number {
+        return JSON.parse(localStorage.getItem('expires_at'));
     }
 
     public endSession(): void {
         // clear everything
-        localStorage.clear();
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('profile');
+        localStorage.removeItem('expires_at');
     }
  }

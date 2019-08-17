@@ -35,11 +35,14 @@ export class LoginControllerService extends Controller {
   // tslint:disable-next-line: naming-convention
   private auth: AuthService;
 
+  // tslint:disable-next-line: naming-convention
+  private log: LoginLog;
+
   /**
    * Method name: Signin()
    * Purpose: Sign in a user using the authentication service.
    */
-  public signIn(): String {
+  public signIn(): void {
     // get IP address and login attempt information
     const ip = 'values';
     const loginTry = '{ "date" : "4 July"}';
@@ -59,7 +62,7 @@ export class LoginControllerService extends Controller {
     return null;
   }
 
-  public continueSignIn(): String {
+  public continueSignIn(): string {
     // ought to return boolean
     this.auth.processAuth();
 

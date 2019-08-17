@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "stage": "ng build --configuration=stage && node server",
     "start": "node server.js",
     "build": "ng build --prod",
     "test": "ng test",
