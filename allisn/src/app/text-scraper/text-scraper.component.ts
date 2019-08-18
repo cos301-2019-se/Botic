@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TextScraperService } from '../text-scraper.service';
+import { BotService } from '../bot.service';
 import { badWord } from '../badWord';
+import { botResponse } from '../botResponse';
 
 @Component({
   selector: 'app-text-scraper',
@@ -12,13 +14,15 @@ export class TextScraperComponent implements OnInit {
   userInput = "";
   markedText: string;
   badWords: badWord[];
+  nextResponse: botResponse;
   badWordsString: string;
 
   chatBubblesMarkup = '';
 
   hasChecked = false;
+  debug = false;
 
-  constructor(private TextScraperService: TextScraperService) { }
+  constructor(private TextScraperService: TextScraperService, private BotService: BotService) { }
 
   badWordsFromString(): void{
     console.log("The words: " + this.badWordsString);
@@ -87,33 +91,54 @@ export class TextScraperComponent implements OnInit {
    maybe integrate the AI into a standalone component.
   */
   processResponse(input: string): void{
-    var botAI = [
-      {
-        message : "I forgot my password",
-        response: 'Follow this <a href="">link</a> to reset your password.'
-      },
-      {
-        message : "What's the meaning of life?",
-        response: 'I\'m having trouble finding an answer, click <a href="#">here</a> to talk to a real person.'
-      },
-      {
-        message : "What do you know about cooking?",
-        response : "I'm unsure of how to respond, please enter your email address to forward your ticket to a representative<br /><input type='text'/>&nbsp;<input class='btn primary' type='submit' value='send'>"
+
+    this.BotService.getBotResponse(input).subscribe(response =>{
+        this.nextResponse = response;
+        console.log("Response: " + this.nextResponse);
+        this.chatBubblesMarkup += this.userResponse(input);
+        if ((this.nextResponse)){
+          if (this.nextResponse.code == 1111){
+            this.chatBubblesMarkup += this.botResponse(this.nextResponse.message)
+            this.nextResponse = null;
+          }
+
+          if (this.nextResponse.code == 2222){
+            this.chatBubblesMarkup += this.botResponse("I'm not sure I follow.")
+            this.nextResponse = null;
+          }
+        }
+    });
+
+
+
+    if (this.debug){
+      var botAI = [
+        {
+          message : "I forgot my password",
+          response: 'Follow this <a href="">link</a> to reset your password.'
+        },
+        {
+          message : "What's the meaning of life?",
+          response: 'I\'m having trouble finding an answer, click <a href="#">here</a> to talk to a real person.'
+        },
+        {
+          message : "What do you know about cooking?",
+          response : "I'm unsure of how to respond, please enter your email address to forward your ticket to a representative<br /><input type='text'/>&nbsp;<input class='btn primary' type='submit' value='send'>"
+        }
+      ];
+      this.chatBubblesMarkup += "<br />";
+      var botResponse = "I'm sorry, my responses are limited, you must ask the right questions.";
+      for (var i = 0; i < botAI.length; i++){
+        if (input.includes(botAI[i].message)){
+          botResponse = botAI[i].response;
+        }
       }
-    ];
 
-    this.chatBubblesMarkup += this.userResponse(input);
-    this.chatBubblesMarkup += "<br />";
-
-    var botResponse = "I'm sorry, my responses are limited, you must ask the right questions.";
-
-    for (var i = 0; i < botAI.length; i++){
-      if (input.includes(botAI[i].message)){
-        botResponse = botAI[i].response;
-      }
+      this.chatBubblesMarkup += this.botResponse(botResponse);
     }
 
-    this.chatBubblesMarkup += this.botResponse(botResponse);
+
+
   }
 
   displayChat(): string{
@@ -160,7 +185,7 @@ export class TextScraperComponent implements OnInit {
   if they have, first warn them, then the person gets the option to change the
   message or send it with the personal information attached.
   */
-    onClickCall(userInput : string) : void {
+  onClickCall(userInput : string) : void {
 
       /*
       Test Purposes:
@@ -189,7 +214,6 @@ export class TextScraperComponent implements OnInit {
         else {
           window.alert("Personal information has been entered. See text above textbox for details.");
           var theBadWordsAdded = "The following personal information have been entered: ";
-
           console.log("onClickCall has been called - personal information has been identified.");
           passed++;
 
@@ -217,8 +241,8 @@ export class TextScraperComponent implements OnInit {
       console.log("Tests completed: " + passed + " passed, " + failed + " failed.")
     }
 
- /*
- Maybr these need to go.
+  /*
+    Maybr these need to go.
  */
   highlight(input: string, badWords: badWord[]): boolean {
 

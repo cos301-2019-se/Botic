@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
 import { TextScraperComponent } from './text-scraper/text-scraper.component';
+
 import { SafePipe } from './safe.pipe';
 
 import { HttpClientModule } from '@angular/common/http';

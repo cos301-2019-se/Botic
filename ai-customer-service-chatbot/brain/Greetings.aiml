@@ -4,7 +4,7 @@
     <pattern>HELLO</pattern>
     <template>
       <random>
-        <li>Hello, I'm Allisn. How may I assist you today? </li>
+        <li>Hello, My name is Allisn. How may I assist you today? </li>
       </random>
     </template>
   </category>
