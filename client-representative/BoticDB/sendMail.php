@@ -8,6 +8,7 @@
    if (mysqli_num_rows($result) > 0) {
       $row = mysqli_fetch_assoc($result);
       $email = $row["Contact"];
+      $id1 = $row["id"];
       $subject = "RE: " . $row["Subject"];
    } else {
        echo "0 results";
@@ -23,6 +24,11 @@
    $headers = "From: Allisn";
    
    mail($email, $subject, $msg, $headers);
-//    echo "<script type='text/javascript'>alert('Message Sent');</script>";
    header('Location: index.php');
+
+   $conn = OpenCon();
+   $closeTime = microtime(true);
+
+   $sql = "UPDATE ForwardedMessages SET Status = 200, TimeOut = NOW() WHERE id = " . $id1;
+   mysqli_query($conn, $sql);
 ?>
