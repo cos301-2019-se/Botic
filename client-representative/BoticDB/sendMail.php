@@ -19,9 +19,10 @@
    error_reporting(E_ALL);
    $msg = $_POST['inputField'];
    $msg = wordwrap($msg, 70, "\r\n");
+   // $msg .= " Sent from BOTIC - The Privacy Aware Chatbot";
    ini_set("SMTP", "aspmx.l.google.com");
    ini_set("sendmail_from", $email);   
-   $headers = "From: Allisn";
+   $headers = "From: noreply@Botic.co.za";
    
    mail($email, $subject, $msg, $headers);
    header('Location: index.php');
@@ -31,4 +32,5 @@
 
    $sql = "UPDATE ForwardedMessages SET Status = 200, TimeOut = NOW() WHERE id = " . $id1;
    mysqli_query($conn, $sql);
+   CloseCon($conn);
 ?>
