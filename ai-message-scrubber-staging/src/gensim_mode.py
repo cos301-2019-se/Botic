@@ -11,7 +11,7 @@ def arrayFromFile(filename):
     text_file.close()
     return lines
 
-dataset = arrayFromFile("dataset.txt")
+dataset = arrayFromFile("../dictionaries/dataset.txt")
 
 # show the example of list of list format of the custom corpus for gensim modeling
 #print(sent[:2])

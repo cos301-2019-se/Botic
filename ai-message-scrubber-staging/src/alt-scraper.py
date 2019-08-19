@@ -58,7 +58,7 @@ def reservedWordSeverity(word):
                 if (word == "PASSWORD"):
                     return 2
                 else:
-                    if (word == "username"):
+                    if (word == "USERNAME"):
                         return 1
                     else:
                         return -1
@@ -72,7 +72,7 @@ def checkName(string, substring):
 
     return string == substring
 
-def addEnty(position, severity):
+def addEntry(position, severity):
     return "{ position: " + position +", severity: " + severity + "},"
 
 def hello():
@@ -97,12 +97,12 @@ def parseInfo(info):
     for y in infoArray:
         for name in names:
             if word_in(y, name):
-                changed += addEnty(str(infoArray.index(y)), '0')
+                changed += addEntry(str(infoArray.index(y)), '0')
 
     #Forth, check for important date
     for d in infoArray:
         if is_date(d):
-            changed += addEnty(str(infoArray.index(d)), '0')
+            changed += addEntry(str(infoArray.index(d)), '0')
 
     changed += "]"
     return changed
