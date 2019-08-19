@@ -1,14 +1,28 @@
 <?php
    // the message
+   include 'db_connection.php';
+   $conn = OpenCon();
+
+   $sql = "SELECT * FROM ForwardedMessages WHERE Status = 100 ORDER BY id DESC";
+   $result = mysqli_query($conn, $sql);
+   if (mysqli_num_rows($result) > 0) {
+      $row = mysqli_fetch_assoc($result);
+      $email = $row["Contact"];
+      $subject = "RE: " . $row["Subject"];
+   } else {
+       echo "0 results";
+   }
+   CloseCon($conn);
+
+   ini_set('display_errors', 1);
+   error_reporting(E_ALL);
    $msg = $_POST['inputField'];
+   $msg = wordwrap($msg, 70, "\r\n");
    ini_set("SMTP", "aspmx.l.google.com");
-   ini_set("sendmail_from", "u15330967@tuks.co.za");
+   ini_set("sendmail_from", $email);   
+   $headers = "From: Allisn";
    
-   $message = "The mail message was sent with the following mail setting:\r\nSMTP = aspmx.l.google.com\r\nsmtp_port = 25\r\nsendmail_from = YourMail@address.com";
-   
-   $headers = "Botic Response";
-   
-   mail("alabamaliquidsnakecapstone@gmail.com", "Testing", $msg, $headers);
+   mail($email, $subject, $msg, $headers);
 //    echo "<script type='text/javascript'>alert('Message Sent');</script>";
    header('Location: index.php');
 ?>
