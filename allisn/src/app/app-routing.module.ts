@@ -10,7 +10,7 @@ import { AdminDashboardComponent } from './components/pages/admin-dashboard/admi
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
-  { path: 'chat', component: CustomerChatComponent, canActivate: [AuthGuard] },
+  { path: 'chat', component: CustomerChatComponent, pathMatch: 'full' },
   { path: 'repHome', component: CustomerSupportComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] }
 ];

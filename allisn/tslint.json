@@ -151,7 +151,7 @@
       true,
       {"type": "default", "format": "camelCase", "leadingUnderscore": "forbid", "trailingUnderscore": "forbid"},
       {"type": "method", "modifiers": "public", "format": "camelCase"},
-      {"type": "member", "modifiers": "private", "leadingUnderscore": "require"},
+      {"type": "member", "modifiers": "private", "leadingUnderscore": "forbid"},
       {"type": "type", "format": "PascalCase"}
     ],
     "typedef": [

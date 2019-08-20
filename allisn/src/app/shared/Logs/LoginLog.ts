@@ -21,19 +21,17 @@ export class LoginLog extends Log {
     constructor(userIP: string, loginAttempt: string) {
         super();
 
-        const attemptInfo = JSON.stringify(loginAttempt);
-        const attemptObject = JSON.parse(attemptInfo);
+        const attemptObject = JSON.parse(loginAttempt);
         
-
-        this.timestamp = attemptObject.timestamp;
+        this.timestamp = attemptObject.attemptTime;
         this.context = attemptObject.context;
         this.userIP = userIP;
         this.userId = null;
     }
 
-    protected userIP: string;
+    protected userIP: string = null;
     // check if these match up with auth0's
-    protected loginTime: string;
+    protected loginTime: string = null;
 
     /**
      * Method name: enterSuccess() is a checkpoint when the user has logged in, 

@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "stage": "ng build --configuration=stage && node server",
+    "stage": "node patch.js && ng build --configuration=stage && node server",
     "start": "node server.js",
-    "build": "ng build --prod",
+    "build": "node patch.js && ng build --prod",
     "test": "ng test",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
     "transcribe-shared": "tsc",
@@ -15,8 +15,8 @@
     "tslint:fix": "npm run tslint -- --fix",
     "prettier": "prettier --write --config ./.prettierrc './src/**/*.{ts,tsx}'",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod",
-    "heroku-postbuild": "ng build --prod"
+    "postinstall": "node patch.js && ng build --aot -prod",
+    "heroku-postbuild": "node patch.js && ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -37,11 +37,12 @@
     "bootstrap": "^3.4.1",
     "core-js": "^2.5.4",
     "cors": "^2.8.5",
-    "express": "^4.17.0",
+    "express": "^4.17.1",
     "express-jwt": "^5.3.1",
     "express-jwt-authz": "^2.3.1",
     "express-session": "^1.16.1",
     "jquery": "^3.4.1",
+    "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.5.0",
     "node-gyp": "^5.0.3",
     "npm": "^6.9.0",

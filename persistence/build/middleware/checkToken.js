@@ -22,8 +22,9 @@ var jwt = __importStar(require("jsonwebtoken"));
 // jst secret key; can be changed to arbitrary value
 var jwtSecret = 'D!MN';
 exports.checkToken = function (req, res, next) {
+    var _a;
     // obtain token from header
-    var token = req.headers['Authorization'];
+    var token = req.headers['authorization'];
     var jwtPayload;
     // attempt token validation and obtain data
     try {
@@ -34,12 +35,18 @@ exports.checkToken = function (req, res, next) {
     }
     catch (error) {
         // respond with 401 (unauthorized error code)
-        res.status(401).send();
+        console.log(error);
+        res.status(401).send({
+            success: 'false',
+            message: 'Unauthorized',
+        });
         return;
     }
-    // respond with a new token that has a new expiry
-    var subsystem = jwtPayload.subsystem, component = jwtPayload.component;
-    var newToken = jwt.sign({ subsystem: subsystem, component: component }, jwtSecret, {});
+    // respond with a new token that has a new expiry with this subsystem's details
+    var subsystem = (_a = { subsystem: 'persistence', component: 'databaseManager' }, _a.subsystem), component = _a.component; // jwtPayload;
+    var newToken = jwt.sign({ subsystem: subsystem, component: component }, jwtSecret, {
+        expiresIn: '1h',
+    });
     res.setHeader('token', newToken);
     // pass controll to the Database Manager
     next();

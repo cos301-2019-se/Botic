@@ -31,10 +31,9 @@ class DatabaseManager {
     // for the word 'controller' in the component part.
 
     let result;
-    
+
     try {
       const logDbAccess = new LogDBAccess();
-      
       result = await logDbAccess.save(req.body);
 
       if (result === 'inserted') {

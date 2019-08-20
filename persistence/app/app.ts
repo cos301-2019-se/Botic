@@ -15,17 +15,19 @@
  */
 
 var express = require('express');
+var cors = require('cors');
 import router from './routes/index';
 
 var bodyParser = require('body-parser');
 
 // Set up the express app
 const app = express();
+app.use(cors());
 
 // Parse incoming requests using body-parser
 // app.use(bodyParser.json());
 // Make "true" to fix possible deprecation warning
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json({}));
 app.use(router);
 
 const PORT = process.env.PORT || 5000;

@@ -20,12 +20,12 @@
           <div style="display: table-row;"></div>  
           <div style="display: table-row; width: 100%; vertical-align: middle; height: 40px;">
             <!--this must be shown only when not logged in-->
-            <div *ngIf="!auth.isLoggedIn">
+            <div *ngIf="!loginController.isLoggedIn">
               <input type="button" value="Sign In" class="login" (click)="login()" style="width:120px;" />
             </div>
 
             <!--this must be shown only when logged in-->
-            <div *ngIf="auth.isLoggedIn">
+            <div *ngIf="loginController.isLoggedIn">
               <input type="button" value="Sign Out" class="login" (click)="logout()" style="width:120px;" />
             </div>
           </div>
@@ -35,7 +35,7 @@
 
     <div style="width:100%; display:table-row; text-align:center;" id="subtitle">
       <p id="message"style="font-family:'Helvetica';color:#000;text-align:center">For any customer related queries, please make use of the chat function.</p>
-      <div *ngIf="auth.isLoggedIn">
+      <div *ngIf="loginController.isLoggedIn">
         Hello, <u>{{auth.userProfile?.name}}</u>. Welcome to Botic! Please submit your query.
       </div>
     </div> 

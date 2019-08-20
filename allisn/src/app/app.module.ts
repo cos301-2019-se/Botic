@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { TextScraperComponent } from './components/text-scraper/text-scraper.component';
 import { SafePipe } from './safe.pipe';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
 import { TextInputHighlightModule } from 'angular-text-input-highlight';
@@ -21,6 +21,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { CustomerSupportComponent } from './components/pages/customer-support/customer-support.component';
 import { AdminDashboardComponent } from './components/pages/admin-dashboard/admin-dashboard.component';
+import { SecureInterceptorService } from './services/security/auth/secure-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -42,9 +43,9 @@ import { AdminDashboardComponent } from './components/pages/admin-dashboard/admi
     FormsModule,
     TextInputHighlightModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: SecureInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -98,6 +98,29 @@ describe('Session getExpiresAt must return the expirey time of a session.', () =
         session.getExpiresAt();
 
         expect(spy).toHaveBeenCalled();
+    });
+
+    it('getExpiresAt must return the time of expirey.', () => {
+
+        const session = new Session();
+
+        const fakeToken = 'dBjftJeZ4CVP.mB92K27uhbUJU1p1r.wW1gFWFOEjXk';
+        const fakeProfile = '{ "email": "johndoe@gmail.com",' +
+            '"email_verified": true,' +
+            '"name": "John Doe",' +
+            '"given_name": "John",' +
+            '"family_name": "Doe",' +
+            '"user_id": "google-oath2|5484181818181818",' +
+            '"nickname": "a man",' +
+            '"created_at": "2019-05-20T02:35:54.008Z",' +
+            '"last_ip": "102.250.6.57",' +
+            '"last_login": "2019-08-01T14:49:41.062Z",' +
+            '"logins_count": 9' + '}';
+        
+        const expiresAt = JSON.stringify((1565981349 * 1000) + Date.now());
+
+        session.startSession(fakeToken, expiresAt, fakeProfile);
+        expect(session.getExpiresAt()).toBe((1565981349 * 1000) + Date.now());
         
     });
 });

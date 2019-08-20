@@ -23,13 +23,14 @@ export class HeaderComponent implements OnInit {
 
   // won't need to make a new one...just take from the main component
   constructor(public loginController: LoginControllerService) {
-    loginController.continueSignIn();
+    
   }
 
   public username: string;
 
   // tslint:disable-next-line: typedef
   public ngOnInit() {
+    this.loginController.continueSignIn();
   }
 
   public logout(): void {

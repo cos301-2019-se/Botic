@@ -24,7 +24,7 @@ const jwtSecret = 'D!MN';
 
 export let checkToken: RequestHandler = (req: Request, res: Response, next: NextFunction) => {
     // obtain token from header
-    const token = req.headers['Authorization'] as string;
+    const token = req.headers['authorization'] as string;
     let jwtPayload;
 
     // attempt token validation and obtain data
@@ -35,14 +35,18 @@ export let checkToken: RequestHandler = (req: Request, res: Response, next: Next
         console.log(jwtPayload);
     } catch (error) {
         // respond with 401 (unauthorized error code)
-        res.status(401).send();
+        console.log(error);
+        res.status(401).send({
+            success: 'false',
+            message: 'Unauthorized',
+        });
         return;
     }
 
-    // respond with a new token that has a new expiry
-    const { subsystem, component } = jwtPayload;
+    // respond with a new token that has a new expiry with this subsystem's details
+    const { subsystem, component } = { subsystem: 'persistence', component: 'databaseManager' }; // jwtPayload;
     const newToken = jwt.sign({ subsystem, component }, jwtSecret, {
-        
+        expiresIn: '1h',
     });
     res.setHeader('token', newToken);
 
