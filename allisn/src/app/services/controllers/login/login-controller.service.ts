@@ -75,9 +75,14 @@ export class LoginControllerService extends Controller {
     return true;
   }
 
-  private resume(): string {
+
+
+  public resume(): void {
     
-    console.log('on the right track');
+    if (this.auth.getSemaphor == 0) {
+      return;
+    }
+    
     // get the loginLog using IP address
     let ip: string;
     this.http.get<{ip: string}>('https://jsonip.com')
@@ -94,8 +99,6 @@ export class LoginControllerService extends Controller {
 
     if (tooOld) {
       this.auth.signOut();
-
-      return 'IP Change or login timeout; please retry login.';
     }
 
 
@@ -106,9 +109,7 @@ export class LoginControllerService extends Controller {
 
     // check for the session and the profile to get the route to redirect to; also
     // implement guards
-    this.router.navigate([ROUTE_NAMES.HOME]);
-    
-    return 'done';
+    this.router.navigateByUrl('/');
   }
 
   get isLoggedIn(): boolean {

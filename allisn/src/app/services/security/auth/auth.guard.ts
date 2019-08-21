@@ -1,3 +1,21 @@
+/**
+ * File Name: auth.guard.ts
+ * Version number: Original
+ * Author name: Lesego Mabe
+ * Project name: Botic
+ * Organization: Alabama Liquid Snakes
+ * Related Use Cases: UC21
+ * Update History: Consult GitHub Commits and Comments
+ * Reviewers: 
+ * 
+ */
+
+/**
+ * Purpose  :  This is a guard; it prevents unauthorized users from accessing protected pages by using the role
+ *             data included in the decoded JWTs.
+ */
+
+
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from './auth.service';

@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
   // tslint:disable-next-line: typedef
   public ngOnInit() {
     this.loginController.continueSignIn();
+    this.loginController.resume();
   }
 
   public logout(): void {

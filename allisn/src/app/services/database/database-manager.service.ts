@@ -34,21 +34,27 @@ export class DatabaseManagerService {
   // enclose in try catch and do make way for error handling
   public saveLog(lg: Log): void {
     // prepare a call to the databaseManager in the persistence layer
-    console.log('databaseManager saveLog');
-    console.log('context ' + lg.context);
+    
     switch (lg.context) {
       case 'loginController': {
           console.log('inside loginController case');
           const loginLog: LoginLog = lg as LoginLog;
           if (loginLog.getLoginIime()) {
             
-            let resp = this.saveLog$({ 
+            let resp: any;
+            
+            this.saveLog$({ 
               userIP: loginLog.getLoginIP(), 
               attemptTime: loginLog.getTimestamp(), 
               context: 'loginController', 
               successTime: loginLog.getLoginIime(), 
               userId: loginLog.getUserId()
-            });
+            }).subscribe(
+              data =>
+              {
+                resp = data;
+              }
+            );
 
             console.log('resp ' + resp);
           } else {
@@ -71,7 +77,7 @@ export class DatabaseManagerService {
         break;
       default: {
         // just exit: do nothing
-        console.log('inside default case');
+        // console.log('inside default case');
       }
     }
   }
@@ -91,14 +97,14 @@ export class DatabaseManagerService {
     
     let log: Log = null;
     let fetchedLog;
-    this.getLog$({ userIP: id, component: comp }).subscribe(data => 
+    this.getLog$({ userIP: id, context: comp }).subscribe(data => 
       {
+        console.log(JSON.stringify(data.log));
         fetchedLog = JSON.parse(data.log);
         console.log(data.message);
       }
     );
     
-    fetchedLog = JSON.parse(fetchedLog);
     if (fetchedLog.context === 'loginController') {
       const loginAttempt = { timestamp: fetchedLog.attemptTime, context: 'loginController' };
       

@@ -24,6 +24,7 @@ import { environment } from './../../../../environments/environment';
 import { Location } from '@angular/common';
 import { Session } from '../../../shared/Session/Session';
 import * as jwt from 'jsonwebtoken';
+import { LoginControllerService } from '../../controllers/login/login-controller.service';
 
 
 @Injectable({
@@ -57,6 +58,7 @@ export class AuthService {
   private authFlag = 'isLoggedIn';
   private redirect = 'redirect';
   private decodedToken = 'decodedToken';
+  private semaphore = 'semaphore';
 
   // store access token and create stream
   accessToken: string = null;
@@ -80,7 +82,9 @@ export class AuthService {
   // tslint:disable-next-line: naming-convention
   private session: Session;
 
-  constructor(private router: Router, private location: Location) {}
+  constructor(private router: Router, private location: Location) {
+    localStorage.setItem(this.semaphore, JSON.stringify(0));
+  }
 
   public signIn(autoLogin?: boolean): void {
     // was signIn triggered by user accessing guarded route?
@@ -89,6 +93,7 @@ export class AuthService {
       this.storeAuthRedirect(this.router.url);
       // if the login was triggered by an access attempt instead, the route guard will set redirect
     }
+    
     this.auth0.authorize();
   }
 
@@ -107,6 +112,8 @@ export class AuthService {
             // log in locally and navigate
             this.localLogin(authResult);
             this.decodeToken();
+            // review this
+            localStorage.setItem(this.semaphore, JSON.stringify(1));
             // the login controller must be in charge of redirecting
             this.navigateAfterParseHash();
             return true;
@@ -270,6 +277,10 @@ export class AuthService {
 
   get decodedAccessToken(): any {
     return JSON.parse(localStorage.getItem(this.decodedToken));
+  }
+
+  get getSemaphor(): number {
+    return JSON.parse(localStorage.getItem(this.semaphore));
   }
 
   private setToken(token: string): void {
