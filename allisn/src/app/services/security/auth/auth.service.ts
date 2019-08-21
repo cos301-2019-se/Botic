@@ -56,6 +56,8 @@ export class AuthService {
   // localStorage property names
   private authFlag = 'isLoggedIn';
   private redirect = 'redirect';
+  private decodedToken = 'decodedToken';
+
   // store access token and create stream
   accessToken: string = null;
   accessToken$ = new BehaviorSubject<string>(this.accessToken);
@@ -158,6 +160,7 @@ export class AuthService {
     try {
 
       this.jwtPayload = (jwt.decode(this.accessToken, {complete: true}) as any).payload;
+      localStorage.setItem(this.decodedToken, JSON.stringify(this.jwtPayload));
 
     } catch (error) {
       console.log(error);
@@ -263,6 +266,10 @@ export class AuthService {
   get isAuthenticated(): boolean {
     // check if the angular app thinks this user is authenticated
     return JSON.parse(localStorage.getItem(this.authFlag));
+  }
+
+  get decodedAccessToken(): any {
+    return JSON.parse(localStorage.getItem(this.decodedToken));
   }
 
   private setToken(token: string): void {
