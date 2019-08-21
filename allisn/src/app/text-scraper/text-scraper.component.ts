@@ -63,7 +63,7 @@ export class TextScraperComponent implements OnInit {
 
         return output;
     });
-    return "output";
+    return output;
   }
 
   /*This function checks to see if a person has entered personal information,

@@ -8,8 +8,6 @@ import os
 import gensim
 from dateutil.parser import parse
 
-#Might not need
-
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -163,7 +161,7 @@ def parseInfo(info):
 				changed += addEntry(infoArray.index(word), (severityIndex))
 				first = False
 			else:
-				changed += "," + addEntry(infoArray.index(word), (severityIndex))
+				changed += ",first" + addEntry(infoArray.index(word), (severityIndex))
 
 		#Third, check for names
 		#TODO: Change this to work with NLTK
@@ -178,7 +176,7 @@ def parseInfo(info):
 				changed += addEntry(str(infoArray.index(word)), '0')
 				first = False
 			else:
-				changed += "," + addEntry(str(infoArray.index(word)), '0')
+				changed += ",second" + addEntry(str(infoArray.index(word)), '0')
 
 		#Fifth, check for words you haven't seen before
 		if inDictionary(dictionary, word) == False:
@@ -189,7 +187,8 @@ def parseInfo(info):
 				changed += check_word
 				first = False
 			else:
-				changed += "," + check_word
+				if (check_word != ""):
+					changed += "," + check_word
 
 	changed += "]"
 	return changed
