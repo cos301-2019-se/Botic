@@ -10,7 +10,7 @@ import gensim
 #from sklearn.manifold import TSNE
 from dateutil.parser import parse
 
-    
+
 def isReservedWord(word):
 	return {
 		'NAME' : True,
@@ -36,54 +36,54 @@ def arrayFromFile(filename):
     lines = text_file.read().split('\n')
     text_file.close()
     return lines
-    
+
 def inDictionary(dictionary, searchWord):
 	for word in dictionary:
 		if word.upper() == searchWord.upper():
 			return True
 	return False
-	
+
 def search(text,target,n):
 	'''Searches for text, and retrieves n words either side of the text, which are retuned seperatly'''
 	print("\ttext: " + text)
 	print("\tTarget: " + target)
 	array = text.split(' ')
 	print("\tword is " + str(array.index(target)) + " in " + str(len(array)-1))
-	
+
 	word = r"\W*([\w]+)"
-	
+
 	#determine the edges of the word
 	position = array.index(target)
 	numWords = len(array)-1
-	
+
 	left = n;
 	right = n;
-	
-	
+
+
 	if (position - n < 0):
-		left = position		
-	
-	
+		left = position
+
+
 	if (position + n > numWords):
 		right = numWords - position
-		
+
 	groups = re.search(r'{}\W*{}{}'.format(word*left,target,word*right), text)
-	
+
 	if left == 0:
 		groups = re.search(r'{}\W*{}{}'.format(word*left,target,word*right), text)
-		
+
 	if groups:
 		groups = groups.groups()
 		if right == 0:
 			return groups[:left]
-		
+
 		if left == 0:
 			return groups[:right]
-		
+
 		return groups[:left],groups[right:]
-	else:	
+	else:
 		return False
-    
+
 def listit(t):
 	return list(map(listit, t)) if isinstance(t, (list, tuple)) else t
 
@@ -91,7 +91,7 @@ def flatten(lst):
 	new_lst = []
 	flatten_helper(lst, new_lst)
 	return new_lst
-     
+
 def flatten_helper(lst, new_lst):
 	for element in lst:
 		if isinstance(element, list):
@@ -127,7 +127,7 @@ dictionary = arrayFromFile("dictionaries/20k.txt")
 #initialise the model
 model = gensim.models.Word2Vec.load("models/model.word2vec");
 
-def getSeverity(word):	
+def getSeverity(word):
     word = word.upper()
     return {
 		'NAME' : 1,
@@ -137,7 +137,7 @@ def getSeverity(word):
 		'USERNAME' : 1,
 		'BIRTHDAY' : 1,
     }.get(word, -1)
-    
+
 def addEntry(position, severity):
     return "{ position: " + str(position) +", severity: " + str(severity) + "},"
 
@@ -145,20 +145,20 @@ def investigate(sentence, word, position):
 	context_list = context(sentence, word)
 	possibleOutputs = model.predict_output_word(context_list, topn=5)
 	print("\t" + str(possibleOutputs))
-	
-	if isReservedWord(possibleOutputs[0][0].upper()):		
+
+	if isReservedWord(possibleOutputs[0][0].upper()):
 		severity = getSeverity(possibleOutputs[0][0])
 		entry = addEntry(position, severity)
 		print("\n\tWord might be: " + str(possibleOutputs[0]))
 		return entry
 	else:
 		return ""
-		
+
 def parseInfo(info):
 	changed = "["
 	infoArray = info.split(' ')
-	
-	
+
+
 	for word in infoArray:
 		if isReservedWord(word.upper()):
 			severityIndex = reservedWordSeverity(word.upper())
@@ -176,13 +176,12 @@ def parseInfo(info):
 			changed += addEntry(str(infoArray.index(d)), '0')
 
 		#Fifth, check for words you haven't seen before
-		if inDictionary(dictionary, word) == False:			
-			#print("Oh no..." + word)					
+		if inDictionary(dictionary, word) == False:
+			#print("Oh no..." + word)
 			changed += investigate(info, word, infoArray.index(word));
-			
+
 	changed += "]"
 	return changed
-
 
 def tests():
 	#A normal sentence with no PII
@@ -193,10 +192,10 @@ def tests():
 		"My name is persephone.",
 		"My password is 12321.",
 		"65678 is my password?",
-		
-		
+
+
 	}
-	
+
 	for string in testStrings:
 		print("")
 		print("String: " + string)

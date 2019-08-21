@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
-
 import { Observable, of } from 'rxjs';
-
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-
 import { badWord } from './badWord';
 import { BADWORDS } from './mock-badWords';
-
 import { MessageService } from './message.service';
 
 //Committable Change
@@ -19,8 +15,6 @@ import { MessageService } from './message.service';
 export class TextScraperService {
   private apiURL = 'https://botic-ai-ms.herokuapp.com/scrub';
   private testingURL1 = 'https://reqres.in/api/register';
-
-
 
   constructor(
     private http: HttpClient,
