@@ -8,8 +8,6 @@ import os
 import gensim
 from dateutil.parser import parse
 
-#Might not need
-
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -163,7 +161,7 @@ def parseInfo(info):
 				changed += addEntry(infoArray.index(word), (severityIndex))
 				first = False
 			else:
-				changed += "," + addEntry(infoArray.index(word), (severityIndex))
+				changed += ",first" + addEntry(infoArray.index(word), (severityIndex))
 
 
 		#Third, check for names
@@ -174,6 +172,7 @@ def parseInfo(info):
 		#            changed += addEntry(str(infoArray.index(y)), '0')
 
 		#Forth, check for important date
+<<<<<<< HEAD
 		if not(len(word) > 10):
 			if is_date(word):
 				if first == True:
@@ -181,6 +180,14 @@ def parseInfo(info):
 					first = False
 				else:
 					changed += "," + addEntry(str(infoArray.index(word)), '0')
+=======
+		if is_date(word):
+			if first == True:
+				changed += addEntry(str(infoArray.index(word)), '0')
+				first = False
+			else:
+				changed += ",second" + addEntry(str(infoArray.index(word)), '0')
+>>>>>>> #165_SeparateAllisnLogicFromBoticLogic
 
 		#Fifth, check for words you haven't seen before
 		if inDictionary(dictionary, word) == False:
@@ -191,7 +198,8 @@ def parseInfo(info):
 				changed += check_word
 				first = False
 			else:
-				changed += "," + check_word
+				if (check_word != ""):
+					changed += "," + check_word
 
 	changed += "]"
 	return changed
