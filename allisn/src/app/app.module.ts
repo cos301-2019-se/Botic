@@ -22,6 +22,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { ResponseAIComponent } from './response-ai/response-ai.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     FooterComponent,
     MessagesComponent,
     CustomerSupportComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ResponseAIComponent
   ],
   imports: [
     BrowserModule,

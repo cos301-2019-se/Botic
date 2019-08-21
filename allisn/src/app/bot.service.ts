@@ -4,7 +4,6 @@ import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { botResponse } from './botResponse';
-import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +11,7 @@ import { MessageService } from './message.service';
 export class BotService {
   apiURL = "http://127.0.0.1:5000/prattle"
 
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService){
+  constructor(private http: HttpClient){
     }
 
   getBotResponse(input: string): Observable<any> {
@@ -30,9 +27,4 @@ export class BotService {
           return response;
         }));
   }
-
-  private log(message: string) {
-    this.messageService.add(`${message}`);
-  }
-
 }
