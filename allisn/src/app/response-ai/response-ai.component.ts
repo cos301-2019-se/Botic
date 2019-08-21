@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../message.service';
-import { botResponse } from './botResponse';
+import { botResponse } from '../botResponse';
 
 @Component({
   selector: 'app-response-ai',

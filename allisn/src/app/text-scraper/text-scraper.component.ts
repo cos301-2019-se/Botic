@@ -32,8 +32,9 @@ export class TextScraperComponent implements OnInit {
    the preview.
   */
   returnChanged(input: string): string{
+    var output = "";
     this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => {
-        var output = "";
+
         var array = input.split(" ");
         var isABadWord = false;
         var severity = 0;
@@ -62,7 +63,7 @@ export class TextScraperComponent implements OnInit {
 
         return output;
     });
-
+    return "output";
   }
 
   /*This function checks to see if a person has entered personal information,
@@ -116,7 +117,7 @@ export class TextScraperComponent implements OnInit {
         }
       }
       else {
-        this.processResponse(userInput);
+        this.sendMessage(userInput);
         this.hasChecked = false;
         console.log("onClickCall has been called - gave option to take out personal information");
         passed++;
