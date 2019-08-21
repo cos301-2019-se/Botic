@@ -66,63 +66,75 @@ export class TextScraperComponent implements OnInit {
     return output;
   }
 
+  /**
+  * This function checks if a password is being detected (so checking if the severity is 3).
+  * If it is 3 then return true.
+  * This would then be used in the function onClickCall to determine if the user
+  * still has the option to send.  So if it returns true, the user would not be
+  * allowed to send the ticket at all.
+  */
+  checkIfSeverityIsThree(input: string): boolean {
+    this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => this.badWords = badWords);
+
+    var array = input.split(" ");
+    var severity = 0;
+
+    for(var i = 0; i < array.length; i++){
+      for (var j = 0; j < this.badWords.length; j++){
+        if (i == this.badWords[j].position){
+          severity = this.badWords[j].severity;
+          if (severity == 3) return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
   /*This function checks to see if a person has entered personal information,
   if they have, first warn them, then the person gets the option to change the
   message or send it with the personal information attached.
   */
   onClickCall(userInput : string) : void {
-      /*
-      Test Purposes:
-      */
-      var passed = 0;
-      var failed = 0;
 
-      // window.alert(this.badWords.length);
-      if (this.hasChecked == false) {
-        this.returnChanged(userInput);
-        console.log("onClickCall has been called.");
-        passed++;
-        console.log("onClickCall has been called - hasChecked started on false");
-        passed++;
-        this.hasChecked = true;
-        console.log("onClickCall has been called - hasChecked changed to true - checking if personal info has been entered");
-        passed++;
-        if (this.badWords.length == 0) {
-          console.log("onClickCall has been called - no personal information has been identified.");
-          passed++;
-          console.log("onClickCall has been called - hasChecked changed back to false - no personal info");
-          passed++;
-          this.sendMessage(userInput);
-          this.hasChecked = false;
+        // window.alert(this.badWords.length);
+        if (this.hasChecked == false) {
+          this.returnChanged(userInput);
+
+          setTimeout(() => {
+
+          this.hasChecked = true;
+
+          if (this.badWords.length == 0) {
+            this.processResponse(userInput);
+            this.hasChecked = false;
+            // document.getElementById("btn-input").reset();
+          }
+          else {
+             if (this.checkIfSeverityIsThree(userInput) == true) {
+              window.alert("Really sensitive information, e.g. a password, has been detected and therefore the ticket cannot be sent through, please remove the information in order to continue.");
+              this.hasChecked = false;
+
+              var theBadWordsAdded = "The following personal information have been entered: ";
+
+              var replaceText = document.getElementById("preview");
+              replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
+            }
+            else {
+              window.alert("Personal information has been entered. See text above textbox for details.");
+              var theBadWordsAdded = "The following personal information have been entered: ";
+
+              var replaceText = document.getElementById("preview");
+              replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
+            }
+          }
+        }, 2000);
         }
         else {
-          window.alert("Personal information has been entered. See text above textbox for details.");
-          var theBadWordsAdded = "The following personal information have been entered: ";
-          console.log("onClickCall has been called - personal information has been identified.");
-          passed++;
-
-          // for (var i = 0; i < this.badWords.length; i++) {
-          //   if (i == 0) {
-          //     theBadWordsAdded = theBadWordsAdded + this.badWords[i];
-          //   }
-          //   else {
-          //     theBadWordsAdded = theBadWordsAdded + ", " + this.badWords[i];
-          //   }
-          //}
-
-          var replaceText = document.getElementById("preview");
-          replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
-          console.log("onClickCall has been called - personal information displayed.");
-          passed++;
+          this.processResponse(userInput);
+          this.hasChecked = false;
         }
-      }
-      else {
-        this.sendMessage(userInput);
-        this.hasChecked = false;
-        console.log("onClickCall has been called - gave option to take out personal information");
-        passed++;
-      }
-      console.log("Tests completed: " + passed + " passed, " + failed + " failed.")
+
     }
 
  /*

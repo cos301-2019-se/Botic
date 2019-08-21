@@ -90,5 +90,6 @@ export class TextScraperService {
 
           return words;
         }));
+    // return of(BADWORDS);
   }
 }
