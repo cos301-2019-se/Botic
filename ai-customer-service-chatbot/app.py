@@ -195,9 +195,9 @@ def prattle():
     if request.method == 'POST' or request.method == 'GET':
         input_data = request.form.get('data', '-999')
         if input_data == '-999':
-			response = jsonify('Holup')
-			response.status_code = 400
-			return response
+            response = jsonify('Holup')
+            response.status_code = 400
+            return response
 
         response = jsonify(respond(input_data, sessionId))
         response.headers.add('Access-Control-Allow-Origin', '*')

@@ -106,7 +106,7 @@ export class TextScraperComponent implements OnInit {
           this.hasChecked = true;
 
           if (this.badWords.length == 0) {
-            this.processResponse(userInput);
+            this.sendMessage(userInput);
             this.hasChecked = false;
             // document.getElementById("btn-input").reset();
           }
@@ -131,7 +131,7 @@ export class TextScraperComponent implements OnInit {
         }, 2000);
         }
         else {
-          this.processResponse(userInput);
+          this.sendMessage(userInput);
           this.hasChecked = false;
         }
 

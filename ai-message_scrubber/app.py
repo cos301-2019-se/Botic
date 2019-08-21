@@ -161,7 +161,7 @@ def parseInfo(info):
 				changed += addEntry(infoArray.index(word), (severityIndex))
 				first = False
 			else:
-				changed += ",first" + addEntry(infoArray.index(word), (severityIndex))
+				changed += "," + addEntry(infoArray.index(word), (severityIndex))
 
 
 		#Third, check for names
@@ -172,7 +172,6 @@ def parseInfo(info):
 		#            changed += addEntry(str(infoArray.index(y)), '0')
 
 		#Forth, check for important date
-<<<<<<< HEAD
 		if not(len(word) > 10):
 			if is_date(word):
 				if first == True:
@@ -180,14 +179,12 @@ def parseInfo(info):
 					first = False
 				else:
 					changed += "," + addEntry(str(infoArray.index(word)), '0')
-=======
 		if is_date(word):
 			if first == True:
 				changed += addEntry(str(infoArray.index(word)), '0')
 				first = False
 			else:
-				changed += ",second" + addEntry(str(infoArray.index(word)), '0')
->>>>>>> #165_SeparateAllisnLogicFromBoticLogic
+				changed += "," + addEntry(str(infoArray.index(word)), '0')
 
 		#Fifth, check for words you haven't seen before
 		if inDictionary(dictionary, word) == False:
@@ -239,5 +236,5 @@ def scrub():
 
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', port=5001)
+	app.run(port=5001)
 	app.run()
