@@ -17,6 +17,7 @@
 
 import { DatabaseAccess } from './DatabaseAccess';
 import { Db, MongoClient } from 'mongodb';
+import { defaultCoreCipherList } from 'constants';
 
 export class LogDBAccess extends DatabaseAccess {
 
@@ -77,6 +78,9 @@ export class LogDBAccess extends DatabaseAccess {
             
             if (client) {
                 db = client.db('logs');
+                // check context, if it is loginLog, then search using IP and timestamp for existing
+                // update by adding new fields if it exists, otherwiser insertOne like below. 
+                
                 results = await db.collection('loginlogs').insertOne(logObject);
     
                 return 'inserted';
@@ -99,15 +103,16 @@ export class LogDBAccess extends DatabaseAccess {
 
     }
 
-    public get(identifier: string): Promise<string> {
+    public get(details: string): Promise<string> {
     
-        return this.getMongo(identifier);
+        return this.getMongo(defaultCoreCipherList);
     }
 
     // tslint:disable-next-line: typedef
-    protected async getMongo(identifier: string) {
+    protected async getMongo(details: string) {
 
         let log;
+        const detailsObj = JSON.parse(JSON.stringify(details));
         
         try {
 
@@ -123,7 +128,7 @@ export class LogDBAccess extends DatabaseAccess {
                 const logCursor = await db.collection('loginlogs').aggregate(
                     [
                         // tslint:disable: object-literal-key-quotes
-                        { '$match': { 'userIP': JSON.parse(JSON.stringify(identifier)).userIP } },
+                        { '$match': { 'userIP': detailsObj.userIP } },
                         { '$redact': {
                             '$cond': {
                                 'if': {

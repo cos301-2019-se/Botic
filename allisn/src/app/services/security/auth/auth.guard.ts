@@ -14,12 +14,21 @@ export class AuthGuard implements CanActivate {
         state: RouterStateSnapshot
     ): Observable<boolean> | Promise<boolean> | boolean {
         if (this.auth.isAuthenticated) {
+            
             // check the profile and user scopes to see if they have permission to access each page.
-            return true;
+            if (this.auth.jwtPayload.permissions == 'access:admin' && (state.url == '/admin')) {
+                return true; 
+            }
+            if (this.auth.jwtPayload.permissions == 'access:repHome' && (state.url == '/repHome')) {
+                return true;
+            }
+            if (this.auth.jwtPayload.permissions == 'access:chat' && (state.url == '/chat')) {
+                return true;
+            }
+            
         }
         // save secure path to redirect to after
         // successful login and prompt to log in
-        console.log('authguard');
         this.auth.storeAuthRedirect(state.url);
         this.auth.signIn();
         return false;

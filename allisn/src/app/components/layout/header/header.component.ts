@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
 
   public logout(): void {
     // call the login controller
-    // this.loginController.signOut();
+    this.loginController.signOut();
   }
 
   /**

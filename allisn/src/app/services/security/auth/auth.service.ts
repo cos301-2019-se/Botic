@@ -23,6 +23,7 @@ import * as auth0 from 'auth0-js';
 import { environment } from './../../../../environments/environment';
 import { Location } from '@angular/common';
 import { Session } from '../../../shared/Session/Session';
+import * as jwt from 'jsonwebtoken';
 
 
 @Injectable({
@@ -37,10 +38,21 @@ export class AuthService {
     domain: environment.auth.domain,
     responseType: 'token id_token',
     redirectUri: environment.auth.redirect,
-    audience: 'botic-frontend.herokuapp.com/chat',
+    audience: environment.auth.audience,
     scope: 'openid email read:messages send:messages', // these will be updated during development
   });
-
+  
+  private jwtSecret = `-----BEGIN PUBLIC KEY-----
+  MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsvRsiFTIOrE9bVqYdSR3
+  IZskohjlU3b0YiVlYPdBjf8vbm8bFFydlX1LWSramStEqyW6ca5NBMyBC9CawcjK
+  La2wgnO/TGG+V2QQclxylmWlI5wqGpryxXVJVjNYHWwMReydH2ZZbTPGTMgwgO/J
+  lwihTh/qEDP8kdjJS9Ti0W17PrDMOrfazvwHmKgsQukJVxlQn11NvJ0TSIEr6eFP
+  hxRtkkrB4INmFCi7OVb6P/mqyzxw+JLBvl2ZObdQm9clbZx0rJYSvjODqI24aUgS
+  2ZtFhxyYuuoUP93bjwpLVYBt2wHeBTVkQOODSN+9DqmDZbQJk45UxHDIiIDBQnRp
+  iQIDAQAB
+  -----END PUBLIC KEY-----
+  `;
+  public jwtPayload;
   // localStorage property names
   private authFlag = 'isLoggedIn';
   private redirect = 'redirect';
@@ -79,26 +91,78 @@ export class AuthService {
   }
 
   public processAuth(): void | boolean {
+   
     if (window.location.hash && !this.isAuthenticated) {
+    //if (!this.isAuthenticated) {
       // hide header while parsing hash
       this.hideAuthHeader = true;
       // subscribe to parseHash$ bound callback observable
+      
       this.parseHash$({}).subscribe(
         authResult => {
           // don't keep callback route + hash in browser history
-          this.location.replaceState('/');
-          // log in locally and navigate
-          this.localLogin(authResult);
-          this.navigateAfterParseHash();
+            this.location.replaceState('/');
+            // log in locally and navigate
+            this.localLogin(authResult);
+            this.decodeToken();
+            // the login controller must be in charge of redirecting
+            this.navigateAfterParseHash();
+            return true;
         },
-        err => this.handleError(err)
+        err => 
+        {
+          console.log('err: ' + err);
+          this.handleError(err);
+        }
       );
-      return true;
+      /*
+      this.auth0.parseHash((err, authResult) => {
+        if (authResult != null) {
+          if (authResult && authResult.accessToken) {
+            window.location.hash = '';
+            // don't keep callback route + hash in browser history
+            this.location.replaceState('/');
+            // log in locally and navigate
+            this.localLogin(authResult);
+            this.navigateAfterParseHash();
+            return true;
+          } else if (err) {
+            this.clearRedirect();
+            console.error(`Error authenticating: ${err.error}`);
+            return false;
+          }
+        }
+        console.log('authResult.accessToken ' + authResult.accessToken);
+        return false;
+      });*/
+      // check if window.location.hash = '' needs to be executed
     } else {
       // if visiting the page with no hash, return to the default logged out route
-      // this.goToLogoutUrl();
       return false;
+      // this.goToLogoutUrl();
     }
+  }
+
+  /**
+   * This function decodes the access token in order to obtain information such as the permissions,
+   * and roles of the user.
+   */
+  private decodeToken(): void {
+
+    function certToPEM(cert) {
+      cert = cert.match(/.{1,64}/g).join('\n');
+      cert = `-----BEGIN CERTIFICATE-----\n${cert}\n-----END CERTIFICATE-----\n`;
+      return cert;
+    };
+
+    try {
+
+      this.jwtPayload = (jwt.decode(this.accessToken, {complete: true}) as any).payload;
+
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   private renewAuth(): void {
@@ -112,6 +176,7 @@ export class AuthService {
   }
 
   private localLogin(authResult): void {
+
     if (authResult && authResult.accessToken && authResult.idToken && authResult.idTokenPayload) {
       // set token expiration
       const now = new Date().getTime();
@@ -154,7 +219,7 @@ export class AuthService {
 
     // redirect back to logout URL (if param set)
     if (redirect) {
-      this.goToLogoutUrl();
+      // this.goToLogoutUrl();
     }
   }
 
@@ -208,14 +273,44 @@ export class AuthService {
   private navigateAfterParseHash(): void {
     const rd = localStorage.getItem(this.redirect);
     if (rd) {
-      this.router.navigateByUrl(rd).then(
-        navigated => {
-          if (navigated) {
-            this.hideAuthHeader = false;
+      
+      if (this.jwtPayload.permissions == 'access:admin') {
+        this.router.navigateByUrl('/admin').then(
+          navigated => {
+            if (navigated) {
+              this.hideAuthHeader = false;
+            }
+            this.clearRedirect();
           }
-          this.clearRedirect();
-        }
-      );
+        );
+      } else if (this.jwtPayload.permissions == 'access:repHome') {
+        this.router.navigateByUrl('/repHome').then(
+          navigated => {
+            if (navigated) {
+              this.hideAuthHeader = false;
+            }
+            this.clearRedirect();
+          }
+        );
+      } else if (this.jwtPayload.permissions == 'access:chat') {
+        this.router.navigateByUrl('/chat').then(
+          navigated => {
+            if (navigated) {
+              this.hideAuthHeader = false;
+            }
+            this.clearRedirect();
+          }
+        );
+      } else {
+        this.router.navigateByUrl(rd).then(
+          navigated => {
+            if (navigated) {
+              this.hideAuthHeader = false;
+            }
+            this.clearRedirect();
+          }
+        );
+      }
     } else {
       this.clearRedirect();
       this.router.navigateByUrl(this.defaultSuccessPath);

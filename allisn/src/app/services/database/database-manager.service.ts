@@ -18,7 +18,6 @@
 
 import { Injectable } from '@angular/core';
 import { throwError, Observable } from 'rxjs';
-// tslint:disable: no-submodule-imports
 import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from './../../../environments/environment';
@@ -87,20 +86,23 @@ export class DatabaseManagerService {
     );
   }
 
-  public getLog(id: string, component: string): Log {
+  public getLog(id: string, comp: string): Log {
     // call database manager to obtain the log  
     
     let log: Log = null;
     let fetchedLog;
-    this.getLog$({ identifier: id, component: component }).subscribe(data => (
-      fetchedLog = JSON.parse(data)
-    ));
+    this.getLog$({ userIP: id, component: comp }).subscribe(data => 
+      {
+        fetchedLog = JSON.parse(data.log);
+        console.log(data.message);
+      }
+    );
     
     fetchedLog = JSON.parse(fetchedLog);
-    if (fetchedLog.log.context === 'loginController') {
-      const loginAttempt = { timestamp: fetchedLog.log.attemptTime, context: fetchedLog.log.context };
+    if (fetchedLog.context === 'loginController') {
+      const loginAttempt = { timestamp: fetchedLog.attemptTime, context: 'loginController' };
       
-      log = new LoginLog(fetchedLog.log.userIP, JSON.stringify(loginAttempt));
+      log = new LoginLog(fetchedLog.userIP, JSON.stringify(loginAttempt));
     }
 
     return log;

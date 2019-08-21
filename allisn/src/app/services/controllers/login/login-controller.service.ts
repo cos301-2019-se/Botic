@@ -32,6 +32,8 @@ export class LoginControllerService extends Controller {
     private databaseManager: DatabaseManagerService,
     private http: HttpClient) {
     super();
+
+    localStorage.setItem('signin', 'false');
   }
 
   protected log: LoginLog;
@@ -46,7 +48,7 @@ export class LoginControllerService extends Controller {
     let ip: string;
     this.http.get<{ip: string}>('https://jsonip.com')
     .subscribe( data => {
-      console.log('User IP: ' + data.ip);
+      console.log('User IP (set): ' + data.ip);
       ip = data.ip;
     });
     const loginTry = { attemptTime: new Date(), context: 'loginController' };
@@ -59,23 +61,28 @@ export class LoginControllerService extends Controller {
 
     // save the loginLog using the databaseManager
     this.databaseManager.saveLog(this.log);
-
+    
+    localStorage.setItem('signin', 'true');
+    console.log('localstorage has been set to: ' + localStorage.getItem('signin'));
     // signin using the authenticationService
     this.auth.signIn();
   }
 
-  public continueSignIn(): string {
+  public continueSignIn(): boolean {
     // ought to return boolean
-    console.log('continueSignIn');
-    if (!this.auth.processAuth()) {
-      return null;
-    }
+    this.auth.processAuth();
+    
+    return true;
+  }
 
+  private resume(): string {
+    
+    console.log('on the right track');
     // get the loginLog using IP address
     let ip: string;
     this.http.get<{ip: string}>('https://jsonip.com')
     .subscribe( data => {
-      console.log('User IP: ' + data.ip);
+      console.log('User IP (get): ' + data.ip);
       ip = data.ip;
     });
 
@@ -91,8 +98,8 @@ export class LoginControllerService extends Controller {
       return 'IP Change or login timeout; please retry login.';
     }
 
-    const loginSuccess = JSON.parse(JSON.stringify({ time: Date.now() }));
-    // pretend this works
+
+    const loginSuccess = JSON.parse(JSON.stringify({ successTime: Date.now(), userId: this.auth.userProfile.user_id }));
     this.log.enterSuccess(loginSuccess);
     
     this.databaseManager.saveLog(this.log);
@@ -101,10 +108,14 @@ export class LoginControllerService extends Controller {
     // implement guards
     this.router.navigate([ROUTE_NAMES.HOME]);
     
-    return null;
+    return 'done';
   }
 
   get isLoggedIn(): boolean {
     return this.auth.isAuthenticated;
+  }
+
+  public signOut(): void {
+    this.auth.signOut();
   }
 }
