@@ -19,7 +19,7 @@ export class TextScraperComponent implements OnInit {
   badWords: badWord[];
   hasChecked = false;
   debug = false;
-  preview = "preview";
+  preview = "";
 
   email: string;
   subject: string;
@@ -112,6 +112,7 @@ export class TextScraperComponent implements OnInit {
 
             if (this.badWords.length == 0) {
               this.sendMessage(userInput);
+              this.userInput = "";
               this.hasChecked = false;
             }
             else {
@@ -133,6 +134,7 @@ export class TextScraperComponent implements OnInit {
         else {
           this.sendMessage(userInput);
           this.hasChecked = false;
+          this.userInput = "";
         }
       });
     }
@@ -189,11 +191,11 @@ export class TextScraperComponent implements OnInit {
 
   stateDone(): boolean{
     return (this.state.currentState == 'DONE');
-  } 
+  }
 
   resetState(){
     return (this.state.currentState == 'NOMINAL');
-  }  
+  }
 
   onSubmit(f: NgForm) {
     var ticket = f.value;
@@ -205,6 +207,6 @@ export class TextScraperComponent implements OnInit {
       if (response.code =='SUCCESS'){
         this.state.currentState = 'DONE';
       }
-    }) 
+    })
   }
 }
