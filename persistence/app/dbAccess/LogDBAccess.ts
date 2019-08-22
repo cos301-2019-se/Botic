@@ -70,7 +70,7 @@ export class LogDBAccess extends DatabaseAccess {
         try {
             // determine the kind of log
             const logObject = JSON.parse(JSON.stringify(log));
-            logObject.attemptTime = new Date(logObject.attemptTime);
+            // logObject.attemptTime = new Date(logObject.attemptTime);
             
             const client = await MongoClient.connect(this.connectionString, { useNewUrlParser: true });
             // console.log('Connected to database.');

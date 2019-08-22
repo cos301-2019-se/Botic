@@ -42,7 +42,7 @@ export class DatabaseManagerService {
           if (loginLog.getLoginIime()) {
             
             let resp: any;
-            
+
             this.saveLog$({ 
               userIP: loginLog.getLoginIP(), 
               attemptTime: loginLog.getTimestamp(), 

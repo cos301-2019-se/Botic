@@ -1,9 +1,10 @@
 export const environment = {
   production: true,
   auth: {
-    clientId: 'gMNTaDHZ4Kat3JO8zMlpMwhqt1vvbk5V',
-    domain: 'learning-lsg.auth0.com',
-    redirect: 'http://botic-frontend.herokuapp.com/chat', /*'http://localhost:4200/chat'*/
+    clientId: 'nXfkTQe04GVTy7qgAFbjh3ebI2faaYPc',
+    domain: 'dev-3b2f4l27.auth0.com',
+    redirect: 'http://botic-frontend.herokuapp.com/chat',
+    audience: 'http://localhost:8080/chat',
     logoutUrl: 'http://botic-frontend.herokuapp.com/chat',
     roles_namespace: 'openid profile read:profile send:messages read:messages'
   },
