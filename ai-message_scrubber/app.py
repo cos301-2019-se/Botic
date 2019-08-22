@@ -150,6 +150,22 @@ def investigate(sentence, word, position):
 	else:
 		return ""
 
+def canDate(word):
+	if word.isdigit():
+		if (len(word) > 10):
+			return False
+		else:
+			return True
+	else:
+		return True
+
+def couldBeID(word):
+	if word.isdigit():
+		if (len(word) == 13):
+			return True
+		else:
+			return False
+
 def parseInfo(info):
 	changed = "["
 	infoArray = info.split(' ')
@@ -173,19 +189,22 @@ def parseInfo(info):
 		#            changed += addEntry(str(infoArray.index(y)), '0')
 
 		#Forth, check for important date
-		if not(len(word) > 10):
+		if canDate(word):
 			if is_date(word):
 				if first == True:
-					changed += addEntry(str(infoArray.index(word)), '0')
+					changed += addEntry(str(infoArray.index(word)), '1')
 					first = False
 				else:
-					changed += "," + addEntry(str(infoArray.index(word)), '0')
-		if is_date(word):
+					changed += "," + addEntry(str(infoArray.index(word)), '1')
+		
+		print("TYPE" + str(type(word)))
+
+		if couldBeID(word):
 			if first == True:
-				changed += addEntry(str(infoArray.index(word)), '0')
+				changed += addEntry(str(infoArray.index(word)), '2')
 				first = False
 			else:
-				changed += "," + addEntry(str(infoArray.index(word)), '0')
+				changed += "," + addEntry(str(infoArray.index(word)), '2')
 
 		#Fifth, check for words you haven't seen before
 		if inDictionary(dictionary, word) == False:
