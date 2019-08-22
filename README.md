@@ -28,7 +28,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
     </tr>
     <tr>
         <td>Software Requirements Specification</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v1.pdf" target="_blank">v1</a>, <a href="https://cos301-2019-se.github.io/Botic/docs/compiled/Botic_SRS_v2.pdf" target="_blank">v2</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v3.pdf" target="_blank">v3</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v1.pdf" target="_blank">v1</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v2.pdf" target="_blank">v2</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v3.pdf" target="_blank">v3</a></td>
     </tr>
     <tr>
         <td>Coding Standards</td>
