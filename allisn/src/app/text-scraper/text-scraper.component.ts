@@ -36,6 +36,7 @@ export class TextScraperComponent implements OnInit {
   ngOnInit() {
     this.badWords = [];
     this.runTests();
+    this.state.currentState = 'NOMINAL';
     // this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
   }
 
@@ -182,6 +183,14 @@ export class TextScraperComponent implements OnInit {
     return (this.state.currentState == 'SENDTICKET');
   }
 
+  stateDone(): boolean{
+    return (this.state.currentState == 'DONE');
+  } 
+
+  resetState(){
+    return (this.state.currentState == 'NOMINAL');
+  }  
+
   onSubmit(f: NgForm) {
     var ticket = f.value;
     console.log(ticket.email);  // { first: '', last: '' }
@@ -189,7 +198,9 @@ export class TextScraperComponent implements OnInit {
     console.log(ticket.body);
 
     this.sendTicketService.send(ticket.email, ticket.subject, ticket.body).subscribe(response =>{
-      console.log(response);
+      if (response.code =='SUCCESS'){
+        this.state.currentState = 'DONE';
+      }
     }) 
   }
 }
