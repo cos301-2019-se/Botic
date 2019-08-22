@@ -19,7 +19,7 @@ export class TextScraperComponent implements OnInit {
   badWords: badWord[];
   hasChecked = false;
   debug = false;
-  preview = "preview";
+  preview = "";
 
   email: string;
   subject: string;
