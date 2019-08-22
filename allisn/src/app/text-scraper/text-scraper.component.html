@@ -2,8 +2,9 @@
   <div class="">
     <div class="">
               <div style="height:40vh;border:none;">
-              
+
               </div>
+              <p [innerHTML] = "preview | safe: 'html'"> </p>
               <p id="preview"><span [innerHTML]=""></span></p>
               <textarea
                 contenteditable="true"

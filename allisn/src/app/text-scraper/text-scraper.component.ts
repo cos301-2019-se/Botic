@@ -15,6 +15,7 @@ export class TextScraperComponent implements OnInit {
   badWords: badWord[];
   hasChecked = false;
   debug = false;
+  preview = "preview";
 
   constructor(
     private TextScraperService: TextScraperService,
@@ -27,11 +28,7 @@ export class TextScraperComponent implements OnInit {
     // this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
   }
 
-  /*
-   if the string is returned and the badwords array is empty, maybe don't show
-   the preview.
-  */
-  returnChanged(input: string): string{
+  returnChangedDisplay(input: string): void{
     var output = "";
     this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => {
 
@@ -59,11 +56,9 @@ export class TextScraperComponent implements OnInit {
             output += array[i];
 
           output += " ";
+          this.preview = output;
         }
-
-        return output;
     });
-    return output;
   }
 
   /**
@@ -74,20 +69,19 @@ export class TextScraperComponent implements OnInit {
   * allowed to send the ticket at all.
   */
   checkIfSeverityIsThree(input: string): boolean {
-    this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => this.badWords = badWords);
+    // this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => {this.badWords = badWords;
+      var array = input.split(" ");
+      var severity = 0;
 
-    var array = input.split(" ");
-    var severity = 0;
-
-    for(var i = 0; i < array.length; i++){
-      for (var j = 0; j < this.badWords.length; j++){
-        if (i == this.badWords[j].position){
-          severity = this.badWords[j].severity;
-          if (severity == 3) return true;
+      for(var i = 0; i < array.length; i++){
+        for (var j = 0; j < this.badWords.length; j++){
+          if (i == this.badWords[j].position){
+            severity = this.badWords[j].severity;
+            if (severity == 3) return true;
+          }
         }
       }
-    }
-
+      return false;
     return false;
   }
 
@@ -99,7 +93,7 @@ export class TextScraperComponent implements OnInit {
 
         // window.alert(this.badWords.length);
         if (this.hasChecked == false) {
-          this.returnChanged(userInput);
+          // this.returnChangedDisplay(userInput);
 
           setTimeout(() => {
 
@@ -115,17 +109,19 @@ export class TextScraperComponent implements OnInit {
               window.alert("Really sensitive information, e.g. a password, has been detected and therefore the ticket cannot be sent through, please remove the information in order to continue.");
               this.hasChecked = false;
 
-              var theBadWordsAdded = "The following personal information have been entered: ";
+            //  var theBadWordsAdded = "The following personal information have been entered: ";
 
               var replaceText = document.getElementById("preview");
-              replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
+              // replaceText.innerHTML = replaceText.innerHTML.replace("", this.returnChangedDisplay(userInput));
+              this.returnChangedDisplay(userInput);
             }
             else {
               window.alert("Personal information has been entered. See text above textbox for details.");
-              var theBadWordsAdded = "The following personal information have been entered: ";
+              //var theBadWordsAdded = "The following personal information have been entered: ";
 
               var replaceText = document.getElementById("preview");
-              replaceText.innerHTML = replaceText.innerHTML.replace("", theBadWordsAdded + " " + this.returnChanged(userInput));
+              // replaceText.innerHTML = replaceText.innerHTML.replace("", this.returnChanged(userInput));
+              this.returnChangedDisplay(userInput);
             }
           }
         }, 2000);
