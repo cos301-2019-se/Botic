@@ -163,11 +163,14 @@ export class TextScraperComponent implements OnInit {
   getColor(severity: number): string {
     switch(severity){
       case 0:
-        return 'fuchsia';
+        return 'blue';
       case 1:
-        return 'orange';
+        return 'fuchsia';
       break;
       case 2:
+        return 'orange';
+      break;
+      case 3:
         return 'red';
       break;
     }
