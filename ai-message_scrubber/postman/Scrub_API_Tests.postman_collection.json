@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "df157373-a7ae-4167-9fed-551fada1231a",
+		"name": "Scrub_API_Tests",
+		"description": "Series of automated tests to test performance and correctness of API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test_invalid_url",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7df361c-d1d9-4a37-bc32-89655f275361",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 100ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"    pm.response.to.be.header(\"Content-Type\", \"text/html\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "botic-ai-ms.herokuapp.com/invalid_url",
+					"host": [
+						"botic-ai-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"invalid_url"
+					]
+				},
+				"description": "The user tries to access an invalid url"
+			},
+			"response": []
+		},
+		{
+			"name": "no_string",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9757e2c0-0460-4461-94c2-bc2306978c1d",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.response.to.have.body(\"\\\"\\\"\\n\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 100ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "botic-ai-ms.herokuapp.com/scrub",
+					"host": [
+						"botic-ai-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"scrub"
+					]
+				},
+				"description": "Test that sends no form string to the API"
+			},
+			"response": []
+		},
+		{
+			"name": "no_personal_information",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7a212177-de5c-421d-8c18-a7692b9eb37f",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"[]\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "data",
+							"value": "This is a test line with no personal information.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "botic-ai-ms.herokuapp.com/scrub",
+					"host": [
+						"botic-ai-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"scrub"
+					]
+				},
+				"description": "Query sending string to API with no personal information"
+			},
+			"response": []
+		},
+		{
+			"name": "test_one_personal_info_given",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dff3f125-9f95-4fa1-b348-dff09775b472",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"{'position':12,'severity':3}\");",
+							"    pm.expect(pm.response.text()).to.include(\"{'position':8,'severity':1}\");",
+							"    pm.expect(pm.response.text()).to.include(\"{'position':17,'severity':2}\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 100ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "data",
+							"value": "This is a test and my name is Fred, my login is test_man_1000 and my id - 18927379812",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "botic-ai-ms.herokuapp.com/scrub",
+					"host": [
+						"botic-ai-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"scrub"
+					]
+				},
+				"description": "The user gives some personal information for the API to find"
+			},
+			"response": []
+		},
+		{
+			"name": "test_two_personal_info_given",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07c74fc2-54e2-47b9-ab0d-d6177dd7356c",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"{'position':22,'severity':2}\");",
+							"    pm.expect(pm.response.text()).to.include(\"{'position':12,'severity':1}\");",
+							"    pm.expect(pm.response.text()).to.include(\"{'position':8,'severity':1}\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 100ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "data",
+							"value": "This is a test and my email is Garry@ThatPlace.com, my username is test_man_2000. Oh and also you might need my id number: 123456789123456789. Thanks for you help :)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "botic-ai-ms.herokuapp.com/scrub",
+					"host": [
+						"botic-ai-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"scrub"
+					]
+				},
+				"description": "The user gives some personal information for the API to find"
+			},
+			"response": []
+		},
+		{
+			"name": "test_three_personal_info_given",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c3906335-fcb9-49c0-be65-2656478a9332",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"{'position':18,'severity':1}\");",
+							"    pm.expect(pm.response.text()).to.include(\"{'position':8,'severity':3}\");",
+							"    pm.expect(pm.response.text()).to.include(\"{'position':14,'severity':2}\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 100ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "data",
+							"value": "This is a test and my password is 1234, my mothers maiden name is Margaret, and my username: test_man_3000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "botic-ai-ms.herokuapp.com/scrub",
+					"host": [
+						"botic-ai-ms",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"scrub"
+					]
+				},
+				"description": "The user gives some personal information for the API to find"
+			},
+			"response": []
+		}
+	]
+}
