@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TextScraperService } from '../text-scraper.service';
 import { MessageService } from '../message.service';
 import { badWord } from '../badWord';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-text-scraper',
@@ -19,7 +20,8 @@ export class TextScraperComponent implements OnInit {
 
   constructor(
     private TextScraperService: TextScraperService,
-    public MessageService: MessageService
+    public MessageService: MessageService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -30,13 +32,13 @@ export class TextScraperComponent implements OnInit {
 
   returnChangedDisplay(input: string): void{
     var output = "";
-    this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => {
+    //this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => {
 
         var array = input.split(" ");
         var isABadWord = false;
         var severity = 0;
 
-        this.badWords = badWords;
+        //this.badWords = badWords;
 
         for(var i = 0; i < array.length; i++){
           //Reset isABadWord and severity index.
@@ -58,7 +60,7 @@ export class TextScraperComponent implements OnInit {
           output += " ";
           this.preview = output;
         }
-    });
+    //});
   }
 
   /**
@@ -90,47 +92,39 @@ export class TextScraperComponent implements OnInit {
   message or send it with the personal information attached.
   */
   onClickCall(userInput : string) : void {
-
-        // window.alert(this.badWords.length);
+    this.TextScraperService.getBadWordsFromInput(userInput).subscribe(badWords => {
+      this.badWords = badWords;
         if (this.hasChecked == false) {
-          // this.returnChangedDisplay(userInput);
 
           setTimeout(() => {
 
-          this.hasChecked = true;
+            this.hasChecked = true;
 
-          if (this.badWords.length == 0) {
-            this.sendMessage(userInput);
-            this.hasChecked = false;
-            // document.getElementById("btn-input").reset();
-          }
-          else {
-             if (this.checkIfSeverityIsThree(userInput) == true) {
-              window.alert("Really sensitive information, e.g. a password, has been detected and therefore the ticket cannot be sent through, please remove the information in order to continue.");
+            if (this.badWords.length == 0) {
+              this.sendMessage(userInput);
               this.hasChecked = false;
-
-            //  var theBadWordsAdded = "The following personal information have been entered: ";
-
-              var replaceText = document.getElementById("preview");
-              // replaceText.innerHTML = replaceText.innerHTML.replace("", this.returnChangedDisplay(userInput));
-              this.returnChangedDisplay(userInput);
             }
             else {
-              window.alert("Personal information has been entered. See text above textbox for details.");
-              //var theBadWordsAdded = "The following personal information have been entered: ";
+              if (this.checkIfSeverityIsThree(userInput) == true) {
+                this.showError();
+                this.hasChecked = false;
 
-              var replaceText = document.getElementById("preview");
-              // replaceText.innerHTML = replaceText.innerHTML.replace("", this.returnChanged(userInput));
-              this.returnChangedDisplay(userInput);
+                var replaceText = document.getElementById("preview");
+                this.returnChangedDisplay(userInput);
+              }
+              else {
+                this.showError();
+                var replaceText = document.getElementById("preview");
+                this.returnChangedDisplay(userInput);
+              }
             }
-          }
-        }, 2000);
+          }, 2000);
         }
         else {
           this.sendMessage(userInput);
           this.hasChecked = false;
         }
-
+      });
     }
 
  /*
@@ -169,5 +163,9 @@ export class TextScraperComponent implements OnInit {
 
   private sendMessage(message: string) {
     this.MessageService.userAdd(`${message}`);
+  }
+
+  showError() {
+    this.toastr.error("Personal information has been entered", "Privacy Warning");
   }
 }

@@ -23,6 +23,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { ResponseAIComponent } from './response-ai/response-ai.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ResponseAIComponent } from './response-ai/response-ai.component';
     FormsModule,
     TextInputHighlightModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
