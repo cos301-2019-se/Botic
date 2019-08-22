@@ -20,6 +20,7 @@ RUN sudo apt install -y python3-pip
 RUN pip3 install h5py
 RUN pip3 install Cython
 RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
+RUN pip3 install nltk
 
 EXPOSE 5000
 

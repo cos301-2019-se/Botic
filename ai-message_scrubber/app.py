@@ -256,5 +256,11 @@ def scrub():
 
 
 if __name__ == '__main__':
-	app.run(port=5002)
-	app.run()
+#	app.run(port=5001)
+#	app.run()
+
+# rather have something this:
+import os
+port = int(os.environ.get("PORT", 5002))
+app.run(host='0.0.0.0', port=port)
+
