@@ -1,9 +1,9 @@
 <div class="">
   <div class="">
     <div class="">
-      <div *ngIf="sendTicket(); else elseBlock">
-        <br />
-        <h4>Please enter the message that you would like to send to the support representative</h4>
+      <div *ngIf="!sendTicket(); else elseBlock">
+
+        <h4>Contact Customer Representative</h4>
         <div class="container">
           <div class="row">
           <div class="col-md-12">
