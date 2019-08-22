@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
 import { TextScraperComponent } from './text-scraper/text-scraper.component';
+
 import { SafePipe } from './safe.pipe';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +22,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { ResponseAIComponent } from './response-ai/response-ai.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     FooterComponent,
     MessagesComponent,
     CustomerSupportComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ResponseAIComponent
   ],
   imports: [
     BrowserModule,

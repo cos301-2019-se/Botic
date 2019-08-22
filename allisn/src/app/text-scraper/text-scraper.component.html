@@ -2,10 +2,9 @@
   <div class="">
     <div class="">
               <div style="height:40vh;border:none;">
-                <div
-                [innerHTML]="displayChat() | safe: 'html'">
-                </div>
+
               </div>
+              <p [innerHTML] = "preview | safe: 'html'"> </p>
               <p id="preview"><span [innerHTML]=""></span></p>
               <textarea
                 contenteditable="true"
@@ -13,6 +12,7 @@
                 cols="48"
                 [(ngModel)]="userInput"
                 id="btn-input" class="form-control input-sm"
+                placeholder="Send ticket query here."
                 >
               </textarea>
               <br>
@@ -25,5 +25,4 @@
     </div>
   </div>
 </div>
-
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

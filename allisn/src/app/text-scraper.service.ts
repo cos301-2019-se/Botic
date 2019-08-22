@@ -1,15 +1,10 @@
 import { Injectable } from '@angular/core';
-
 import { Observable, of } from 'rxjs';
-
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-
 import { badWord } from './badWord';
 import { BADWORDS } from './mock-badWords';
-
-import { MessageService } from './message.service';
 
 //Committable Change
 @Injectable({
@@ -17,14 +12,13 @@ import { MessageService } from './message.service';
 })
 
 export class TextScraperService {
-  private apiURL = 'https://botic-ai-ms.herokuapp.com/scrub';
-  private testingURL1 = 'https://reqres.in/api/register';
-
-
-
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService) { }
+  private apiURL = 'http://127.0.0.1:5001/scrub';
+  /*
+    private apiURL = 'https://botic-ai-ms.herokuapp.com/scrub';
+    private testingURL1 = 'https://reqres.in/api/register';
+  */
+  constructor(private http: HttpClient){
+  }
 
   /*
   getBadWords(): Observable<any> {
@@ -86,19 +80,16 @@ export class TextScraperService {
     fd.append("data", input);
 
     return this.http.post(this.apiURL,fd).pipe(map((data: any) => {
+          console.log("Data: " + data)
           var cooled = data.replace(/'/g,'"');
-          //console.log(cooled);
           var words = JSON.parse(cooled);
-          //console.log("Data: " + JSON.stringify(words));
+          //console.log(cooled);
+          console.log("Data: " + JSON.stringify(words));
 
-          //badWord badWords = [];
+
 
           return words;
         }));
+    // return of(BADWORDS);
   }
-
-  private log(message: string) {
-    this.messageService.add(`${message}`);
-  }
-
 }
