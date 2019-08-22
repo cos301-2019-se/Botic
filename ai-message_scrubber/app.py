@@ -3,6 +3,7 @@ from flask import Flask, request, json, jsonify
 from flask_cors import CORS, cross_origin
 import re
 import os
+import string
 
 #Text scraper stuff
 import gensim
@@ -225,7 +226,7 @@ def scrub():
 			response = jsonify('')
 			response.status_code = 400
 			return response
-
+		input_data=input_data.translate(str.maketrans({key: None for key in string.punctuation}))
 		response = parseInfo(input_data)
 
 		response = jsonify(response)
