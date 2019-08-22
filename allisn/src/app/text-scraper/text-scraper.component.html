@@ -1,9 +1,50 @@
 <div class="">
   <div class="">
     <div class="">
-              <div style="height:40vh;border:none;">
-
+      <div *ngIf="sendTicket(); else elseBlock">
+        <br />
+        <h4>Please enter the message that you would like to send to the support representative</h4>
+        <div class="container">
+          <div class="row">
+          <div class="col-md-12">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label for="email">Email Address</label>
+                  <input class="form-control" name="email" placeholder="Email Address" type="email" id="email"  ngModel required #email="ngModel"/>
+                </div>
               </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label for="subject">Subject</label>
+                  <input class="form-control" name="subject" placeholder="Email Address" type="text" id="subject" ngModel required #subject="ngModel"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <textarea
+                  contenteditable="true" 
+                  name="body"
+                  type="text" 
+                  id="body"            
+                  class="form-control"
+                  style="width:100%"
+                  placeholder="Plese briefly describe your query and a customer representative will respond to you as soon as possible."
+                  ngModel required #body="ngModel"></textarea>
+                </div>                
+              </div>
+              <div class="row">
+                  <input type="submit" class="btn btn-primary" />
+                </div>
+            </form>
+          </div>
+        </div>
+        </div>                
+      </div>
+      <ng-template #elseBlock>
+        <div style="height:40vh;border:none;">
+              </div>
+
               <p [innerHTML] = "preview | safe: 'html'"> </p>
               <p id="preview"><span [innerHTML]=""></span></p>
               <textarea
@@ -22,6 +63,7 @@
                 </div>
                 <br>
               </div>
+      </ng-template>
     </div>
   </div>
 </div>
