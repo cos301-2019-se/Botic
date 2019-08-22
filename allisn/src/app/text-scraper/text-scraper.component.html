@@ -23,15 +23,15 @@
               <div class="row">
                 <div class="form-group col-md-6">
                   <textarea
-                  contenteditable="true" 
+                  contenteditable="true"
                   name="body"
-                  type="text" 
-                  id="body"            
+                  type="text"
+                  id="body"
                   class="form-control"
                   style="width:100%"
                   placeholder="Plese briefly describe your query and a customer representative will respond to you as soon as possible."
                   ngModel required #body="ngModel"></textarea>
-                </div>                
+                </div>
               </div>
               <div class="row">
                   <input type="submit" class="btn btn-primary" />
@@ -39,7 +39,7 @@
             </form>
             </div>
           </div>
-        </div>                
+        </div>
       </div>
       <ng-template #elseBlock>
         <p [innerHTML] = "preview | safe: 'html'"></p>
