@@ -116,14 +116,14 @@ export class TextScraperComponent implements OnInit {
             }
             else {
               if (this.checkIfSeverityIsThree(userInput) == true) {
-                this.showError();
+                this.showError2();
                 this.hasChecked = false;
 
                 var replaceText = document.getElementById("preview");
                 this.returnChangedDisplay(userInput);
               }
               else {
-                this.showError();
+                this.showError1();
                 var replaceText = document.getElementById("preview");
                 this.returnChangedDisplay(userInput);
               }
@@ -175,8 +175,12 @@ export class TextScraperComponent implements OnInit {
     this.MessageService.userAdd(`${message}`);
   }
 
-  showError() {
-    this.toastr.error("Personal information has been entered", "Privacy Warning");
+  showError1() {
+    this.toastr.warning("Potentially compromising information has been detected, please press send again to confirm that you would like to transmit this information", "Privacy Warning");
+  }
+
+  showError2() {
+    this.toastr.error("HIGHLY COMPROMISING INFORMATION DETECTED, please review the warning box below for more information.", "Privacy Warning");
   }
 
   sendTicket(): boolean{
