@@ -6,7 +6,7 @@
         <h4>Contact Customer Representative</h4>
         <div class="container">
           <div class="row">
-          <div class="col-md-12">
+            <div class="col-md-12">
             <form #f="ngForm" (ngSubmit)="onSubmit(f)">
               <div class="row">
                 <div class="form-group col-md-6">
@@ -37,32 +37,18 @@
                   <input type="submit" class="btn btn-primary" />
                 </div>
             </form>
+            </div>
           </div>
-        </div>
         </div>                
       </div>
       <ng-template #elseBlock>
-        <div style="height:40vh;border:none;">
-              </div>
-
-              <p [innerHTML] = "preview | safe: 'html'"> </p>
-              <p id="preview"><span [innerHTML]=""></span></p>
-              <textarea
-                contenteditable="true"
-                rows="4"
-                cols="48"
-                [(ngModel)]="userInput"
-                id="btn-input" class="form-control input-sm"
-                placeholder="Send ticket query here."
-                >
-              </textarea>
-              <br>
-              <div style="margin-top: 5px;">
-                <div style="">
-                  <button class="btn primary" (click)="onClickCall(userInput)" id="btnSend">Send</button>
-                </div>
-                <br>
-              </div>
+        <p [innerHTML] = "preview | safe: 'html'"></p>
+        <div class="input-group">
+          <input id="btn-input" type="text" [(ngModel)]="userInput" class="form-control input-sm" placeholder="Type your message here..." />
+          <span class="input-group-btn">
+            <button class="btn btn-warning btn-sm" id="btn-chat" (click)="onClickCall(userInput)" style="background-color:#000;border:none;">Send</button>
+          </span>
+        </div>
       </ng-template>
     </div>
     <ng-template #doneChatting>
