@@ -1,21 +1,27 @@
 <div>
   <app-header></app-header>
-  <div class="container" style="padding:10px; width:100%;" id="chat">
-      <div class="" style="width:100%;">
-         <div class="" style="width: 100%;">
-            <div class="panel panel-primary" style="border:none;">
-               <div class="panel-heading" style="background-color:#000;border:none;">
-                  <span class="glyphicon glyphicon-comment"></span> Chat
-               </div>
-               <div class="panel-body"style="height:75vh;border:none;">
-                 <app-response-ai></app-response-ai>
-                 <app-text-scraper></app-text-scraper>
-               </div>
-               <div class="panel-footer">
-               </div>
-            </div>
-         </div>
+  <div class="container" id="chat">
+    <div class="row">
+      <div class="col-md-1">
       </div>
+      <div class="col-md-10">
+          <div class="panel panel-primary" style="border:none;">
+            <div class="panel-heading" style="background-color:#000;border:none;">
+              <span class="glyphicon glyphicon-comment"></span> Chat
+            </div>
+
+                          
+            <app-response-ai></app-response-ai>            
+
+            <div class="panel-footer">
+              <app-text-scraper></app-text-scraper>                 
+            </div>
+
+          </div>
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
   </div>
   <app-footer></app-footer>
 

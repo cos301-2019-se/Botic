@@ -139,7 +139,7 @@ body {
 .panel-body
 {
     overflow-y: scroll;
-    height: 250px;
+    height: 500px;
 }
 
 ::-webkit-scrollbar-track

@@ -1,2 +1,4 @@
-<div [innerHTML]="displayChat() | safe: 'html'">
+<div class="panel-body" id="messageContainer">
+	<ul class="chat" [innerHTML]="displayChat() | safe: 'html'">
+	</ul>
 </div>

@@ -10,7 +10,7 @@ import { botResponse } from './botResponse';
 })
 
 export class BotService {
-  apiURL = "http://127.0.0.1:5000/prattle"
+  apiURL = "http://127.0.0.1:5001/prattle"
 
   constructor(private http: HttpClient){
     }

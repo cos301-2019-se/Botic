@@ -9,6 +9,7 @@ import json
 from nltk.corpus import stopwords
 from collections import Counter
 from googlesearch import search
+import string
 
 # Not super important but it can be used
 # if we need it.
@@ -198,7 +199,7 @@ def prattle():
             response = jsonify('Holup')
             response.status_code = 400
             return response
-
+        input_data=input_data.translate(str.maketrans({key: None for key in string.punctuation}))
         response = jsonify(respond(input_data, sessionId))
         response.headers.add('Access-Control-Allow-Origin', '*')
         response.status_code = 202
@@ -206,4 +207,4 @@ def prattle():
     return response
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5001)
