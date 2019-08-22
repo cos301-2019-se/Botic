@@ -3,6 +3,9 @@ import { TextScraperService } from '../text-scraper.service';
 import { MessageService } from '../message.service';
 import { badWord } from '../badWord';
 import { ToastrService } from 'ngx-toastr';
+import { StateService } from '../state.service';
+import { NgForm } from '@angular/forms';
+import { SendTicketService } from '../send-ticket.service';
 
 @Component({
   selector: 'app-text-scraper',
@@ -18,10 +21,16 @@ export class TextScraperComponent implements OnInit {
   debug = false;
   preview = "preview";
 
+  email: string;
+  subject: string;
+  body: string;
+
   constructor(
     private TextScraperService: TextScraperService,
     public MessageService: MessageService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private state: StateService,
+    private sendTicketService: SendTicketService,
   ) {}
 
   ngOnInit() {
@@ -167,5 +176,20 @@ export class TextScraperComponent implements OnInit {
 
   showError() {
     this.toastr.error("Personal information has been entered", "Privacy Warning");
+  }
+
+  sendTicket(): boolean{
+    return (this.state.currentState == 'SENDTICKET');
+  }
+
+  onSubmit(f: NgForm) {
+    var ticket = f.value;
+    console.log(ticket.email);  // { first: '', last: '' }
+    console.log(ticket.subject);  // false
+    console.log(ticket.body);
+
+    this.sendTicketService.send(ticket.email, ticket.subject, ticket.body).subscribe(response =>{
+      console.log(response);
+    }) 
   }
 }

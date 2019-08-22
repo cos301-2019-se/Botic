@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../message.service';
 import { botResponse } from '../botResponse';
+import { StateService } from '../state.service';
 
 @Component({
   selector: 'app-response-ai',
@@ -9,7 +10,8 @@ import { botResponse } from '../botResponse';
 })
 export class ResponseAIComponent implements OnInit {
 
-  constructor(public messageService: MessageService) { }
+  constructor(public messageService: MessageService,
+    public stateService: StateService) { }
 
   ngOnInit() {
   }
@@ -20,5 +22,9 @@ export class ResponseAIComponent implements OnInit {
       output += this.messageService.messages[i];
     }
     return output;
+  }
+
+  changeState(input: string){
+    this.stateService.currentState = input;
   }
 }
