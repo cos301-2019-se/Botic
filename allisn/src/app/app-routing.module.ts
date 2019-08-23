@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
-
+import { RouterModule, Routes } from '@angular/router';
+import { AuthService } from './services/security/auth/auth.service';
 import { LandingComponent } from './components/pages/landing/landing.component';
-import { CustomerChatComponent } from './components/customer-chat/customer-chat.component';
-import { CustomerSupportComponent } from './components/customer-support/customer-support.component';
+import { CustomerChatComponent } from './components/pages/customer-chat/customer-chat.component';
+import { CustomerSupportComponent } from './components/pages/customer-support/customer-support.component';
 import { AuthGuard } from './services/security/auth/auth.guard';
-import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminDashboardComponent } from './components/pages/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent },
-  { path: 'chat', component: CustomerChatComponent },
-  { path: 'repHome', component: CustomerSupportComponent},
-  { path: 'admin', component: AdminDashboardComponent}
+  { path: '', component: LandingComponent, pathMatch: 'full' },
+  { path: 'chat', component: CustomerChatComponent, pathMatch: 'full' },
+  { path: 'repHome', component: CustomerSupportComponent, canActivate: [AuthGuard] },
+  { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -22,6 +22,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthService]
 })
 export class AppRoutingModule { }

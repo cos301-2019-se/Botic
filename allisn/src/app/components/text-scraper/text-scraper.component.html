@@ -1,0 +1,69 @@
+<div class="">
+  <div class="">
+    <div *ngIf="!stateDone(); else doneChatting">
+      <div *ngIf="sendTicket(); else elseBlock">
+
+        <h4>Contact Customer Representative</h4>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="email">Email Address</label>
+                  <input class="form-control" name="email" placeholder="Email Address" type="email" id="email"  ngModel required #email="ngModel"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="subject">Subject</label>
+                  <input class="form-control" name="subject" placeholder="Email Address" type="text" id="subject" ngModel required #subject="ngModel"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <textarea
+                  contenteditable="true"
+                  name="body"
+                  type="text"
+                  id="body"
+                  class="form-control"
+                  style="width:100%"
+                  placeholder="Plese briefly describe your query and a customer representative will respond to you as soon as possible."
+                  ngModel required #body="ngModel"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                  <input type="submit" class="btn btn-primary" />
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <p [innerHTML] = "preview | safe: 'html'"></p>
+        <div class="input-group">
+          <input id="btn-input" type="text" [(ngModel)]="userInput" class="form-control input-sm" placeholder="Type your message here..." />
+          <span class="input-group-btn">
+            <button class="btn btn-warning btn-sm" id="btn-chat" (click)="onClickCall(userInput)" style="background-color:#000;border:none;">Send</button>
+          </span>
+        </div>
+      </ng-template>
+    </div>
+    <ng-template #doneChatting>
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+          <div class="alert alert-success" role="alert">
+              <h4>Done!</h4>
+              <p>Your request has been sent an a representative will respond to your query at our earliest convinience.Feel free to leave this page or click 'Return' to return to the home page.</p>
+              <p><a href="/"><button class="btn btn-success">Return</button></a></p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

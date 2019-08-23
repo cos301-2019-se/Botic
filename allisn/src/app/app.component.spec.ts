@@ -1,4 +1,5 @@
-import { TestBed, async } from '@angular/core/testing';
+// tslint:disable-next-line: no-submodule-imports
+import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -16,16 +17,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'allisn'`, () => {
+  it(`should have as title 'Botic: Privacy Aware chatbot.'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('allisn');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to allisn!');
+    expect(app.title).toEqual('Botic: Privacy Aware chatbot.');
   });
 });

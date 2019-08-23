@@ -1,21 +1,26 @@
 # Using an official Python runtime as a parent image
-FROM python:3.8.0a3-stretch
+FROM ubuntu:18.04
 
-# Install python and pip
-# RUN apk add --no-cache --update python3 py3-pip bash
-ADD requirements.txt /tmp/requirements.txt
-# ADD install_dependencies.sh /tmp/install_dependencies.sh
+# Set the working directory to /app
+WORKDIR /app
 
-# Install dependencies
-RUN pip install --upgrade pip
-RUN pip install Cython
-RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# RUN pip install --trusted-host pypi.python.org -r /tmp/requirements.txt
+# Setup necessary updates
+RUN apt-get update && \
+	apt-get -y install sudo
+RUN sudo apt -y upgrade
 
-# Add our code
-ADD . /opt/webapp/
-WORKDIR /opt/webapp
+# Install python
+RUN sudo apt install -y python3
+RUN sudo apt install -y python3-pip
+
+# Install any needed packages specified in requirements.txt
+RUN pip3 install h5py
+RUN pip3 install Cython
+RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
+RUN pip3 install nltk
 
 EXPOSE 5000
 

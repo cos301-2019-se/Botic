@@ -21,3 +21,5 @@ pytest_cache/
 venv/
 __pycache__/
 .coverage
+
+TensorFlow/gensim/model\.word2vec
