@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+%%\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[linktocpage=true]{hyperref}
+
+%%Page layout
+\usepackage[margin=2.0cm]{geometry}
+\usepackage{bookmark}
+
+%%Table Colours
+\usepackage{color}
+\definecolor{blue}{rgb}{0.392,0.584,0.929}
+\usepackage{colortbl}
+
+%%For Use Case Scenarios
+\usepackage{eulervm}
+\usepackage[charter]{mathdesign}
+\usepackage{xcolor}
+
+%%Figures
+\usepackage{float}
+
+\usepackage{mathpazo}
+
+%%Font and Numbers
+\renewcommand*\rmdefault{dayrom}
+\usepackage[T1]{fontenc}
+\normalfont
+\usepackage{enumitem}
+
+%%Packages for Referrences
+\usepackage{url}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
+
+%%Group Comments
+\usepackage{verbatim}
+
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\begin{document}
+\renewcommand{\familydefault}{\sfdefault}
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+	\begin{center}
+		            
+		\textsc{\LARGE Alabama Liquid Snake}\\[0.8cm]
+		\textsc{\Large University of Pretoria}\\[0.5cm]
+		\textsc{\large Epi-Use}\\[0.5cm]
+		    
+		\HRule\\[0.4cm]
+		    	
+		{\huge\bfseries Botic - Privacy aware chatbot}\\[0.2cm]
+		    	
+		{\huge Implementation Details}\\[0.2cm]
+		
+		\HRule\\[0.5cm]
+		
+		\textsc{Justin Grenfell} - u16028440 \\[0cm]
+		\textsc{Peter Msimanga} - u13042352 \\[0cm]
+		\textsc{Alicia Mulder} - u14283124 \\[0cm]
+		\textsc{Kyle Gaunt} - u15330967 \\[0cm]
+		\textsc{Lesego Mabe} - u15055214 \\[0cm]
+		    
+	\end{center}
+\end{titlepage}
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+This documents follows the implementation decisions made during the project development stage. Implementation decisions will be covered in each interation, and categorized further according to the use cases.\par
+The development approach will be Test Driven Development as it can reduce prerelease defects densities by 90 percent compared to similar projects that do not use it, and it can improve programmer productivity\cite{Book:1}.
+
+\subsection{Interation 1}
+
+\subsubsection{UC21: Login}
+
+%include picture representing the Angular Architecture
+
+\paragraph{Dealing with the MVC}
+The Angular SPA application framework does not necessarily have a direct mapping to our architectural designs and decisions; as to be expected. The View will be bundled into varous Angular components. The Controllers will be bundled into various Angular services. The Model will also be represented as Angular services. This is how we will map each of the Angular constructs to the architecture we have chosen.\\*
+
+\paragraph{Angular and Abstract Classes}
+The Design Class Diagram represents certain constructs that are not necessarily Angular or Typescript contructs. Since we have made the decision to represent all our controllers as Angular services, we will have to create an Interface to represent the Abstract Controller class. Each Concrete Controller will thus be represented as an "implemented" Angular Service; \cite{Website:5} provides a tutorial on how to do this.
+
+\paragraph{Updates to File Structure}
+The "shared" folder will contain classes and objects  that are shared across the system, i.e. log classes, data structures, and others.\par
+
+\paragraph{Database Manager}
+An Angular Service will be created to interface with the Database Manager API; this is done to decouple all networking away from each use case controller that will need to store or retrive any data or objects to and from the available databases.\par
+The database manager itself was developed to be a RESTful api using the help of the tutorials in \cite{Website:6}, \cite{Website:7}, and \cite{Website:8}.\\*
+
+We have chosen to use MongoDB to store logs instead of a particular RDBMS like Postgres. This is because we want to continue the general use of JSON that we have already begun to use in our APIs, it is very simple to setup and use\cite{Website:10} as there isn't strict schema design and adherance\cite{Website:11}, it also allows for lots of scaling\cite{Website:10} as it is typically used for Big Data storage\cite{Website:12} and performs faster as it doesn't have to verify relationship integrity like SQL\cite{Website:11}.\\*
+
+Since we have already begun the use of Typescript in our Angular frontend, we can continue using it in our Node API. The benefits of this are getting a more "universal" language and standard for our project, including testing, having less errors because we now use a type safe language rather than JavaScript, Typescript can allow our IDEs to expose project modules easily and the more robust language offers more reliability\cite{Website:9}. To this end, the tuturial in \cite{Website:9} helped us use TypeScript instead of JavaScript in our RESTful Node API. So, whenever a package is installed from npm, just install the types as well, which are usually of the form "@types/<package-name>." To build the project, use "npm tsc". It will create all the necessary JavaScript files from the TypeScript files. They will be in the "build" folder, which you can run using "node ./build/app.js" for example.\\*
+
+\paragraph{JWT Tokens: Integrity and Authorization}
+
+We use JSON Web Tokens in order to ensure that the data that is sent to and from the Persistence API maintains integrity. JWTs do this by using a hash function, to hash the header and payload, to produce the signature of the token \cite{Website:13}. The hash function uses a secret key, one that we use internally in our subsystems, so in verifying the token, the secret key guarantees that the token came from an authorized (subsystem) source and that the data was not changed -- otherwise the token is rejected \cite{Website: 13}. These are only signed and encoded, so they don't guarantee security for sensative data, just that the data was unchanged and that it came from an authorized source \cite{Website: 14}.
+
+\section{References}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

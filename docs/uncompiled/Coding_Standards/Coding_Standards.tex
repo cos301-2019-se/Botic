@@ -125,11 +125,45 @@
 \newpage
 \section{Introduction}
 
-This document is meant to contain all details regarding the coding standards used in the development of all subsystems.
+This document is meant to contain all details regarding the coding standards used in the development of all subsystems. The coding standards will be analysed on a per subsystem basis. We also define rules pertaining to the file headers as well as the description of classes.
 
-\subsection{Frontend: Angular}
+\subsection{File Headers}
 
-In Angular, each component makes use of a ts file, Typescript, which is a superset of JavaScript that enforces typing, a view which uses HTML (Hypertext Markup Language) as well as styled using CSS (Cascading Style Sheets). These are going to be the focus of the coding standards defined in this subsection, as well as the directories that contain the software artifacts written in the languages listed in the previous sentence.
+We require that our file headers have the following information:
+
+\begin{tabular}{|c|p{14cm}|}
+	\hline
+	Item & Description \\
+	\hline
+	File name & This is just the file name of the code file \\
+	\hline
+	Version number & The version number.\\
+	\hline
+	Author name & The name of the programmer who creates this file. \\
+	\hline
+	Project name & The name of the project. \\
+	\hline
+	Organization & The name of the team or organization that developed the project. \\
+	\hline
+	Related Use Cases & The shows the related use cases the resulted in the creation of this file. \\
+	\hline
+	Update history & List of updates, with the date of the update, the author of the changes, what was updated and why. \\
+	\hline
+	Reviewers & List of reviewers and what they reviewed. \\
+	\hline
+\end{tabular}
+
+Here is an example: 
+
+\subsection{Class Descriptions}
+
+Each class will need to have a description of its purpose, a description of its methods i.e. the purpose of each, the parameters, return type, input and output, and if possible or necessary, the asymptotic complexity of the algorithm executed\cite{Book:1}. It should also have a description of each field, this includes the name of the field, the data type, and initialization requirement. 
+
+Here is an example: 
+
+\subsection{Frontend: Angular7}
+
+In Angular, each component makes use of a ts file, Typescript, which is a superset of JavaScript that enforces typing, a view which uses HTML (Hypertext Markup Language) as well as styled using CSS (Cascading Style Sheets). These are going to be the focus of the coding standards defined in this subsection, as well as the directories that contain the software artifacts.
 
 \subsubsection{Naming Conventions}
 
@@ -143,21 +177,20 @@ ng generate component components/layout/footer
 Following this rule, services and models are seperated into their respective folders, and within those folders, they are separated and ordered according their the functions.\par
 Models, components and views are created using lowercase names. Since Angular CLI adds identifying information to the names of each file, i.e. ".component.ts" for components, ".component.html" for view, and ".service.ts" for services, the name of the file in lower case according the name of the component, as well as it's positioning in an appropriate directory, is enough.\par
 
-%add naming conventions for CSS
+The View will be bundled into varous components; thus the "components" directory will hold all components comprising of the view. The Controllers will be bundled into various services; thus the "services" directory will hold all the controllers. The Model will also be represented as "service" components. This is how we will map each of the Angular constructs to the architecture we have chosen.
 
-In the Typescript files we will require that by default, camel case is used for both method names and variables. Members that are modifiers, however will need to have a leading underscore and the type is indicated using Pascal case.
+%add naming conventions for CSS
+%show example of file structure produced from using the Angular CLI
+
+In the Typescript files we will require that by default, camel case is used for both method names and variables. The type is indicated using Pascal case.
 
 %% add a picture of an example of the file naming conventions (use the components one)
 
-\subsubsection{Layout Rules}
+\subsubsection{Formating Rules}
 
-Here is a snippet containing some of our coding standards:
+Here is a snippet containing some of our coding standards and additional formating rules with are checked in our code using tsLint:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
-  "rulesDirectory": [
-    "node_modules/codelyzer",
-    "tslint-consistent-codestyle"
-  ],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
@@ -242,24 +275,40 @@ Using Visual Studio Code and having installed TSLint from the market place (\url
 
 These haven't been defined just yet.
 
+\subsubsection{Enforcement}
 %\subsection{Backend: Chatbot}
 %\subsubsection{Naming Conventions}
 %\subsubsection{Layout Rules}
 %\subsubsection{Commenting Practices}
 
-\section{File Structure}
-\subsection{Frontend: allisn directory}
+\subsection{Other Subsystems using TypeScript}
 
-The Angular CLI will be used for the creation of each component and service. New components are created using the command "ng g c" followed by the directory "components", and the subdirectory according to the function of the component, and lastly the name of the component. Here is an example:
+The Persistence layer, as well as the Chatbot layer (both APIs and modules) will be using TypeScript which will be transpiled into JavaScript. Since we have already begun the use of Typescript in our Angular frontend, we can continue using it in our Node API. The benefits of this are getting a more "universal" language and standard for our project, including testing, having less errors because we now use a type safe language rather than JavaScript, Typescript can allow our IDEs to expose project modules easily and the more robust language offers more reliability\cite{Website:9}. To this end, the tuturial in \cite{Website:9} helped us use TypeScript instead of JavaScript in a RESTful API.
 
-\begin{lstlisting}[language=bash]
-ng generate component components/layout/footer
+Like in the frontend, we will stick to the same formating rules, and the relevant naming conventions. Tslint will be soon be deprecated though, and migrations to Eslint will be emphasized \cite{Website:13}. We will migrate to Eslint, once we are confident that other high priority issues have been handled. The naming conventions for the Persistence API as well as Chatbot API will have to be checked manually however, for the time being. The rules meant to be enforced are:
+
+\begin{lstlisting}[language=json,firstnumber=1]
+"naming-convention": [
+            true,
+            {"type": "default", "format": "camelCase", "leadingUnderscore": "forbid", "trailingUnderscore": "forbid"},
+            {"type": "method", "modifiers": "public", "format": "camelCase"},
+            {"type": "member", "modifiers": "private", "leadingUnderscore": "require"},
+            {"type": "type", "format": "PascalCase"}
+        ],
 \end{lstlisting}
-Following this rule, services and models are seperated into their respective folders, and within those folders, they are separated and ordered according their the functions.
 
-\subsection{Message Scrubber: ai-message-scrubber}
+\subsection{Code Review Checklist}
 
-All files are in the same directory for the time being.
+The code review checklist provided by \cite{Book:1} will be used to infer our code review checklist: 
+
+\begin{enumerate}
+	\item Does the program correctly implement the functionality and conform to the design spec?
+	\item Does the implementation comply to coding standards?
+	\item Are the programming constructs correctly used?
+	\item Are there any potential performance bottlenecks, or the inability to fulfill timing constraints?
+\end{enumerate}
+
+These will be reviewed as the project continues.
 
 \section{References}
 \bibliographystyle{IEEEtran}

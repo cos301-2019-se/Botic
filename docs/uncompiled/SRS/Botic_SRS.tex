@@ -694,7 +694,7 @@ The whole system adheres to the 4-Tier architectural style. It's layers or subsy
 	\caption{Architectural Stye of the System}
 \end{figure}
 
-The allowed-to-use relation here is denoted by the geometric adjacency of the layers from left to right-- layers on the left use layers on the right and the layers on the right are used by the layers on the left ONLY. The connections between each layer are made to be through encrypted channels. An appropriate technology will be used to implement this during the implementation phase e.g. SSL.
+The allowed-to-use relation here is denoted by the geometric adjacency of the layers from left to right-- layers on the left use layers on the right and the layers on the right are used by the layers on the left. The exception here is the connection between the user interface as well as the persistence layer, as this is required to store information from controllers within the UI's MVC architecture, as well as obtaining information or data for UI level use case i.e. displaying users or obtaining user information. The connections between each layer are made to be through encrypted channels. An appropriate technology will be used to implement this during the implementation phase e.g. SSL.
 
 \subsubsection{The User Interface Subsystem}
 The User Interface Layer that is also an interactive subsystem uses an MVC architectural style. Using this architectural style, we ensure that user interface interface functionality, something that tends to change frequently especially in response to knew design trends *Quote IMY theory notes, be kept seperate from the application functionality and yet be ever responsive to user input, the most important thing in an interactive system\cite{Book:2}. This is the solution:

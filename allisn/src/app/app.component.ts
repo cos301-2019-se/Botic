@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/security/auth/auth.service';
+import { LoginControllerService } from './services/controllers/login/login-controller.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,9 @@ import { AuthService } from './services/security/auth/auth.service';
 })
 
 export class AppComponent {
-  title = 'Botic: Privacy Aware chatbot.';
+  public title = 'Botic: Privacy Aware chatbot.';
 
-  constructor(private auth: AuthService) {
-    this.auth.processAuth();
+  constructor() {
+    // this.auth.processAuth();
   }
 }
