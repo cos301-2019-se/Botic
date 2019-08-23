@@ -30,6 +30,9 @@ services:
 sudo: required
 true: ~
 
+matrix:
+  fast_finish: true
+
 language: node_js
 node_js:
 - "8.2.1"
