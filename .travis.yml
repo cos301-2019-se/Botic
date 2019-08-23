@@ -47,8 +47,8 @@ before_script:
 
 script:
 - node_modules/.bin/newman run ai-message_scrubber/postman/Scrub_API_Tests.postman_collection.json
-- cd $TRAVIS_BUILD_DIR/allisn & node_modules/.bin/jasmine
-- cd ..
-- cd $TRAVIS_BUILD_DIR/persistence & node_modules/.bin/jasmine
-- cd ..
+
+matrix:
+  allow_failures:
+    - script: node_modules/.bin/newman run ai-message_scrubber/postman/Scrub_API_Tests.postman_collection.json
 #used www.yamllint.com for linting
