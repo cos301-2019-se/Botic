@@ -12,7 +12,7 @@ before_install:
   - "docker build -t alabamaliquidservices/botic:latest-frontend ."
   - "docker push alabamaliquidservices/botic:latest-frontend"
   - "cd .. & cd $TRAVIS_BUILD_DIR/ai-message_scrubber"
-  - cd $TRAVIS_BUILD_DIR/ai-message_scrubber
+  - "cd $TRAVIS_BUILD_DIR/ai-message_scrubber"
   - "docker build -t alabamaliquidservices/botic:latest-ms ."
   - "docker push alabamaliquidservices/botic:latest-ms"
   - "cd .."
@@ -29,4 +29,20 @@ services:
   - docker
 sudo: required
 true: ~
+
+language: node_js
+node_js:
+- "8.2.1"
+
+install:
+- npm install newman
+- npm install jasmine
+
+before_script:
+- node --version
+- npm --version
+- node_modules/.bin/newman --version
+
+script:
+- node_modules/.bin/newman run ai-message_scrubber/postman/Scrub_API_Tests.postman_collection.json
 #used www.yamllint.com for linting
