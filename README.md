@@ -28,7 +28,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
     </tr>
     <tr>
         <td>Process and Methodology</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Process_and_Methodology.pdf" target="_blank">latest version</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Process_and_Methodology.pdf" target="_blank">v1 (Demo1)</a></td>
     </tr>
     <tr>
         <td>Software Requirements Specification</td>
@@ -36,11 +36,11 @@ The project consists of two parts, both applied to an arbitrary ticketing system
     </tr>
     <tr>
         <td>Implementation Details</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Implementation.pdf" target="_blank">latest version</a>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Implementation.pdf" target="_blank">v1 (Demo1) </a>
     </tr>
     <tr>
         <td>Coding Standards</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v1.pdf" target="_blank">v1</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v1.pdf" target="_blank">v1</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v2.pdf" target="_blank">v2</a></td>
     </tr>
     <tr>
         <td>User Manual</td>
@@ -48,7 +48,11 @@ The project consists of two parts, both applied to an arbitrary ticketing system
     </tr>
     <tr>
         <td>Testing Policy</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy.pdf" target="_blank">v1</a></td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v1.pdf" target="_blank">v1</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v2.pdf" target="_blank">v2</a></td>
+    </tr>
+    <tr>
+        <td>Architectural Design</td>
+        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">v lastest</a></td>
     </tr>
 </table>
 <!--<a href="https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">Architecture and Deployment Diagrams</a>-->
