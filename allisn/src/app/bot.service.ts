@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from './../../../../environments/environment';
 import { HttpModule } from '@angular/http';
 import { botResponse } from './botResponse';
 
@@ -10,7 +11,7 @@ import { botResponse } from './botResponse';
 })
 
 export class BotService {
-  apiURL = "http://127.0.0.1:5001/prattle"
+  apiURL = environment.customerChat.baseUrl;
 
   constructor(private http: HttpClient){
     }
