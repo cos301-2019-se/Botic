@@ -50,5 +50,9 @@ before_script:
 
 script:
 - node_modules/.bin/newman run ai-message_scrubber/postman/Scrub_API_Tests.postman_collection.json --suppress-exit-code
+- cd $TRAVIS_BUILD_DIR/persistence
+- jasmine ---suppress-exit-code
+- cd .. & cd $TRAVIS_BUILD_DIR/allisn
+- jasmine --suppress-exit-code
 
 #used www.yamllint.com for linting
