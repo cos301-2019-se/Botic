@@ -21,6 +21,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 <div width="100%">
 	<table>
 	<col width="50%">
+	<col width="50%">
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Kyle.PNG" height="200px"><p>Kyle Gaunt</p><i>15330967</i></th>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Alicia.PNG" height="200px"><p>Alicia Mulder</p><i>14283124</i></th>
