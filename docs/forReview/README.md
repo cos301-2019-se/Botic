@@ -1,5 +1,4 @@
-```
-```
+<body>
 <div align="center"><img src="https://cos301-2019-se.github.io/Botic/images/Logo2.png" width="150"></div>
 
 # Botic
@@ -17,10 +16,9 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 4. Click send to see the Chatbot's response.-->
 
 ## Meet the Team
-![Team Image](https://i.imgur.com/9otROBF.jpg)
-<div width="100%">
+<br>
+<div style="background-color:red;">
 	<table>
-	<col>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Kyle.PNG" height="200px"><p>Kyle Gaunt</p><i>15330967</i></th>
 		</tr>
@@ -36,9 +34,8 @@ The project consists of two parts, both applied to an arbitrary ticketing system
    </table>
 </div>
 <br>
-<div width="100%">
+<div>
 	<table>
-	<col>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Alicia.PNG" height="200px"><p>Alicia Mulder</p><i>14283124</i></th>
 		</tr>
@@ -50,14 +47,12 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 		</tr>
 		<tr>
 			<td><a href="https://www.linkedin.com/in/alicia-mulder-85019b184" target="_blank"><b>Check out Alicia's LinkedIn profile</a></td>
-				</form>
 		</tr>
    </table>
 </div>
 <br>
-<div width="100%">
+<div>
 	<table>
-	<col>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Peter.PNG" height="200px"><p>Peter Msimanga</p><i>13042352</i></th>
 		</tr>
@@ -73,9 +68,8 @@ The project consists of two parts, both applied to an arbitrary ticketing system
    </table>
 </div>
 <br>
-<div width="100%">
+<div>
 	<table>
-	<col>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Lesego.PNG" height="200px"><p>Lesego Mabe</p><i>15055214</i></th>
 		</tr>
@@ -91,9 +85,8 @@ The project consists of two parts, both applied to an arbitrary ticketing system
    </table>
 </div>
 <br>
-<div width="50%">
+<div>
 	<table>
-	<col>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Justin.PNG" height="200px"><p>Justin Grenfell</p><i>16028440</i></th>
 		</tr>
