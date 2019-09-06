@@ -14,8 +14,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 3. Observe as the information is highlighted according to how serve it is.
 4. Click send to see the Chatbot's response.-->
 
-<a href="https://youtu.be/67kGshUfJ6Y" target="_blank"><img src="https://cos301-2019-se.github.io/Botic//images/YouTube.PNG" 
-alt="Botic YouTube Thumbnail" width="240" height="180" border="10" /></a>
+<img src="https://github.com/cos301-2019-se/Botic/blob/%23999_GitProfiles/docs/images/YouTube.PNG" width="240" height="180" border="10" align="center" href="https://youtu.be/67kGshUfJ6Y" target="_blank"/>
 
 ## Meet the Team
 <br>
