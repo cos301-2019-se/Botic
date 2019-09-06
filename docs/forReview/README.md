@@ -1,4 +1,3 @@
-<body>
 <div align="center"><img src="https://cos301-2019-se.github.io/Botic/images/Logo2.png" width="150"></div>
 
 # Botic
@@ -15,9 +14,12 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 3. Observe as the information is highlighted according to how serve it is.
 4. Click send to see the Chatbot's response.-->
 
+<a href="https://youtu.be/67kGshUfJ6Y" target="_blank"><img src="https://cos301-2019-se.github.io/Botic//images/YouTube.PNG" 
+alt="Botic YouTube Thumbnail" width="240" height="180" border="10" /></a>
+
 ## Meet the Team
 <br>
-<div style="background-color:red;">
+<div align="center">
 	<table>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Kyle.PNG" height="200px"><p>Kyle Gaunt</p><i>15330967</i></th>
@@ -26,10 +28,10 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 			<td><p><b>Roles: </b><br>Team Lead, UI developer, Authentication, Database Engineer</p></td>
 		</tr>
 		<tr>
-			<td><p><b>Skills and Proficiencies: </b><br>C++, Java, PHP, SQL, NodeJS, Web-based Programming, Databases, Data analytics, Project Management</p></td>
+			<td><p><b>Skills and Proficiencies: </b><br>C++, Java, LAMP (Linux, Apache, MySql, PHP), NodeJS, Web-based Programming, Databases, Data analytics, Project Management, Computer Security, Working in a Team, Client Handling</p></td>
 		</tr>
 		<tr>
-			<td><a href="https://www.linkedin.com/in/kvgaunt" target="_blank"><b>Check out Kyle's LinkedIn profile</a></td>
+			<td><a href="https://www.linkedin.com/in/kvgaunt" target="_blank" align="center"><b>Check out Kyle's LinkedIn profile</a></td>
 		</tr>
    </table>
 </div>
@@ -60,7 +62,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 			<td><p><b>Roles: </b><br>AI Lead, Backend, and Frontend Developer</p></td>
 		</tr>
 		<tr>
-			<td><p><b>Skills and Proficiencies: </b><br>C++, JAVA, LAMP and MEAN stacks, Systems administration, Teamwork, Greater Problem Solving, Adaptability</p></td>
+			<td><p><b>Skills and Proficiencies: </b><br>C++, JAVA, LAMP (Linux, Apache, MySql, PHP) and MEAN stacks, Systems administration, Teamwork, Greater Problem Solving, Adaptability</p></td>
 		</tr>
 		<tr>
 			<td><a href="https://www.linkedin.com/in/peter-msimanga-b82098182" target="_blank"><b>Check out Peter's LinkedIn profile</a></td>
@@ -136,4 +138,3 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 ### Additional
   - [Process and Methodology](https://cos301-2019-se.github.io/Botic/compiled/Process_and_Methodology.pdf)
   - [Implementation Details](https://cos301-2019-se.github.io/Botic/compiled/Implementation.pdf)
-</body>
