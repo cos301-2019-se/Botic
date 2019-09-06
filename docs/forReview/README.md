@@ -68,7 +68,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 <br>
 <div width="50%">
 	<table>
-	<col width="430px">
+	<col width="50%">
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Justin.PNG" height="200px"><p>Justin Grenfell</p><i>16028440</i></th>
 		</tr>
