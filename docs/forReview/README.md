@@ -15,8 +15,10 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 4. Click send to see the Chatbot's response.-->
 
 <div align="center">
-	<h3>Click the thumbnail to view our system overview video</h3> 
-	<img src="https://github.com/cos301-2019-se/Botic/blob/%23999_GitProfiles/docs/images/YouTube.PNG" width="240" height="180" border="10" href="https://youtu.be/67kGshUfJ6Y" target="_blank"/>
+	<h3>Click the thumbnail to view our system overview video</h3>
+	<a href="https://youtu.be/67kGshUfJ6Y" target="_blank">
+	<img src="https://github.com/cos301-2019-se/Botic/blob/%23999_GitProfiles/docs/images/YouTube.PNG" width="240" height="180" border="10"/>
+	</a>
 </div>
 
 ## Meet the Team
