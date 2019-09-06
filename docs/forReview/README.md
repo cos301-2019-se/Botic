@@ -20,7 +20,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 ![Team Image](https://i.imgur.com/9otROBF.jpg)
 <div width="100%">
 	<table>
-	<col width="50%">
+	<col>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Kyle.PNG" height="200px"><p>Kyle Gaunt</p><i>15330967</i></th>
 		</tr>
@@ -38,7 +38,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 <br>
 <div width="100%">
 	<table>
-	<col width="50%">
+	<col>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Alicia.PNG" height="200px"><p>Alicia Mulder</p><i>14283124</i></th>
 		</tr>
@@ -57,7 +57,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 <br>
 <div width="100%">
 	<table>
-	<col width="50%">
+	<col>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Peter.PNG" height="200px"><p>Peter Msimanga</p><i>13042352</i></th>
 		</tr>
@@ -75,7 +75,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 <br>
 <div width="100%">
 	<table>
-	<col width="50%">
+	<col>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Lesego.PNG" height="200px"><p>Lesego Mabe</p><i>15055214</i></th>
 		</tr>
@@ -93,7 +93,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 <br>
 <div width="50%">
 	<table>
-	<col width="50%">
+	<col>
 		<tr>
 			<th><img src="https://cos301-2019-se.github.io/Botic//images/Justin.PNG" height="200px"><p>Justin Grenfell</p><i>16028440</i></th>
 		</tr>
