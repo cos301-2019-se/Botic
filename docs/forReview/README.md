@@ -17,7 +17,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 <div align="center">
 	<h3>Click the thumbnail to view our system overview video</h3>
 	<a href="https://youtu.be/67kGshUfJ6Y" target="_blank">
-	<img src="https://github.com/cos301-2019-se/Botic/blob/%23999_GitProfiles/docs/images/YouTube.PNG" width="240" height="180" border="10"/>
+	<img src="https://github.com/cos301-2019-se/Botic/blob/%23999_GitProfiles/docs/images/YouTube.PNG" width="240" height="180" border="10" target="_blank"/>
 	</a>
 </div>
 
