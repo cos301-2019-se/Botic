@@ -14,62 +14,69 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 3. Observe as the information is highlighted according to how serve it is.
 4. Click send to see the Chatbot's response.-->
 
-## LinkedIn Profiles:
+## The Team
+![Team Image](https://i.imgur.com/9otROBF.jpg)
 
-**Kyle Gaunt** - _u15330967_
-[Kyle Guant LinkedIn](https://www.linkedin.com/in/kvgaunt)
+### Kyle Gaunt
+  - **Student Number:** 15330967
+  - **Skills and Proficiencies:** C++, Java, PHP, SQL, NodeJS, Web-based Programming, Databases, Project Management
+  - **Role:** Team Lead, UI developer, and Database Engineer.
+  - [LinkedIn](https://www.linkedin.com/in/kvgaunt)
 
-**Peter Msimanga** - _u13042352_
-[Peter Msimanga LinkedIn](https://www.linkedin.com/in/peter-msimanga-b82098182)
+### Justin Grenfell
+  - **Student Number:** 16028440
+  - **Skills and Proficiencies:** Web development technologies such as NodeJS and Angular. Other languages including Python, Java, C++, LUA, Artificial Intelligence. Has experience with team collaboration technologies including Git (Github and Bitbucket)
+  - **Role:** Backend and AI developer.
+  - [LinkedIn](https://www.linkedin.com/in/justin-grenfell-7b6b6915b/)
 
-**Justin Grenfell** - _u16028440_
-[Justin Grenfell LinkedIn](https://www.linkedin.com/in/justin-grenfell-7b6b6915b/)
+### Alicia Mulder
+ - **Student Number:** 14283124
+ - **Skills and Proficiencies:** C++, Java, C\#, NodeJS, ASP .NET Core, Unix Server deployment and maintenance, Data analytics and collection of real live data sets Web development
+ - **Role:** Backend and Frontend Developer.
+ - [LinkedIn](https://www.linkedin.com/in/alicia-mulder-85019b184/)
 
-**Lesego Mabe** - _u15055214_
-[Lesego Mabe LinkedIn](https://www.linkedin.com/in/lesegogomolemo)
+### Peter Msimanga
+  - **Student Number:** 13042352
+  - **Skills and Proficiencies:** C++, JAVA, LAMP and MEAN stacks, Systems administration, Teamwork, Greater Problem Solving, Adaptability
+  - **Role:** AI Lead, Backend, and Frontend Developer.
+  - [LinkedIn](https://www.linkedin.com/in/peter-msimanga-b82098182)
 
-**Alicia Mulder** - _u14283124_
-[Alicia Mulder LinkedIn](https://www.linkedin.com/in/alicia-mulder-85019b184/)
+### Lesego Mabe
+ - **Student Number:** 15055214
+ - **Skills and Proficiencies:** Java, C++, LAMP stack, MongoDB, JavaScript, Web-based Programming, XML, Neo4J, Computer Security, Competitive Intelligence, Artificial Intelligence
+ - **Role:** Backend, Frontend, Integration, Architecture and Deployment.
+ - [LinkedIn](https://www.linkedin.com/in/lesegogomolemo)
 
 ## Links
 - <a href="https://hub.docker.com/r/alabamaliquidservices/botic" target="_blank">Docker Hub Repository</a>
 - <a href="https://travis-ci.com/cos301-2019-se/Botic" target="_blank">Travis CI</a>
 - <a href="https://app.zenhub.com/workspaces/botic-5cc1a7ea036c7737a1fc9673/board?repos=182156004" target="_blank">ZenHub Project Management</a> (requires GitHub account)
 
-### Documentation
+## Documentation
 
-<table>
-    <tr>
-        <th>Document</th>
-        <th>Version Links</th>
-    </tr>
-    <tr>
-        <td>Process and Methodology</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Process_and_Methodology.pdf" target="_blank">v1 (Demo1)</a></td>
-    </tr>
-    <tr>
-        <td>Software Requirements Specification</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v1.pdf" target="_blank">v1 (Demo1)</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v2.pdf" target="_blank">v2 (Demo2)</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v3.pdf" target="_blank">v3 (Demo3)</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v4.pdf" target="_blank">v4</a></td>
-    </tr>
-    <tr>
-        <td>Implementation Details</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Implementation.pdf" target="_blank">v1 (Demo1) </a>
-    </tr>
-    <tr>
-        <td>Coding Standards</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v1.pdf" target="_blank">v1</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v2.pdf" target="_blank">v2</a></td>
-    </tr>
-    <tr>
-        <td>User Manual</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v1.pdf" target="_blank">v1 (Demo1,2)</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v2.pdf" target="_blank">v2 (Demo3)</a></td>
-    </tr>
-    <tr>
-        <td>Testing Policy</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v1.pdf" target="_blank">v1</a>, <a href="https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v2.pdf" target="_blank">v2</a></td>
-    </tr>
-    <tr>
-        <td>Architectural Design</td>
-        <td><a href="https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">v lastest</a></td>
-    </tr>
-</table>
-<!--<a href="https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf" target="_blank">Architecture and Deployment Diagrams</a>-->
+### Demo 1
+  - [Demo 1 System Requirements Specification](https://drive.google.com/file/d/1KzBehg391ZpyGEqGbdeUu98ax0Qbnpo-/view?usp=sharing)
+  - [Demo 1 Presentation](https://drive.google.com/file/d/1dS4J__vxCp_sp6yDoKDhxq7MSAVnprEf/view)
+
+### Demo 2
+  - [Demo 2 System Requirements Specification](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v2.pdf)
+  - [Demo 2 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v1.pdf)
+  - [Demo 2 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v1.pdf)
+  - [Demo 2 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v1.pdf)
+
+### Demo 3
+  - [Demo 3 System Requirements Specification](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v3.pdf)
+  - [Demo 3 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v2.pdf)
+  - [Demo 3 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v2.pdf)
+  - [Demo 3 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v2.pdf)
+  
+### Demo 4
+  - [Demo 4 System Requirements Specification](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v4.pdf)
+  - [Demo 4 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v2.pdf)
+  - [Demo 4 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v2.pdf)
+  - [Demo 4 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v2.pdf)
+  - [Demo 4 Architectural Design](https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf)
+
+### Additional
+  - [Process and Methodology](https://cos301-2019-se.github.io/Botic/compiled/Process_and_Methodology.pdf)
+  - [Implementation Details](https://cos301-2019-se.github.io/Botic/compiled/Implementation.pdf)
