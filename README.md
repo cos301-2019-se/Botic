@@ -72,9 +72,9 @@ The project consists of two parts, both applied to an arbitrary ticketing system
   
 ### Demo 4
   - [Demo 4 System Requirements Specification](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v4.pdf)
-  - [Demo 4 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v3.pdf)
-  - [Demo 4 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v3.pdf)
-  - [Demo 4 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v3.pdf)
+  - [Demo 4 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v2.pdf)
+  - [Demo 4 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v2.pdf)
+  - [Demo 4 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v2.pdf)
   - [Demo 4 Architectural Design](https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf)
 
 ### Additional
