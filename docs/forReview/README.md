@@ -34,8 +34,8 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 			<td><p><b>Skills and Proficiencies: </b><br>C++, Java, C\#, NodeJS, ASP .NET Core, Unix Server deployment and maintenance, Data analytics and collection of real live data sets Web development</p></td>
 		</tr>
 		<tr>
-			<td><a href="https://www.linkedin.com/in/kvgaunt"><b>Check out Kyle's LinkedIn profile</a></td>
-			<td><a href="https://www.linkedin.com/in/alicia-mulder-85019b184"><b>Check out Alicia's LinkedIn profile</a></td>
+			<td><a href="https://www.linkedin.com/in/kvgaunt" target="_blank"><b>Check out Kyle's LinkedIn profile</a></td>
+			<td><a href="https://www.linkedin.com/in/alicia-mulder-85019b184" target="_blank"><b>Check out Alicia's LinkedIn profile</a></td>
 				</form>
 		</tr>
    </table>
@@ -58,8 +58,8 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 			<td><p><b>Skills and Proficiencies: </b><br>Java, C++, LAMP stack (Linux, Apache, MySql, PHP), MongoDB, JavaScript and TypeScript, Web-based Programming, XML, Neo4J, Computer Security, Competitive Intelligence, NodeJS, Design Patterns and Architectural Design, Docker, Auth0</p></td>
 		</tr>
 		<tr>
-			<td><a href="https://www.linkedin.com/in/peter-msimanga-b82098182"><b>Check out Peter's LinkedIn profile</a></td>
-			<td><a href="https://www.linkedin.com/in/lesegogomolemo"><b>Check out Lesego's LinkedIn profile</a></td>
+			<td><a href="https://www.linkedin.com/in/peter-msimanga-b82098182" target="_blank"><b>Check out Peter's LinkedIn profile</a></td>
+			<td><a href="https://www.linkedin.com/in/lesegogomolemo" target="_blank"><b>Check out Lesego's LinkedIn profile</a></td>
 				</form>
 		</tr>
    </table>
@@ -78,7 +78,7 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 			<td><p><b>Skills and Proficiencies: </b><br>Web development technologies such as NodeJS and Angular. Other languages including Python, Java, C++, LUA, Artificial Intelligence. Has experience with team collaboration technologies including Git (Github and Bitbucket)</p></td>
 		</tr>
 		<tr>
-			<td><a href="https://www.linkedin.com/in/justin-grenfell-7b6b6915b"><b>Check out Justin's LinkedIn profile</a></td>
+			<td><a href="https://www.linkedin.com/in/justin-grenfell-7b6b6915b" target="_blank"><b>Check out Justin's LinkedIn profile</a></td>
 				</form>
 		</tr>
    </table>
