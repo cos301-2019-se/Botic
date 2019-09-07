@@ -14,38 +14,100 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 3. Observe as the information is highlighted according to how serve it is.
 4. Click send to see the Chatbot's response.-->
 
-## The Team
-![Team Image](https://i.imgur.com/9otROBF.jpg)
+<div align="center">
+	<h3>Click the thumbnail to view our system overview video</h3>
+	<a href="https://youtu.be/67kGshUfJ6Y" target="_blank">
+	<img src="https://github.com/cos301-2019-se/Botic/blob/%23999_GitProfiles/docs/images/YouTube.PNG" width="240" height="180" border="10" target="_blank"/>
+	</a>
+</div>
 
-### Kyle Gaunt
-  - **Student Number:** 15330967
-  - **Skills and Proficiencies:** C++, Java, PHP, SQL, NodeJS, Web-based Programming, Databases, Project Management
-  - **Role:** Team Lead, UI developer, and Database Engineer.
-  - [LinkedIn](https://www.linkedin.com/in/kvgaunt)
+## Meet the Team
+<br>
+<div align="center">
+	<table>
+		<tr>
+			<th><img src="https://cos301-2019-se.github.io/Botic//images/Kyle.PNG" height="200px"><p>Kyle Gaunt</p><i>15330967</i></th>
+		</tr>
+		<tr>
+			<td><p><b>Roles: </b><br>Team Lead, UI developer, Authentication, Database Engineer</p></td>
+		</tr>
+		<tr>
+			<td><p><b>Skills and Proficiencies: </b><br>C++, Java, LAMP (Linux, Apache, MySql, PHP), NodeJS, Web-based Programming, Databases, Data analytics, Project Management, Computer Security, Working in a Team, Client Handling</p></td>
+		</tr>
+		<tr>
+			<td><a href="https://www.linkedin.com/in/kvgaunt" target="_blank" align="center"><b>Check out Kyle's LinkedIn profile</a></td>
+		</tr>
+   </table>
+</div>
+<br>
+<div>
+	<table>
+		<tr>
+			<th><img src="https://cos301-2019-se.github.io/Botic//images/Alicia.PNG" height="200px"><p>Alicia Mulder</p><i>14283124</i></th>
+		</tr>
+		<tr>
+			<td><p><b>Roles: </b><br>Backend and Frontend Developer</p></td>
+		</tr>
+		<tr>
+			<td><p><b>Skills and Proficiencies: </b><br>C++, Java, C\#, NodeJS, ASP .NET Core, Unix Server deployment and maintenance, Data analytics and collection of real live data sets Web development</p></td>
+		</tr>
+		<tr>
+			<td><a href="https://www.linkedin.com/in/alicia-mulder-85019b184" target="_blank"><b>Check out Alicia's LinkedIn profile</a></td>
+		</tr>
+   </table>
+</div>
+<br>
+<div>
+	<table>
+		<tr>
+			<th><img src="https://cos301-2019-se.github.io/Botic//images/Peter.PNG" height="200px"><p>Peter Msimanga</p><i>13042352</i></th>
+		</tr>
+		<tr>
+			<td><p><b>Roles: </b><br>AI Lead, Backend, and Frontend Developer</p></td>
+		</tr>
+		<tr>
+			<td><p><b>Skills and Proficiencies: </b><br>C++, JAVA, LAMP (Linux, Apache, MySql, PHP) and MEAN stacks, Systems administration, Teamwork, Greater Problem Solving, Adaptability</p></td>
+		</tr>
+		<tr>
+			<td><a href="https://www.linkedin.com/in/peter-msimanga-b82098182" target="_blank"><b>Check out Peter's LinkedIn profile</a></td>
+		</tr>
+   </table>
+</div>
+<br>
+<div>
+	<table>
+		<tr>
+			<th><img src="https://cos301-2019-se.github.io/Botic//images/Lesego.PNG" height="200px"><p>Lesego Mabe</p><i>15055214</i></th>
+		</tr>
+		<tr>
+			<td><p><b>Roles: </b><br>Backend, Frontend, Integration, Architecture and Deployment</p></td>
+		</tr>
+		<tr>
+			<td><p><b>Skills and Proficiencies: </b><br>Java, C++, LAMP stack (Linux, Apache, MySql, PHP), MongoDB, JavaScript and TypeScript, Web-based Programming, XML, Neo4J, Computer Security, Competitive Intelligence, NodeJS, Design Patterns and Architectural Design, Docker, Auth0</p></td>
+		</tr>
+		<tr>
+			<td><a href="https://www.linkedin.com/in/lesegogomolemo" target="_blank"><b>Check out Lesego's LinkedIn profile</a></td>
+		</tr>
+   </table>
+</div>
+<br>
+<div>
+	<table>
+		<tr>
+			<th><img src="https://cos301-2019-se.github.io/Botic//images/Justin.PNG" height="200px"><p>Justin Grenfell</p><i>16028440</i></th>
+		</tr>
+		<tr>
+			<td><p><b>Roles: </b><br>Backend and AI developer</p></td>
+		</tr>
+		<tr>
+			<td><p><b>Skills and Proficiencies: </b><br>Web development technologies such as NodeJS and Angular. Other languages including Python, Java, C++, LUA, Artificial Intelligence. Has experience with team collaboration technologies including Git (Github and Bitbucket)</p></td>
+		</tr>
+		<tr>
+			<td><a href="https://www.linkedin.com/in/justin-grenfell-7b6b6915b" target="_blank"><b>Check out Justin's LinkedIn profile</a></td>
+		</tr>
+   </table>
+</div>
 
-### Justin Grenfell
-  - **Student Number:** 16028440
-  - **Skills and Proficiencies:** Web development technologies such as NodeJS and Angular. Other languages including Python, Java, C++, LUA, Artificial Intelligence. Has experience with team collaboration technologies including Git (Github and Bitbucket)
-  - **Role:** Backend and AI developer.
-  - [LinkedIn](https://www.linkedin.com/in/justin-grenfell-7b6b6915b/)
-
-### Alicia Mulder
- - **Student Number:** 14283124
- - **Skills and Proficiencies:** C++, Java, C\#, NodeJS, ASP .NET Core, Unix Server deployment and maintenance, Data analytics and collection of real live data sets Web development
- - **Role:** Backend and Frontend Developer.
- - [LinkedIn](https://www.linkedin.com/in/alicia-mulder-85019b184/)
-
-### Peter Msimanga
-  - **Student Number:** 13042352
-  - **Skills and Proficiencies:** C++, JAVA, LAMP and MEAN stacks, Systems administration, Teamwork, Greater Problem Solving, Adaptability
-  - **Role:** AI Lead, Backend, and Frontend Developer.
-  - [LinkedIn](https://www.linkedin.com/in/peter-msimanga-b82098182)
-
-### Lesego Mabe
- - **Student Number:** 15055214
- - **Skills and Proficiencies:** Java, C++, LAMP stack (Linux, Apache, MySql, PHP), MongoDB, JavaScript and TypeScript, Web-based Programming, XML, Neo4J, Computer Security, Competitive Intelligence, NodeJS, Design Patterns and Architectural Design, Docker, Auth0.
- - **Role:** Backend, Frontend, Integration, Architecture and Deployment.
- - [LinkedIn](https://www.linkedin.com/in/lesegogomolemo)
 
 ## Links
 - <a href="https://hub.docker.com/r/alabamaliquidservices/botic" target="_blank">Docker Hub Repository</a>
