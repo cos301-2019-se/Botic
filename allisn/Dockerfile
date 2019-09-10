@@ -19,6 +19,9 @@ RUN npm install
 RUN npm install -g @angular/cli@1.7.1
 # RUN node postinstall
 
+# Expose port to listen to in dev (Heroku uses 80 by default)
+EXPOSE 8080
+
 # add app
 COPY . /usr/src/app
 RUN npm run-script build
