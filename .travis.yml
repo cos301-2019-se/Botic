@@ -29,7 +29,8 @@ script:
   - "docker push registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
   - "heroku container:release web --app $HEROKU_APP_NAME_TWO"
   - "docker push registry.heroku.com/$HEROKU_CS/web"
-  - "docker container:release web --app $HEROKU_CS"
+  - "heroku container:release web --app $HEROKU_CS"
+  
 services: 
   - docker
 sudo: required
