@@ -27,8 +27,8 @@ The project consists of two parts, both applied to an arbitrary ticketing system
   <summary>Click to expand!</summary>
   
   - <a href="https://hub.docker.com/r/alabamaliquidservices/botic" target="_blank">Docker Hub Repository</a>
-- <a href="https://travis-ci.com/cos301-2019-se/Botic" target="_blank">Travis CI</a>
-- <a href="https://app.zenhub.com/workspaces/botic-5cc1a7ea036c7737a1fc9673/board?repos=182156004" target="_blank">ZenHub Project Management</a> (requires GitHub account)
+  - <a href="https://travis-ci.com/cos301-2019-se/Botic" target="_blank">Travis CI</a>
+  - <a href="https://app.zenhub.com/workspaces/botic-5cc1a7ea036c7737a1fc9673/board?repos=182156004" target="_blank">ZenHub Project Management</a> (requires GitHub account)
 </details>
 
 ## Documentation
