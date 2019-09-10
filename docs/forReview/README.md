@@ -21,6 +21,64 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 	</a>
 </div>
 
+  
+## Links
+<details>
+  <summary>Click to expand!</summary>
+  
+  - <a href="https://hub.docker.com/r/alabamaliquidservices/botic" target="_blank">Docker Hub Repository</a>
+- <a href="https://travis-ci.com/cos301-2019-se/Botic" target="_blank">Travis CI</a>
+- <a href="https://app.zenhub.com/workspaces/botic-5cc1a7ea036c7737a1fc9673/board?repos=182156004" target="_blank">ZenHub Project Management</a> (requires GitHub account)
+</details>
+
+## Documentation
+### Demo 1
+<details>
+  <summary>Click to expand!</summary>
+  
+  - [Demo 1 System Requirements Specification](https://drive.google.com/file/d/1KzBehg391ZpyGEqGbdeUu98ax0Qbnpo-/view?usp=sharing)
+  - [Demo 1 Presentation](https://drive.google.com/file/d/1dS4J__vxCp_sp6yDoKDhxq7MSAVnprEf/view)
+</details>
+
+### Demo 2
+<details>
+  <summary>Click to expand!</summary>
+  
+  - [Demo 2 System Requirements Specification](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v2.pdf)
+  - [Demo 2 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v1.pdf)
+  - [Demo 2 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v1.pdf)
+  - [Demo 2 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v1.pdf)
+</details>
+
+### Demo 3
+<details>
+  <summary>Click to expand!</summary>
+  
+  - [Demo 3 System Requirements Specification](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v3.pdf)
+  - [Demo 3 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v2.pdf)
+  - [Demo 3 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v2.pdf)
+  - [Demo 3 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v2.pdf)
+</details>
+
+### Demo 4
+<details>
+  <summary>Click to expand!</summary>
+  
+  - [Demo 4 System Requirements Specification](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v4.pdf)
+  - [Demo 4 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v3.pdf)
+  - [Demo 4 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v3.pdf)
+  - [Demo 4 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v3.pdf)
+  - [Demo 4 Architectural Design](https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf)
+</details>
+
+### Additional
+<details>
+  <summary>Click to expand!</summary>
+  
+  - [Process and Methodology](https://cos301-2019-se.github.io/Botic/compiled/Process_and_Methodology.pdf)
+  - [Implementation Details](https://cos301-2019-se.github.io/Botic/compiled/Implementation.pdf)
+</details>
+
 ## Meet the Team
 <br>
 <div align="center">
@@ -107,60 +165,4 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 		</tr>
    </table>
 </div>
-  
-## Links
-<details>
-  <summary>Click to expand!</summary>
-  
-  - <a href="https://hub.docker.com/r/alabamaliquidservices/botic" target="_blank">Docker Hub Repository</a>
-- <a href="https://travis-ci.com/cos301-2019-se/Botic" target="_blank">Travis CI</a>
-- <a href="https://app.zenhub.com/workspaces/botic-5cc1a7ea036c7737a1fc9673/board?repos=182156004" target="_blank">ZenHub Project Management</a> (requires GitHub account)
-</details>
 
-## Documentation
-### Demo 1
-<details>
-  <summary>Click to expand!</summary>
-  
-  - [Demo 1 System Requirements Specification](https://drive.google.com/file/d/1KzBehg391ZpyGEqGbdeUu98ax0Qbnpo-/view?usp=sharing)
-  - [Demo 1 Presentation](https://drive.google.com/file/d/1dS4J__vxCp_sp6yDoKDhxq7MSAVnprEf/view)
-</details>
-
-### Demo 2
-<details>
-  <summary>Click to expand!</summary>
-  
-  - [Demo 2 System Requirements Specification](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v2.pdf)
-  - [Demo 2 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v1.pdf)
-  - [Demo 2 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v1.pdf)
-  - [Demo 2 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v1.pdf)
-</details>
-
-### Demo 3
-<details>
-  <summary>Click to expand!</summary>
-  
-  - [Demo 3 System Requirements Specification](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v3.pdf)
-  - [Demo 3 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v2.pdf)
-  - [Demo 3 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v2.pdf)
-  - [Demo 3 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v2.pdf)
-</details>
-
-### Demo 4
-<details>
-  <summary>Click to expand!</summary>
-  
-  - [Demo 4 System Requirements Specification](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v4.pdf)
-  - [Demo 4 Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v3.pdf)
-  - [Demo 4 User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v3.pdf)
-  - [Demo 4 Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v3.pdf)
-  - [Demo 4 Architectural Design](https://cos301-2019-se.github.io/Botic/compiled/Architecture_and_Deployment_Diagrams.pdf)
-</details>
-
-### Additional
-<details>
-  <summary>Click to expand!</summary>
-  
-  - [Process and Methodology](https://cos301-2019-se.github.io/Botic/compiled/Process_and_Methodology.pdf)
-  - [Implementation Details](https://cos301-2019-se.github.io/Botic/compiled/Implementation.pdf)
-</details>
