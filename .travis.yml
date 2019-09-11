@@ -30,7 +30,7 @@ script:
   - "heroku container:release web --app $HEROKU_APP_NAME_TWO"
   - "docker push registry.heroku.com/$HEROKU_CS/web"
   - "heroku container:release web --app $HEROKU_CS"
-  
+
 services: 
   - docker
 sudo: required
@@ -52,8 +52,8 @@ before_script:
 script:
 - node_modules/.bin/newman run ai-message_scrubber/postman/Scrub_API_Tests.postman_collection.json --suppress-exit-code
 - cd $TRAVIS_BUILD_DIR/persistence
-- jasmine ---suppress-exit-code
+- node_modules/.bin/jasmine ---suppress-exit-code
 - cd .. & cd $TRAVIS_BUILD_DIR/allisn
-- jasmine --suppress-exit-code
+- node_modules/.bin/jasmine --suppress-exit-code
 
 #used www.yamllint.com for linting
