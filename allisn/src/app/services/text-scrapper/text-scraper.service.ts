@@ -12,7 +12,7 @@ import { BADWORDS } from '../../models/mock-badWords';
 })
 
 export class TextScraperService {
-  private apiURL = 'http://127.0.0.1:5002/scrub';
+  private apiURL = environment.scrapper.baseUrl;
   /*
     private apiURL = 'https://botic-ai-ms.herokuapp.com/scrub';
     private testingURL1 = 'https://reqres.in/api/register';
