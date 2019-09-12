@@ -52,9 +52,10 @@ script:
 - node_modules/.bin/newman run ai-message_scrubber/postman/Scrub_API_Tests.postman_collection.json --suppress-exit-code
 - cd $TRAVIS_BUILD_DIR/persistence
 - npm install
-- npm run test --suppress-exit-code
+- npm run test --silent --suppress-exit-code
 - cd .. & cd $TRAVIS_BUILD_DIR/allisn
+- npm install typescript
 - tsc
-- npm run test-shared --suppress-exit-code
+- npm run test-shared --silent --suppress-exit-code
 
 #used www.yamllint.com for linting
