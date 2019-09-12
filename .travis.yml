@@ -40,7 +40,7 @@ node_js:
 
 install:
 - npm install newman
-- npm install jasmine
+- npm install -g jasmine
 
 before_script:
 - node --version
