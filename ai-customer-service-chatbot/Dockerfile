@@ -21,6 +21,7 @@ RUN pip3 install h5py
 RUN pip3 install Cython
 RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
 RUN pip3 install nltk
+RUN pip3 install google-search
 
 EXPOSE 5000
 
