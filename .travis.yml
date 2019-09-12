@@ -15,19 +15,19 @@ before_install:
 #  - "docker build -t alabamaliquidservices/botic:latest-ms ."
 #  - "docker push alabamaliquidservices/botic:latest-ms"
   - "cd .. & cd $TRAVIS_BUILD_DIR/ai-customer-service-chatbot"
-  - "docker build -t alabamaliquidservices/botic:latest-csc ."
-  - "docker push alabamaliquidservices/botic:latest-csc"
+#  - "docker build -t alabamaliquidservices/botic:latest-csc ."
+#  - "docker push alabamaliquidservices/botic:latest-csc"
   - "cd .. "
 #  - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
 #  - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
-  - "docker tag alabamaliquidservices/botic:latest-csc registry.heroku.com/$HEROKU_CS/web"
+#  - "docker tag alabamaliquidservices/botic:latest-csc registry.heroku.com/$HEROKU_CS/web"
 #we include the deployment scripts here before formating
 #  - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"
 #  - "heroku container:release web --app $HEROKU_APP_NAME"
 #  - "docker push registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
 #  - "heroku container:release web --app $HEROKU_APP_NAME_TWO"
-  - "docker push registry.heroku.com/$HEROKU_CS/web"
-  - "heroku container:release web --app $HEROKU_CS"
+#  - "docker push registry.heroku.com/$HEROKU_CS/web"
+#  - "heroku container:release web --app $HEROKU_CS"
 
 services: 
   - docker
@@ -45,13 +45,14 @@ install:
 before_script:
 - node --version
 - npm --version
+- jasmine -v
 - node_modules/.bin/newman --version
 
 script:
 - node_modules/.bin/newman run ai-message_scrubber/postman/Scrub_API_Tests.postman_collection.json --suppress-exit-code
 - cd $TRAVIS_BUILD_DIR/persistence
-#- node_modules/.bin/jasmine ---suppress-exit-code
+- npm run test --suppress-exit-code
 - cd .. & cd $TRAVIS_BUILD_DIR/allisn
-#- node_modules/.bin/jasmine --suppress-exit-code
+- npm run test-shared --suppress-exit-code
 
 #used www.yamllint.com for linting
