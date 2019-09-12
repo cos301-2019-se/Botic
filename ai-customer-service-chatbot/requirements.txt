@@ -15,6 +15,7 @@ Flask-Cors==3.0.8
 future==0.17.1
 gast==0.2.2
 gensim==3.8.0
+googlesearch==1.0.2
 grpcio==1.21.1
 gunicorn==19.9.0
 idna==2.8
