@@ -53,10 +53,10 @@ script:
 - cd $TRAVIS_BUILD_DIR/persistence
 - npm install
 - npm run tsc
-- npm run test --silent --suppress-exit-code
+- (npm run test --silent --suppress-exit-code || true)
 - cd .. & cd $TRAVIS_BUILD_DIR/allisn
 - npm install
 - npm run transcribe-shared
-- npm run test-shared --silent --suppress-exit-code
+- (npm run test-shared --silent --suppress-exit-code || true)
 
 #used www.yamllint.com for linting
