@@ -29,7 +29,7 @@
                   id="body"
                   class="form-control"
                   style="width:100%"
-                  placeholder="Plese briefly describe your query and a customer representative will respond to you as soon as possible."
+                  placeholder="Please briefly describe your query and a customer representative will respond to you as soon as possible."
                   ngModel required #body="ngModel"></textarea>
                 </div>
               </div>
@@ -44,9 +44,9 @@
       <ng-template #elseBlock>
         <p [innerHTML] = "preview | safe: 'html'"></p>
         <div class="input-group">
-          <input id="btn-input" type="text" [(ngModel)]="userInput" class="form-control input-sm" placeholder="Type your message here..." />
+          <input (keyup.enter)="onClickCall(userInput)" id="btn-input" type="text" [(ngModel)]="userInput" class="form-control input-sm" placeholder="Type your message here..." />
           <span class="input-group-btn">
-            <button class="btn btn-warning btn-sm" id="btn-chat" (click)="onClickCall(userInput)" style="background-color:#000;border:none;">Send</button>
+            <button type="submit" class="btn btn-warning btn-sm" id="btn-chat" (click)="onClickCall(userInput)" style="background-color:#000;border:none;">{{text}}</button>
           </span>
         </div>
       </ng-template>
@@ -58,7 +58,7 @@
         <div class="col-md-8">
           <div class="alert alert-success" role="alert">
               <h4>Done!</h4>
-              <p>Your request has been sent an a representative will respond to your query at our earliest convinience.Feel free to leave this page or click 'Return' to return to the home page.</p>
+              <p>Your request has been sent and a representative will respond to your query at our earliest convinience. Feel free to leave this page or click 'Return' to return to the home page.</p>
               <p><a href="/"><button class="btn btn-success">Return</button></a></p>
           </div>
         </div>
