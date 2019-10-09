@@ -26,16 +26,16 @@ export class MessageService {
             if (this.checkState() != "BEFUDDLED"){
               if (this.checkState() != "CONFUSED"){
                 this.add(this.botMarkup("I'm sorry. I didn't quite catch that. Could you maybe rephrase the question?"));
-                this.changeState("CONFUSED");              
+                this.changeState("CONFUSED");
               } else {
                 this.add(this.botMarkup("I'm sorry. I still don't understand. Could you maybe rephrase the question again?"));
                 this.changeState("BEFUDDLED");
-              }              
+              }
             } else {
-              this.add(this.botMarkup("I cannot determine the correct repsonse, if you would like to send a support ticket, please send HUMAN"));
+              this.add(this.botMarkup("I cannot determine the correct repsonse, if you would like to send a support ticket, please send the word 'HUMAN'"));
             }
-            
-            
+
+
           break;
         };
         console.log("CURRENT STATE: " + this.checkState());
@@ -48,9 +48,9 @@ export class MessageService {
       this.changeState("SENDTICKET");
     else{
       this.add(this.userMarkup(message));
-      this.botAdd(message);  
+      this.botAdd(message);
     }
-    
+
   }
 
   userMarkup(input: string): string {

@@ -25,6 +25,8 @@ export class TextScraperComponent implements OnInit {
   subject: string;
   body: string;
 
+  prevMessage = "";
+
   constructor(
     private TextScraperService: TextScraperService,
     public MessageService: MessageService,
@@ -63,7 +65,7 @@ export class TextScraperComponent implements OnInit {
           }
 
           if (isABadWord == true)
-            output += '<span style="color:'+this.getColor(severity)+';">' + array[i] + '</span>';
+            output += '<span style="padding: 3px; border-radius:5px; color: #fff; background-color:'+this.getColor(severity)+';">' + array[i] + '</span>';
           else
             output += array[i];
 
@@ -97,6 +99,23 @@ export class TextScraperComponent implements OnInit {
     return false;
   }
 
+  checkIfSeverityIsZero(input: string): boolean {
+    // this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => {this.badWords = badWords;
+      var array = input.split(" ");
+      var severity = 0;
+
+      for(var i = 0; i < array.length; i++){
+        for (var j = 0; j < this.badWords.length; j++){
+          if (i == this.badWords[j].position){
+            severity = this.badWords[j].severity;
+            if (severity == 0) return true;
+          }
+        }
+      }
+      return false;
+    return false;
+  }
+
   /*This function checks to see if a person has entered personal information,
   if they have, first warn them, then the person gets the option to change the
   message or send it with the personal information attached.
@@ -110,21 +129,32 @@ export class TextScraperComponent implements OnInit {
 
             this.hasChecked = true;
 
+            //if no badwords are found continue:
             if (this.badWords.length == 0) {
               this.sendMessage(userInput);
               this.userInput = "";
               this.hasChecked = false;
             }
             else {
+              //do not send severity == 3
               if (this.checkIfSeverityIsThree(userInput) == true) {
-                this.showError2();
+                this.showError2(); //no send
+                this.prevMessage = userInput;
                 this.hasChecked = false;
 
                 var replaceText = document.getElementById("preview");
                 this.returnChangedDisplay(userInput);
               }
+              else if (this.checkIfSeverityIsZero(userInput) == true) {
+                // severity of 1 - just send
+                this.sendMessage(userInput);
+                this.hasChecked = false;
+                this.userInput = "";
+              }
               else {
+                // severity of 2
                 this.showError1();
+                this.prevMessage = userInput;
                 var replaceText = document.getElementById("preview");
                 this.returnChangedDisplay(userInput);
               }
@@ -132,9 +162,15 @@ export class TextScraperComponent implements OnInit {
           }, 2000);
         }
         else {
-          this.sendMessage(userInput);
-          this.hasChecked = false;
-          this.userInput = "";
+          if (userInput != this.prevMessage) {
+            this.hasChecked = false;
+            this.onClickCall(userInput);
+          }
+          else {
+            this.sendMessage(userInput);
+            this.hasChecked = false;
+            this.userInput = "";
+          }
         }
       });
     }
@@ -165,7 +201,7 @@ export class TextScraperComponent implements OnInit {
       case 0:
         return 'blue';
       case 1:
-        return 'fuchsia';
+        return 'green';
       break;
       case 2:
         return 'orange';
