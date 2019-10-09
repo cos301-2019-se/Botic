@@ -8,7 +8,7 @@
     "build": "node patch.js && ng build --prod",
     "test": "ng test",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
-    "transcribe-shared": "tsc",
+    "transcribe-shared": "tsc --build tsconfig_shared.json",
     "test-shared": "jasmine",
     "lint": "ng lint",
     "tslint": "tslint './src/**/*.{ts,tsx}' --force",
