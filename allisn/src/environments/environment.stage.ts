@@ -14,6 +14,9 @@ export const environment = {
         baseUrl: 'http://localhost:5000/'
     },
     customerChat: {
-        baseUrl: ''
+        baseUrl: 'http://127.0.0.1:5001/prattle'
+    },
+    scrapper: {
+        baseUrl: 'http://127.0.0.1:5002/scrub'
     }
 };

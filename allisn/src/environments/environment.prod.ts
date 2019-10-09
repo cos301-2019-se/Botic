@@ -13,5 +13,8 @@ export const environment = {
   },
   customerChat: {
     baseUrl: 'http://botic-ai-cs.herokuapp.com/prattle'
+  },
+  scrapper: {
+    baseUrl: 'http://botic-ai-ms.herokuapp.com/scrub'
   }
 };

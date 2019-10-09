@@ -18,7 +18,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, bindNodeCallback, timer, of, Subscription } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
-import { AUTH_CONFIG } from './auth.config';
 import * as auth0 from 'auth0-js';
 import { environment } from './../../../../environments/environment';
 import { Location } from '@angular/common';
