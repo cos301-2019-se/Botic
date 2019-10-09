@@ -156,10 +156,17 @@ export class TextScraperComponent implements OnInit {
                 /*
                 if reserved word is password and it's the only word then just send else everthing else
                 */
-                this.showError1();
-                this.prevMessage = userInput;
-                var replaceText = document.getElementById("preview");
-                this.returnChangedDisplay(userInput);
+                if (this.badWords.length == 1) {
+                  this.sendMessage(userInput);
+                  this.hasChecked = false;
+                  this.userInput = "";
+                }
+                else {
+                  this.showError1();
+                  this.prevMessage = userInput;
+                  var replaceText = document.getElementById("preview");
+                  this.returnChangedDisplay(userInput);
+                }
               }
             }
           }, 2000);
