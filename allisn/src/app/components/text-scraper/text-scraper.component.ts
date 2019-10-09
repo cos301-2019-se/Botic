@@ -150,6 +150,7 @@ export class TextScraperComponent implements OnInit {
                 this.sendMessage(userInput);
                 this.hasChecked = false;
                 this.userInput = "";
+                this.returnChangedDisplay("");
               }
               else {
                 // severity of 2 or 1
@@ -160,6 +161,7 @@ export class TextScraperComponent implements OnInit {
                   this.sendMessage(userInput);
                   this.hasChecked = false;
                   this.userInput = "";
+                  this.returnChangedDisplay("");
                 }
                 else {
                   this.showError1();
@@ -180,6 +182,7 @@ export class TextScraperComponent implements OnInit {
             this.sendMessage(userInput);
             this.hasChecked = false;
             this.userInput = "";
+            this.returnChangedDisplay("");
           }
         }
       });
