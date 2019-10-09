@@ -46,7 +46,7 @@
         <div class="input-group">
           <input (keyup.enter)="onClickCall(userInput)" id="btn-input" type="text" [(ngModel)]="userInput" class="form-control input-sm" placeholder="Type your message here..." />
           <span class="input-group-btn">
-            <button type="submit" class="btn btn-warning btn-sm" id="btn-chat" (click)="onClickCall(userInput)" style="background-color:#000;border:none;">Send</button>
+            <button type="submit" class="btn btn-warning btn-sm" id="btn-chat" (click)="onClickCall(userInput)" style="background-color:#000;border:none;">{{text}}</button>
           </span>
         </div>
       </ng-template>

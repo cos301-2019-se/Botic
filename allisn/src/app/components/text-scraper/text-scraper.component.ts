@@ -24,6 +24,7 @@ export class TextScraperComponent implements OnInit {
   email: string;
   subject: string;
   body: string;
+  text = "Send";
 
   prevMessage = "";
 
@@ -154,9 +155,6 @@ export class TextScraperComponent implements OnInit {
               }
               else {
                 // severity of 2 or 1
-                /*
-                if reserved word is password and it's the only word then just send else everthing else
-                */
                 if (this.badWords.length == 1) {
                   this.sendMessage(userInput);
                   this.hasChecked = false;
@@ -168,6 +166,12 @@ export class TextScraperComponent implements OnInit {
                   this.prevMessage = userInput;
                   var replaceText = document.getElementById("preview");
                   this.returnChangedDisplay(userInput);
+                  if (this.text === 'Send') {
+                    this.text = 'I GIVE CONSENT';
+                  }
+                  else {
+                    this.text = 'Send';
+                  }
                 }
               }
             }
@@ -183,6 +187,7 @@ export class TextScraperComponent implements OnInit {
             this.hasChecked = false;
             this.userInput = "";
             this.returnChangedDisplay("");
+            this.text = 'Send';
           }
         }
       });
