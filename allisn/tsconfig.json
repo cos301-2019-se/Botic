@@ -18,10 +18,5 @@
       "es6",
       "dom"
     ]
-  }/*,
-  "files": [
-    "./src/app/shared/Logs/LoginLog.ts",
-    "./spec/helpers/ts-console.ts",
-    "./spec/LoginLog.spec.ts"
-  ]*/
+  }
 }

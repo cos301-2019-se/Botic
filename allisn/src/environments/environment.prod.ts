@@ -10,5 +10,11 @@ export const environment = {
   },
   databaseManager: {
     baseUrl: 'http://localhost:5000/'
+  },
+  customerChat: {
+    baseUrl: 'http://botic-ai-cs.herokuapp.com/prattle'
+  },
+  scrapper: {
+    baseUrl: 'http://botic-ai-ms.herokuapp.com/scrub'
   }
 };
