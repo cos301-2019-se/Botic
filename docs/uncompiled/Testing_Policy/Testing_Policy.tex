@@ -87,12 +87,12 @@ Whenever code is merged into dev or branch, Travis CI is used for continuous int
 
 \subsection{Travis CI}
 
-Seperate scripts are ran to test each subsystem, and the results of those tests are pipped to Coveralls. Coveralls is a service that we use to indicate our code coverage.
+Seperate scripts are ran to test each subsystem, and the scripts are run on our CI platform, TravisCI. All testing results are displayed there by their respective reporting frameworks.
 
 \subsection{Frontend Testing}
 
 Travis CI we will be running unit tests on Headless Chrome\cite{Website:3} since it isn't practical to do them on a browser when Travis CI runs the automated test scripts.\par
-Karma and Jasmine are used to test the subsystem, while tslint used to check for errors, typos as well as to lint the relevant files according. As a result, the linter will be run first in preparation for the tests. Jasmine is the framework with which we are going to use for our tests and Karma will be used to run those tests.
+Karma and Jasmine are used to test the subsystem, while tslint used to check for errors, typos as well as to lint the relevant Typescript files accordingly. As a result, the linter will be run first in preparation for the tests. Jasmine is the framework with which we are going to use for our tests.
 
 \subsubsection{TypeScript Classes in 'shared' Folder}
 
