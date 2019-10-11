@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es6",
+      "dom"
+    ]
+  },
+  "files": [
+    "./src/app/shared/Logs/LoginLog.ts",
+    "./spec/helpers/ts-console.ts",
+    "./spec/LoginLog.spec.ts",
+    "./src/app/shared/Session/Session.ts",
+    "./spec/Session.spec.ts"
+  ]
+}
