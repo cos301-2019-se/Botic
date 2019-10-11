@@ -2,16 +2,16 @@ import gensim
 import pandas as pd
 import numpy as np
 from sklearn.manifold import TSNE
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 
 def arrayFromFile(filename):
     text_file = open(filename, "r")
-    lines = text_file.read().split('\r\n')
+    lines = text_file.read().split('\n')
     text_file.close()
     return lines
 
-dataset = arrayFromFile("../dictionaries/dataset.txt")
+dataset = arrayFromFile("dataset.txt")
 
 # show the example of list of list format of the custom corpus for gensim modeling
 #print(sent[:2])
@@ -56,3 +56,26 @@ def display_closestwords_tsnescatterplot(model, word, size):
     plt.show()
 
 # display_closestwords_tsnescatterplot(model, 'password', 182)
+
+def displayModel(model):
+    vocab = list(model.wv.vocab)
+
+    X = model[vocab]
+
+    tsne = TSNE(n_components=2)
+
+    X_tsne = tsne.fit_transform(X)
+
+    df = pd.DataFrame(X_tsne, index=vocab, columns=['x', 'y'])
+
+    fig = plt.figure()
+    ax = fig.add_subplot(1, 1, 1)
+
+    ax.scatter(df['x'], df['y'])
+
+    for word, pos in df.iterrows():
+        ax.annotate(word, pos)
+
+    plt.show()
+
+displayModel(model)

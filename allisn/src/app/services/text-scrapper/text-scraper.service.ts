@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 import { HttpModule } from '@angular/http';
 import { badWord } from '../../models/badWord';
 import { BADWORDS } from '../../models/mock-badWords';
@@ -12,7 +13,7 @@ import { BADWORDS } from '../../models/mock-badWords';
 })
 
 export class TextScraperService {
-  private apiURL = 'http://127.0.0.1:5002/scrub';
+  private apiURL = environment.scrapper.baseUrl;
   /*
     private apiURL = 'https://botic-ai-ms.herokuapp.com/scrub';
     private testingURL1 = 'https://reqres.in/api/register';
