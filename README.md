@@ -39,5 +39,5 @@ The project consists of two parts, both applied to an arbitrary ticketing system
   * [Slideshow](https://github.com/cos301-2019-se/Botic/blob/master/docs/slides/Final%20Slide%20Show%20(Demo%204).pptx)
   * [Marketing Video](https://youtu.be/67kGshUfJ6Y)
   * [Deployment](https://botic-frontend.herokuapp.com)
-  * [Tutorial Video] (https://drive.google.com/open?id=1Qoo1I6Dx4yLKPn86wc_fTIdDwNC4kdMQ)
+  * [Tutorial Video](https://drive.google.com/open?id=1Qoo1I6Dx4yLKPn86wc_fTIdDwNC4kdMQ)
 </details>
