@@ -8,7 +8,7 @@ import urllib
 import json
 
 import psycopg2
-
+from datetime import datetime
 
 def sendQuery(email, subject, body):
 	#mydb = mysql.connector.connect(host="sql9.freesqldatabase.com",user="sql9302125",passwd="zriBQtNF5Q",database="sql9302125")
@@ -21,7 +21,10 @@ def sendQuery(email, subject, body):
 
 	mycursor = mydb.cursor()
 
-	query = "INSERT INTO ForwardedMessages (Subject, Body, Contact, Status) VALUES ('"+subject+"', '"+body+"','"+email+"', 100)"
+	now = datetime.now()
+	formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+
+	query = "INSERT INTO ForwardedMessages (Subject, Body, Contact, Status, timein) VALUES ('"+subject+"', '"+body+"','"+email+"', 100, '"+str(formatted_date)+"')"
 	print(query)	
 	mycursor.execute(query)
 

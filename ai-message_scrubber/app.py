@@ -160,7 +160,7 @@ def canDate(word):
 		return True
 
 def validID(id_number):
-	if (length(id_number) != 13):
+	if (len(id_number) != 13):
 		return False
 
 	id_month = id_number[2:2]
