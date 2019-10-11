@@ -10,9 +10,9 @@ The project consists of two parts, both applied to an arbitrary ticketing system
 
 # Documents
 * [System Requirements Specification and Design Document](https://cos301-2019-se.github.io/Botic/compiled/Botic_SRS_v4.pdf)
-* [Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v3.pdf)
+* [Coding Standards](https://cos301-2019-se.github.io/Botic/compiled/Coding_Standards_v2.pdf)
 * [Testing Policy](https://cos301-2019-se.github.io/Botic/compiled/Testing_Policy_v3.pdf)
-* [User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v3.pdf)
+* [User Manual](https://cos301-2019-se.github.io/Botic/compiled/User_Manual_v2.pdf)
 
 <details>
   <summary>Tools Used for Project Management</summary>
