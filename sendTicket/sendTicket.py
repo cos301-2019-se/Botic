@@ -7,14 +7,17 @@ import sys, os
 import urllib
 import json
 
+import psycopg2
+
 
 def sendQuery(email, subject, body):
-	mydb = mysql.connector.connect(
-	  host="sql9.freesqldatabase.com",
-	  user="sql9302125",
-	  passwd="zriBQtNF5Q",
-	  database="sql9302125"
-	)
+	#mydb = mysql.connector.connect(host="sql9.freesqldatabase.com",user="sql9302125",passwd="zriBQtNF5Q",database="sql9302125")
+
+	mydb = psycopg2.connect(
+		host="ec2-174-129-10-235.compute-1.amazonaws.com",
+		user="cyklqspuqrlzeo",
+		password="36b4c5aef1f947c29e90e87595329a51989965369a799d0166f09915f3eb118d",
+		database="detua3tvjjqr5k" )
 
 	mycursor = mydb.cursor()
 

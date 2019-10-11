@@ -159,6 +159,46 @@ def canDate(word):
 	else:
 		return True
 
+def validID(id_number):
+	if (length(id_number) != 13):
+		return False
+
+	id_month = id_number[2:2]
+	id_day = id_number[4:2]
+	id_citizen = id_number[10:1]
+
+	if(int(id_month) > 12 or int(id_month) < 1):
+		return False
+	elif(int(id_month) == 1 and (int(id_day) > 31 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 2 and (int(id_day) > 29 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 3 and (int(id_day) > 31 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 4 and (int(id_day) > 30 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 5 and (int(id_day) > 31 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 6 and (int(id_day) > 30 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 7 and (int(id_day) > 31 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 8 and (int(id_day) > 31 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 9 and (int(id_day) > 30 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 10 and (int(id_day) > 31 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 11 and (int(id_day) > 30 or int(id_day) < 1)):
+		return False
+	elif(int(id_month) == 12 and (int(id_day) > 31 or int(id_day) < 1)):
+		return False
+	elif(int(id_citizen) < 0 or int(id_citizen) > 1):
+		return False
+	else:
+		return True
+
+
 def couldBeID(word):
 	if word.isdigit():
 		if (len(word) == 13):
@@ -199,7 +239,7 @@ def parseInfo(info):
 		
 		print("TYPE" + str(type(word)))
 
-		if couldBeID(word):
+		if validID(word):
 			if first == True:
 				changed += addEntry(str(infoArray.index(word)), '2')
 				first = False
