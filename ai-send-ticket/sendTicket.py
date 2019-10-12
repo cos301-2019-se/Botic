@@ -7,7 +7,7 @@ import sys, os
 import urllib
 import json
 
-import psycopg2
+#import psycopg2
 from datetime import datetime
 
 def sendQuery(email, subject, body):
