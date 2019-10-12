@@ -18,6 +18,8 @@ RUN sudo apt install -y python3-pip
 
 # Install any needed packages specified in requirements.txt
 RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
+RUN sudo apt-get install -y python-psycopg2
+#RUN pip3 install psycopg2
 
 EXPOSE 5000
 
