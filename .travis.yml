@@ -32,6 +32,8 @@ before_install:
   - "docker build -t alabamaliquidservices/botic:latest-st ."
   - "docker push alabamaliquidservices/botic:latest-st"
 
+  - "cd .. "
+  
   # Tag Docker Images for Heroku Deployment
   - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
   - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"

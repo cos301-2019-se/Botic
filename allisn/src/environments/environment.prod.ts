@@ -16,5 +16,8 @@ export const environment = {
   },
   scrapper: {
     baseUrl: 'http://botic-ai-ms.herokuapp.com/scrub'
+  },
+  sendTicket: {
+    baseUrl: 'http://botic-ai-st.herokuapp.com/sendTicket'
   }
 };
