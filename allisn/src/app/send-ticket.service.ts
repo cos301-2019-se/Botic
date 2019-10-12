@@ -8,7 +8,7 @@ import { HttpModule } from '@angular/http';
   providedIn: 'root'
 })
 export class SendTicketService {
-  apiURL = "http://127.0.0.1:5000/sendTicket"
+  apiURL = environment.sendTicket.baseUrl;
 
   constructor(private http: HttpClient){
     }
