@@ -1,1 +1,1 @@
-from app import sendTicket as application
+from sendTicket import app as application
