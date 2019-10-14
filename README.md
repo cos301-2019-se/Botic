@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.com/cos301-2019-se/Botic.svg?branch=master)](https://travis-ci.com/cos301-2019-se/Botic)
-
+# [*CLICK HERE TO CHECK OUT OUR LIVE DEMO*](http://www.botic.live)
 <div align="center"><img src="https://cos301-2019-se.github.io/Botic/images/Logo2.png" width="150"></div>
 
 # B O T I C
