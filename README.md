@@ -1,4 +1,4 @@
-# [*TRY OUR LIVE DEMO*](http://botic.live)
+# [*TRY OUR LIVE DEMO*](http://www.botic.live)
 <div align="center"><img src="https://cos301-2019-se.github.io/Botic/images/Logo2.png" width="150"></div>
 
 # B O T I C
