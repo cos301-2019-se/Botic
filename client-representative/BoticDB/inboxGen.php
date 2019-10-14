@@ -1,13 +1,8 @@
 <?php
     include 'db_connection.php';
-    $db = OpenCon();
+    $db = openCon();
 
     $result = pg_query($db, "SELECT * FROM ForwardedMessages WHERE Status = 100 ORDER BY id DESC");
-
-    // $sql = "SELECT * FROM ForwardedMessages WHERE Status = 100 ORDER BY id DESC";
-    // $result = mysqli_query($conn, $sql);
-
-    // $result = pg_query($db_connection, "SELECT * FROM ForwardedMessages WHERE Status = 100 ORDER BY id DESC");
 
     if(pg_num_rows($result) > 0) {
         // output data of each row

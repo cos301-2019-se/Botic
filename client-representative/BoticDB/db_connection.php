@@ -10,7 +10,6 @@
       echo "Database connection error.";
       exit;
     }
-    else echo "Connected to Database!";
     return $db;
   }
 ?>

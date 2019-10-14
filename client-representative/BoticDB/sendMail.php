@@ -3,13 +3,13 @@
    include 'db_connection.php';
    $db = openCon();
 
-   $sql = "SELECT * FROM ForwardedMessages WHERE status = 100 ORDER BY id DESC";
-   $result = pg_query($db, $sql);
+   $result = pg_query($db, "SELECT * FROM forwardedmessages WHERE status = 100 ORDER BY id DESC");
+
    if (pg_num_rows($result) > 0) {
       $row = pg_fetch_assoc($result);
-      $email = $row["contact"];
-      $id1 = $row["id"];
-      $subject = "RE: " . $row["subject"];
+      $email = $row['contact'];
+      $id1 = $row['id'];
+      $subject = "RE: " . $row['subject'];
    } else {
        echo "0 results";
    }
@@ -17,6 +17,7 @@
 
    ini_set('display_errors', 1);
    error_reporting(E_ALL);
+
    $msg = $_POST['inputField'];
    $msg = wordwrap($msg, 70, "\r\n");
    ini_set("SMTP", "aspmx.l.google.com");
@@ -27,9 +28,11 @@
    header('Location: index.php');
 
    $db = openCon();
-   $closeTime = microtime(true);
 
-   $sql = "UPDATE ForwardedMessages SET status = 200, timeout = NOW() WHERE id = " . $id1;
+   $sql = "UPDATE forwardedmessages SET status = 200, timeout = NOW() WHERE id = " . $id1;
+
    pg_query($db, $sql);
+
+   // pg_query($db, $sql);
    pg_close($db);
 ?>
