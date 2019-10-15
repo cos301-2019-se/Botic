@@ -294,10 +294,13 @@ def scanInfo(info):
 		if not(inDictionary(dictionary, word)):
 			unsafeWords += 1
 
-    if unsafeWords == 0:
-        return True
+	print("num words: " + str(arrLength));
+	print("unsafe words: " + str(unsafeWords));
 
-	if (arrLength / unsafeWords) <= 1:
+	if unsafeWords == 0:
+		return True
+
+	if (arrLength / unsafeWords):
 		return False
 	else:
 		return True
