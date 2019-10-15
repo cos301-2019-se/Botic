@@ -3,12 +3,13 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SendTicketService {
-  apiURL = "http://127.0.0.1:5000/sendTicket"
+  apiURL = environment.sendTicket.baseUrl;
 
   constructor(private http: HttpClient){
     }

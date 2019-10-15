@@ -1,0 +1,7 @@
+Flask==1.0.2
+Flask-Cors==3.0.8
+gunicorn==19.9.0
+mysql-connector==2.2.9
+py==1.8.0
+pytest==4.4.1
+pytest-cov==2.6.1
