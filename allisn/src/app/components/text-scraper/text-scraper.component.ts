@@ -117,6 +117,23 @@ export class TextScraperComponent implements OnInit {
     return false;
   }
 
+  checkIfSeverityIsOne(input: string): boolean {
+    // this.TextScraperService.getBadWordsFromInput(input).subscribe(badWords => {this.badWords = badWords;
+      var array = input.split(" ");
+      var severity = 0;
+
+      for(var i = 0; i < array.length; i++){
+        for (var j = 0; j < this.badWords.length; j++){
+          if (i == this.badWords[j].position){
+            severity = this.badWords[j].severity;
+            if (severity == 1) return true;
+          }
+        }
+      }
+      return false;
+    return false;
+  }
+
   /*This function checks to see if a person has entered personal information,
   if they have, first warn them, then the person gets the option to change the
   message or send it with the personal information attached.
@@ -155,7 +172,7 @@ export class TextScraperComponent implements OnInit {
               }
               else {
                 // severity of 2 or 1
-                if (this.badWords.length == 1) {
+                if (this.badWords.length == 1 && checkIfSeverityIsOne(userInput) == true) {
                   this.sendMessage(userInput);
                   this.hasChecked = false;
                   this.userInput = "";
