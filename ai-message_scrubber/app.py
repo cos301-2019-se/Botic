@@ -89,7 +89,7 @@ def search(text,target,n):
 			return groups[:right]
 
 		return groups[:left],groups[right:]
-	else:		
+	else:
 		return False
 
 def listit(t):
@@ -257,7 +257,7 @@ def parseInfo(info):
 							first = False
 						else:
 							changed += "," + addEntry(str(infoArray.index(word)), '1')
-				
+
 				#print("TYPE" + str(type(word)))
 
 				if validID(word):
@@ -294,8 +294,8 @@ def scanInfo(info):
 		if not(inDictionary(dictionary, word)):
 			unsafeWords += 1
 
-	print("num words: " + str(arrLength));
-	print("unsafe words: " + str(unsafeWords));
+    if unsafeWords == 0:
+        return True
 
 	if (arrLength / unsafeWords) <= 1:
 		return False
@@ -341,4 +341,3 @@ def scrub():
 if __name__ == '__main__':
 	port = int(os.environ.get("PORT", 5002))
 	app.run(host='0.0.0.0', port=port)
-
