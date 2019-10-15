@@ -1,5 +1,22 @@
 <aiml version="1.0.1">
 	<category>
+		<pattern>DEMO</pattern>
+		<template>
+			This chatbot works in two ways, firstly it can answer customer 
+			support questions and secondly, it can detect personally identifying 
+			information. For a list of guestions, send the word QUESTIONS or 
+			try telling it a name password, id number, etc. 
+		</template>
+	</category>
+
+	<category>
+		<pattern>QUESTIONS</pattern>
+		<template>
+			
+		</template>
+	</category>
+
+	<category>
 		<pattern>WHAT CAN YOU DO</pattern>
 		<template>what do you want to know about? Balance Inquiry? Bundle Inquiry? Current Package? Internet Packages? Other information?</template>
 	</category>

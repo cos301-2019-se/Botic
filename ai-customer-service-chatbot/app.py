@@ -169,7 +169,7 @@ def DictRead():
 #   2221 - I have no idea what you are talking about
 def respond(message, sessionId):
     output = "{"
-    body = bot.respond(message, sessionId)
+    body = bot.respond(message, sessionId)    
     if body == "Let me learn this.":
         code = 2222
         output += "'code': " + str(code) + "," + "'message': " + "''"
