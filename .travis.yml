@@ -8,25 +8,25 @@ before_install:
   - "wget -qO- https://toolbelt.heroku.com/install.sh | sh"
   - "echo \"$DOCKER_PASSWORD\" | docker login -u \"$DOCKER_USERNAME\" --password-stdin"
   - "echo \"$HEROKU_PASSWORD\" | docker login -u \"$HEROKU_USERNAME\" --password-stdin registry.heroku.com"
-#  - "cd $TRAVIS_BUILD_DIR/allisn"
+  - "cd $TRAVIS_BUILD_DIR/allisn"
 
   # BoticFrontend
-#  - "docker build -t alabamaliquidservices/botic:latest-frontend ."
-#  - "docker push alabamaliquidservices/botic:latest-frontend"
+  - "docker build -t alabamaliquidservices/botic:latest-frontend ."
+  - "docker push alabamaliquidservices/botic:latest-frontend"
 
-#  - "cd .. & cd $TRAVIS_BUILD_DIR/ai-message_scrubber"
+  - "cd .. & cd $TRAVIS_BUILD_DIR/ai-message_scrubber"
 
   # MessageScrapper
-#  - "docker build -t alabamaliquidservices/botic:latest-ms ."
-#  - "docker push alabamaliquidservices/botic:latest-ms"
+  - "docker build -t alabamaliquidservices/botic:latest-ms ."
+  - "docker push alabamaliquidservices/botic:latest-ms"
 
-#  - "cd .. & cd $TRAVIS_BUILD_DIR/ai-customer-service-chatbot"
+  - "cd .. & cd $TRAVIS_BUILD_DIR/ai-customer-service-chatbot"
 
   # CustomerSupportRepresentative
-#  - "docker build -t alabamaliquidservices/botic:latest-csc ."
-#  - "docker push alabamaliquidservices/botic:latest-csc"
+  - "docker build -t alabamaliquidservices/botic:latest-csc ."
+  - "docker push alabamaliquidservices/botic:latest-csc"
 
- # - "cd .. & cd $TRAVIS_BUILD_DIR/ai-send-ticket"
+  - "cd .. & cd $TRAVIS_BUILD_DIR/ai-send-ticket"
   - "cd $TRAVIS_BUILD_DIR/ai-send-ticket"
   
   # SendTicket 
@@ -36,18 +36,18 @@ before_install:
   - "cd .. "
   
   # Tag Docker Images for Heroku Deployment
-#  - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
-#  - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
-#  - "docker tag alabamaliquidservices/botic:latest-csc registry.heroku.com/$HEROKU_CS/web"
+  - "docker tag alabamaliquidservices/botic:latest-frontend registry.heroku.com/$HEROKU_APP_NAME/web"
+  - "docker tag alabamaliquidservices/botic:latest-ms registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
+  - "docker tag alabamaliquidservices/botic:latest-csc registry.heroku.com/$HEROKU_CS/web"
   - "docker tag alabamaliquidservices/botic:latest-st registry.heroku.com/$HEROKU_ST/web"
 
   # Push Push Images to Heroku and Deploy the Heroku Applications
-#  - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"
-#  - "heroku container:release web --app $HEROKU_APP_NAME"
-#  - "docker push registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
-#  - "heroku container:release web --app $HEROKU_APP_NAME_TWO"
-#  - "docker push registry.heroku.com/$HEROKU_CS/web"
-#  - "heroku container:release web --app $HEROKU_CS"
+  - "docker push registry.heroku.com/$HEROKU_APP_NAME/web"
+  - "heroku container:release web --app $HEROKU_APP_NAME"
+  - "docker push registry.heroku.com/$HEROKU_APP_NAME_TWO/web"
+  - "heroku container:release web --app $HEROKU_APP_NAME_TWO"
+  - "docker push registry.heroku.com/$HEROKU_CS/web"
+  - "heroku container:release web --app $HEROKU_CS"
   - "docker push registry.heroku.com/$HEROKU_ST/web"
   - "heroku container:release web --app $HEROKU_ST"
 
