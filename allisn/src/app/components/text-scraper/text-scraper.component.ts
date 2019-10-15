@@ -172,7 +172,7 @@ export class TextScraperComponent implements OnInit {
               }
               else {
                 // severity of 2 or 1
-                if (this.badWords.length == 1 && checkIfSeverityIsOne(userInput) == true) {
+                if (this.badWords.length == 1 && this.checkIfSeverityIsOne(userInput) == true) {
                   this.sendMessage(userInput);
                   this.hasChecked = false;
                   this.userInput = "";
