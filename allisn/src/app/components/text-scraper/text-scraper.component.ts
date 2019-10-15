@@ -171,6 +171,7 @@ export class TextScraperComponent implements OnInit {
                   }
                   else {
                     this.text = 'Send';
+                    this.returnChangedDisplay("");
                   }
                 }
               }
@@ -181,6 +182,8 @@ export class TextScraperComponent implements OnInit {
           if (userInput != this.prevMessage) {
             this.hasChecked = false;
             this.onClickCall(userInput);
+            this.returnChangedDisplay("");
+            this.text = 'Send';
           }
           else {
             this.sendMessage(userInput);
@@ -235,7 +238,7 @@ export class TextScraperComponent implements OnInit {
   }
 
   showError1() {
-    this.toastr.warning("Potentially compromising information has been detected, please press send again to confirm that you would like to transmit this information", "Privacy Warning");
+    this.toastr.warning("Potentially compromising information has been detected, please press I GIVE CONSENT to confirm that you would like to transmit this information", "Privacy Warning");
   }
 
   showError2() {
