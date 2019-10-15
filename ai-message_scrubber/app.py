@@ -297,7 +297,7 @@ def scanInfo(info):
 	print("num words: " + str(arrLength));
 	print("unsafe words: " + str(unsafeWords));
 
-	if arrLength == unsafeWords:
+	if (arrLength / unsafeWords) <= 1:
 		return False
 	else:
 		return True
