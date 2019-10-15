@@ -13,6 +13,18 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+def arrayFromFile(filename):
+    text_file = open(filename, "r")
+    lines = text_file.read().split('\n')
+    text_file.close()
+    return lines
+
+
+#initialise the model and the dictionary
+dictionary = arrayFromFile("dictionaries/20k.txt")
+model = gensim.models.Word2Vec.load("models/model.word2vec");
+
+
 def isReservedWord(word):
 	return {
 		'NAME' : True,
@@ -32,11 +44,6 @@ def is_date(string, fuzzy=False):
     except ValueError:
         return False
 
-def arrayFromFile(filename):
-    text_file = open(filename, "r")
-    lines = text_file.read().split('\n')
-    text_file.close()
-    return lines
 
 def inDictionary(dictionary, searchWord):
 	for word in dictionary:
@@ -82,7 +89,7 @@ def search(text,target,n):
 			return groups[:right]
 
 		return groups[:left],groups[right:]
-	else:
+	else:		
 		return False
 
 def listit(t):
@@ -116,7 +123,7 @@ def reservedWordSeverity(word):
                 return 0
             else:
                 if (word == "PASSWORD"):
-                    return 2
+                    return 1
                 else:
                     if (word == "USERNAME"):
                         return 1
@@ -201,7 +208,6 @@ def validID(id_number):
 	else:
 		return True
 
-
 def couldBeID(word):
 	if word.isdigit():
 		if (len(word) == 13):
@@ -211,62 +217,91 @@ def couldBeID(word):
 
 def parseInfo(info):
 	changed = "["
-	infoArray = info.split(' ')
-	first = True
 
-	for word in infoArray:
-		if isReservedWord(word.upper()):
-			severityIndex = reservedWordSeverity(word.upper())
-			if first == True:
-				changed += addEntry(infoArray.index(word), (severityIndex))
-				first = False
+	if scanInfo(info):
+		print("SAFE!")
+
+		infoArray = info.split(' ')
+		first = True
+
+		for word in infoArray:
+			if len(infoArray) == 1:
+				if validID(word):
+					if first == True:
+						changed += addEntry(str(infoArray.index(word)), '2')
+						first = False
+					else:
+						changed += "," + addEntry(str(infoArray.index(word)), '2')
 			else:
-				changed += "," + addEntry(infoArray.index(word), (severityIndex))
+				if isReservedWord(word.upper()):
+					severityIndex = reservedWordSeverity(word.upper())
+					if first == True:
+						changed += addEntry(infoArray.index(word), (severityIndex))
+						first = False
+					else:
+						changed += "," + addEntry(infoArray.index(word), (severityIndex))
 
 
-		#Third, check for names
-		#TODO: Change this to work with NLTK
-		#for y in infoArray:
-		#    for name in names:
-		#        if word_in(y, name):
-		#            changed += addEntry(str(infoArray.index(y)), '0')
+				#Third, check for names
+				#TODO: Change this to work with NLTK
+				#for y in infoArray:
+				#    for name in names:
+				#        if word_in(y, name):
+				#            changed += addEntry(str(infoArray.index(y)), '0')
 
-		#Forth, check for important date
-		if canDate(word):
-			if is_date(word):
-				if first == True:
-					changed += addEntry(str(infoArray.index(word)), '1')
-					first = False
-				else:
-					changed += "," + addEntry(str(infoArray.index(word)), '1')
-		
-		#print("TYPE" + str(type(word)))
+				#Forth, check for important date
+				if canDate(word):
+					if is_date(word):
+						if first == True:
+							changed += addEntry(str(infoArray.index(word)), '1')
+							first = False
+						else:
+							changed += "," + addEntry(str(infoArray.index(word)), '1')
+				
+				#print("TYPE" + str(type(word)))
 
-		if validID(word):
-			if first == True:
-				changed += addEntry(str(infoArray.index(word)), '2')
-				first = False
-			else:
-				changed += "," + addEntry(str(infoArray.index(word)), '2')
+				if validID(word):
+					if first == True:
+						changed += addEntry(str(infoArray.index(word)), '2')
+						first = False
+					else:
+						changed += "," + addEntry(str(infoArray.index(word)), '2')
 
-		#Fifth, check for words you haven't seen before
-		if inDictionary(dictionary, word) == False:
-			check_word = investigate(info, word, infoArray.index(word));
+				#Fifth, check for words you haven't seen before
+				if inDictionary(dictionary, word) == False:
+					check_word = investigate(info, word, infoArray.index(word));
 
 
-			if (first == True) and (check_word != ""):
-				changed += check_word
-				first = False
-			else:
-				if (check_word != ""):
-					changed += "," + check_word
+					if (first == True) and (check_word != ""):
+						changed += check_word
+						first = False
+					else:
+						if (check_word != ""):
+							changed += "," + check_word
 
 	changed += "]"
 	return changed
 
-#initialise the model and the dictionary
-dictionary = arrayFromFile("dictionaries/20k.txt")
-model = gensim.models.Word2Vec.load("models/model.word2vec");
+def scanInfo(info):
+	arrLength = len(info.split(' '));
+
+	if(arrLength == 1) and (validID(info)):
+		return True
+
+	unsafeWords = 0
+
+	for word in info.split(' '):
+		if not(inDictionary(dictionary, word)):
+			unsafeWords += 1
+
+	print("num words: " + str(arrLength));
+	print("unsafe words: " + str(unsafeWords));
+
+	if (arrLength / unsafeWords) <= 1:
+		return False
+	else:
+		return True
+
 
 @app.route('/',methods=['GET','POST'])
 @cross_origin()
