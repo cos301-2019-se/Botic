@@ -9,7 +9,8 @@ export class MessageService {
   public messages: string[] = [];
 
   constructor(private BotService: BotService,
-    private stateService: StateService) { }
+    private stateService: StateService) { 
+  }
 
   public add(message: string) {
     this.messages.push(message);
