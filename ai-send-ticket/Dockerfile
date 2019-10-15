@@ -17,10 +17,6 @@ RUN sudo apt-get -y install wget
 RUN sudo apt install -y python3
 RUN sudo apt install -y python3-pip
 
-# Install any needed packages specified in requirements.txt
-RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
-#RUN sudo apt-get install -y python-psycopg2
-
 # Add PostgreSQL's repository. It contains the most recent stable release
 #     of PostgreSQL, ``9.3``.
 #RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" > /etc/apt/sources.list.d/pgdg.list
@@ -42,7 +38,10 @@ RUN sudo apt-get install -y libpq-dev
 #check what I wanted
 RUN pg_config --version
 
-RUN pip3 install psycopg2
+#RUN pip3 install psycopg2
+
+# Install any needed packages specified in requirements.txt
+RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 5000
 
