@@ -61,7 +61,7 @@ export class MessageService {
     response +='  </span>'
     response +='  <div class="chat-body clearfix">';
     response +='    <div class="header">'
-    response +='      <strong class="primary-font">You</strong>';
+    response +='      <strong class="primary-font"> You </strong>';
     response +='    </div>';
     response +='    <p>&nbsp;'+input+'</p>';
     response +='  </div>';
@@ -79,7 +79,7 @@ export class MessageService {
     response += ' </span>';
     response += ' <div class="chat-body clearfix">';
     response += '   <div class="header">';
-    response += '     <strong class="pull-right primary-font">Allisn</strong>';
+    response += '     <strong class="pull-right primary-font"> Allisn </strong>';
     response += '   </div>';
     response += '  <p>'+input+'</p>';
     response +='  </div>';
