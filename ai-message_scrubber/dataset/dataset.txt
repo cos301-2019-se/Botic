@@ -1,146 +1,146 @@
-Hi my birthday is xX_birthdate_Xx 
-Hi there, my birthday is on xX_birthdate_Xx 
-Birthday: xX_birthdate_Xx 
-Hi my date of birth is xX_birthdate_Xx 
-Birth Date: xX_birthdate_Xx 
-Hi my birthday is on the xX_birthdate_Xx 
-Hi my birthday is on the xX_birthdate_Xx 
-My birth date is the xX_birthdate_Xx 
-I am born on the xX_birthdate_Xx 
-Hi I was born on xX_birthdate_Xx 
-Celebrating my birthday xX_birthdate_Xx 
-The date I was born on was the xX_birthdate_Xx 
-The date I was born on was on the xX_birthdate_Xx 
-Hi my anniversary is xX_birthdate_Xx 
-My anniversary is anniversarydate 
-My anniversary is on the anniversarydate 
-My birthday is on xX_birthdate_Xx 
-I was born on xX_birthdate_Xx 
-My child's birth is xX_birthdate_Xx 
-My child's birthday is xX_birthdate_Xx 
-Hi. My child was born on xX_birthdate_Xx 
-My child was born on the xX_birthdate_Xx, I'm so happy 
-My child was born today on the xX_birthdate_Xx 
-Hi there, can you believe it?  My child was born on xX_birthdate_Xx 
-Child was born on xX_birthdate_Xx 
-Hi there, my ID number is xX_idNumber_Xx 
-ID NUMBER: xX_idNumber_Xx 
-Hi my id is: xX_idNumber_Xx 
-Is my ID xX_idNumber_Xx? 
-Is the id number xX_idNumber_Xx valid? 
-Please use my ID number: xX_idNumber_Xx 
-This is my ID number: xX_idNumber_Xx 
-This is my id number: xX_idNumber_Xx 
-My id number is xX_idNumber_Xx 
-My wife's ID number is xX_idNumber_Xx 
-Wife's ID: xX_idNumber_Xx 
-My husband's id number is xX_idNumber_Xx 
-Husband's id: xX_idNumber_Xx 
-Hi there, my child's ID number is xX_idNumber_Xx 
-Child's id: xX_idNumber_Xx 
-My first born's ID: xX_idNumber_Xx 
-Just in case you need my id number: xX_idNumber_Xx 
-I registered with the ID number: xX_idNumber_Xx 
-My personal ID is: xX_idNumber_Xx 
-Personal ID: xX_idNumber_Xx 
-ID: xX_idNumber_Xx 
-Hi, my email is xX_emailaddress_Xx 
-This is my email: xX_emailaddress_Xx 
-Please send it to my email address: xX_emailaddress_Xx 
-I used the following email address xX_emailaddress_Xx 
-My work email is xX_emailaddress_Xx 
-xX_emailaddress_Xx is my email 
-My boss' email is xX_emailaddress_Xx 
-The email I am using is xX_emailaddress_Xx 
-My yahoo email is xX_emailaddress_Xx 
-I am tired, but hey you can email me on xX_emailaddress_Xx 
-My name is xX_firstname_Xx xX_lastname_Xx 
-xX_firstname_Xx xX_lastname_Xx is my name 
-xX_firstname_Xx xX_lastname_Xx is the name of my first born 
-Hi there, my name is xX_firstname_Xx xX_lastname_Xx 
-Hi I'm xX_firstname_Xx xX_lastname_Xx 
-xX_firstname_Xx xX_lastname_Xx is the name my parents gave my sister. 
-xX_firstname_Xx xX_lastname_Xx what kind of name is that? 
-My full name is xX_firstname_Xx xX_lastname_Xx 
-xX_firstname_Xx xX_lastname_Xx is the name of the sales person 
-xX_firstname_Xx xX_lastname_Xx is the name of my boss 
-I used the name xX_firstname_Xx xX_lastname_Xx 
-Hi there bot, my name is xX_firstname_Xx xX_lastname_Xx 
-Name: xX_firstname_Xx xX_lastname_Xx 
-My name is xX_firstname_Xx xX_lastname_Xx almost like Stuart Little 
-Hi, this is my name: xX_firstname_Xx xX_lastname_Xx 
-name: xX_firstname_Xx xX_lastname_Xx 
-The password I used was xX_password_Xx 
-The password I was given was xX_password_Xx 
-Can you please confirm if xX_password_Xx is my password? 
-xX_password_Xx is my password. 
-Password: xX_password_Xx 
-I was so sure that my password is xX_password_Xx 
-You can use the password xX_password_Xx 
-My banking password is xX_password_Xx 
-My password for my login is xX_password_Xx 
-By the way, my password is xX_password_Xx 
-my password is xX_password_Xx 
-Case sensitive password xX_password_Xx 
-I my ID number is xX_idNumber_Xx and I was born on xX_birthdate_Xx 
-Hi there, my id is xX_idNumber_Xx and I was born on xX_birthdate_Xx 
-ID NUMBER: xX_idNumber_Xx Birthday: xX_birthdate_Xx 
-Hi, my ID number is xX_idNumber_Xx but I was born on the xX_birthdate_Xx 
-ID: xX_idNumber_Xx natal day: xX_birthdate_Xx 
-My ID number: xX_idNumber_Xx My child's birthday: xX_birthdate_Xx 
-Hi there, my birthday is xX_birthdate_Xx and my email is xX_emailaddress_Xx 
-Hi, I was born on the xX_birthdate_Xx and my email is xX_emailaddress_Xx 
-Birthday: xX_birthdate_Xx Email: xX_emailaddress_Xx is my email and birthday 
-Hi, my name is xX_firstname_Xx xX_lastname_Xx and my birthday is xX_birthdate_Xx 
-My name is xX_firstname_Xx xX_lastname_Xx and I was born on xX_birthdate_Xx 
-I am an old guy with the name xX_firstname_Xx xX_lastname_Xx born on xX_birthdate_Xx 
-Name: xX_firstname_Xx xX_lastname_Xx Birthday: xX_birthdate_Xx 
-xX_firstname_Xx xX_lastname_Xx is my name and my birthday is xX_birthdate_Xx 
-Hi there bot, my name is xX_firstname_Xx xX_lastname_Xx and I was born on the xX_birthdate_Xx 
-My birthday is xX_birthdate_Xx and my password xX_password_Xx 
-Hi, I was born on xX_birthdate_Xx and this is my password: xX_password_Xx 
-My child was born on the xX_birthdate_Xx and her password is xX_password_Xx 
-Hi there, my ID is xX_idNumber_Xx and my email is xX_emailaddress_Xx 
-ID number: xX_idNumber_Xx Email: xX_emailaddress_Xx 
-My ID number is xX_idNumber_Xx and the email I am using is xX_emailaddress_Xx 
-My husband's ID number and email: xX_idNumber_Xx xX_emailaddress_Xx 
-xX_idNumber_Xx is my ID number and xX_emailaddress_Xx is my email 
-ID NUMBER: xX_idNumber_Xx EMAIL: xX_emailaddress_Xx 
-I think my id number is xX_idNumber_Xx and I know my email is xX_emailaddress_Xx 
-ID: xX_idNumber_Xx Name: xX_firstname_Xx xX_lastname_Xx 
-Hi there, my ID number is xX_idNumber_Xx and my name is xX_firstname_Xx xX_lastname_Xx 
-Hi, the ID is xX_idNumber_Xx and the name is xX_firstname_Xx xX_lastname_Xx 
-xX_idNumber_Xx is my ID number and my name xX_firstname_Xx xX_lastname_Xx 
-ID: xX_idNumber_Xx Husband's Name: xX_firstname_Xx xX_lastname_Xx 
-In case you need the following: ID: xX_idNumber_Xx Full Name: xX_firstname_Xx xX_lastname_Xx 
-Hi my id number is xX_idNumber_Xx and xX_firstname_Xx xX_lastname_Xx is my name 
-xX_idNumber_Xx is the ID number of the woman and the name she is using is xX_firstname_Xx xX_lastname_Xx 
-xX_idNumber_Xx is her ID xX_firstname_Xx Hogan is her name 
-Hi there MR, My ID is xX_idNumber_Xx and my password is xX_password_Xx 
-Hi, my user name is my ID xX_idNumber_Xx and my password is xX_password_Xx 
-ID NUMBER: xX_idNumber_Xx PASSWORD: xX_password_Xx 
-ID xX_idNumber_Xx password xX_password_Xx 
-xX_idNumber_Xx is my ID number and the password is xX_password_Xx 
-ID: xX_idNumber_Xx Password that is used: xX_password_Xx 
-xX_emailaddress_Xx is my email and my name is xX_firstname_Xx xX_lastname_Xx 
-email: xX_emailaddress_Xx name: xX_firstname_Xx xX_lastname_Xx 
-Hi there, my email is xX_emailaddress_Xx and my name is xX_firstname_Xx xX_lastname_Xx 
-xX_emailaddress_Xx xX_firstname_Xx xX_lastname_Xx that is my email address and name. 
-You can send it to the email xX_emailaddress_Xx and please address the name xX_firstname_Xx xX_lastname_Xx 
-My work email is xX_emailaddress_Xx and my name is xX_firstname_Xx xX_lastname_Xx 
-xX_emailaddress_Xx is the email you can use xX_firstname_Xx xX_lastname_Xx is the contact name. 
-EMAIL: xX_emailaddress_Xx NAME: xX_firstname_Xx xX_lastname_Xx 
-Hi my email is xX_emailaddress_Xx and my password is xX_password_Xx 
-Hi my email is xX_emailaddress_Xx and the email password is xX_password_Xx 
-EMAIL: xX_emailaddress_Xx PASSWORD: xX_password_Xx 
-Hi there my old friend. my email changed to xX_emailaddress_Xx and my new password is xX_password_Xx 
-xX_firstname_Xx xX_lastname_Xx is my name and my password to log in is xX_password_Xx 
-Name: xX_firstname_Xx xX_lastname_Xx Password: xX_password_Xx 
-The user name is just my name xX_firstname_Xx xX_lastname_Xx and the password is xX_password_Xx 
-xX_firstname_Xx xX_lastname_Xx is the name of my husband and his password is xX_password_Xx 
+Hi my birthday is xXbirthdateXx 
+Hi there, my birthday is on xXbirthdateXx 
+Birthday: xXbirthdateXx 
+Hi my date of birth is xXbirthdateXx 
+Birth Date: xXbirthdateXx 
+Hi my birthday is on the xXbirthdateXx 
+Hi my birthday is on the xXbirthdateXx 
+My birth date is the xXbirthdateXx 
+I am born on the xXbirthdateXx 
+Hi I was born on xXbirthdateXx 
+Celebrating my birthday xXbirthdateXx 
+The date I was born on was the xXbirthdateXx 
+The date I was born on was on the xXbirthdateXx 
+Hi my anniversary is xXbirthdateXx 
+My anniversary is xXanniversarydateXx 
+My anniversary is on the xXanniversarydateXx 
+My birthday is on xXbirthdateXx 
+I was born on xXbirthdateXx 
+My child's birth is xXbirthdateXx 
+My child's birthday is xXbirthdateXx 
+Hi. My child was born on xXbirthdateXx 
+My child was born on the xXbirthdateXx, I'm so happy 
+My child was born today on the xXbirthdateXx 
+Hi there, can you believe it?  My child was born on xXbirthdateXx 
+Child was born on xXbirthdateXx 
+Hi there, my ID number is xXidNumberXx 
+ID NUMBER: xXidNumberXx 
+Hi my id is: xXidNumberXx 
+Is my ID xXidNumberXx? 
+Is the id number xXidNumberXx valid? 
+Please use my ID number: xXidNumberXx 
+This is my ID number: xXidNumberXx 
+This is my id number: xXidNumberXx 
+My id number is xXidNumberXx 
+My wife's ID number is xXidNumberXx 
+Wife's ID: xXidNumberXx 
+My husband's id number is xXidNumberXx 
+Husband's id: xXidNumberXx 
+Hi there, my child's ID number is xXidNumberXx 
+Child's id: xXidNumberXx 
+My first born's ID: xXidNumberXx 
+Just in case you need my id number: xXidNumberXx 
+I registered with the ID number: xXidNumberXx 
+My personal ID is: xXidNumberXx 
+Personal ID: xXidNumberXx 
+ID: xXidNumberXx 
+Hi, my email is xXemailaddressXx 
+This is my email: xXemailaddressXx 
+Please send it to my email address: xXemailaddressXx 
+I used the following email address xXemailaddressXx 
+My work email is xXemailaddressXx 
+xXemailaddressXx is my email 
+My boss' email is xXemailaddressXx 
+The email I am using is xXemailaddressXx 
+My yahoo email is xXemailaddressXx 
+I am tired, but hey you can email me on xXemailaddressXx 
+My name is xXfirstnameXx xXlastnameXx 
+xXfirstnameXx xXlastnameXx is my name 
+xXfirstnameXx xXlastnameXx is the name of my first born 
+Hi there, my name is xXfirstnameXx xXlastnameXx 
+Hi I'm xXfirstnameXx xXlastnameXx 
+xXfirstnameXx xXlastnameXx is the name my parents gave my sister. 
+xXfirstnameXx xXlastnameXx what kind of name is that? 
+My full name is xXfirstnameXx xXlastnameXx 
+xXfirstnameXx xXlastnameXx is the name of the sales person 
+xXfirstnameXx xXlastnameXx is the name of my boss 
+I used the name xXfirstnameXx xXlastnameXx 
+Hi there bot, my name is xXfirstnameXx xXlastnameXx 
+Name: xXfirstnameXx xXlastnameXx 
+My name is xXfirstnameXx xXlastnameXx almost like Stuart Little 
+Hi, this is my name: xXfirstnameXx xXlastnameXx 
+name: xXfirstnameXx xXlastnameXx 
+The password I used was xXpasswordXx 
+The password I was given was xXpasswordXx 
+Can you please confirm if xXpasswordXx is my password? 
+xXpasswordXx is my password. 
+Password: xXpasswordXx 
+I was so sure that my password is xXpasswordXx 
+You can use the password xXpasswordXx 
+My banking password is xXpasswordXx 
+My password for my login is xXpasswordXx 
+By the way, my password is xXpasswordXx 
+my password is xXpasswordXx 
+Case sensitive password xXpasswordXx 
+I my ID number is xXidNumberXx and I was born on xXbirthdateXx 
+Hi there, my id is xXidNumberXx and I was born on xXbirthdateXx 
+ID NUMBER: xXidNumberXx Birthday: xXbirthdateXx 
+Hi, my ID number is xXidNumberXx but I was born on the xXbirthdateXx 
+ID: xXidNumberXx natal day: xXbirthdateXx 
+My ID number: xXidNumberXx My child's birthday: xXbirthdateXx 
+Hi there, my birthday is xXbirthdateXx and my email is xXemailaddressXx 
+Hi, I was born on the xXbirthdateXx and my email is xXemailaddressXx 
+Birthday: xXbirthdateXx Email: xXemailaddressXx is my email and birthday 
+Hi, my name is xXfirstnameXx xXlastnameXx and my birthday is xXbirthdateXx 
+My name is xXfirstnameXx xXlastnameXx and I was born on xXbirthdateXx 
+I am an old guy with the name xXfirstnameXx xXlastnameXx born on xXbirthdateXx 
+Name: xXfirstnameXx xXlastnameXx Birthday: xXbirthdateXx 
+xXfirstnameXx xXlastnameXx is my name and my birthday is xXbirthdateXx 
+Hi there bot, my name is xXfirstnameXx xXlastnameXx and I was born on the xXbirthdateXx 
+My birthday is xXbirthdateXx and my password xXpasswordXx 
+Hi, I was born on xXbirthdateXx and this is my password: xXpasswordXx 
+My child was born on the xXbirthdateXx and her password is xXpasswordXx 
+Hi there, my ID is xXidNumberXx and my email is xXemailaddressXx 
+ID number: xXidNumberXx Email: xXemailaddressXx 
+My ID number is xXidNumberXx and the email I am using is xXemailaddressXx 
+My husband's ID number and email: xXidNumberXx xXemailaddressXx 
+xXidNumberXx is my ID number and xXemailaddressXx is my email 
+ID NUMBER: xXidNumberXx EMAIL: xXemailaddressXx 
+I think my id number is xXidNumberXx and I know my email is xXemailaddressXx 
+ID: xXidNumberXx Name: xXfirstnameXx xXlastnameXx 
+Hi there, my ID number is xXidNumberXx and my name is xXfirstnameXx xXlastnameXx 
+Hi, the ID is xXidNumberXx and the name is xXfirstnameXx xXlastnameXx 
+xXidNumberXx is my ID number and my name xXfirstnameXx xXlastnameXx 
+ID: xXidNumberXx Husband's Name: xXfirstnameXx xXlastnameXx 
+In case you need the following: ID: xXidNumberXx Full Name: xXfirstnameXx xXlastnameXx 
+Hi my id number is xXidNumberXx and xXfirstnameXx xXlastnameXx is my name 
+xXidNumberXx is the ID number of the woman and the name she is using is xXfirstnameXx xXlastnameXx 
+xXidNumberXx is her ID xXfirstnameXx Hogan is her name 
+Hi there MR, My ID is xXidNumberXx and my password is xXpasswordXx 
+Hi, my user name is my ID xXidNumberXx and my password is xXpasswordXx 
+ID NUMBER: xXidNumberXx PASSWORD: xXpasswordXx 
+ID xXidNumberXx password xXpasswordXx 
+xXidNumberXx is my ID number and the password is xXpasswordXx 
+ID: xXidNumberXx Password that is used: xXpasswordXx 
+xXemailaddressXx is my email and my name is xXfirstnameXx xXlastnameXx 
+email: xXemailaddressXx name: xXfirstnameXx xXlastnameXx 
+Hi there, my email is xXemailaddressXx and my name is xXfirstnameXx xXlastnameXx 
+xXemailaddressXx xXfirstnameXx xXlastnameXx that is my email address and name. 
+You can send it to the email xXemailaddressXx and please address the name xXfirstnameXx xXlastnameXx 
+My work email is xXemailaddressXx and my name is xXfirstnameXx xXlastnameXx 
+xXemailaddressXx is the email you can use xXfirstnameXx xXlastnameXx is the contact name. 
+EMAIL: xXemailaddressXx NAME: xXfirstnameXx xXlastnameXx 
+Hi my email is xXemailaddressXx and my password is xXpasswordXx 
+Hi my email is xXemailaddressXx and the email password is xXpasswordXx 
+EMAIL: xXemailaddressXx PASSWORD: xXpasswordXx 
+Hi there my old friend. my email changed to xXemailaddressXx and my new password is xXpasswordXx 
+xXfirstnameXx xXlastnameXx is my name and my password to log in is xXpasswordXx 
+Name: xXfirstnameXx xXlastnameXx Password: xXpasswordXx 
+The user name is just my name xXfirstnameXx xXlastnameXx and the password is xXpasswordXx 
+xXfirstnameXx xXlastnameXx is the name of my husband and his password is xXpasswordXx 
 Hi there, I forgot my password. 
 Hi please help I forgot my password and now I cannot log in. 
-Please help!!  I forgot my password for my email address xX_emailaddress_Xx 
+Please help!!  I forgot my password for my email address xXemailaddressXx 
 Hi, I forgot my username. 
 Hi there, I forgot the username I am using to log in?? 
 What do I do when I forgot my password? 
@@ -149,7 +149,7 @@ Hi please help!!! I forgot my login details?
 Hi there. Where do I go to reset my password? 
 I want to change my password? 
 Where do I go in the settings to change my password? 
-You would need my id in order to see what I exchanged, it is xX_idNumber_Xx 
+You would need my id in order to see what I exchanged, it is xXidNumberXx 
 Hi, I am so worried, I lost my password!!!!! 
 What do I do when I lost my password? 
 Is there a way to recover a lost password? 
@@ -163,18 +163,26 @@ I know this is a silly question, but how do I recover my password?
 What is an example of a strong password? 
 Do you need my ID number? 
 You would need my ID number in order to access it. 
-The name is xX_firstname_Xx xX_lastname_Xx and I need it to sign in, please register me 
-Could you please register the email xX_emailaddress_Xx 
-Will you register me with the email address xX_emailaddress_Xx 
-I am running out of time to register my email: xX_emailaddress_Xx 
-I need to recover my password for the email xX_emailaddress_Xx 
-I forgot my password for the email xX_emailaddress_Xx 
-I need to recover my password for my email xX_emailaddress_Xx 
+The name is xXfirstnameXx xXlastnameXx and I need it to sign in, please register me 
+Could you please register the email xXemailaddressXx 
+Will you register me with the email address xXemailaddressXx 
+I am running out of time to register my email: xXemailaddressXx 
+I need to recover my password for the email xXemailaddressXx 
+I forgot my password for the email xXemailaddressXx 
+I need to recover my password for my email xXemailaddressXx 
 quit How do I quit my email? 
 return How do I return to my email? 
 Hi there, how to I change my password? 
 I want to please change my password. 
 Is there a way that I can change my password? 
-Hello, my name is xX_firstname_Xx and i was having a problem logging in, my password is not working and would like to know if you can fix it?
+Hello, my name is xXfirstnameXx and i was having a problem logging in, my password is not working and would like to know if you can fix it?
 Greetings fellow human! My account was hacked recently and i can no longer access my account, my password is not working, nor is my username, please help
-Hey there! So recently this product of yours died on me, i would like a full refund, my id number is xX_idNumber_Xx and my password is xX_password_Xx, GIVE ME A REFUND NOW. oh and my name is xX_firstname_Xx
+Hey there! So recently this product of yours died on me, i would like a full refund, my id number is xXidNumberXx and my password is xXpasswordXx, GIVE ME A REFUND NOW. oh and my name is xXfirstnameXx
+My password is xXpasswordXx, and my name is xXfirstnameXx xXlastnameXx
+My password is xXpasswordXx, and my name is xXfirstnameXx 
+My password is xXpasswordXx, my name is xXfirstnameXx xXlastnameXx
+My password is xXpasswordXx, my name is xXfirstnameXx 
+Hello, My password is xXpasswordXx, and my name is xXfirstnameXx xXlastnameXx
+Hello, My password is xXpasswordXx, and my name is xXfirstnameXx 
+Hello, My password is xXpasswordXx, my name is xXfirstnameXx xXlastnameXx
+Hello, My password is xXpasswordXx, my name is xXfirstnameXx 
