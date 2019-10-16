@@ -40,7 +40,7 @@ export class TextScraperComponent implements OnInit {
     this.badWords = [];
     this.runTests();
     this.state.currentState = 'NOMINAL';
-    this.MessageService.add(this.MessageService.botMarkup("Hello and welcome to Botic. I'm Allisn, a chatbot that has been designed to answer your questions and respect your privacy. <br /> For a list of my functions, please send the word DEMO."));
+    this.MessageService.add(this.MessageService.botMarkup("Hello and welcome to our demo, to begin, please enter DEMO, followed by a username."));
     // this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
   }
 

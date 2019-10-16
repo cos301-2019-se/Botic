@@ -1,11 +1,10 @@
 <aiml version="1.0.1">
 	<category>
-		<pattern>DEMO</pattern>
+		<pattern>DEMO *</pattern>
 		<template>
-			This chatbot works in two ways, firstly it can answer customer 
-			support questions and secondly, it can detect personally identifying 
-			information. For a list of guestions, send the word QUESTIONS or 
-			try telling it a name password, id number, etc. 
+			Hello <set name="Customer"><star/></set>, As you can see your username has
+			been highlighted because our AI has matched your input to the context in which
+			usernames are generally entered.
 		</template>
 	</category>
 

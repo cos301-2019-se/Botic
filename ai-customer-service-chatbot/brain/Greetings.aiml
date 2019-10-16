@@ -46,12 +46,12 @@
 
   <category>
     <pattern>HI *</pattern>
-    <template> Hello <star/>. Do you really think this? How can I help you? </template>
+    <template> Hello <star/>. How can I help you? </template>
   </category>
 
   <category>
     <pattern>_ HI *</pattern>
-    <template> Hello <star/>. Do you really think this? How can I help you? </template>
+    <template> Hello <star/>. How can I help you? </template>
   </category>
 
   <category>
