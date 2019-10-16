@@ -5,6 +5,8 @@
     <template>
       <random>
         <li>Hello, My name is Allisn. How may I assist you today? </li>
+        <li>Hi, I'm Allisn. How can I help? </li>
+        <li>Hey!</li>
       </random>
     </template>
   </category>
@@ -44,12 +46,12 @@
 
   <category>
     <pattern>HI *</pattern>
-    <template> Hello <star/>. Do you really think this? How can I help you? </template>
+    <template> Hello <star/>. How can I help you? </template>
   </category>
 
   <category>
     <pattern>_ HI *</pattern>
-    <template> Hello <star/>. Do you really think this? How can I help you? </template>
+    <template> Hello <star/>. How can I help you? </template>
   </category>
 
   <category>

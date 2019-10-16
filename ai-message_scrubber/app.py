@@ -26,6 +26,8 @@ model = gensim.models.Word2Vec.load("models/model.word2vec");
 
 
 def isReservedWord(word):
+	word = word.upper()
+	word = word.replace("\n", "")
 	return {
 		'NAME' : True,
 		'EMAIL' : True,
@@ -34,6 +36,15 @@ def isReservedWord(word):
 		'USERNAME' : True,
 		'BIRTHDAY' : True,
 		'PASSWORD' : True,
+		'XXNAMEXX' : True,
+		'XXLASTNAMEXX' : True,
+		'XXIDNUMBERXX' : True,
+		'XXFIRSTNAMEXX' : True,
+		'XXEMAILADDRESSXX' : True,		
+		'XXPASSWORDXX' : True,
+		'XXUSERNAMEXX' : True,
+		'XXBIRTHDATEXX' : True,
+		'XXADDRESSXX' : True
 	}.get(word, False);
 
 def is_date(string, fuzzy=False):
@@ -113,13 +124,14 @@ def context(sentence, word):
 
 def reservedWordSeverity(word):
     word = word.upper()
+    word = word.replace("\n", "")
     if (word == "NAME") or (word == "NAME'S"):
         return 0
     else:
         if (word == "EMAIL"):
             return 0
         else:
-            if (word == "ID"):
+            if (word == "ID") or (word == "ADDRESS"):
                 return 0
             else:
                 if (word == "PASSWORD"):
@@ -132,6 +144,7 @@ def reservedWordSeverity(word):
 
 def getSeverity(word):
     word = word.upper()
+    word = word.replace("\n", "")
     return {
 		'NAME' : 1,
 		'EMAIL' : 2,
@@ -139,6 +152,14 @@ def getSeverity(word):
 		'PASSWORD' : 3,
 		'USERNAME' : 1,
 		'BIRTHDAY' : 1,
+		'XXLASTNAMEXX' : 1,
+		'XXIDNUMBERXX' : 2,
+		'XXFIRSTNAMEXX' : 1,
+		'XXEMAILADDRESSXX' : 2,		
+		'XXPASSWORDXX' : 3,
+		'XXUSERNAMEXX' : 1,
+		'XXBIRTHDATEXX' : 1,
+		'XXADDRESSXX' : 2
     }.get(word, -1)
 
 def addEntry(position, severity):
@@ -148,8 +169,8 @@ def investigate(sentence, word, position):
 	context_list = context(sentence, word)
 	possibleOutputs = model.predict_output_word(context_list, topn=5)
 	print("\t" + str(possibleOutputs))
-
-	if isReservedWord(possibleOutputs[0][0].upper()):
+	
+	if (isReservedWord(possibleOutputs[0][0].upper())):
 		severity = getSeverity(possibleOutputs[0][0])
 		entry = addEntry(position, severity)
 		print("\n\tWord might be: " + str(possibleOutputs[0]))
@@ -225,6 +246,8 @@ def parseInfo(info):
 		first = True
 
 		for word in infoArray:
+			word = word.replace("\n", "")
+
 			if len(infoArray) == 1:
 				if validID(word):
 					if first == True:
@@ -294,13 +317,20 @@ def scanInfo(info):
 		if not(inDictionary(dictionary, word)):
 			unsafeWords += 1
 
-	print("num words: " + str(arrLength));
-	print("unsafe words: " + str(unsafeWords));
-
+	
 	if unsafeWords == 0:
 		return True
 
-	if (arrLength / unsafeWords):
+
+
+	ratio = arrLength / unsafeWords; 
+
+	print("num words: " + str(arrLength));
+	print("unsafe words: " + str(unsafeWords));
+	print("ratio: " + str(ratio))
+
+
+	if (ratio < 2):
 		return False
 	else:
 		return True

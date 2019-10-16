@@ -4,7 +4,6 @@ import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { HttpModule } from '@angular/http';
-import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'

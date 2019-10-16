@@ -40,6 +40,7 @@ export class TextScraperComponent implements OnInit {
     this.badWords = [];
     this.runTests();
     this.state.currentState = 'NOMINAL';
+    this.MessageService.add(this.MessageService.botMarkup("Hello and welcome to our demo, to begin, please enter DEMO, followed by a username."));
     // this.TextScraperService.getBadWords().subscribe(badWords => this.badWords = badWords);
   }
 
@@ -140,7 +141,12 @@ export class TextScraperComponent implements OnInit {
   */
   onClickCall(userInput : string) : void {
     this.TextScraperService.getBadWordsFromInput(userInput).subscribe(badWords => {
-      this.badWords = badWords;
+      if (userInput == ""){
+
+      }
+      else
+      {
+        this.badWords = badWords;
         if (this.hasChecked == false) {
 
           setTimeout(() => {
@@ -210,6 +216,7 @@ export class TextScraperComponent implements OnInit {
             this.text = 'Send';
           }
         }
+      }
       });
     }
 
