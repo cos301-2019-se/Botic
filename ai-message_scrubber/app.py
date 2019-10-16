@@ -132,6 +132,13 @@ def getSeverity(word):
 		'PASSWORD' : 3,
 		'USERNAME' : 1,
 		'BIRTHDAY' : 1,
+		'XXLASTNAMEXX' : 1,
+		'XXIDNUMBERXX' : 2,
+		'XXFIRSTNAMEXX' : 1,
+		'XXEMAILADDRESSXX' : 2,		
+		'XXPASSWORDXX' : 3,
+		'XXUSERNAMEXX' : 1,
+		'XXBIRTHDATEXX' : 1,
     }.get(word, -1)
 
 def addEntry(position, severity):

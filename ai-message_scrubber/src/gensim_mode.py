@@ -18,7 +18,7 @@ dataset = arrayFromFile("../dictionaries/dataset.txt")
 #for s in dataset:
 #    print(s)
 model = gensim.models.Word2Vec([s.split(' ') for s in dataset], min_count=5, size= 182,workers=5, window =11, iter=1000)
-model.save("model.word2vec");
+model.save("../models/model.word2vec");
 #model = gensim.models.Word2Vec([s for s in dataset], min_count=5, size= 182,workers=5, window =5)
 #print(model['password'])
 

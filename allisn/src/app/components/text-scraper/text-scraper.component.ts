@@ -124,7 +124,12 @@ export class TextScraperComponent implements OnInit {
   */
   onClickCall(userInput : string) : void {
     this.TextScraperService.getBadWordsFromInput(userInput).subscribe(badWords => {
-      this.badWords = badWords;
+      if (userInput == ""){
+
+      }
+      else
+      {
+        this.badWords = badWords;
         if (this.hasChecked == false) {
 
           setTimeout(() => {
@@ -191,6 +196,7 @@ export class TextScraperComponent implements OnInit {
             this.text = 'Send';
           }
         }
+      }
       });
     }
 

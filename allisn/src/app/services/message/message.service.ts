@@ -26,7 +26,7 @@ export class MessageService {
           case 2222:
             if (this.checkState() != "BEFUDDLED"){
               if (this.checkState() != "CONFUSED"){
-                this.add(this.botMarkup("I'm sorry. I didn't quite catch that. Could you maybe rephrase the question?"));
+                this.add(this.botMarkup("I'm sorry. I didn't quite catch that. Could you maybe rephrase the question? Or send the world HELP for assistance."));
                 this.changeState("CONFUSED");
               } else {
                 this.add(this.botMarkup("I'm sorry. I still don't understand. Could you maybe rephrase the question again?"));
