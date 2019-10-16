@@ -4,8 +4,21 @@
 		<template>
 			Hello <set name="Customer"><star/></set>, As you can see your username has
 			been highlighted because our AI has matched your input to the context in which
-			usernames are generally entered.
+			usernames are generally entered. Which of our functions would you like to test? Account
+			details? Password change? ID number? Address? Jokes?
 		</template>
+	</category>
+
+	<category>
+		<pattern>ID NUMBER</pattern>
+		<template>
+			Try entering a piece of text with an ID nuber with a 
+		</template>
+	</category>
+
+	<category>
+		<pattern>JOKES</pattern>
+		<template>My software never has bugs. It just develops random features.</template>
 	</category>
 
 	<category>
