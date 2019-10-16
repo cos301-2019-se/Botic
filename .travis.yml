@@ -27,7 +27,8 @@ before_install:
   - "docker push alabamaliquidservices/botic:latest-csc"
 
   - "cd .. & cd $TRAVIS_BUILD_DIR/ai-send-ticket"
-
+  - "cd $TRAVIS_BUILD_DIR/ai-send-ticket"
+  
   # SendTicket 
   - "docker build -t alabamaliquidservices/botic:latest-st ."
   - "docker push alabamaliquidservices/botic:latest-st"
