@@ -61,9 +61,9 @@ export class MessageService {
     response +='  </span>'
     response +='  <div class="chat-body clearfix">';
     response +='    <div class="header">'
-    response +='      <strong class="primary-font">You</strong>';
+    response +='      <strong class="primary-font" style="padding-left: 10px">You</strong>';
     response +='    </div>';
-    response +='    <p>&nbsp;'+input+'</p>';
+    response +='    <p style="padding-left: 57px">&nbsp;'+input+'</p>';
     response +='  </div>';
     response +='</li>';
     response +='<hr />';
@@ -75,11 +75,11 @@ export class MessageService {
     var response ='';
     response += '<li class="right clearfix">';
     response += ' <span class="chat-img pull-right">';
-    response += '   <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />';
+    response += '   <img src="./assets/Logo2.png" alt="User Avatar" style="width:50px;height:50px;background-color:#F1C40F;padding:3px;" class="img-circle" />';
     response += ' </span>';
     response += ' <div class="chat-body clearfix">';
     response += '   <div class="header">';
-    response += '     <strong class="pull-right primary-font">Allisn</strong>';
+    response += '     <strong class="pull-right primary-font" style="padding-right: 10px">Allisn</strong>';
     response += '   </div>';
     response += '  <p>'+input+'</p>';
     response +='  </div>';

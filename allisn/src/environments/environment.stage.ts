@@ -18,5 +18,8 @@ export const environment = {
     },
     scrapper: {
         baseUrl: 'http://127.0.0.1:5002/scrub'
+	},
+	sendTicket: {
+        baseUrl: 'http://localhost:5000/'
     }
 };
