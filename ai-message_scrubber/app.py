@@ -245,6 +245,9 @@ def parseInfo(info):
 		infoArray = info.split(' ')
 		first = True
 
+		if(infoArray[0].lower() == "demo") and (len(infoArray) == 2):
+			return "[]"
+
 		for word in infoArray:
 			word = word.replace("\n", "")
 
@@ -357,7 +360,7 @@ def scrub():
 			response.status_code = 400
 			return response
 		input_data=input_data.translate(str.maketrans({key: None for key in string.punctuation}))
-		response = parseInfo(input_data)
+		response = parseInfo(input_data.lower())
 
 		response = jsonify(response)
 		response.headers.add('Access-Control-Allow-Origin', '*')
