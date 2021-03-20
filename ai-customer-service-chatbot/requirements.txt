@@ -20,7 +20,7 @@ gunicorn==19.9.0
 idna==2.8
 isort==4.3.17
 itsdangerous==1.1.0
-Jinja2==2.10.1
+Jinja2==2.11.3
 jmespath==0.9.4
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
